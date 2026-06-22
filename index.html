@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>高中数学 知识卡片 · 人教A版（2019）</title>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+<link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/KaTeX/0.16.9/katex.min.css">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 body{
@@ -109,7 +109,36 @@ mark{background:rgba(255,210,0,0.3);color:#ffd200;border-radius:2px;padding:0 2p
 <div class="footer">人教A版（2019）高中数学 · 知识卡片站 · 火娃出品</div>
 </div>
 
+<script src="https://cdn.bootcdn.net/ajax/libs/KaTeX/0.16.9/katex.min.js"></script>
 <script>
+function renderKaTeX() {
+  if (typeof renderMathInElement === 'undefined') {
+    // 如果auto-render没加载，手动加载
+    var s = document.createElement('script');
+    s.src = 'https://cdn.bootcdn.net/ajax/libs/KaTeX/0.16.9/contrib/auto-render.min.js';
+    s.onload = function() {
+      if (typeof renderMathInElement !== 'undefined') {
+        renderMathInElement(document.getElementById('cardsContainer'), {
+          delimiters: [
+            {left: '$$', right: '$$', display: true},
+            {left: '$', right: '$', display: false}
+          ],
+          throwOnError: false
+        });
+      }
+    };
+    document.head.appendChild(s);
+  } else {
+    renderMathInElement(document.getElementById('cardsContainer'), {
+      delimiters: [
+        {left: '$$', right: '$$', display: true},
+        {left: '$', right: '$', display: false}
+      ],
+      throwOnError: false
+    });
+  }
+}
+
 // ============ 按章节顺序定义 ============
 const __volOrder = [
   {book:"必修第一册", chapter:"第一章 集合与常用逻辑用语"},
@@ -218,16 +247,8 @@ function renderCards(){
   }
   container.innerHTML = html;
 
-  // re-render KaTeX
-  if(window.renderMathInElement){
-    renderMathInElement(document.getElementById('cardsContainer'), {
-      delimiters: [
-        {left: '$$', right: '$$', display: true},
-        {left: '$', right: '$', display: false}
-      ],
-      throwOnError: false
-    });
-  }
+  // 渲染KaTeX
+  setTimeout(renderKaTeX, 50);
 }
 
 function renderCard(card, book, chapter){
