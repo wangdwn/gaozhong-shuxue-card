@@ -434,6 +434,232 @@ window.__vol1 = {
     tags: ["分段函数", "一次函数模型", "二次函数模型", "实际应用", "最值问题", "待定系数法", "★"]
   }
     ],
-    "第四章 指数函数与对数函数": [],
-  "第五章 三角函数": []
+    "第四章 指数函数与对数函数": [
+    {
+      title: "4.1 指数与指数幂的运算",
+      content: `<p class="label-def">【n次方根】</p>
+<p>如果 $x^n = a$（$n>1$ 且 $n\\in\\mathbb{N}^*$），那么 $x$ 叫做 $a$ 的 <strong>n次方根</strong>。</p>
+<p>式子 $\\sqrt[n]{a}$ 叫做<strong>根式</strong>，其中 $n$ 叫做根指数，$a$ 叫做被开方数。</p>
+<p class="label-def">【根式的性质】</p>
+<ul>
+<li>$(\\sqrt[n]{a})^n = a$（$n$ 为奇数时 $a\\in\\mathbb{R}$；$n$ 为偶数时 $a\\ge 0$）</li>
+<li>当 $n$ 为奇数时，$\\sqrt[n]{a^n} = a$</li>
+<li>当 $n$ 为偶数时，$\\sqrt[n]{a^n} = |a| = \\begin{cases} a, & a\\ge 0 \\\\ -a, & a<0 \\end{cases}$</li>
+</ul>
+<p class="label-def">【分数指数幂】</p>
+<p>正数的正分数指数幂：$a^{\\frac{m}{n}} = \\sqrt[n]{a^m}$（$a>0, m,n\\in\\mathbb{N}^*, n>1$）</p>
+<p>正数的负分数指数幂：$a^{-\\frac{m}{n}} = \\dfrac{1}{a^{\\frac{m}{n}}} = \\dfrac{1}{\\sqrt[n]{a^m}}$（$a>0$）</p>
+<p><strong>0的正分数指数幂等于0，0的负分数指数幂没有意义。</strong></p>
+<p class="label-def">【有理数指数幂的运算性质】</p>
+<ul>
+<li>$a^r a^s = a^{r+s}$（$a>0, r,s\\in\\mathbb{Q}$）</li>
+<li>$(a^r)^s = a^{rs}$（$a>0, r,s\\in\\mathbb{Q}$）</li>
+<li>$(ab)^r = a^r b^r$（$a>0, b>0, r\\in\\mathbb{Q}$）</li>
+</ul>
+<p class="label-attention">【注意】</p>
+<ul>
+<li>分数指数幂不能随意约分，如 $(-2)^{\\frac{2}{4}} \\neq (-2)^{\\frac{1}{2}}$（负数开偶次方无意义）。</li>
+<li>无理数指数幂 $a^\\alpha$（$a>0$，$\\alpha$ 为无理数）是一个确定的实数，有理数指数幂的运算性质同样适用。</li>
+</ul>`,
+      tags: ["n次方根", "根式", "分数指数幂", "指数运算", "★"]
+    },
+    {
+      title: "4.2 指数函数",
+      content: `<p class="label-def">【定义】</p>
+<p>一般地，形如 $y = a^x$（$a>0$ 且 $a\\neq 1$）的函数叫做<strong>指数函数</strong>，其中 $x$ 是自变量，定义域为 $\\mathbb{R}$。</p>
+<p class="label-def">【指数函数的图像与性质】</p>
+<table class="mini-table">
+<tr><th></th><th>$a>1$</th><th>$0<a<1$</th></tr>
+<tr><td>图像</td><td>单调递增，过点 $(0,1)$</td><td>单调递减，过点 $(0,1)$</td></tr>
+<tr><td>定义域</td><td colspan="2">$\\mathbb{R}$</td></tr>
+<tr><td>值域</td><td colspan="2">$(0, +\\infty)$</td></tr>
+<tr><td>奇偶性</td><td colspan="2">非奇非偶</td></tr>
+<tr><td>单调性</td><td>在 $\\mathbb{R}$ 上单调递增</td><td>在 $\\mathbb{R}$ 上单调递减</td></tr>
+<tr><td>定点</td><td colspan="2">恒过点 $(0,1)$ 和 $(1,a)$</td></tr>
+<tr><td>底数关系</td><td colspan="2">$a^x$ 与 $a^{-x}$ 的图像关于 $y$ 轴对称</td></tr>
+</table>
+<p class="label-attention">【注意】</p>
+<ul>
+<li>指数函数的<strong>特征</strong>：系数为1，指数位置只有 $x$（不能是 $2x$ 或 $x+1$），底数 $a>0$ 且 $a\\neq 1$。</li>
+<li>比较幂值大小：同底用单调性，同指数用函数图像位置（底大图高<strong>右侧</strong>），不同底不同指找中间量。</li>
+</ul>`,
+      tags: ["指数函数", "y=a^x", "单调性", "定义域", "值域", "★"]
+    },
+    {
+      title: "4.3 对数",
+      content: `<p class="label-def">【定义】</p>
+<p>如果 $a^x = N$（$a>0$ 且 $a\\neq 1$），那么 $x$ 叫做以 $a$ 为底 $N$ 的<strong>对数</strong>，记作 $x = \\log_a N$。</p>
+<p>其中 $a$ 叫做对数的底数，$N$ 叫做真数。</p>
+<p class="label-def">【常用对数与自然对数】</p>
+<ul>
+<li><strong>常用对数</strong>：以10为底的对数，$\\lg N = \\log_{10} N$</li>
+<li><strong>自然对数</strong>：以 $e$（$e\\approx 2.71828$）为底的对数，$\\ln N = \\log_e N$</li>
+</ul>
+<p class="label-def">【对数的基本性质】</p>
+<ul>
+<li>$\\log_a 1 = 0$，$\\log_a a = 1$</li>
+<li>$a^{\\log_a N} = N$（对数恒等式）</li>
+<li>负数和零没有对数（真数 $N>0$）</li>
+</ul>
+<p class="label-def">【对数的运算性质】</p>
+<p>若 $a>0$ 且 $a\\neq 1$，$M>0,N>0$，则：</p>
+<ul>
+<li>$\\log_a(MN) = \\log_a M + \\log_a N$</li>
+<li>$\\log_a\\dfrac{M}{N} = \\log_a M - \\log_a N$</li>
+<li>$\\log_a M^n = n\\log_a M$（$n\\in\\mathbb{R}$）</li>
+</ul>
+<p class="label-def">【换底公式】</p>
+<p>$\\log_a b = \\dfrac{\\log_c b}{\\log_c a}$（$a>0,a\\neq 1,c>0,c\\neq 1,b>0$）</p>
+<p>常用推论：$\\log_a b = \\dfrac{1}{\\log_b a}$，$\\log_{a^n} b^m = \\dfrac{m}{n}\\log_a b$。</p>`,
+      tags: ["对数", "lg", "ln", "换底公式", "对数运算", "★"]
+    },
+    {
+      title: "4.4 对数函数",
+      content: `<p class="label-def">【定义】</p>
+<p>一般地，形如 $y = \\log_a x$（$a>0$ 且 $a\\neq 1$）的函数叫做<strong>对数函数</strong>，定义域为 $(0, +\\infty)$。</p>
+<p class="label-def">【对数函数的图像与性质】</p>
+<table class="mini-table">
+<tr><th></th><th>$a>1$</th><th>$0<a<1$</th></tr>
+<tr><td>图像</td><td>单调递增，过点 $(1,0)$</td><td>单调递减，过点 $(1,0)$</td></tr>
+<tr><td>定义域</td><td colspan="2">$(0, +\\infty)$</td></tr>
+<tr><td>值域</td><td colspan="2">$\\mathbb{R}$</td></tr>
+<tr><td>单调性</td><td>在 $(0,+\\infty)$ 上单调递增</td><td>在 $(0,+\\infty)$ 上单调递减</td></tr>
+<tr><td>定点</td><td colspan="2">恒过点 $(1,0)$ 和 $(a,1)$</td></tr>
+<tr><td>关系</td><td colspan="2">$y=a^x$ 与 $y=\\log_a x$ 互为反函数，图像关于 $y=x$ 对称</td></tr>
+</table>
+<p class="label-attention">【反函数】</p>
+<p>指数函数 $y=a^x$ 和对数函数 $y=\\log_a x$ 互为<strong>反函数</strong>。</p>
+<p><strong>性质：</strong>原函数的定义域是反函数的值域，原函数的值域是反函数的定义域；互为反函数的两个函数图像关于直线 $y=x$ 对称。</p>`,
+      tags: ["对数函数", "y=log_a x", "反函数", "图像性质", "★"]
+    },
+    {
+      title: "4.5 函数的应用(二) — 函数模型与二分法",
+      content: `<p class="label-def">【三种增长模型的比较】</p>
+<table class="mini-table">
+<tr><th>函数模型</th><th>表达式</th><th>增长特点</th><th>应用场景</th></tr>
+<tr><td>线性函数</td><td>$y=kx+b$</td><td>均匀增长</td><td>匀速运动、等量变化</td></tr>
+<tr><td>指数函数</td><td>$y=a^x$（$a>1$）</td><td>爆炸式增长（越来越快）</td><td>人口增长、复利、细菌繁殖</td></tr>
+<tr><td>对数函数</td><td>$y=\\log_a x$（$a>1$）</td><td>增长越来越慢</td><td>地震震级、声音分贝</td></tr>
+</table>
+<p>在 $(0,+\\infty)$ 上，总会存在一个 $x_0$，使得当 $x>x_0$ 时，有 $a^x > x^k > \\log_a x$（$a>1, k>0$）。</p>
+<p class="label-def">【二分法求方程近似解】</p>
+<p>对于在区间 $[a,b]$ 上连续且 $f(a)\\cdot f(b)<0$ 的函数 $y=f(x)$，通过不断将零点区间一分为二，使区间端点逐渐逼近零点，得到方程近似解的方法称为<strong>二分法</strong>。</p>
+<p><strong>步骤：</strong></p>
+<ol>
+<li>确定区间 $[a,b]$，验证 $f(a)\\cdot f(b)<0$</li>
+<li>求中点 $c=\\dfrac{a+b}{2}$</li>
+<li>计算 $f(c)$：若 $f(c)=0$ 则 $c$ 为根；若 $f(a)\\cdot f(c)<0$ 则零点在 $[a,c]$；否则在 $[c,b]$</li>
+<li>重复步骤2-3，直到达到所需精度</li>
+</ol>`,
+      tags: ["函数模型", "指数增长", "对数增长", "二分法", "方程近似解", "★"]
+    }
+  ],
+  "第五章 三角函数": [
+    {
+      title: "5.1 任意角与弧度制",
+      content: `<p class="label-def">【任意角】</p>
+<p>一条射线绕其端点旋转形成的图形：逆时针旋转为<strong>正角</strong>，顺时针旋转为<strong>负角</strong>，没有旋转为<strong>零角</strong>。</p>
+<p>所有与角 $\\alpha$ 终边相同的角（含 $\\alpha$ 自身）的集合：</p>
+<p>$$\\{\\beta\\mid\\beta = \\alpha + 2k\\pi,\\; k\\in\\mathbb{Z}\\}$$</p>
+<p class="label-def">【角度制与弧度制】</p>
+<p>$180^\\circ = \\pi$ rad，互化公式：$1^\\circ = \\dfrac{\\pi}{180}$ rad，$1$ rad $= \\left(\\dfrac{180}{\\pi}\\right)^\\circ$。</p>
+<p class="label-def">【特殊角的弧度】</p>
+<p>$0^\\circ=0$，$30^\\circ=\\dfrac{\\pi}{6}$，$45^\\circ=\\dfrac{\\pi}{4}$，$60^\\circ=\\dfrac{\\pi}{3}$，$90^\\circ=\\dfrac{\\pi}{2}$，</p>
+<p>$120^\\circ=\\dfrac{2\\pi}{3}$，$135^\\circ=\\dfrac{3\\pi}{4}$，$150^\\circ=\\dfrac{5\\pi}{6}$，$180^\\circ=\\pi$，</p>
+<p>$210^\\circ=\\dfrac{7\\pi}{6}$，$225^\\circ=\\dfrac{5\\pi}{4}$，$240^\\circ=\\dfrac{4\\pi}{3}$，$270^\\circ=\\dfrac{3\\pi}{2}$，$300^\\circ=\\dfrac{5\\pi}{3}$，$315^\\circ=\\dfrac{7\\pi}{4}$，$330^\\circ=\\dfrac{11\\pi}{6}$，$360^\\circ=2\\pi$。</p>
+<p class="label-def">【扇形弧长与面积】</p>
+<p>弧长公式：$l = |\\alpha| r$（$\\alpha$ 为圆心角的弧度数）。</p>
+<p>面积公式：$S = \\dfrac{1}{2} lr = \\dfrac{1}{2}|\\alpha| r^2$。</p>
+<p class="label-attention">【注意】</p>
+<ul>
+<li>扇形的弧长公式和面积公式中的角度必须用<strong>弧度制</strong>。</li>
+<li>终边相同的角不一定相等，但相差 $2\\pi$ 的整数倍。</li>
+</ul>`,
+      tags: ["任意角", "弧度制", "终边相同的角", "扇形", "弧长", "面积", "★"]
+    },
+    {
+      title: "5.2 三角函数的概念",
+      content: `<p class="label-def">【三角函数的定义】</p>
+<p>设角 $\\alpha$ 的终边与单位圆交于点 $P(x,y)$，则：</p>
+<ul>
+<li>$\\sin\\alpha = y$（正弦函数），定义域 $\\mathbb{R}$</li>
+<li>$\\cos\\alpha = x$（余弦函数），定义域 $\\mathbb{R}$</li>
+<li>$\\tan\\alpha = \\dfrac{y}{x}$（$x\\neq 0$）（正切函数），定义域 $\\{x\\mid x\\neq \\dfrac{\\pi}{2}+k\\pi,\\; k\\in\\mathbb{Z}\\}$</li>
+</ul>
+<p class="label-def">【三角函数值在各象限的符号】</p>
+<p><strong>口诀：一全正，二正弦，三正切，四余弦。</strong></p>
+<ul>
+<li>第一象限：$\\sin\\alpha>0,\\;\\cos\\alpha>0,\\;\\tan\\alpha>0$</li>
+<li>第二象限：$\\sin\\alpha>0,\\;\\cos\\alpha<0,\\;\\tan\\alpha<0$</li>
+<li>第三象限：$\\sin\\alpha<0,\\;\\cos\\alpha<0,\\;\\tan\\alpha>0$</li>
+<li>第四象限：$\\sin\\alpha<0,\\;\\cos\\alpha>0,\\;\\tan\\alpha<0$</li>
+</ul>
+<p class="label-def">【同角三角函数基本关系】</p>
+<ul>
+<li><strong>平方关系</strong>：$\\sin^2\\alpha + \\cos^2\\alpha = 1$</li>
+<li><strong>商数关系</strong>：$\\tan\\alpha = \\dfrac{\\sin\\alpha}{\\cos\\alpha}$（$\\cos\\alpha\\neq 0$）</li>
+</ul>`,
+      tags: ["正弦", "余弦", "正切", "单位圆", "同角三角函数", "符号", "★"]
+    },
+    {
+      title: "5.3 诱导公式",
+      content: `<p class="label-def">【公式一~六】</p>
+<p><strong>公式一：</strong>$\\sin(\\alpha+2k\\pi) = \\sin\\alpha$，$\\cos(\\alpha+2k\\pi) = \\cos\\alpha$（$k\\in\\mathbb{Z}$）</p>
+<p><strong>公式二：</strong>$\\sin(\\pi+\\alpha) = -\\sin\\alpha$，$\\cos(\\pi+\\alpha) = -\\cos\\alpha$</p>
+<p><strong>公式三：</strong>$\\sin(-\\alpha) = -\\sin\\alpha$，$\\cos(-\\alpha) = \\cos\\alpha$</p>
+<p><strong>公式四：</strong>$\\sin(\\pi-\\alpha) = \\sin\\alpha$，$\\cos(\\pi-\\alpha) = -\\cos\\alpha$</p>
+<p><strong>公式五：</strong>$\\sin\\left(\\dfrac{\\pi}{2}-\\alpha\\right) = \\cos\\alpha$，$\\cos\\left(\\dfrac{\\pi}{2}-\\alpha\\right) = \\sin\\alpha$</p>
+<p><strong>公式六：</strong>$\\sin\\left(\\dfrac{\\pi}{2}+\\alpha\\right) = \\cos\\alpha$，$\\cos\\left(\\dfrac{\\pi}{2}+\\alpha\\right) = -\\sin\\alpha$</p>
+<p class="label-attention">【记忆口诀】</p>
+<p><strong>"奇变偶不变，符号看象限"</strong></p>
+<ul>
+<li>"奇变偶不变"：$\\dfrac{\\pi}{2}$ 的奇数倍，函数名变为余函数（正弦 $\\leftrightarrow$ 余弦，正切 $\\leftrightarrow$ 余切）；偶数倍，函数名不变。</li>
+<li>"符号看象限"：将 $\\alpha$ 视为锐角，看原角所在象限的<strong>原函数</strong>符号，决定结果的正负。</li>
+</ul>`,
+      tags: ["诱导公式", "奇变偶不变", "符号看象限", "★"]
+    },
+    {
+      title: "5.4 三角函数的图像与性质",
+      content: `<p class="label-def">【正弦、余弦、正切函数的性质】</p>
+<table class="mini-table">
+<tr><th>函数</th><th>$y=\\sin x$</th><th>$y=\\cos x$</th><th>$y=\\tan x$</th></tr>
+<tr><td>定义域</td><td>$\\mathbb{R}$</td><td>$\\mathbb{R}$</td><td>$\\{x\\mid x\\neq \\dfrac{\\pi}{2}+k\\pi\\}$</td></tr>
+<tr><td>值域</td><td>$[-1,1]$</td><td>$[-1,1]$</td><td>$\\mathbb{R}$</td></tr>
+<tr><td>周期</td><td>$2\\pi$</td><td>$2\\pi$</td><td>$\\pi$</td></tr>
+<tr><td>奇偶性</td><td>奇函数</td><td>偶函数</td><td>奇函数</td></tr>
+<tr><td>单调递增</td><td>$[-\\dfrac{\\pi}{2}+2k\\pi,\\;\\dfrac{\\pi}{2}+2k\\pi]$</td><td>$[-\\pi+2k\\pi,\\;2k\\pi]$</td><td>$(-\\dfrac{\\pi}{2}+k\\pi,\\;\\dfrac{\\pi}{2}+k\\pi)$</td></tr>
+<tr><td>单调递减</td><td>$[\\dfrac{\\pi}{2}+2k\\pi,\\;\\dfrac{3\\pi}{2}+2k\\pi]$</td><td>$[2k\\pi,\\;\\pi+2k\\pi]$</td><td>无</td></tr>
+<tr><td>最大值</td><td>$x=\\dfrac{\\pi}{2}+2k\\pi$ 时 $y_{\\max}=1$</td><td>$x=2k\\pi$ 时 $y_{\\max}=1$</td><td>无</td></tr>
+<tr><td>最小值</td><td>$x=-\\dfrac{\\pi}{2}+2k\\pi$ 时 $y_{\\min}=-1$</td><td>$x=\\pi+2k\\pi$ 时 $y_{\\min}=-1$</td><td>无</td></tr>
+<tr><td>对称轴</td><td>$x=\\dfrac{\\pi}{2}+k\\pi$</td><td>$x=k\\pi$</td><td>无</td></tr>
+<tr><td>对称中心</td><td>$(k\\pi,0)$</td><td>$(\\dfrac{\\pi}{2}+k\\pi,0)$</td><td>$(\\dfrac{k\\pi}{2},0)$</td></tr>
+</table>`,
+      tags: ["正弦函数", "余弦函数", "正切函数", "周期性", "奇偶性", "单调性", "★"]
+    },
+    {
+      title: "5.5 函数 $y=A\\sin(\\omega x+\\varphi)$",
+      content: `<p class="label-def">【物理意义】</p>
+<table class="mini-table">
+<tr><th>参数</th><th>名称</th><th>含义</th><th>关系</th></tr>
+<tr><td>$A$</td><td>振幅</td><td>物体离开平衡位置的最大距离</td><td>—</td></tr>
+<tr><td>$\\omega$</td><td>角频率</td><td>单位时间内转过的角度</td><td>$\\omega = \\dfrac{2\\pi}{T}$</td></tr>
+<tr><td>$T$</td><td>周期</td><td>完成一次全振动所需时间</td><td>$T = \\dfrac{2\\pi}{|\\omega|}$</td></tr>
+<tr><td>$f$</td><td>频率</td><td>单位时间内完成全振动的次数</td><td>$f = \\dfrac{1}{T}$</td></tr>
+<tr><td>$\\varphi$</td><td>初相</td><td>$x=0$ 时的相位</td><td>—</td></tr>
+<tr><td>$\\omega x+\\varphi$</td><td>相位</td><td>描述振动状态的量</td><td>—</td></tr>
+</table>
+<p class="label-def">【图像的变换】</p>
+<p>由 $y=\\sin x$ 到 $y=A\\sin(\\omega x+\\varphi)$：</p>
+<ul>
+<li><strong>先平移后伸缩：</strong>$\\sin x \\xrightarrow{\\text{左移}\\varphi} \\sin(x+\\varphi) \\xrightarrow{\\text{横缩}\\frac{1}{\\omega}} \\sin(\\omega x+\\varphi) \\xrightarrow{\\text{纵伸}A} A\\sin(\\omega x+\\varphi)$</li>
+<li><strong>先伸缩后平移：</strong>$\\sin x \\xrightarrow{\\text{横缩}\\frac{1}{\\omega}} \\sin(\\omega x) \\xrightarrow{\\text{左移}\\frac{\\varphi}{\\omega}} \\sin(\\omega x+\\varphi) \\xrightarrow{\\text{纵伸}A} A\\sin(\\omega x+\\varphi)$</li>
+</ul>
+<p class="label-attention">【注意】</p>
+<ul>
+<li>求 $\\varphi$ 常用"五点法"——找出图像上对应五个关键点中的某一个点代入。</li>
+<li>平移变换中，"左加右减"作用于 $x$ 本身（即 $x$ 加/减某个数），而非 $\\omega x$。</li>
+</ul>`,
+      tags: ["y=Asin(ωx+φ)", "振幅", "周期", "相位", "图像变换", "五点法", "★"]
+    }
+  ],
 };
