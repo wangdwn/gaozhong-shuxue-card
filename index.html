@@ -4,21 +4,39 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>高中数学 知识卡片 · 人教A版（2019）</title>
-<link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/KaTeX/0.16.9/katex.min.css">
+
+<!-- MathJax 配置 + 加载 -->
+<script>
+window.MathJax = {
+  tex: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [['$$','$$'], ['\\[','\\]']]
+  },
+  svg: { fontCache: 'global' },
+  options: {
+    enableMenu: false,
+    renderActions: {
+      addMenu: [0, '', '', '']  // 关闭右键菜单
+    }
+  }
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" id="MathJax-script" async></script>
+
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 body{
-  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans SC",sans-serif;
+  font-family:"Noto Serif SC","Source Han Serif SC",serif;
   min-height:100vh;
   background:linear-gradient(135deg,#0f0c29,#302b63,#24243e);
   color:#e0e0e0;padding:20px;
 }
-.container{max-width:1200px;margin:0 auto}
+.container{max-width:1000px;margin:0 auto}
 .header{text-align:center;padding:30px 0 20px;position:sticky;top:0;z-index:10;
   background:linear-gradient(180deg,rgba(15,12,41,0.98) 0%,rgba(15,12,41,0.85) 80%,transparent 100%);
   backdrop-filter:blur(8px);margin:-20px -20px 0;padding:20px 20px 25px;
 }
-.header h1{font-size:1.8rem;font-weight:700;
+.header h1{font-size:1.8rem;font-weight:900;
   background:linear-gradient(90deg,#f7971e,#ffd200);
   -webkit-background-clip:text;-webkit-text-fill-color:transparent;
   margin-bottom:6px;
@@ -43,34 +61,34 @@ body{
   background:linear-gradient(135deg,rgba(247,151,30,0.25),rgba(255,210,0,0.18));
   border-color:rgba(255,210,0,0.35);color:#ffd200;font-weight:500;
 }
-.section-title{font-size:1.2rem;font-weight:600;margin:18px 0 12px;padding-bottom:6px;
+.section-title{font-size:1.2rem;font-weight:700;margin:18px 0 12px;padding-bottom:6px;
   border-bottom:1px solid rgba(255,255,255,0.08);color:rgba(255,255,255,0.8);
 }
-.cards-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:14px;margin-bottom:25px}
+.cards-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:14px;margin-bottom:25px}
 .card{background:rgba(255,255,255,0.06);backdrop-filter:blur(16px);
   -webkit-backdrop-filter:blur(16px);
-  border:1px solid rgba(255,255,255,0.09);border-radius:14px;padding:18px;
+  border:1px solid rgba(255,255,255,0.09);border-radius:14px;padding:20px;
   transition:transform .2s,box-shadow .2s;
 }
 .card:hover{transform:translateY(-2px);box-shadow:0 6px 24px rgba(0,0,0,0.25)}
-.card-title{font-size:1.02rem;font-weight:600;color:#ffd200;margin-bottom:6px}
+.card-title{font-size:1.05rem;font-weight:700;color:#ffd200;margin-bottom:4px}
 .card-chapter{font-size:0.72rem;color:rgba(255,255,255,0.3);margin-bottom:5px}
-.card-tags{display:flex;gap:5px;flex-wrap:wrap;margin-top:8px}
+.card-tags{display:flex;gap:5px;flex-wrap:wrap;margin:10px 0 0}
 .card-tag{font-size:0.68rem;padding:2px 9px;border-radius:10px;
   background:rgba(255,255,255,0.07);color:rgba(255,255,255,0.45);
 }
-.card-content{line-height:1.7;font-size:0.9rem;color:rgba(255,255,255,0.8)}
-.card-content ul{padding-left:17px;margin:5px 0}
-.card-content ol{padding-left:17px;margin:5px 0}
-.card-content li{margin:2px 0}
-.card-content strong{color:rgba(255,255,255,0.95)}
+.card-content{line-height:1.85;font-size:0.92rem;color:rgba(255,255,255,0.82)}
+.card-content p{margin:8px 0}
+.card-content ul{padding-left:18px;margin:6px 0}
+.card-content ol{padding-left:18px;margin:6px 0}
+.card-content li{margin:3px 0}
 .card-content .label-def{
-  display:inline-block;font-size:0.78rem;font-weight:600;
+  display:inline-block;font-size:0.78rem;font-weight:700;
   color:#ffd200;background:rgba(255,210,0,0.12);
   padding:2px 10px;border-radius:4px;margin:8px 0 4px;
 }
 .card-content .label-attention{
-  display:inline-block;font-size:0.78rem;font-weight:600;
+  display:inline-block;font-size:0.78rem;font-weight:700;
   color:#ff6b6b;background:rgba(255,107,107,0.12);
   padding:2px 10px;border-radius:4px;margin:8px 0 4px;
 }
@@ -79,7 +97,6 @@ body{
   border:1px solid rgba(255,255,255,0.12);padding:5px 8px;text-align:left;
 }
 .mini-table th{background:rgba(255,255,255,0.06);color:rgba(255,255,255,0.7);font-weight:500}
-.card-content .label-star{color:#ffd200;font-weight:700;margin-right:4px}
 .footer{text-align:center;padding:18px 0;color:rgba(255,255,255,0.2);font-size:0.78rem}
 ::-webkit-scrollbar{width:5px}
 ::-webkit-scrollbar-track{background:transparent}
@@ -88,7 +105,6 @@ body{
   .cards-grid{grid-template-columns:1fr}
   .header h1{font-size:1.3rem}
 }
-mark{background:rgba(255,210,0,0.3);color:#ffd200;border-radius:2px;padding:0 2px}
 .hidden{display:none!important}
 </style>
 </head>
@@ -97,7 +113,7 @@ mark{background:rgba(255,210,0,0.3);color:#ffd200;border-radius:2px;padding:0 2p
 
 <div class="header">
   <h1>📐 高中数学 知识卡片</h1>
-  <p class="sub">人教A版（2019）· 必修第一册 + 必修第二册 · 共40张知识卡片</p>
+  <p class="sub">人教A版（2019）· 必修第一册 + 必修第二册</p>
   <div class="search-box">
     <input type="text" id="searchInput" placeholder="🔍 搜索关键词、公式、定理..." oninput="filterCards()">
   </div>
@@ -106,40 +122,11 @@ mark{background:rgba(255,210,0,0.3);color:#ffd200;border-radius:2px;padding:0 2p
 
 <div id="cardsContainer"></div>
 
-<div class="footer">人教A版（2019）高中数学 · 知识卡片站 · 火娃出品</div>
+<div class="footer">人教A版（2019）高中数学 · 知识卡片站</div>
 </div>
 
-<script src="https://cdn.bootcdn.net/ajax/libs/KaTeX/0.16.9/katex.min.js"></script>
 <script>
-function renderKaTeX() {
-  if (typeof renderMathInElement === 'undefined') {
-    // 如果auto-render没加载，手动加载
-    var s = document.createElement('script');
-    s.src = 'https://cdn.bootcdn.net/ajax/libs/KaTeX/0.16.9/contrib/auto-render.min.js';
-    s.onload = function() {
-      if (typeof renderMathInElement !== 'undefined') {
-        renderMathInElement(document.getElementById('cardsContainer'), {
-          delimiters: [
-            {left: '$$', right: '$$', display: true},
-            {left: '$', right: '$', display: false}
-          ],
-          throwOnError: false
-        });
-      }
-    };
-    document.head.appendChild(s);
-  } else {
-    renderMathInElement(document.getElementById('cardsContainer'), {
-      delimiters: [
-        {left: '$$', right: '$$', display: true},
-        {left: '$', right: '$', display: false}
-      ],
-      throwOnError: false
-    });
-  }
-}
-
-// ============ 按章节顺序定义 ============
+// ============ 章节顺序 ============
 const __volOrder = [
   {book:"必修第一册", chapter:"第一章 集合与常用逻辑用语"},
   {book:"必修第一册", chapter:"第二章 一元二次函数、方程和不等式"},
@@ -158,15 +145,13 @@ const __volOrder = [
 <script>
 // ============ 合并数据 ============
 const cardData = {};
-const __allCards = []; // flat list for search
+const __allCards = [];
 let __activeChapter = null;
 let __searchQuery = '';
 
-// 合并
 cardData["必修第一册"] = window.__vol1;
 cardData["必修第二册"] = window.__vol2;
 
-// 展平
 __volOrder.forEach(function(item){
   var c = cardData[item.book][item.chapter];
   if(c) c.forEach(function(card){ __allCards.push({book:item.book, chapter:item.chapter, data:card}); });
@@ -175,15 +160,11 @@ __volOrder.forEach(function(item){
 // ============ 渲染 ============
 function renderNav(){
   var html = '';
-  var seen = {};
+  var first = true;
   __volOrder.forEach(function(item){
-    var key = item.book + '|' + item.chapter;
-    if(!seen[key]){
-      seen[key] = true;
-      var label = item.chapter;
-      var isActive = (__activeChapter === null && __activeChapter === undefined) ? (item === __volOrder[0]) : (item.chapter === __activeChapter);
-      html += '<div class="nav-tab' + (isActive ? ' active' : '') + '" onclick="switchChapter(\'' + item.book + '\',\'' + item.chapter + '\')">' + label + '</div>';
-    }
+    var isActive = __activeChapter ? (item.chapter === __activeChapter) : first;
+    html += '<div class="nav-tab' + (isActive ? ' active' : '') + '" onclick="switchChapter(\'' + item.book + '\',\'' + item.chapter.replace(/'/g,"\\'") + '\')">' + item.chapter + '</div>';
+    first = false;
   });
   document.getElementById('navTabs').innerHTML = html;
 }
@@ -192,18 +173,17 @@ function switchChapter(book, chapter){
   __activeChapter = chapter;
   renderNav();
   renderCards();
+  // MathJax重渲染
+  if(window.MathJax && MathJax.typesetPromise) MathJax.typesetPromise();
 }
 
 function renderCards(){
   var container = document.getElementById('cardsContainer');
   var html = '';
-  var total = 0;
 
   __volOrder.forEach(function(item){
     var cards = cardData[item.book][item.chapter];
     if(!cards) return;
-
-    // filter
     var filtered = cards;
     var q = __searchQuery.trim().toLowerCase();
     if(q){
@@ -212,10 +192,8 @@ function renderCards(){
         return txt.indexOf(q) !== -1;
       });
     }
-
+    if(__activeChapter && item.chapter !== __activeChapter) return;
     if(__activeChapter){
-      if(item.chapter !== __activeChapter) return;
-      // show only this chapter
       if(filtered.length === 0){
         html = '<p style="text-align:center;color:rgba(255,255,255,0.4);padding:40px 0">未找到匹配的知识卡片</p>';
         container.innerHTML = html;
@@ -223,32 +201,18 @@ function renderCards(){
       }
       html = '<div class="section-title">' + item.book + ' — ' + item.chapter + '</div>';
       html += '<div class="cards-grid">';
-      filtered.forEach(function(card){
-        html += renderCard(card, item.book, item.chapter);
-        total++;
-      });
+      filtered.forEach(function(card){ html += renderCard(card, item.book, item.chapter); });
       html += '</div>';
     } else {
-      // show all
       if(filtered.length > 0){
-        html += '<div class="section-title">' + item.book + ' — ' + item.chapter + '</div>';
-        html += '<div class="cards-grid">';
-        filtered.forEach(function(card){
-          html += renderCard(card, item.book, item.chapter);
-          total++;
-        });
+        html += '<div class="section-title">' + item.book + ' — ' + item.chapter + '</div><div class="cards-grid">';
+        filtered.forEach(function(card){ html += renderCard(card, item.book, item.chapter); });
         html += '</div>';
       }
     }
   });
-
-  if(!html){
-    html = '<p style="text-align:center;color:rgba(255,255,255,0.4);padding:40px 0">未找到匹配的知识卡片</p>';
-  }
+  if(!html) html = '<p style="text-align:center;color:rgba(255,255,255,0.4);padding:40px 0">未找到匹配的知识卡片</p>';
   container.innerHTML = html;
-
-  // 渲染KaTeX
-  setTimeout(renderKaTeX, 50);
 }
 
 function renderCard(card, book, chapter){
@@ -260,19 +224,18 @@ function renderCard(card, book, chapter){
     '<div class="card-chapter">' + book + ' · ' + chapter + '</div>' +
     '<div class="card-title">' + card.title + '</div>' +
     '<div class="card-content">' + card.content + '</div>' +
-    tags +
-    '</div>';
+    tags + '</div>';
 }
 
 function filterCards(){
-  var q = document.getElementById('searchInput').value.trim();
-  __searchQuery = q;
+  __searchQuery = document.getElementById('searchInput').value.trim();
   __activeChapter = null;
   renderNav();
   renderCards();
+  if(window.MathJax && MathJax.typesetPromise) MathJax.typesetPromise();
 }
 
-// ============ 初始化 ============
+// 初始化
 renderNav();
 renderCards();
 </script>
