@@ -117,7 +117,105 @@ window.__vol1 = {
     }
   ],
   // 后续章节将在确认格式后续写
-  "第二章 一元二次函数、方程和不等式": [],
+    "第二章 一元二次函数、方程和不等式": [
+    {
+      title: "2.1 等式性质与不等式性质",
+      content: `<p class="label-def">【定义】</p>
+<p>用不等号（<, >, $\le$, $\ge$, $\neq$）连接两个代数式表示不等关系的式子，叫做<strong>不等式</strong>。</p>
+<p>两个实数 a、b 之间的大小关系可以通过它们的差来确定：</p>
+<ul>
+<li>$a - b > 0 \iff a > b$</li>
+<li>$a - b = 0 \iff a = b$</li>
+<li>$a - b < 0 \iff a < b$</li>
+</ul>
+<p class="label-def">【性质】</p>
+<p><strong>不等式的基本性质</strong>（$a, b, c \in \mathbb{R}$）：</p>
+<ul>
+<li><strong>性质1（对称性）</strong>：$a > b \iff b < a$</li>
+<li><strong>性质2（传递性）</strong>：$a > b, b > c \Rightarrow a > c$</li>
+<li><strong>性质3（可加性）</strong>：$a > b \Rightarrow a + c > b + c$</li>
+<li><strong>性质4（可乘性）</strong>：$a > b, c > 0 \Rightarrow ac > bc$；$a > b, c < 0 \Rightarrow ac < bc$</li>
+<li><strong>性质5（同向可加性）</strong>：$a > b, c > d \Rightarrow a + c > b + d$</li>
+<li><strong>性质6（同向同正可乘性）</strong>：$a > b > 0, c > d > 0 \Rightarrow ac > bd$</li>
+<li><strong>性质7（可乘方性）</strong>：$a > b > 0 \Rightarrow a^n > b^n$（$n \in \mathbb{N}, n \ge 2$）</li>
+<li><strong>性质8（可开方性）</strong>：$a > b > 0 \Rightarrow \sqrt[n]{a} > \sqrt[n]{b}$（$n \in \mathbb{N}, n \ge 2$）</li>
+</ul>
+<p class="label-attention">【注意】</p>
+<ul>
+<li>不等式两边同乘一个负数时，不等号方向必须改变。</li>
+<li>倒数性质：$a > b > 0 \Rightarrow \frac{1}{a} < \frac{1}{b}$。</li>
+</ul>`,
+      tags: ["不等关系", "不等式性质", "对称性", "传递性", "可加性", "可乘性", "★"]
+    },
+    {
+      title: "2.2 基本不等式",
+      content: `<p class="label-def">【重要不等式】</p>
+<p>$\forall a, b \in \mathbb{R}$，有 $a^2 + b^2 \ge 2ab$，当且仅当 $a = b$ 时等号成立。</p>
+<p class="label-def">【基本不等式】</p>
+<p>$\forall a, b > 0$，有 $\sqrt{ab} \le \dfrac{a + b}{2}$，当且仅当 $a = b$ 时等号成立。</p>
+<p>其中，$\dfrac{a + b}{2}$ 叫做正数 a, b 的<strong>算术平均数</strong>，$\sqrt{ab}$ 叫做正数 a, b 的<strong>几何平均数</strong>。</p>
+<p>基本不等式表明：两个正数的算术平均数不小于它们的几何平均数。</p>
+<p class="label-def">【一正二定三相等】</p>
+<p>使用基本不等式求最值时，必须满足：</p>
+<ul>
+<li><strong>一正</strong>：a, b 或各项必须为正数；</li>
+<li><strong>二定</strong>：和或积必须为定值（和为定值则积有最大值，积为定值则和有最小值）；</li>
+<li><strong>三相等</strong>：当且仅当 $a = b$ 时等号成立。</li>
+</ul>
+<p class="label-def">【常用变形】</p>
+<ul>
+<li>$a + b \ge 2\sqrt{ab}$（$a, b > 0$）</li>
+<li>$ab \le \left(\dfrac{a + b}{2}\right)^2$（$a, b > 0$）</li>
+<li>$\dfrac{b}{a} + \dfrac{a}{b} \ge 2$（$a, b$ 同号）</li>
+</ul>
+<p class="label-attention">【注意】</p>
+<ul>
+<li>若多次使用基本不等式，必须保证每次取等条件一致（"同时取等"）。</li>
+<li>当条件不满足"一正"时，可通过配符号转化为正数情形。</li>
+</ul>`,
+      tags: ["基本不等式", "算术平均数", "几何平均数", "一正二定三相等", "最值", "★"]
+    },
+    {
+      title: "2.3 二次函数与一元二次方程、不等式",
+      content: `<p class="label-def">【定义】</p>
+<p>一般地，我们把只含有一个未知数，并且未知数的最高次数是 2 的不等式，称为<strong>一元二次不等式</strong>。它的一般形式为：</p>
+<p>$ax^2 + bx + c > 0$（或 $< 0$，其中 $a \neq 0$）。</p>
+<p class="label-def">【一元二次不等式的解法（$a > 0$）】</p>
+<table class="mini-table">
+<tr><th>$\Delta = b^2-4ac$</th><th>$\Delta > 0$</th><th>$\Delta = 0$</th><th>$\Delta < 0$</th></tr>
+<tr><td>$ax^2+bx+c=0$ 的根</td><td>两不等实根 $x_1 < x_2$</td><td>两相等实根 $x_1=x_2=-\dfrac{b}{2a}$</td><td>无实根</td></tr>
+<tr><td>$ax^2+bx+c>0$ 解集</td><td>$\{x\mid x<x_1\text{ 或 }x>x_2\}$</td><td>$\{x\mid x\neq -\dfrac{b}{2a}\}$</td><td>$\mathbb{R}$</td></tr>
+<tr><td>$ax^2+bx+c<0$ 解集</td><td>$\{x\mid x_1<x<x_2\}$</td><td>$\varnothing$</td><td>$\varnothing$</td></tr>
+</table>
+<p class="label-attention">【注意】</p>
+<ul>
+<li>若 $a < 0$，可先将二次项系数化为正数（不等式两边同乘 $-1$，不等号变向），再按上述方法求解。</li>
+<li>口诀："大于取两边，小于取中间"。</li>
+<li>对于含参数的一元二次不等式，需讨论二次项系数、判别式及根的大小关系。</li>
+</ul>`,
+      tags: ["一元二次不等式", "二次函数", "判别式", "Δ", "解法", "★"]
+    },
+    {
+      title: "2.3 一元二次不等式的应用",
+      content: `<p class="label-def">【分式不等式】</p>
+<p>$\dfrac{f(x)}{g(x)} > 0$（或 $< 0$）可转化为整式不等式：</p>
+<ul>
+<li>$\dfrac{f(x)}{g(x)} > 0 \iff f(x) \cdot g(x) > 0$</li>
+<li>$\dfrac{f(x)}{g(x)} \ge 0 \iff \begin{cases} f(x) \cdot g(x) \ge 0 \\ g(x) \neq 0 \end{cases}$</li>
+</ul>
+<p class="label-def">【穿根法（高次不等式）】</p>
+<p>步骤：① 因式分解，化为 $(x-x_1)(x-x_2)\cdots(x-x_n) > 0$ 形式；② 在数轴上标出根（从右上方开始）；③ 奇穿偶不穿（奇次根穿过去，偶次根弹回来）；④ 根据符号写出解集。</p>
+<p class="label-def">【恒成立问题】</p>
+<p>$ax^2+bx+c > 0$ 在 $\mathbb{R}$ 上恒成立的条件：$a > 0$ 且 $\Delta < 0$（或 $a=b=0$ 且 $c > 0$）。</p>
+<p>$ax^2+bx+c < 0$ 在 $\mathbb{R}$ 上恒成立的条件：$a < 0$ 且 $\Delta < 0$。</p>
+<p class="label-attention">【注意】</p>
+<ul>
+<li>解分式不等式时，不能直接去分母（分母正负未知），应移项通分后再转化。</li>
+<li>恒成立问题中，若二次项系数含有参数，需先讨论 $a = 0$ 的情况。</li>
+</ul>`,
+      tags: ["分式不等式", "穿根法", "恒成立", "高次不等式", "应用", "★"]
+    }
+  ],
   "第三章 函数概念与性质": [],
   "第四章 指数函数与对数函数": [],
   "第五章 三角函数": []
