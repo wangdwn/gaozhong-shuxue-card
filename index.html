@@ -5,23 +5,17 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>高中数学 知识卡片 · 人教A版（2019）</title>
 
-<!-- MathJax 配置 + 加载 -->
-<script>
-window.MathJax = {
-  tex: {
-    inlineMath: [['$','$'], ['\\(','\\)']],
-    displayMath: [['$$','$$'], ['\\[','\\]']]
-  },
-  svg: { fontCache: 'global' },
-  options: {
-    enableMenu: false,
-    renderActions: {
-      addMenu: [0, '', '', '']  // 关闭右键菜单
-    }
-  }
-};
-</script>
-<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" id="MathJax-script" async></script>
+<!-- KaTeX 加载 -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js" crossorigin="anonymous"
+  onload="renderMathInElement(document.body, {
+    delimiters: [
+      {left: '$$', right: '$$', display: true},
+      {left: '$', right: '$', display: false}
+    ],
+    throwOnError: false
+  });"></script>
 
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
@@ -188,8 +182,11 @@ function switchChapter(book, chapter){
   __activeChapter = chapter;
   renderNav();
   renderCards();
-  // MathJax重渲染
-  if(window.MathJax && MathJax.typesetPromise) MathJax.typesetPromise();
+  // KaTeX 重渲染
+  if(window.renderMathInElement) renderMathInElement(document.body, {
+    delimiters: [{left:'$$',right:'$$',display:true},{left:'$',right:'$',display:false}],
+    throwOnError: false
+  });
 }
 
 function renderCards(){
@@ -247,7 +244,10 @@ function filterCards(){
   __activeChapter = null;
   renderNav();
   renderCards();
-  if(window.MathJax && MathJax.typesetPromise) MathJax.typesetPromise();
+  if(window.renderMathInElement) renderMathInElement(document.body, {
+    delimiters: [{left:'$$',right:'$$',display:true},{left:'$',right:'$',display:false}],
+    throwOnError: false
+  });
 }
 
 // 初始化
