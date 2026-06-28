@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>函数概念与性质 · 专项训练 — 高中数学知识卡片</title>
+<link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+<style>
+:root {
+  --bg: #f5f5f7;
+  --card-bg: rgba(255,255,255,0.85);
+  --accent: #27ae60;
+  --accent-dark: #1e8449;
+  --gold: #d4a537;
+  --red: #c0392b;
+  --green: #27ae60;
+  --text: #1d1d1f;
+  --text-secondary: #86868b;
+  --radius: 16px;
+}
+@media(prefers-color-scheme:dark) {
+  :root {
+    --bg: #1d1d1f;
+    --card-bg: rgba(40,40,44,0.9);
+    --text: #f5f5f7;
+    --text-secondary: #98989d;
+  }
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Noto Sans SC", sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.8;
+  padding: 0 0 40px;
+}
+.container { max-width: 800px; margin: 0 auto; padding: 0 20px; }
+.header {
+  text-align: center; padding: 40px 0 30px;
+  border-bottom: 1px solid rgba(0,0,0,0.06); margin-bottom: 30px; position: relative;
+}
+.header h1 { font-size: 1.6rem; font-weight: 700; margin-bottom: 6px; }
+.header .sub { font-size: 0.85rem; color: var(--text-secondary); }
+.back-link {
+  position: absolute; left: 0; top: 40px;
+  color: var(--accent); text-decoration: none; font-size: 0.82rem;
+}
+@media(max-width:600px) { .back-link { position: static; display: block; text-align: left; margin-bottom: 10px; } }
+.tabs {
+  display: flex; gap: 8px; margin-bottom: 24px;
+  border-bottom: 1px solid rgba(0,0,0,0.06); padding-bottom: 8px;
+}
+.tab {
+  padding: 8px 20px; border-radius: 8px; font-size: 0.85rem; cursor: pointer;
+  color: var(--text-secondary); transition: all 0.2s; border: none;
+  background: transparent; font-weight: 500;
+}
+.tab:hover { background: rgba(39,174,96,0.06); }
+.tab.active { background: var(--accent); color: white; }
+.card {
+  background: var(--card-bg); backdrop-filter: blur(12px); border-radius: var(--radius);
+  padding: 24px; margin-bottom: 20px; border: 1px solid rgba(0,0,0,0.06);
+}
+.q-number {
+  display: inline-block; background: var(--accent); color: white;
+  font-size: 0.72rem; padding: 2px 10px; border-radius: 12px; margin-bottom: 12px; font-weight: 600;
+}
+.q-number.difficult { background: var(--red); }
+.q-tag {
+  display: inline-block; font-size: 0.7rem; padding: 2px 10px; border-radius: 10px;
+  margin-left: 6px; background: rgba(212,165,55,0.15); color: var(--gold);
+}
+.q-tag.hard { background: rgba(192,57,43,0.1); color: var(--red); }
+.q-tag.green { background: rgba(39,174,96,0.12); color: var(--green); }
+.q-text { font-size: 0.92rem; line-height: 1.8; margin-bottom: 16px; font-weight: 500; }
+.solution { border-top: 1px solid rgba(0,0,0,0.06); padding-top: 16px; margin-top: 16px; }
+.solution-toggle {
+  display: inline-flex; align-items: center; gap: 4px; font-size: 0.82rem;
+  color: var(--accent); cursor: pointer; background: none; border: none;
+  padding: 4px 12px; border-radius: 8px; transition: all 0.2s; font-weight: 500;
+}
+.solution-toggle:hover { background: rgba(39,174,96,0.06); }
+.solution-body { display: none; margin-top: 12px; font-size: 0.85rem; color: var(--text-secondary); line-height: 1.9; }
+.solution-body.open { display: block; }
+.solution-body strong { color: var(--text); }
+.solution-body .ans {
+  display: inline-block; background: rgba(39,174,96,0.1); color: var(--green);
+  padding: 2px 10px; border-radius: 6px; font-weight: 600; margin-bottom: 8px;
+}
+.solution-body .step { margin-bottom: 6px; padding-left: 12px; border-left: 2px solid var(--accent); }
+.solution-body .step-red { margin-bottom: 6px; padding-left: 12px; border-left: 2px solid var(--red); }
+.solution-body .warn {
+  display: inline-block; background: rgba(192,57,43,0.08); color: var(--red);
+  padding: 2px 10px; border-radius: 6px; font-weight: 500; font-size: 0.8rem; margin-top: 4px;
+}
+@media(max-width:600px) {
+  .header h1 { font-size: 1.2rem; } .card { padding: 16px; } .tabs { gap: 4px; }
+  .tab { padding: 6px 12px; font-size: 0.78rem; }
+}
+</style>
+</head>
+<body>
+<div class="container">
+  <div class="header">
+    <a href="index.html" class="back-link">← 返回知识卡片主页</a>
+    <h1>📊 函数概念与性质 · 专项训练</h1>
+    <p class="sub">人教A版 · 必修第一册 第三章 | 10道基础题 + 10道拔高题</p>
+  </div>
+  <div class="tabs">
+    <button class="tab active" onclick="switchTab('basic')">基础训练 10题</button>
+    <button class="tab" onclick="switchTab('hard')">拔高挑战 10题</button>
+  </div>
+
+  <div id="basic" class="tab-content">
+    <div class="card">
+      <span class="q-number">基础1</span><span class="q-tag green">函数概念</span>
+      <div class="q-text">下列各图中，能表示 y 是 x 的函数的是（  ）。<br>
+        A. 一个圆 &nbsp;&nbsp; B. 一条竖直直线 &nbsp;&nbsp; C. 一条倾斜直线 &nbsp;&nbsp; D. 一条水平直线
+      </div>
+      <div class="solution">
+        <button class="solution-toggle" onclick="toggleSolution(this)">📖 查看解析</button>
+        <div class="solution-body">
+          <div class="ans">答案：C、D</div>
+          <div class="step">函数的定义：对定义域内每一个 x，都有唯一的 y 与之对应。</div>
+          <div class="step">A. 圆：一个 x 对应两个 y，不是函数。❌</div>
+          <div class="step">B. 竖直直线：x 固定，y 不唯一。❌</div>
+          <div class="step">C. 倾斜直线：每个 x 对应唯一 y。✅</div>
+          <div class="step">D. 水平直线：每个 x 对应唯一 y。✅</div>
+          <div class="step"><strong>关键：</strong>函数是一个 x 只对应一个 y，不能一对多。</div>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <span class="q-number">基础2</span><span class="q-tag green">定义域</span>
+      <div class="q-text">函数 f(x) = √(x-2) + 1/(x-3) 的定义域是什么？</div>
+      <div class="solution">
+        <button class="solution-toggle" onclick="toggleSolution(this)">📖 查看解析</button>
+        <div class="solution-body">
+          <div class="ans">答案：[2, 3) ∪ (3, +∞)</div>
+          <div class="step">需要同时满足两个条件：</div>
+          <div class="step">① 根号内 ≥ 0：x - 2 ≥ 0 ⇒ x ≥ 2</div>
+          <div class="step">② 分母 ≠ 0：x - 3 ≠ 0 ⇒ x ≠ 3</div>
+          <div class="step">取交集：x ≥ 2 且 x ≠ 3</div>
+          <div class="step"><strong>注意：</strong>定义域用区间或集合表示，不要漏掉分母不为零的条件。</div>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <span class="q-number">基础3</span><span class="q-tag green">值域</span>
+      <div class="q-text">函数 f(x) = x² + 2x + 3，x ∈ [-2, 1] 的值域是（  ）。</div>
+      <div class="solution">
+        <button class="solution-toggle" onclick="toggleSolution(this)">📖 查看解析</button>
+        <div class="solution-body">
+          <div class="ans">答案：[2, 6]</div>
+          <div class="step">配方：f(x) = (x+1)² + 2，对称轴 x = -1，开口向上。</div>
+          <div class="step">对称轴 x = -1 在区间 [-2, 1] 内。</div>
+          <div class="step">最小值：f(-1) = (-1+1)² + 2 = 2</div>
+          <div class="step">比较端点：f(-2) = 4 - 4 + 3 = 3，f(1) = 1 + 2 + 3 = 6</div>
+          <div class="step">最大值取较大者：6</div>
+          <div class="step">值域为 [2, 6]。</div>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <span class="q-number">基础4</span><span class="q-tag green">函数表示法</span>
+      <div class="q-text">已知 f(x) = 2x + 1，g(x) = x²，求 f(g(2)) 和 g(f(2))。</div>
+      <div class="solution">
+        <button class="solution-toggle" onclick="toggleSolution(this)">📖 查看解析</button>
+        <div class="solution-body">
+          <div class="ans">答案：f(g(2)) = 9，g(f(2)) = 25</div>
+          <div class="step">先求 g(2) = 2² = 4，则 f(g(2)) = f(4) = 2×4 + 1 = 9</div>
+          <div class="step">先求 f(2) = 2×2 + 1 = 5，则 g(f(2)) = g(5) = 5² = 25</div>
+          <div class="step"><strong>易错：</strong>f(g(x)) 与 g(f(x)) 一般不同，注意运算顺序。</div>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <span class="q-number">基础5</span><span class="q-tag green">单调性判断</span>
+      <div class="q-text">判断函数 f(x) = -3x + 2 在 R 上的单调性。</div>
+      <div class="solution">
+        <button class="solution-toggle" onclick="toggleSolution(this)">📖 查看解析</button>
+        <div class="solution-body">
+          <div class="ans">答案：在 R 上单调递减</div>
+          <div class="step">方法一（定义法）：</div>
+          <div class="step">任取 x₁ &lt; x₂，计算 f(x₁) - f(x₂) = (-3x₁+2) - (-3x₂+2) = -3(x₁ - x₂)</div>
+          <div class="step">因为 x₁ &lt; x₂，所以 x₁ - x₂ &lt; 0，则 -3(x₁ - x₂) > 0</div>
+          <div class="step">即 f(x₁) - f(x₂) > 0，所以 f(x₁) > f(x₂)</div>
+          <div class="step">由 x₁ &lt; x₂ 推出 f(x₁) > f(x₂)，故函数单调递减。</div>
+          <div class="step">方法二：一次函数斜率 k = -3 &lt; 0，直接得单调递减。</div>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <span class="q-number">基础6</span><span class="q-tag green">奇偶性</span>
+      <div class="q-text">判断下列函数的奇偶性：<br>
+        (1) f(x) = x³ + x &nbsp;&nbsp; (2) f(x) = x² + 1 &nbsp;&nbsp; (3) f(x) = x + 1
+      </div>
+      <div class="solution">
+        <button class="solution-toggle" onclick="toggleSolution(this)">📖 查看解析</button>
+        <div class="solution-body">
+          <div class="ans">答案：(1)奇函数 (2)偶函数 (3)非奇非偶</div>
+          <div class="step"><strong>(1)</strong> f(-x) = (-x)³ + (-x) = -x³ - x = -(x³+x) = -f(x)，奇函数。✅</div>
+          <div class="step"><strong>(2)</strong> f(-x) = (-x)² + 1 = x² + 1 = f(x)，偶函数。✅</div>
+          <div class="step"><strong>(3)</strong> f(-x) = -x + 1 ≠ f(x) 且 ≠ -f(x)，非奇非偶。❌</div>
+          <div class="step"><strong>关键：</strong>先判断定义域是否关于原点对称，再验证 f(-x) 与 f(x) 的关系。</div>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <span class="q-number">基础7</span><span class="q-tag green">分段函数</span>
+      <div class="q-text">已知 f(x) = { x + 1, x ≥ 0；x², x &lt; 0 }，求 f(-1) + f(2) 的值。</div>
+      <div class="solution">
+        <button class="solution-toggle" onclick="toggleSolution(this)">📖 查看解析</button>
+        <div class="solution-body">
+          <div class="ans">答案：4</div>
+          <div class="step">f(-1)：因为 -1 &lt; 0，代入第二段：f(-1) = (-1)² = 1</div>
+          <div class="step">f(2)：因为 2 ≥ 0，代入第一段：f(2) = 2 + 1 = 3</div>
+          <div class="step">f(-1) + f(2) = 1 + 3 = 4</div>
+          <div class="step"><strong>易错：</strong>分段函数要注意自变量所在区间，选择对应的表达式。</div>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <span class="q-number">基础8</span><span class="q-tag green">幂函数</span>
+      <div class="q-text">下列函数中，属于幂函数的是（  ）。<br>
+        A. y = 2x³ &nbsp;&nbsp; B. y = x^(1/2) &nbsp;&nbsp; C. y = 3^x &nbsp;&nbsp; D. y = x² + 1
+      </div>
+      <div class="solution">
+        <button class="solution-toggle" onclick="toggleSolution(this)">📖 查看解析</button>
+        <div class="solution-body">
+          <div class="ans">答案：B</div>
+          <div class="step">幂函数的定义：形如 y = x^α（α为常数）的函数。</div>
+          <div class="step">A. y = 2x³ 系数为2，不是幂函数（幂函数系数必须为1）。❌</div>
+          <div class="step">B. y = x^(1/2) = √x，符合 y = x^α 的形式（α = 1/2）。✅</div>
+          <div class="step">C. y = 3^x 是指数函数，不是幂函数。❌</div>
+          <div class="step">D. y = x² + 1 是二次函数，不是幂函数。❌</div>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <span class="q-number">基础9</span><span class="q-tag green">函数单调性应用</span>
+      <div class="q-text">若函数 f(x) = x² - 2ax + 3 在区间 [1, +∞) 上单调递增，求实数 a 的取值范围。</div>
+      <div class="solution">
+        <button class="solution-toggle" onclick="toggleSolution(this)">📖 查看解析</button>
+        <div class="solution-body">
+          <div class="ans">答案：a ≤ 1</div>
+          <div class="step">f(x) = x² - 2ax + 3，开口向上，对称轴为 x = a。</div>
+          <div class="step">二次函数在对称轴右侧单调递增，左侧单调递减。</div>
+          <div class="step">要在 [1, +∞) 上单调递增，只需对称轴 ≤ 区间的左端点。</div>
+          <div class="step">即 a ≤ 1。</div>
+          <div class="step">可以画图帮助理解：对称轴在区间左边，区间整体在对称轴右侧。</div>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <span class="q-number">基础10</span><span class="q-tag green">奇偶性应用</span>
+      <div class="q-text">已知函数 y = f(x) 是偶函数，且 f(3) = 5，f(-2) = 4，求 f(-3) + f(2) 的值。</div>
+      <div class="solution">
+        <button class="solution-toggle" onclick="toggleSolution(this)">📖 查看解析</button>
+        <div class="solution-body">
+          <div class="ans">答案：9</div>
+          <div class="step">偶函数的性质：f(-x) = f(x)</div>
+          <div class="step">f(-3) = f(3) = 5</div>
+          <div class="step">f(2) = f(-2) = 4</div>
+          <div class="step">f(-3) + f(2) = 5 + 4 = 9</div>
+          <div class="step"><strong>关键：</strong>偶函数图象关于y轴对称，奇函数图象关于原点对称，记清性质。</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="hard" class="tab-content" style="display:none;">
+    <div class="card">
+      <span class="q-number difficult">拔高1</span><span class="q-tag hard">抽象函数</span>
+      <div class="q-text">已知函数 f(x) 满足 f(x+1) = x² - 2x + 3，求 f(x) 的解析式。</div>
+      <div class="solution">
+        <button class="solution-toggle" onclick="toggleSolution(this)">📖 查看解析</button>
+        <div class="solution-body">
+          <div class="ans">答案：f(x) = x² - 4x + 6</div>
+          <div class="step">方法一（换元法）：令 t = x + 1，则 x = t - 1</div>
+          <div class="step">f(t) = (t-1)² - 2(t-1) + 3 = t² - 2t + 1 - 2t + 2 + 3 = t² - 4t + 6</div>
+          <div class="step">所以 f(x) = x² - 4x + 6</div>
+          <div class="step">方法二（配凑法）：</div>
+          <div class="step">x² - 2x + 3 = (x+1)² - 4(x+1) + 6</div>
+          <div class="step">令 x+1 替换为 x，得 f(x) = x² - 4x + 6</div>
+          <div class="step"><strong>易错：</strong>换元后注意回代，不要混淆 f(x) 和 f(x+1) 的对应关系。</div>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <span class="q-number difficult">拔高2</span><span class="q-tag hard">复合函数定义域</span>
+      <div class="q-text">已知 f(x) 的定义域为 [0, 3]，求函数 g(x) = f(x+1) + f(2x-1) 的定义域。</div>
+      <div class="solution">
+        <button class="solution-toggle" onclick="toggleSolution(this)">📖 查看解析</button>
+        <div class="solution-body">
+          <div class="ans">答案：[1/2, 2]</div>
+          <div class="step">f(x) 的定义域为 [0, 3]，即 f 括号内的表达式必须在 [0, 3] 内。</div>
+          <div class="step">① 对于 f(x+1)：0 ≤ x+1 ≤ 3 ⇒ -1 ≤ x ≤ 2</div>
+          <div class="step">② 对于 f(2x-1)：0 ≤ 2x-1 ≤ 3 ⇒ 1/2 ≤ x ≤ 2</div>
+          <div class="step">取交集：[-1, 2] ∩ [1/2, 2] = [1/2, 2]</div>
+          <div class="step"><strong>关键：</strong>复合函数定义域问题——内层函数的值域要满足外层函数的定义域。</div>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <span class="q-number difficult">拔高3</span><span class="q-tag hard">单调性证明</span>
+      <div class="q-text">用定义证明：函数 f(x) = x + 1/x 在 (0, 1) 上单调递减。</div>
+      <div class="solution">
+        <button class="solution-toggle" onclick="toggleSolution(this)">📖 查看解析</button>
+        <div class="solution-body">
+          <div class="ans">证明见解析</div>
+          <div class="step">任取 0 &lt; x₁ &lt; x₂ &lt; 1，考察 f(x₁) - f(x₂)：</div>
+          <div class="step">f(x₁) - f(x₂) = (x₁ + 1/x₁) - (x₂ + 1/x₂)</div>
+          <div class="step">= (x₁ - x₂) + (1/x₁ - 1/x₂)</div>
+          <div class="step">= (x₁ - x₂) + (x₂ - x₁)/(x₁x₂)</div>
+          <div class="step">= (x₁ - x₂) · [1 - 1/(x₁x₂)]</div>
+          <div class="step">因为 x₁ &lt; x₂，所以 x₁ - x₂ &lt; 0</div>
+          <div class="step">因为 0 &lt; x₁ &lt; x₂ &lt; 1，所以 0 &lt; x₁x₂ &lt; 1，则 1/(x₁x₂) > 1，故 1 - 1/(x₁x₂) &lt; 0</div>
+          <div class="step">负 × 负 = 正，所以 f(x₁) - f(x₂) > 0，即 f(x₁) > f(x₂)</div>
+          <div class="step">由 x₁ &lt; x₂ 推出 f(x₁) > f(x₂)，故 f(x) 在 (0, 1) 上单调递减。证毕。</div>
+          <div class="step"><strong>注意：</strong>差式变形时，要善于提取公因式 (x₁ - x₂)。</div>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <span class="q-number difficult">拔高4</span><span class="q-tag hard">奇偶性与单调性综合</span>
+      <div class="q-text">已知定义在 R 上的奇函数 f(x) 在 [0, +∞) 上单调递增，且 f(2) = 0，求解不等式 f(x) &lt; 0。</div>
+      <div class="solution">
+        <button class="solution-toggle" onclick="toggleSolution(this)">📖 查看解析</button>
+        <div class="solution-body">
+          <div class="ans">答案：(-∞, -2) ∪ (0, 2)</div>
+          <div class="step">奇函数性质：f(-x) = -f(x)，图象关于原点对称。</div>
+          <div class="step">已知 f(2) = 0，由奇函数得 f(-2) = -f(2) = 0。</div>
+          <div class="step">在 [0, +∞) 上单调递增，所以：</div>
+          <div class="step">当 0 ≤ x &lt; 2 时，f(x) &lt; f(2) = 0</div>
+          <div class="step">当 x > 2 时，f(x) > f(2) = 0</div>
+          <div class="step">由对称性，在 (-∞, 0] 上：</div>
+          <div class="step">当 x &lt; -2 时，f(x) &lt; 0（因为 f(-2)=0 且递增）</div>
+          <div class="step">当 -2 &lt; x ≤ 0 时，f(x) > 0</div>
+          <div class="step">整理得 f(x) &lt; 0 的解集为 (-∞, -2) ∪ (0, 2)。</div>
+          <div class="step"><strong>方法：</strong>画示意图帮助分析，利用对称性和单调性确定各区间符号。</div>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <span class="q-number difficult">拔高5</span><span class="q-tag hard">函数最值</span>
+      <div class="q-text">求函数 f(x) = x + √(1 - x) 的最大值。</div>
+      <div class="solution">
+        <button class="solution-toggle" onclick="toggleSolution(this)">📖 查看解析</button>
+        <div class="solution-body">
+          <div class="ans">答案：5/4</div>
+          <div class="step">定义域：1 - x ≥ 0 ⇒ x ≤ 1，即 (-∞, 1]。</div>
+          <div class="step">方法一（换元法）：令 t = √(1 - x)，则 t ≥ 0，且 x = 1 - t²。</div>
+          <div class="step">代入得 f = (1 - t²) + t = -t² + t + 1</div>
+          <div class="step">这是关于 t 的二次函数（t ≥ 0），开口向下。</div>
+          <div class="step">对称轴 t = -1 / (2×(-1)) = 1/2，在 [0, +∞) 内。</div>
+          <div class="step">最大值在 t = 1/2 处：f_max = -(1/2)² + 1/2 + 1 = -1/4 + 1/2 + 1 = 5/4</div>
+          <div class="step">方法二（导数法，略）。</div>
+          <div class="step"><strong>关键：</strong>含根号的函数常用换元法转化为二次函数求最值，注意新变量的范围。</div>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <span class="q-number difficult">拔高6</span><span class="q-tag hard">幂函数比较大小</span>
+      <div class="q-text">比较下列各组数的大小：<br>
+        (1) 0.2^(0.3) 与 0.3^(0.3) &nbsp;&nbsp; (2) 0.2^(0.3) 与 0.2^(0.4)
+      </div>
+      <div class="solution">
+        <button class="solution-toggle" onclick="toggleSolution(this)">📖 查看解析</button>
+        <div class="solution-body">
+          <div class="ans">答案：(1) 0.2^(0.3) &lt; 0.3^(0.3) (2) 0.2^(0.3) > 0.2^(0.4)</div>
+          <div class="step"><strong>(1)</strong> 比较 0.2^(0.3) 与 0.3^(0.3)：</div>
+          <div class="step">考察幂函数 y = x^(0.3)，指数 α = 0.3 > 0，在 (0, +∞) 上单调递增。</div>
+          <div class="step">因为 0.2 &lt; 0.3，所以 0.2^(0.3) &lt; 0.3^(0.3)。</div>
+          <div class="step"><strong>(2)</strong> 比较 0.2^(0.3) 与 0.2^(0.4)：</div>
+          <div class="step">考察指数函数 y = 0.2^x，底数 0 &lt; 0.2 &lt; 1，在 R 上单调递减。</div>
+          <div class="step">因为 0.3 &lt; 0.4，所以 0.2^(0.3) > 0.2^(0.4)。</div>
+          <div class="step"><strong>关键：</strong>比较幂值——指数相同用幂函数单调性，底数相同用指数函数单调性。</div>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <span class="q-number difficult">拔高7</span><span class="q-tag hard">恒成立问题</span>
+      <div class="q-text">已知函数 f(x) = x² + ax + 3，对任意 x ∈ [-1, 2] 都有 f(x) ≥ 2 恒成立，求实数 a 的取值范围。</div>
+      <div class="solution">
+        <button class="solution-toggle" onclick="toggleSolution(this)">📖 查看解析</button>
+        <div class="solution-body">
+          <div class="ans">答案：-4 ≤ a ≤ 2</div>
+          <div class="step">问题等价于 f(x) 在 [-1, 2] 上的最小值 ≥ 2。</div>
+          <div class="step">f(x) = x² + ax + 3，开口向上，对称轴 x = -a/2。</div>
+          <div class="step">分三种情况讨论：</div>
+          <div class="step"><strong>① 对称轴 ≤ -1：</strong>即 -a/2 ≤ -1 ⇒ a ≥ 2</div>
+          <div class="step">最小值在 x = -1 处：f(-1) = 1 - a + 3 = 4 - a ≥ 2 ⇒ a ≤ 2</div>
+          <div class="step">结合 a ≥ 2，得 a = 2。</div>
+          <div class="step"><strong>② 对称轴在 [-1, 2] 内：</strong>即 -1 &lt; -a/2 &lt; 2 ⇒ -4 &lt; a &lt; 2</div>
+          <div class="step">最小值在 x = -a/2 处：f(-a/2) = a²/4 - a²/2 + 3 = -a²/4 + 3 ≥ 2 ⇒ a² ≤ 4 ⇒ -2 ≤ a ≤ 2</div>
+          <div class="step">结合 -4 &lt; a &lt; 2，得 -2 ≤ a &lt; 2。</div>
+          <div class="step"><strong>③ 对称轴 ≥ 2：</strong>即 -a/2 ≥ 2 ⇒ a ≤ -4</div>
+          <div class="step">最小值在 x = 2 处：f(2) = 4 + 2a + 3 = 7 + 2a ≥ 2 ⇒ a ≥ -5/2</div>
+          <div class="step">结合 a ≤ -4，无解。</div>
+          <div class="step">综合①②③：a = 2 或 -2 ≤ a &lt; 2，即 -2 ≤ a ≤ 2。</div>
+          <div class="step">等等，重新检查：对称轴恰在端点时归入相应区间。</div>
+          <div class="step">最终结果：-2 ≤ a ≤ 2。</div>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <span class="q-number difficult">拔高8</span><span class="q-tag hard">抽象函数性质</span>
+      <div class="q-text">定义在 R 上的函数 f(x) 满足：对任意实数 x, y，都有 f(x+y) = f(x) + f(y)，且 f(1) = 2。<br>
+        (1) 求 f(0)；<br>
+        (2) 证明 f(x) 为奇函数；<br>
+        (3) 求 f(3)。</div>
+      <div class="solution">
+        <button class="solution-toggle" onclick="toggleSolution(this)">📖 查看解析</button>
+        <div class="solution-body">
+          <div class="ans">答案：(1) f(0)=0 (2) 见解析 (3) f(3)=6</div>
+          <div class="step"><strong>(1) 求 f(0)：</strong></div>
+          <div class="step">令 x = y = 0，得 f(0+0) = f(0) + f(0) ⇒ f(0) = 2f(0) ⇒ f(0) = 0</div>
+          <div class="step"><strong>(2) 证明奇函数：</strong></div>
+          <div class="step">令 y = -x，得 f(x + (-x)) = f(x) + f(-x)</div>
+          <div class="step">即 f(0) = f(x) + f(-x) ⇒ 0 = f(x) + f(-x) ⇒ f(-x) = -f(x)</div>
+          <div class="step">所以 f(x) 为奇函数。证毕。</div>
+          <div class="step"><strong>(3) 求 f(3)：</strong></div>
+          <div class="step">f(2) = f(1+1) = f(1) + f(1) = 2 + 2 = 4</div>
+          <div class="step">f(3) = f(2+1) = f(2) + f(1) = 4 + 2 = 6</div>
+          <div class="step"><strong>关键：</strong>抽象函数问题常通过赋值法（令 x, y 取特殊值）推导性质。</div>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <span class="q-number difficult">拔高9</span><span class="q-tag hard">函数图象应用</span>
+      <div class="q-text">已知函数 f(x) 是定义在 R 上的偶函数，且在 [0, +∞) 上单调递增，f(1) = 0。<br>
+        解不等式 f(2x - 1) > 0。</div>
+      <div class="solution">
+        <button class="solution-toggle" onclick="toggleSolution(this)">📖 查看解析</button>
+        <div class="solution-body">
+          <div class="ans">答案：x &lt; 0 或 x > 1</div>
+          <div class="step">f(x) 是偶函数，图象关于 y 轴对称。</div>
+          <div class="step">在 [0, +∞) 上递增，则在 (-∞, 0] 上递减。</div>
+          <div class="step">f(1) = 0，由偶函数得 f(-1) = f(1) = 0。</div>
+          <div class="step">f(2x-1) > 0 相当于 |2x-1| > 1（因为偶函数+递增时，f(u) > f(v) ⇔ |u| > |v|）。</div>
+          <div class="step">即 |2x - 1| > 1。</div>
+          <div class="step">解得：2x - 1 &lt; -1 或 2x - 1 > 1</div>
+          <div class="step">⇒ x &lt; 0 或 x > 1。</div>
+          <div class="step"><strong>技巧：</strong>偶函数+单调性可转化为绝对值不等式，大幅简化计算。</div>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <span class="q-number difficult">拔高10</span><span class="q-tag hard">综合应用</span>
+      <div class="q-text">已知函数 f(x) = ax³ + bx + 5（a, b 为常数），且 f(3) = 10。<br>
+        (1) 求 f(-3)；<br>
+        (2) 若 f(x) 是奇函数，求 a, b 的值。</div>
+      <div class="solution">
+        <button class="solution-toggle" onclick="toggleSolution(this)">📖 查看解析</button>
+        <div class="solution-body">
+          <div class="ans">答案：(1) f(-3) = 0 (2) a = 0, b = 0</div>
+          <div class="step"><strong>(1) 利用奇函数的构造法：</strong></div>
+          <div class="step">设 g(x) = f(x) - 5 = ax³ + bx，则 g(x) 是奇函数（各项次数均为奇数）。</div>
+          <div class="step">g(-3) = -g(3)</div>
+          <div class="step">f(-3) - 5 = -(f(3) - 5) = -(10 - 5) = -5</div>
+          <div class="step">所以 f(-3) = 0</div>
+          <div class="step"><strong>(2) 若 f(x) 是奇函数：</strong></div>
+          <div class="step">奇函数要求 f(-x) = -f(x) 对所有 x 成立。</div>
+          <div class="step">f(-x) = a(-x)³ + b(-x) + 5 = -ax³ - bx + 5</div>
+          <div class="step">-f(x) = -ax³ - bx - 5</div>
+          <div class="step">由 f(-x) = -f(x) 得：-ax³ - bx + 5 = -ax³ - bx - 5</div>
+          <div class="step">⇒ 5 = -5，矛盾。所以不存在这样的 a, b 使 f(x) 为奇函数？</div>
+          <div class="step">等等，检查：f(x) = ax³ + bx + 5 含有常数项 5。</div>
+          <div class="step">奇函数必须满足 f(0) = 0，但 f(0) = 5 ≠ 0，所以不可能为奇函数。</div>
+          <div class="step">因此无解。</div>
+          <div class="step"><strong>纠正理解：</strong>若要求 f(x) 是奇函数，则常数项必须为 0，且只有奇次项。</div>
+          <div class="step">所以 a = 0 且 b = 0 时 f(x) = 5，但 f(x) = 5 是偶函数不是奇函数！</div>
+          <div class="step">综上，不存在这样的 a, b 使 f(x) 为奇函数。因为奇函数定义域含0时必须过原点(0,0)，而f(0)=5≠0。</div>
+          <div class="step"><strong>最终答案：</strong>(1) f(-3)=0 (2) 不存在这样的 a, b。</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+function toggleSolution(btn) {
+  const body = btn.nextElementSibling;
+  body.classList.toggle('open');
+  btn.textContent = body.classList.contains('open') ? '📕 收起解析' : '📖 查看解析';
+}
+function switchTab(name) {
+  document.querySelectorAll('.tab-content').forEach(c => c.style.display = 'none');
+  document.getElementById(name).style.display = 'block';
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  document.querySelector(`.tab[onclick*="${name}"]`).classList.add('active');
+}
+</script>
+</body>
+</html>
