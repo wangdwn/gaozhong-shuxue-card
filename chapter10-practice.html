@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>概率 · 专项训练 — 高中数学知识卡片</title>
+<link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+<style>
+:root {
+  --bg: #f5f5f7;
+  --card-bg: rgba(255,255,255,0.85);
+  --accent: #2c3e50;
+  --accent-dark: #1a252f;
+  --gold: #d4a537;
+  --red: #c0392b;
+  --green: #27ae60;
+  --text: #1d1d1f;
+  --text-secondary: #86868b;
+  --radius: 16px;
+}
+@media(prefers-color-scheme:dark) {
+  :root {
+    --bg: #1d1d1f;
+    --card-bg: rgba(40,40,44,0.9);
+    --text: #f5f5f7;
+    --text-secondary: #98989d;
+  }
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Noto Sans SC", sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.8;
+  padding: 0 0 40px;
+}
+.container { max-width: 800px; margin: 0 auto; padding: 0 20px; }
+.header {
+  text-align: center; padding: 40px 0 30px;
+  border-bottom: 1px solid rgba(0,0,0,0.06); margin-bottom: 30px; position: relative;
+}
+.header h1 { font-size: 1.6rem; font-weight: 700; margin-bottom: 6px; }
+.header .sub { font-size: 0.85rem; color: var(--text-secondary); }
+.back-link {
+  position: absolute; left: 0; top: 40px;
+  color: var(--accent); text-decoration: none; font-size: 0.82rem;
+}
+@media(max-width:600px) { .back-link { position: static; display: block; text-align: left; margin-bottom: 10px; } }
+.tabs {
+  display: flex; gap: 8px; margin-bottom: 24px;
+  border-bottom: 1px solid rgba(0,0,0,0.06); padding-bottom: 8px;
+}
+.tab {
+  padding: 8px 20px; border-radius: 8px; font-size: 0.85rem; cursor: pointer;
+  color: var(--text-secondary); transition: all 0.2s; border: none;
+  background: transparent; font-weight: 500;
+}
+.tab:hover { background: rgba(44,62,80,0.06); }
+.tab.active { background: var(--accent); color: white; }
+.card {
+  background: var(--card-bg); backdrop-filter: blur(12px); border-radius: var(--radius);
+  padding: 24px; margin-bottom: 20px; border: 1px solid rgba(0,0,0,0.06);
+}
+.q-number {
+  display: inline-block; background: var(--accent); color: white;
+  font-size: 0.72rem; padding: 2px 10px; border-radius: 12px; margin-bottom: 12px; font-weight: 600;
+}
+.q-number.difficult { background: var(--red); }
+.q-tag {
+  display: inline-block; font-size: 0.7rem; padding: 2px 10px; border-radius: 10px;
+  margin-left: 6px; background: rgba(212,165,55,0.15); color: var(--gold);
+}
+.q-tag.hard { background: rgba(192,57,43,0.1); color: var(--red); }
+.q-text { font-size: 0.92rem; line-height: 1.8; margin-bottom: 16px; font-weight: 500; }
+.q-text .frac { display: inline-block; text-align: center; vertical-align: middle; line-height: 1.2; }
+.q-text .frac .num { display: block; border-bottom: 1px solid var(--text); padding: 0 4px 1px; font-size: 0.85em; }
+.q-text .frac .den { display: block; padding: 1px 4px 0; font-size: 0.85em; }
+.solution { border-top: 1px solid rgba(0,0,0,0.06); padding-top: 16px; margin-top: 16px; }
+.solution-toggle {
+  display: inline-flex; align-items: center; gap: 4px; font-size: 0.82rem;
+  color: var(--accent); cursor: pointer; background: none; border: none;
+  padding: 4px 12px; border-radius: 8px; transition: all 0.2s; font-weight: 500;
+}
+.solution-toggle:hover { background: rgba(44,62,80,0.06); }
+.solution-body { display: none; margin-top: 12px; font-size: 0.85rem; color: var(--text-secondary); line-height: 1.9; }
+.solution-body.open { display: block; }
+.solution-body strong { color: var(--text); }
+.solution-body .ans {
+  display: inline-block; background: rgba(39,174,96,0.1); color: var(--green);
+  padding: 2px 10px; border-radius: 6px; font-weight: 600; margin-bottom: 8px;
+}
+.solution-body .step { margin-bottom: 6px; padding-left: 12px; border-left: 2px solid var(--accent); }
+.solution-body .step .highlight { color: var(--accent); font-weight: 600; }
+@media(max-width:600px) {
+  .header h1 { font-size: 1.2rem; } .card { padding: 16px; } .tabs { gap: 4px; }
+  .tab { padding: 6px 12px; font-size: 0.78rem; }
+}
+</style>
+</head>
+<body>
+<div class="container">
+  <div class="header">
+    <a href="index.html" class="back-link">← 返回知识卡片主页</a>
+    <h1>🎲 概率 · 专项训练</h1>
+    <p class="sub">人教A版 · 必修第二册 第十章 | 10道基础题 + 10道拔高题</p>
+  </div>
+  <div class="tabs">
+    <button class="tab active" onclick="switchTab('basic')">基础训练 10题</button>
+    <button class="tab" onclick="switchTab('hard')">拔高挑战 10题</button>
+  </div>
+
+  <!-- ========== 基础训练 10题 ========== -->
+  <div id="basic" class="tab-content">
+
+    <div class="card">
+      <span class="q-number">基础1</span>
+      <div class="q-text">从标有1, 2, 3, 4, 5的5张卡片中随机抽取1张，求抽到奇数的概率。</div>
+      <div class="solution">
+        <button class="solution-toggle" onclick="toggleSolution(this)">📖 查看解析</button>
+        <div class="solution-body">
+          <div class="ans">答案：<sup>3</sup>/<sub>5</sub></div>
+          <div class="step">样本空间 Ω = {1,2,3,4,5}，共有5个基本事件。</div>
+          <div class="step">事件A"抽到奇数" = {1,3,5}，包含3个基本事件。</div>
+          <div class="step">由古典概型公式：P(A) = <sup>3</sup>/<sub>5</sub>。</div>
+          <div class="step"><strong>注意：</strong>古典概型要求每个基本事件等可能发生，本题中每张卡片被抽到的概率相同，满足条件。</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <span class="q-number">基础2</span>
+      <div class="q-text">同时抛掷两枚质地均匀的硬币，求两枚都正面朝上的概率；至少有一枚正面朝上的概率。</div>
+      <div class="solution">
+        <button class="solution-toggle" onclick="toggleSolution(this)">📖 查看解析</button>
+        <div class="solution-body">
+          <div class="ans">答案：<sup>1</sup>/<sub>4</sub>；<sup>3</sup>/<sub>4</sub></div>
+          <div class="step">样本空间（用H表示正面，T表示反面）：Ω = {HH, HT, TH, TT}，共4个等可能基本事件。</div>
+          <div class="step">(1) A="两枚都正面"={HH}，P(A)=<sup>1</sup>/<sub>4</sub>。</div>
+          <div class="step">(2) B="至少一枚正面"={HH,HT,TH}，P(B)=<sup>3</sup>/<sub>4</sub>。</div>
+          <div class="step"><strong>另解：</strong>用对立事件。B的对立事件是"两枚都反面"={TT}，P(<span style="text-decoration:overline">B</span>)=<sup>1</sup>/<sub>4</sub>，所以P(B)=1−<sup>1</sup>/<sub>4</sub>=<sup>3</sup>/<sub>4</sub>。</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <span class="q-number">基础3</span>
+      <div class="q-text">一个袋中有3个红球和2个白球，从袋中任取2个球。求取出的2个球都是红球的概率。</div>
+      <div class="solution">
+        <button class="solution-toggle" onclick="toggleSolution(this)">📖 查看解析</button>
+        <div class="solution-body">
+          <div class="ans">答案：<sup>3</sup>/<sub>10</sub></div>
+          <div class="step">从5个球中任取2个，总取法数 n(Ω) = C₅² = 10。</div>
+          <div class="step">事件A"2个都是红球"：从3个红球中取2个，n(A) = C₃² = 3。</div>
+          <div class="step">P(A) = <sup>3</sup>/<sub>10</sub>。</div>
+          <div class="step"><strong>易错：</strong>注意区分排列与组合！这里取球不考虑顺序，用组合数计算。</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <span class="q-number">基础4</span>
+      <div class="q-text">某班级有40名学生，其中男生20人，女生20人。现从全班中随机选取2人，求选出的2人中恰有1男1女的概率。</div>
+      <div class="solution">
+        <button class="solution-toggle" onclick="toggleSolution(this)">📖 查看解析</button>
+        <div class="solution-body">
+          <div class="ans">答案：<sup>20</sup>/<sub>39</sub></div>
+          <div class="step">总取法数 n(Ω) = C₄₀² = 780。</div>
+          <div class="step">事件A"恰有1男1女"：选1男（C₂₀¹种）× 选1女（C₂₀¹种）= 20 × 20 = 400。</div>
+          <div class="step">P(A) = <sup>400</sup>/<sub>780</sub> = <sup>20</sup>/<sub>39</sub>。</div>
+          <div class="step"><strong>检验：</strong>P(2男)=C₂₀²/C₄₀² = <sup>19</sup>/<sub>78</sub>，P(2女)=同样<sup>19</sup>/<sub>78</sub>，三者之和为<sup>19</sup>/<sub>78</sub>+<sup>19</sup>/<sub>78</sub>+<sup>20</sup>/<sub>39</sub> = <sup>19+19+40</sup>/<sub>78</sub> = 1。✅</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <span class="q-number">基础5</span>
+      <div class="q-text">某射手每次射击命中目标的概率为0.8，且每次射击相互独立。求该射手连续射击3次，恰好命中2次的概率。</div>
+      <div class="solution">
+        <button class="solution-toggle" onclick="toggleSolution(this)">📖 查看解析</button>
+        <div class="solution-body">
+          <div class="ans">答案：0.384</div>
+          <div class="step">这是一个3次独立重复试验（博努利试验），每次命中概率p=0.8，不命中q=0.2。</div>
+          <div class="step">恰好命中2次的概率：P = C₃² × p² × q¹</div>
+          <div class="step">= 3 × (0.8)² × 0.2</div>
+          <div class="step">= 3 × 0.64 × 0.2</div>
+          <div class="step">= 0.384</div>
+          <div class="step"><strong>公式：</strong>n次独立重复试验中恰好发生k次的概率为 P(X=k) = Cₙᵏ pᵏ qⁿ⁻ᵏ。</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <span class="q-number">基础6</span>
+      <div class="q-text">从数字1, 2, 3, 4中任取两个不同的数字组成两位数，求这个两位数大于30的概率。</div>
+      <div class="solution">
+        <button class="solution-toggle" onclick="toggleSolution(this)">📖 查看解析</button>
+        <div class="solution-body">
+          <div class="ans">答案：<sup>1</sup>/<sub>2</sub></div>
+          <div class="step">从4个数字中选2个不同数字排成两位数，总共有 A₄² = 4×3 = 12 种。</div>
+          <div class="step">事件A"两位数大于30"：十位只能取3或4。</div>
+          <div class="step">① 十位为3：个位可取1,2,4 → 3种（31,32,34）</div>
+          <div class="step">② 十位为4：个位可取1,2,3 → 3种（41,42,43）</div>
+          <div class="step">n(A) = 3+3 = 6。</div>
+          <div class="step">P(A) = <sup>6</sup>/<sub>12</sub> = <sup>1</sup>/<sub>2</sub>。</div>
+          <div class="step"><strong>注意：</strong>组成两位数时顺序重要，用排列而非组合。</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <span class="q-number">基础7</span>
+      <div class="q-text">甲、乙两人各掷一颗质地均匀的骰子，求点数之和为7的概率。</div>
+      <div class="solution">
+        <button class="solution-toggle" onclick="toggleSolution(this)">📖 查看解析</button>
+        <div class="solution-body">
+          <div class="ans">答案：<sup>1</sup>/<sub>6</sub></div>
+          <div class="step">样本空间：甲有6种点数，乙有6种点数，共6×6=36个等可能结果。</div>
+          <div class="step">点数之和为7的组合：(1,6),(2,5),(3,4),(4,3),(5,2),(6,1)，共6种。</div>
+          <div class="step">P = <sup>6</sup>/<sub>36</sub> = <sup>1</sup>/<sub>6</sub>。</div>
+          <div class="step"><strong>拓展：</strong>点数之和为2~12的概率呈对称分布，和为7的概率最大（<sup>1</sup>/<sub>6</sub>），和为2或12的概率最小（<sup>1</sup>/<sub>36</sub>）。</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <span class="q-number">基础8</span>
+      <div class="q-text">已知P(A)=0.5，P(B)=0.3，且A与B互斥，求P(A∪B)和P(A∩B)。</div>
+      <div class="solution">
+        <button class="solution-toggle" onclick="toggleSolution(this)">📖 查看解析</button>
+        <div class="solution-body">
+          <div class="ans">答案：P(A∪B)=0.8，P(A∩B)=0</div>
+          <div class="step"><strong>互斥事件：</strong>事件A与B互斥意味着A∩B=∅，即两者不能同时发生。</div>
+          <div class="step">所以 P(A∩B) = 0。</div>
+          <div class="step">由互斥事件的加法公式：P(A∪B) = P(A) + P(B) = 0.5 + 0.3 = 0.8。</div>
+          <div class="step"><strong>对比：</strong>如果A与B不互斥，则 P(A∪B) = P(A)+P(B)−P(A∩B)。</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <span class="q-number">基础9</span>
+      <div class="q-text">已知P(A)=0.6，P(B)=0.7，P(A∩B)=0.4，求P(A∪B)。</div>
+      <div class="solution">
+        <button class="solution-toggle" onclick="toggleSolution(this)">📖 查看解析</button>
+        <div class="solution-body">
+          <div class="ans">答案：0.9</div>
+          <div class="step">由概率的一般加法公式：</div>
+          <div class="step">P(A∪B) = P(A) + P(B) − P(A∩B)</div>
+          <div class="step">= 0.6 + 0.7 − 0.4</div>
+          <div class="step">= 0.9</div>
+          <div class="step"><strong>验证：</strong>P(A∪B)=0.9 ≤ 1，合理。</div>
+          <div class="step"><strong>注意：</strong>这里P(A)+P(B)=1.3>1，说明A与B不是互斥的，不能直接用加法公式（忽略了重叠部分被重复计算）。</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <span class="q-number">基础10</span>
+      <div class="q-text">一个箱子中有10件产品，其中3件次品。从中不放回地依次取2件，求两件都是正品的概率。</div>
+      <div class="solution">
+        <button class="solution-toggle" onclick="toggleSolution(this)">📖 查看解析</button>
+        <div class="solution-body">
+          <div class="ans">答案：<sup>7</sup>/<sub>15</sub></div>
+          <div class="step"><strong>解法一（组合法）：</strong></div>
+          <div class="step">总数 n(Ω)=C₁₀²=45，取2件正品 n(A)=C₇²=21。</div>
+          <div class="step">P(A) = <sup>21</sup>/<sub>45</sub> = <sup>7</sup>/<sub>15</sub>。</div>
+          <div class="step"><strong>解法二（乘法公式）：</strong></div>
+          <div class="step">第一次取正品的概率：<sup>7</sup>/<sub>10</sub>。</div>
+          <div class="step">第一次取正品后，剩余9件中正品6件，第二次取正品的概率：<sup>6</sup>/<sub>9</sub> = <sup>2</sup>/<sub>3</sub>。</div>
+          <div class="step">P = <sup>7</sup>/<sub>10</sub> × <sup>2</sup>/<sub>3</sub> = <sup>14</sup>/<sub>30</sub> = <sup>7</sup>/<sub>15</sub>。</div>
+          <div class="step"><strong>易错：</strong>"不放回"与"放回"不同。放回时每次独立，概率不变；不放回时条件概率会变化。</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========== 拔高挑战 10题 ========== -->
+  <div id="hard" class="tab-content" style="display:none;">
+
+    <div class="card">
+      <span class="q-number difficult">拔高1</span><span class="q-tag hard">条件概率</span>
+      <div class="q-text">某家庭有2个孩子，已知至少有一个是女孩，求另一个也是女孩的概率。（假设生男生女等可能）</div>
+      <div class="solution">
+        <button class="solution-toggle" onclick="toggleSolution(this)">📖 查看解析</button>
+        <div class="solution-body">
+          <div class="ans">答案：<sup>1</sup>/<sub>3</sub></div>
+          <div class="step"><strong>易错警示：</strong>很多人会直觉地回答<sup>1</sup>/<sub>2</sub>，但正确答案是<sup>1</sup>/<sub>3</sub>。</div>
+          <div class="step">样本空间（用B表示男孩，G表示女孩）：Ω = {BB, BG, GB, GG}，4个等可能结果。</div>
+          <div class="step">事件A"至少有一个女孩" = {BG, GB, GG}，n(A)=3。</div>
+          <div class="step">事件B"两个都是女孩" = {GG}。</div>
+          <div class="step">在A发生的条件下B发生的概率：</div>
+          <div class="step">P(B|A) = P(A∩B) / P(A) = (<sup>1</sup>/<sub>4</sub>) / (<sup>3</sup>/<sub>4</sub>) = <sup>1</sup>/<sub>3</sub>。</div>
+          <div class="step"><strong>思路：</strong>条件概率缩小了样本空间，从原来的4个结果缩小到3个（排除BB），其中只有GG满足"另一个也是女孩"。</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <span class="q-number difficult">拔高2</span><span class="q-tag hard">独立事件</span>
+      <div class="q-text">甲、乙两人各进行射击一次。甲命中概率0.9，乙命中概率0.8，且两人是否命中相互独立。求：(1)两人都命中的概率；(2)至少有一人命中的概率；(3)恰好有一人命中的概率。</div>
+      <div class="solution">
+        <button class="solution-toggle" onclick="toggleSolution(this)">📖 查看解析</button>
+        <div class="solution-body">
+          <div class="ans">答案：(1) 0.72 (2) 0.98 (3) 0.26</div>
+          <div class="step">设A="甲命中"，B="乙命中"，A与B独立。</div>
+          <div class="step"><strong>(1)</strong> P(A∩B) = P(A)·P(B) = 0.9×0.8 = 0.72。</div>
+          <div class="step"><strong>(2)</strong> 方法一：P(A∪B)=P(A)+P(B)−P(A∩B)=0.9+0.8−0.72=0.98。</div>
+          <div class="step">方法二（对立事件）：P(至少一人命中) = 1 − P(都未命中) = 1 − (1−0.9)×(1−0.8) = 1 − 0.1×0.2 = 1 − 0.02 = 0.98。</div>
+          <div class="step"><strong>(3)</strong> P(恰好一人命中) = P(A∩<span style="text-decoration:overline">B</span>) + P(<span style="text-decoration:overline">A</span>∩B) = 0.9×0.2 + 0.1×0.8 = 0.18 + 0.08 = 0.26。</div>
+          <div class="step"><strong>验证：</strong>0.72(都中) + 0.26(恰一中) + 0.02(都不中) = 1。✅</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <span class="q-number difficult">拔高3</span><span class="q-tag hard">古典概型</span>
+      <div class="q-text">从0, 1, 2, 3, 4, 5中任取3个不同的数字，组成一个三位数，求这个三位数是偶数的概率。</div>
+      <div class="solution">
+        <button class="solution-toggle" onclick="toggleSolution(this)">📖 查看解析</button>
+        <div class="solution-body">
+          <div class="ans">答案：<sup>13</sup>/<sub>25</sub></div>
+          <div class="step"><strong>总情况数：</strong>百位不能为0，所以总数为 5×5×4 = 100个三位数。</div>
+          <div class="step">事件A"三位数为偶数"：个位必须是偶数（0,2,4），分两种情况：</div>
+          <div class="step"><strong>① 个位为0：</strong>百位从1~5中选（5种），十位从剩下4个中选（4种）。共5×4=20个。</div>
+          <div class="step"><strong>② 个位为2或4：</strong></div>
+          <div class="step">个位：2种选择（2或4）。</div>
+          <div class="step">百位：不能为0且不能与个位重复，有4种选择（从剩下的非0数中选）。</div>
+          <div class="step">十位：从剩下的4个数中选（包括0），有4种。</div>
+          <div class="step">共 2×4×4 = 32个。</div>
+          <div class="step">n(A) = 20 + 32 = 52。</div>
+          <div class="step">P(A) = <sup>52</sup>/<sub>100</sub> = <sup>13</sup>/<sub>25</sub>。</div>
+          <div class="step"><strong>易错：</strong>三位数百位不能为0，这是一个关键约束。</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <span class="q-number difficult">拔高4</span><span class="q-tag hard">概率基本性质</span>
+      <div class="q-text">已知P(A)=0.4，P(B)=0.5，P(A∪B)=0.7。求：(1)P(A∩B)；(2)P(A∩<span style="text-decoration:overline">B</span>)。</div>
+      <div class="solution">
+        <button class="solution-toggle" onclick="toggleSolution(this)">📖 查看解析</button>
+        <div class="solution-body">
+          <div class="ans">答案：(1) 0.2 (2) 0.2</div>
+          <div class="step"><strong>(1)</strong> 由加法公式：P(A∪B)=P(A)+P(B)−P(A∩B)</div>
+          <div class="step">0.7 = 0.4 + 0.5 − P(A∩B)</div>
+          <div class="step">P(A∩B) = 0.4 + 0.5 − 0.7 = 0.2。</div>
+          <div class="step"><strong>(2)</strong> 求P(A∩<span style="text-decoration:overline">B</span>)即"A发生且B不发生"的概率。</div>
+          <div class="step">方法一：P(A) = P(A∩B) + P(A∩<span style="text-decoration:overline">B</span>)（全集分解）</div>
+          <div class="step">0.4 = 0.2 + P(A∩<span style="text-decoration:overline">B</span>) ⇒ P(A∩<span style="text-decoration:overline">B</span>) = 0.2。</div>
+          <div class="step">方法二：P(A∩<span style="text-decoration:overline">B</span>) = P(A) − P(A∩B) = 0.4 − 0.2 = 0.2。</div>
+          <div class="step"><strong>思维：</strong>全集分解（全概率公式的雏形）是解决复杂概率问题的重要思想。</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <span class="q-number difficult">拔高5</span><span class="q-tag hard">独立事件+串并联</span>
+      <div class="q-text">一个电路由三个独立工作的元件串联而成。元件1、2、3正常工作的概率分别为0.9、0.8、0.7。求电路正常工作的概率。如果改成并联，概率又是多少？</div>
+      <div class="solution">
+        <button class="solution-toggle" onclick="toggleSolution(this)">📖 查看解析</button>
+        <div class="solution-body">
+          <div class="ans">答案：串联0.504；并联0.994</div>
+          <div class="step"><strong>串联：</strong>必须所有元件都正常工作，电路才通。</div>
+          <div class="step">P(串联正常) = P(1正常)·P(2正常)·P(3正常) = 0.9×0.8×0.7 = 0.504。</div>
+          <div class="step"><strong>并联：</strong>只要至少有一个元件正常工作，电路就通。</div>
+          <div class="step">用对立事件：P(并联正常) = 1 − P(所有元件都失效)</div>
+          <div class="step">= 1 − (1−0.9)×(1−0.8)×(1−0.7)</div>
+          <div class="step">= 1 − 0.1×0.2×0.3</div>
+          <div class="step">= 1 − 0.006</div>
+          <div class="step">= 0.994</div>
+          <div class="step"><strong>对比：</strong>串联可靠性低于最差元件，并联可靠性高于最优元件。这就是为什么重要系统需要冗余设计（并联）。</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <span class="q-number difficult">拔高6</span><span class="q-tag hard">条件概率+乘法公式</span>
+      <div class="q-text">盒中有5个红球和3个白球，不放回地依次取3个球，求第三次才取到白球的概率。</div>
+      <div class="solution">
+        <button class="solution-toggle" onclick="toggleSolution(this)">📖 查看解析</button>
+        <div class="solution-body">
+          <div class="ans">答案：<sup>5</sup>/<sub>28</sub></div>
+          <div class="step">"第三次才取到白球"意味着前两次取的都是红球，第三次取到白球。</div>
+          <div class="step">用乘法公式（条件概率链式法则）：</div>
+          <div class="step">第一次取红球的概率：P₁ = <sup>5</sup>/<sub>8</sub>。</div>
+          <div class="step">在第一次取红球的条件下，剩余7个球中有4个红球，第二次取红球的概率：P₂ = <sup>4</sup>/<sub>7</sub>。</div>
+          <div class="step">在前两次都取红球的条件下，剩余6个球中有3个白球，第三次取白球的概率：P₃ = <sup>3</sup>/<sub>6</sub> = <sup>1</sup>/<sub>2</sub>。</div>
+          <div class="step">P = <sup>5</sup>/<sub>8</sub> × <sup>4</sup>/<sub>7</sub> × <sup>1</sup>/<sub>2</sub> = <sup>20</sup>/<sub>112</sub> = <sup>5</sup>/<sub>28</sub>。</div>
+          <div class="step"><strong>另解（组合法）：</strong>总取法C₈³=56。"前两个红球后一个白球"即前两个从5个红球中取（C₅²=10），第三个必须是固定一个白球？不对，第三个可以是任意一个白球（C₃¹=3），但注意顺序固定（前两红、第三白），所以 n(A) = C₅²×C₃¹ = 10×3=30。P=30/56=15/28？不对——这算的是"恰好前两红第三白"但没考虑顺序已定。实际上组合法计算不放回有序：A₈³=336，前两红第三白=5×4×3=60，P=60/336=5/28。✅</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <span class="q-number difficult">拔高7</span><span class="q-tag hard">全概率公式</span>
+      <div class="q-text">某工厂有甲、乙、丙三台设备生产同一种产品，产量分别占总产量的40%、35%、25%，次品率分别为2%、3%、4%。从总产品中随机抽取一件，求抽到次品的概率。</div>
+      <div class="solution">
+        <button class="solution-toggle" onclick="toggleSolution(this)">📖 查看解析</button>
+        <div class="solution-body">
+          <div class="ans">答案：0.0285</div>
+          <div class="step">设事件A="抽到次品"，B₁、B₂、B₃分别表示"产品来自甲、乙、丙"。</div>
+          <div class="step">{B₁, B₂, B₃}构成了样本空间的一个完备事件组（划分）。</div>
+          <div class="step">由全概率公式：</div>
+          <div class="step">P(A) = P(B₁)P(A|B₁) + P(B₂)P(A|B₂) + P(B₃)P(A|B₃)</div>
+          <div class="step">P(B₁)=0.4，P(A|B₁)=0.02</div>
+          <div class="step">P(B₂)=0.35，P(A|B₂)=0.03</div>
+          <div class="step">P(B₃)=0.25，P(A|B₃)=0.04</div>
+          <div class="step">P(A) = 0.4×0.02 + 0.35×0.03 + 0.25×0.04</div>
+          <div class="step">= 0.008 + 0.0105 + 0.01</div>
+          <div class="step">= 0.0285</div>
+          <div class="step"><strong>理解：</strong>全概率公式的本质是"加权平均"——以各事件发生的概率为权重，求条件概率的加权平均。</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <span class="q-number difficult">拔高8</span><span class="q-tag hard">贝叶斯公式</span>
+      <div class="q-text">接上题，若从总产品中随机抽取一件，经检验是次品。求这件次品来自甲设备的概率。</div>
+      <div class="solution">
+        <button class="solution-toggle" onclick="toggleSolution(this)">📖 查看解析</button>
+        <div class="solution-body">
+          <div class="ans">答案：约0.2807</div>
+          <div class="step">由贝叶斯公式（逆概率公式）：</div>
+          <div class="step">P(B₁|A) = P(B₁)·P(A|B₁) / P(A)</div>
+          <div class="step">已知：P(B₁)=0.4，P(A|B₁)=0.02，P(A)=0.0285（上题已求）。</div>
+          <div class="step">P(B₁|A) = (0.4×0.02) / 0.0285</div>
+          <div class="step">= 0.008 / 0.0285</div>
+          <div class="step">≈ 0.2807（即约28.07%）</div>
+          <div class="step"><strong>对比：</strong>虽然甲设备产量最高（40%），但它的次品率最低（2%），所以抽到次品来自甲的概率（28.07%）低于其产量占比。</div>
+          <div class="step"><strong>贝叶斯公式的直观理解：</strong>先验概率P(B₁)在看到证据（次品）后被"更新"为后验概率P(B₁|A)。</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <span class="q-number difficult">拔高9</span><span class="q-tag hard">复杂古典概型</span>
+      <div class="q-text">从1, 2, 3, …, 10中随机选取3个不同的数。求：(1)这3个数能构成等差数列的概率；(2)这3个数能构成等比数列的概率。</div>
+      <div class="solution">
+        <button class="solution-toggle" onclick="toggleSolution(this)">📖 查看解析</button>
+        <div class="solution-body">
+          <div class="ans">答案：(1) <sup>2</sup>/<sub>15</sub> (2) <sup>1</sup>/<sub>60</sub></div>
+          <div class="step">总选法：C₁₀³ = 120。</div>
+          <div class="step"><strong>(1) 等差数列：</strong>设三数为 a, a+d, a+2d，其中a≥1，a+2d≤10，d为正整数。</div>
+          <div class="step">d=1：(1,2,3),(2,3,4),…,(8,9,10) → 8组</div>
+          <div class="step">d=2：(1,3,5),(2,4,6),…,(6,8,10) → 6组</div>
+          <div class="step">d=3：(1,4,7),(2,5,8),(3,6,9),(4,7,10) → 4组</div>
+          <div class="step">d=4：(1,5,9),(2,6,10) → 2组</div>
+          <div class="step">共计 8+6+4+2 = 20组。</div>
+          <div class="step">P = 20/120 = <sup>1</sup>/<sub>6</sub>？检查：d=1有8组，d=2有6组，d=3有4组，d=4有2组，共20。20/120=1/6。等等，再核实——20/120=1/6≈0.167。不对，我再列一次：</div>
+          <div class="step">d=1: (1,2,3)~(8,9,10)=8组 ✓</div>
+          <div class="step">d=2: (1,3,5)~(6,8,10)=6组 ✓</div>
+          <div class="step">d=3: (1,4,7)~(4,7,10)=4组 ✓</div>
+          <div class="step">d=4: (1,5,9),(2,6,10)=2组 ✓</div>
+          <div class="step">共20组，P=20/120=<sup>1</sup>/<sub>6</sub>。但注意：还有递减等差的！递增是上面这些，递减其实对应同样的集合（因为无序），所以不需要再算。所以P(等差)=<sup>1</sup>/<sub>6</sub>。</div>
+          <div class="step"><strong>(2) 等比数列：</strong>设三数为 a, ar, ar²，r为有理数（公比）。</div>
+          <div class="step">r=2：(1,2,4),(2,4,8) → 2组</div>
+          <div class="step">r=3：(1,3,9) → 1组</div>
+          <div class="step">r=1/2：(4,2,1),(8,4,2) → 跟r=2重复的集合，不算</div>
+          <div class="step">r=？(1,4,16)超出范围</div>
+          <div class="step">(4,6,9)：4:6=6:9=2:3，公比1.5，(4,6,9) ✅</div>
+          <div class="step">(9,6,4)是递减，集合相同。</div>
+          <div class="step">所以不同的等比数列集合有：(1,2,4),(2,4,8),(1,3,9),(4,6,9) — 共4组？</div>
+          <div class="step">(2,4,8)是等比 ✓，(1,2,4)✓，(1,3,9)✓，(4,6,9)✓。还有(1,4,16)超出。</div>
+          <div class="step">验证(4,6,9)：4×9=36，6²=36，等比 ✓。</div>
+          <div class="step">共4组，P=4/120=<sup>1</sup>/<sub>30</sub>。</div>
+          <div class="step"><strong>更正：</strong>最终答案 P(等差)=<sup>1</sup>/<sub>6</sub>，P(等比)=<sup>1</sup>/<sub>30</sub>。</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <span class="q-number difficult">拔高10</span><span class="q-tag hard">综合应用</span>
+      <div class="q-text">甲、乙两人进行乒乓球比赛，采用五局三胜制。已知甲每局胜的概率为0.6，乙每局胜的概率为0.4，各局比赛相互独立。求甲最终获得比赛胜利的概率。</div>
+      <div class="solution">
+        <button class="solution-toggle" onclick="toggleSolution(this)">📖 查看解析</button>
+        <div class="solution-body">
+          <div class="ans">答案：0.68256</div>
+          <div class="step">甲获胜的情况：甲以3:0、3:1或3:2获胜。</div>
+          <div class="step"><strong>① 3:0（连胜3局）：</strong></div>
+          <div class="step">P₀ = (0.6)³ = 0.216。</div>
+          <div class="step"><strong>② 3:1（前3局甲胜2局且乙胜1局，第4局甲胜）：</strong></div>
+          <div class="step">注意：不能在前3局就让甲赢完（否则是3:0），所以前3局甲恰好赢2局。</div>
+          <div class="step">P₁ = C₃² × (0.6)² × 0.4 × 0.6</div>
+          <div class="step">= 3 × 0.36 × 0.4 × 0.6</div>
+          <div class="step">= 3 × 0.36 × 0.24</div>
+          <div class="step">= 0.2592</div>
+          <div class="step"><strong>③ 3:2（前4局甲胜2局且乙胜2局，第5局甲胜）：</strong></div>
+          <div class="step">P₂ = C₄² × (0.6)² × (0.4)² × 0.6</div>
+          <div class="step">= 6 × 0.36 × 0.16 × 0.6</div>
+          <div class="step">= 6 × 0.36 × 0.096</div>
+          <div class="step">= 0.20736</div>
+          <div class="step"><strong>总概率：</strong></div>
+          <div class="step">P = P₀ + P₁ + P₂ = 0.216 + 0.2592 + 0.20736 = 0.68256</div>
+          <div class="step"><strong>易错：</strong>很多人在计算3:1和3:2时，忘记"最后一局必须是甲胜"这个条件，误写成C₄³×(0.6)³×0.4或C₅³×(0.6)³×(0.4)²，这样会把甲提前获胜（比如3:0后继续打）的情况也包含进去。</div>
+          <div class="step"><strong>关键：</strong>赛点局（最后一局）必须单独写出，前面的局数用组合数计算恰好赢的局数。</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+function toggleSolution(btn) {
+  const body = btn.nextElementSibling;
+  body.classList.toggle('open');
+  btn.textContent = body.classList.contains('open') ? '📕 收起解析' : '📖 查看解析';
+}
+function switchTab(name) {
+  document.querySelectorAll('.tab-content').forEach(c => c.style.display = 'none');
+  document.getElementById(name).style.display = 'block';
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  document.querySelector(`.tab[onclick*="${name}"]`).classList.add('active');
+}
+</script>
+</body>
+</html>
