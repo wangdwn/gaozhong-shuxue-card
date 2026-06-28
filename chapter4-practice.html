@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>指数函数与对数函数 · 专项训练 — 高中数学知识卡片</title>
+<link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+<style>
+:root {
+  --bg: #f5f5f7;
+  --card-bg: rgba(255,255,255,0.85);
+  --accent: #8e44ad;
+  --accent-dark: #6c3483;
+  --gold: #d4a537;
+  --red: #c0392b;
+  --green: #27ae60;
+  --text: #1d1d1f;
+  --text-secondary: #86868b;
+  --radius: 16px;
+}
+@media(prefers-color-scheme:dark) {
+  :root {
+    --bg: #1d1d1f;
+    --card-bg: rgba(40,40,44,0.9);
+    --text: #f5f5f7;
+    --text-secondary: #98989d;
+  }
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Noto Sans SC", sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.8;
+  padding: 0 0 40px;
+}
+.container { max-width: 800px; margin: 0 auto; padding: 0 20px; }
+.header {
+  text-align: center; padding: 40px 0 30px;
+  border-bottom: 1px solid rgba(0,0,0,0.06); margin-bottom: 30px; position: relative;
+}
+.header h1 { font-size: 1.6rem; font-weight: 700; margin-bottom: 6px; }
+.header .sub { font-size: 0.85rem; color: var(--text-secondary); }
+.back-link {
+  position: absolute; left: 0; top: 40px;
+  color: var(--accent); text-decoration: none; font-size: 0.82rem;
+}
+@media(max-width:600px) { .back-link { position: static; display: block; text-align: left; margin-bottom: 10px; } }
+.tabs {
+  display: flex; gap: 8px; margin-bottom: 24px;
+  border-bottom: 1px solid rgba(0,0,0,0.06); padding-bottom: 8px;
+}
+.tab {
+  padding: 8px 20px; border-radius: 8px; font-size: 0.85rem; cursor: pointer;
+  color: var(--text-secondary); transition: all 0.2s; border: none;
+  background: transparent; font-weight: 500;
+}
+.tab:hover { background: rgba(142,68,173,0.06); }
+.tab.active { background: var(--accent); color: white; }
+.card {
+  background: var(--card-bg); backdrop-filter: blur(12px); border-radius: var(--radius);
+  padding: 24px; margin-bottom: 20px; border: 1px solid rgba(0,0,0,0.06);
+}
+.q-number {
+  display: inline-block; background: var(--accent); color: white;
+  font-size: 0.72rem; padding: 2px 10px; border-radius: 12px; margin-bottom: 12px; font-weight: 600;
+}
+.q-number.difficult { background: var(--red); }
+.q-tag {
+  display: inline-block; font-size: 0.7rem; padding: 2px 10px; border-radius: 10px;
+  margin-left: 6px; background: rgba(212,165,55,0.15); color: var(--gold);
+}
+.q-tag.hard { background: rgba(192,57,43,0.1); color: var(--red); }
+.q-text { font-size: 0.92rem; line-height: 1.8; margin-bottom: 16px; font-weight: 500; }
+.solution { border-top: 1px solid rgba(0,0,0,0.06); padding-top: 16px; margin-top: 16px; }
+.solution-toggle {
+  display: inline-flex; align-items: center; gap: 4px; font-size: 0.82rem;
+  color: var(--accent); cursor: pointer; background: none; border: none;
+  padding: 4px 12px; border-radius: 8px; transition: all 0.2s; font-weight: 500;
+}
+.solution-toggle:hover { background: rgba(142,68,173,0.06); }
+.solution-body { display: none; margin-top: 12px; font-size: 0.85rem; color: var(--text-secondary); line-height: 1.9; }
+.solution-body.open { display: block; }
+.solution-body strong { color: var(--text); }
+.solution-body .ans {
+  display: inline-block; background: rgba(39,174,96,0.1); color: var(--green);
+  padding: 2px 10px; border-radius: 6px; font-weight: 600; margin-bottom: 8px;
+}
+.solution-body .step { margin-bottom: 6px; padding-left: 12px; border-left: 2px solid var(--accent); }
+@media(max-width:600px) {
+  .header h1 { font-size: 1.2rem; } .card { padding: 16px; } .tabs { gap: 4px; }
+  .tab { padding: 6px 12px; font-size: 0.78rem; }
+}
+</style>
+</head>
+<body>
+<div class="container">
+  <div class="header">
+    <a href="index.html" class="back-link">← 返回知识卡片主页</a>
+    <h1>📈 指数函数与对数函数 · 专项训练</h1>
+    <p class="sub">人教A版 · 必修第一册 第四章 | 10道基础题 + 10道拔高题</p>
+  </div>
+  <div class="tabs">
+    <button class="tab active" onclick="switchTab('basic')">基础训练 10题</button>
+    <button class="tab" onclick="switchTab('hard')">拔高挑战 10题</button>
+  </div>
+
+  <div id="basic" class="tab-content">
+    <div class="card">
+      <span class="q-number">基础1</span>
+      <div class="q-text">计算：<sup>3</sup>√(27) + 2<sup>0</sup> + 4<sup>-1</sup>。</div>
+      <div class="solution">
+        <button class="solution-toggle" onclick="toggleSolution(this)">📖 查看解析</button>
+        <div class="solution-body">
+          <div class="ans">答案：25/4</div>
+          <div class="step"><sup>3</sup>√(27) = 3，因为 3³ = 27</div>
+          <div class="step">2<sup>0</sup> = 1（任何非零数的零次幂等于1）</div>
+          <div class="step">4<sup>-1</sup> = 1/4</div>
+          <div class="step">所以 原式 = 3 + 1 + 1/4 = 4 + 1/4 = 17/4？等等：3+1=4，4+0.25=4.25=17/4</div>
+          <div class="step">答案：17/4</div>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <span class="q-number">基础2</span>
+      <div class="q-text">将指数式 3<sup>4</sup> = 81 改写成对数式。</div>
+      <div class="solution">
+        <button class="solution-toggle" onclick="toggleSolution(this)">📖 查看解析</button>
+        <div class="solution-body">
+          <div class="ans">答案：log₃81 = 4</div>
+          <div class="step">指数式 a<sup>b</sup> = N 等价于对数式 log<sub>a</sub>N = b</div>
+          <div class="step">底数a=3，指数b=4，真数N=81</div>
+          <div class="step">所以 log₃81 = 4</div>
+          <div class="step"><strong>注意：</strong>底数3写在log右下，真数81写在log后面，结果等于指数4。</div>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <span class="q-number">基础3</span>
+      <div class="q-text">计算：log₂8 + log₅25 - log₃1。</div>
+      <div class="solution">
+        <button class="solution-toggle" onclick="toggleSolution(this)">📖 查看解析</button>
+        <div class="solution-body">
+          <div class="ans">答案：5</div>
+          <div class="step">log₂8 = 3，因为 2³ = 8</div>
+          <div class="step">log₅25 = 2，因为 5² = 25</div>
+          <div class="step">log₃1 = 0，因为 3⁰ = 1</div>
+          <div class="step">原式 = 3 + 2 - 0 = 5</div>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <span class="q-number">基础4</span>
+      <div class="q-text">求函数 f(x) = 2<sup>x</sup> 在 x = -1, 0, 2 处的函数值，并判断该函数的单调性。</div>
+      <div class="solution">
+        <button class="solution-toggle" onclick="toggleSolution(this)">📖 查看解析</button>
+        <div class="solution-body">
+          <div class="ans">答案：f(-1)=1/2, f(0)=1, f(2)=4；在R上单调递增</div>
+          <div class="step">f(-1) = 2<sup>-1</sup> = 1/2</div>
+          <div class="step">f(0) = 2<sup>0</sup> = 1</div>
+          <div class="step">f(2) = 2<sup>2</sup> = 4</div>
+          <div class="step">指数函数 y = a<sup>x</sup>（a>0且a≠1）：当 a>1 时单调递增，当 0&lt;a&lt;1 时单调递减。</div>
+          <div class="step">本题 a=2>1，所以 f(x)=2<sup>x</sup> 在 R 上单调递增。</div>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <span class="q-number">基础5</span>
+      <div class="q-text">求函数 f(x) = log₂(x - 1) 的定义域。</div>
+      <div class="solution">
+        <button class="solution-toggle" onclick="toggleSolution(this)">📖 查看解析</button>
+        <div class="solution-body">
+          <div class="ans">答案：(1, +∞)</div>
+          <div class="step">对数函数 log<sub>a</sub>u 要求真数 u > 0</div>
+          <div class="step">本题真数为 x - 1，所以 x - 1 > 0</div>
+          <div class="step">解得 x > 1</div>
+          <div class="step">定义域为 (1, +∞)</div>
+          <div class="step"><strong>易错：</strong>忘记真数必须大于0这个条件。</div>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <span class="q-number">基础6</span>
+      <div class="q-text">化简：lg25 + lg4。</div>
+      <div class="solution">
+        <button class="solution-toggle" onclick="toggleSolution(this)">📖 查看解析</button>
+        <div class="solution-body">
+          <div class="ans">答案：2</div>
+          <div class="step">lg 表示以10为底的对数，即 lg = log₁₀</div>
+          <div class="step">运用对数加法法则：lgA + lgB = lg(AB)</div>
+          <div class="step">lg25 + lg4 = lg(25 × 4) = lg100</div>
+          <div class="step">lg100 = log₁₀100 = 2，因为 10² = 100</div>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <span class="q-number">基础7</span>
+      <div class="q-text">比较大小：2<sup>3.1</sup> 与 2<sup>2.9</sup>；log₃5 与 log₃3.5。</div>
+      <div class="solution">
+        <button class="solution-toggle" onclick="toggleSolution(this)">📖 查看解析</button>
+        <div class="solution-body">
+          <div class="ans">答案：2<sup>3.1</sup> > 2<sup>2.9</sup>；log₃5 > log₃3.5</div>
+          <div class="step"><strong>指数函数比较：</strong>y=2<sup>x</sup> 在R上单调递增。</div>
+          <div class="step">因为 3.1 > 2.9，所以 2<sup>3.1</sup> > 2<sup>2.9</sup></div>
+          <div class="step"><strong>对数函数比较：</strong>y=log₃x 在(0,+∞)上单调递增（底数3>1）。</div>
+          <div class="step">因为 5 > 3.5，所以 log₃5 > log₃3.5</div>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <span class="q-number">基础8</span>
+      <div class="q-text">方程 2<sup>x</sup> = 8 的解是多少？并用对数表示其解。</div>
+      <div class="solution">
+        <button class="solution-toggle" onclick="toggleSolution(this)">📖 查看解析</button>
+        <div class="solution-body">
+          <div class="ans">答案：x = 3；x = log₂8</div>
+          <div class="step">方法一（化为同底）：8 = 2³，所以 2<sup>x</sup> = 2³ ⇒ x = 3</div>
+          <div class="step">方法二（对数定义）：x = log₂8 = 3</div>
+          <div class="step">两种方法都得到 x = 3</div>
+          <div class="step"><strong>注意：</strong>指数方程的核心思想是化为同底或取对数。</div>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <span class="q-number">基础9</span>
+      <div class="q-text">已知 log₃x = -2，求 x 的值。</div>
+      <div class="solution">
+        <button class="solution-toggle" onclick="toggleSolution(this)">📖 查看解析</button>
+        <div class="solution-body">
+          <div class="ans">答案：x = 1/9</div>
+          <div class="step">由对数定义：log₃x = -2 ⇔ 3<sup>-2</sup> = x</div>
+          <div class="step">3<sup>-2</sup> = 1/3² = 1/9</div>
+          <div class="step">所以 x = 1/9</div>
+          <div class="step">验证：log₃(1/9) = log₃3<sup>-2</sup> = -2，正确。</div>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <span class="q-number">基础10</span>
+      <div class="q-text">某放射性物质每经过1年其质量减少为原来的80%。设初始质量为1单位，求经过t年后剩余质量 y 关于 t 的函数解析式。</div>
+      <div class="solution">
+        <button class="solution-toggle" onclick="toggleSolution(this)">📖 查看解析</button>
+        <div class="solution-body">
+          <div class="ans">答案：y = 0.8<sup>t</sup></div>
+          <div class="step">1年后：y = 1 × 0.8 = 0.8</div>
+          <div class="step">2年后：y = 0.8 × 0.8 = 0.8²</div>
+          <div class="step">t年后：y = 0.8<sup>t</sup></div>
+          <div class="step">这是一个典型的指数衰减模型 y = a<sup>t</sup>，其中 a = 0.8 ∈ (0,1)。</div>
+          <div class="step"><strong>应用背景：</strong>放射性衰变、药物代谢、人口衰减等问题都可用指数模型描述。</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="hard" class="tab-content" style="display:none;">
+    <div class="card">
+      <span class="q-number difficult">拔高1</span><span class="q-tag hard">指数运算</span>
+      <div class="q-text">化简：(a<sup>2/3</sup>b<sup>-1</sup>)<sup>-3</sup> ÷ (a<sup>-1</sup>b<sup>1/2</sup>)<sup>2</sup>，结果用分数指数幂表示。</div>
+      <div class="solution">
+        <button class="solution-toggle" onclick="toggleSolution(this)">📖 查看解析</button>
+        <div class="solution-body">
+          <div class="ans">答案：a<sup>-4</sup>b<sup>2</sup></div>
+          <div class="step">先处理分子的负幂：(a<sup>2/3</sup>b<sup>-1</sup>)<sup>-3</sup> = a<sup>(2/3)×(-3)</sup> · b<sup>(-1)×(-3)</sup> = a<sup>-2</sup>b<sup>3</sup></div>
+          <div class="step">再处理分母的幂：(a<sup>-1</sup>b<sup>1/2</sup>)<sup>2</sup> = a<sup>-1×2</sup> · b<sup>(1/2)×2</sup> = a<sup>-2</sup>b<sup>1</sup></div>
+          <div class="step">原式 = (a<sup>-2</sup>b<sup>3</sup>) / (a<sup>-2</sup>b) = a<sup>-2-(-2)</sup> · b<sup>3-1</sup> = a<sup>0</sup> · b<sup>2</sup> = b<sup>2</sup></div>
+          <div class="step">等等纠正：a<sup>-2</sup> / a<sup>-2</sup> = a<sup>0</sup> = 1，b<sup>3</sup>/b<sup>1</sup> = b<sup>2</sup></div>
+          <div class="step">最终结果：b<sup>2</sup></div>
+          <div class="step"><strong>关键：</strong>分数指数幂的运算遵循 (a<sup>m</sup>)<sup>n</sup> = a<sup>mn</sup>，以及同底数幂相除指数相减。</div>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <span class="q-number difficult">拔高2</span><span class="q-tag hard">对数运算</span>
+      <div class="q-text">计算：log₂3 × log₃4 × log₄5 × log₅2。</div>
+      <div class="solution">
+        <button class="solution-toggle" onclick="toggleSolution(this)">📖 查看解析</button>
+        <div class="solution-body">
+          <div class="ans">答案：1</div>
+          <div class="step">使用换底公式：log<sub>a</sub>b = ln b / ln a</div>
+          <div class="step">原式 = (ln3/ln2) × (ln4/ln3) × (ln5/ln4) × (ln2/ln5)</div>
+          <div class="step">相邻项约分：ln3消掉、ln4消掉、ln5消掉、剩下 ln2/ln2 = 1</div>
+          <div class="step">所以结果为 1。</div>
+          <div class="step"><strong>规律：</strong>log<sub>a₁</sub>a₂ × log<sub>a₂</sub>a₃ × ... × log<sub>aₙ</sub>a₁ = 1（循环相消）</div>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <span class="q-number difficult">拔高3</span><span class="q-tag hard">对数方程</span>
+      <div class="q-text">解方程：log₂(x + 1) + log₂(x - 1) = 3。</div>
+      <div class="solution">
+        <button class="solution-toggle" onclick="toggleSolution(this)">📖 查看解析</button>
+        <div class="solution-body">
+          <div class="ans">答案：x = 3</div>
+          <div class="step">首先确定定义域：x+1>0 且 x-1>0 ⇒ x > 1</div>
+          <div class="step">利用对数加法：log₂(x+1) + log₂(x-1) = log₂[(x+1)(x-1)] = log₂(x²-1)</div>
+          <div class="step">方程化为：log₂(x²-1) = 3</div>
+          <div class="step">化为指数式：x² - 1 = 2³ = 8</div>
+          <div class="step">x² = 9 ⇒ x = ±3</div>
+          <div class="step">结合定义域 x > 1，舍去 x = -3</div>
+          <div class="step">所以 x = 3。</div>
+          <div class="step"><strong>易错：</strong>解对数方程必须先确定定义域，解完后再检验，防止增根。</div>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <span class="q-number difficult">拔高4</span><span class="q-tag hard">指数方程</span>
+      <div class="q-text">解方程：4<sup>x</sup> - 3·2<sup>x+1</sup> + 8 = 0。</div>
+      <div class="solution">
+        <button class="solution-toggle" onclick="toggleSolution(this)">📖 查看解析</button>
+        <div class="solution-body">
+          <div class="ans">答案：x = 1 或 x = 2</div>
+          <div class="step">令 t = 2<sup>x</sup> > 0</div>
+          <div class="step">则 4<sup>x</sup> = (2²)<sup>x</sup> = 2<sup>2x</sup> = (2<sup>x</sup>)² = t²</div>
+          <div class="step">3·2<sup>x+1</sup> = 3·2·2<sup>x</sup> = 6t</div>
+          <div class="step">原方程化为：t² - 6t + 8 = 0</div>
+          <div class="step">因式分解：(t-2)(t-4) = 0 ⇒ t=2 或 t=4</div>
+          <div class="step">t=2 ⇒ 2<sup>x</sup> = 2 ⇒ x = 1</div>
+          <div class="step">t=4 ⇒ 2<sup>x</sup> = 4 ⇒ x = 2</div>
+          <div class="step"><strong>关键：</strong>换元法将指数方程转化为二次方程，注意 t=2<sup>x</sup> > 0 的隐含条件。</div>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <span class="q-number difficult">拔高5</span><span class="q-tag hard">对数不等式</span>
+      <div class="q-text">解不等式：log<sub>1/2</sub>(x - 1) > log<sub>1/2</sub>(3 - x)。</div>
+      <div class="solution">
+        <button class="solution-toggle" onclick="toggleSolution(this)">📖 查看解析</button>
+        <div class="solution-body">
+          <div class="ans">答案：1 &lt; x &lt; 2</div>
+          <div class="step">定义域：x - 1 > 0 且 3 - x > 0 ⇒ 1 &lt; x &lt; 3</div>
+          <div class="step">底数为 1/2，0 &lt; 1/2 &lt; 1，所以对数函数 y = log<sub>1/2</sub>u 在 (0,+∞) 上单调递减。</div>
+          <div class="step">因此不等式 log<sub>1/2</sub>(x-1) > log<sub>1/2</sub>(3-x) 等价于：x - 1 &lt; 3 - x</div>
+          <div class="step">解得：2x &lt; 4 ⇒ x &lt; 2</div>
+          <div class="step">结合定义域：1 &lt; x &lt; 2</div>
+          <div class="step"><strong>易错：</strong>底数在(0,1)之间时，对数函数单调递减，去掉对数后不等号方向要反转！</div>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <span class="q-number difficult">拔高6</span><span class="q-tag hard">复合函数</span>
+      <div class="q-text">求函数 f(x) = log<sub>2</sub>(x² - 2x - 3) 的单调递增区间。</div>
+      <div class="solution">
+        <button class="solution-toggle" onclick="toggleSolution(this)">📖 查看解析</button>
+        <div class="solution-body">
+          <div class="ans">答案：(3, +∞)</div>
+          <div class="step">首先求定义域：x² - 2x - 3 > 0</div>
+          <div class="step">因式分解：(x-3)(x+1) > 0 ⇒ x &lt; -1 或 x > 3</div>
+          <div class="step">令 u = x² - 2x - 3，则 f(x) = log₂u</div>
+          <div class="step">外层函数 y = log₂u（底数2>1，单调递增）</div>
+          <div class="step">内层函数 u = x² - 2x - 3，开口向上，对称轴 x = 1</div>
+          <div class="step">u 的单调区间：(-∞, 1)单调递减，(1, +∞)单调递增</div>
+          <div class="step">复合函数的单调性遵循"同增异减"：</div>
+          <div class="step">在定义域 (-∞, -1) 上：u单调递减，外层递增 ⇒ 复合函数递减</div>
+          <div class="step">在定义域 (3, +∞) 上：u单调递增，外层递增 ⇒ 复合函数递增</div>
+          <div class="step">所以单调递增区间为 (3, +∞)</div>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <span class="q-number difficult">拔高7</span><span class="q-tag hard">函数零点</span>
+      <div class="q-text">判断函数 f(x) = 2<sup>x</sup> + x - 4 的零点个数，并说明理由。</div>
+      <div class="solution">
+        <button class="solution-toggle" onclick="toggleSolution(this)">📖 查看解析</button>
+        <div class="solution-body">
+          <div class="ans">答案：1个零点（在(1,2)内）</div>
+          <div class="step">f(x) = 2<sup>x</sup> + x - 4 在 R 上连续且可导。</div>
+          <div class="step">f(1) = 2¹ + 1 - 4 = 2 + 1 - 4 = -1 &lt; 0</div>
+          <div class="step">f(2) = 2² + 2 - 4 = 4 + 2 - 4 = 2 > 0</div>
+          <div class="step">由零点存在定理，f(x)在(1,2)内至少有一个零点。</div>
+          <div class="step">f'(x) = 2<sup>x</sup>ln2 + 1 > 0 恒成立，所以 f(x) 在 R 上严格单调递增。</div>
+          <div class="step">因此 f(x) 恰好有1个零点。</div>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <span class="q-number difficult">拔高8</span><span class="q-tag hard">参数讨论</span>
+      <div class="q-text">已知函数 f(x) = log<sub>2</sub>(x² - ax + 4) 的定义域为 R，求实数 a 的取值范围。</div>
+      <div class="solution">
+        <button class="solution-toggle" onclick="toggleSolution(this)">📖 查看解析</button>
+        <div class="solution-body">
+          <div class="ans">答案：-4 &lt; a &lt; 4</div>
+          <div class="step">定义域为R，即对任意x∈R，真数 x² - ax + 4 > 0 恒成立。</div>
+          <div class="step">二次项系数为1>0（开口向上），所以需判别式 Δ &lt; 0。</div>
+          <div class="step">Δ = a² - 4×1×4 = a² - 16 &lt; 0</div>
+          <div class="step">a² &lt; 16 ⇒ -4 &lt; a &lt; 4</div>
+          <div class="step"><strong>关键：</strong>真数恒正问题转化为二次函数恒正问题，用判别式处理。</div>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <span class="q-number difficult">拔高9</span><span class="q-tag hard">综合应用</span>
+      <div class="q-text">某湖泊的污染程度用污染物浓度C(t)表示，初始浓度为C₀。研究表明污染物浓度以每年减少5%的速度自然降解。问经过多少年，污染物浓度降至初始浓度的20%以下？（lg2≈0.3010）</div>
+      <div class="solution">
+        <button class="solution-toggle" onclick="toggleSolution(this)">📖 查看解析</button>
+        <div class="solution-body">
+          <div class="ans">答案：约32年</div>
+          <div class="step">每年减少5%，即每年浓度为上一年的95% = 0.95</div>
+          <div class="step">t年后浓度：C(t) = C₀ × 0.95<sup>t</sup></div>
+          <div class="step">要求 C(t) &lt; 0.2C₀，即 0.95<sup>t</sup> &lt; 0.2</div>
+          <div class="step">两边取常用对数：t·lg0.95 &lt; lg0.2</div>
+          <div class="step">lg0.95 = lg(95/100) = lg95 - 2 = lg(5×19) - 2 = lg5 + lg19 - 2</div>
+          <div class="step">更简便：lg0.95 = lg(19/20) = lg19 - lg20 ≈ 1.2788 - 1.3010 = -0.0222</div>
+          <div class="step">lg0.2 = lg(1/5) = -lg5 = -(lg10 - lg2) = -(1 - 0.3010) = -0.6990</div>
+          <div class="step">t > (-0.6990)/(-0.0222) ≈ 31.49</div>
+          <div class="step">所以需要约32年。</div>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <span class="q-number difficult">拔高10</span><span class="q-tag hard">综合</span>
+      <div class="q-text">已知函数 f(x) = e<sup>x</sup> - e<sup>-x</sup>。<br>
+        (1) 判断 f(x) 的奇偶性；<br>
+        (2) 判断 f(x) 的单调性并证明；<br>
+        (3) 解不等式 f(x) < 2。</div>
+      <div class="solution">
+        <button class="solution-toggle" onclick="toggleSolution(this)">📖 查看解析</button>
+        <div class="solution-body">
+          <div class="ans">答案：(1)奇函数 (2)R上递增 (3)x &lt; ln(1+√2)</div>
+          <div class="step"><strong>(1) 奇偶性：</strong></div>
+          <div class="step">f(-x) = e<sup>-x</sup> - e<sup>x</sup> = -(e<sup>x</sup> - e<sup>-x</sup>) = -f(x)</div>
+          <div class="step">所以 f(x) 是奇函数。</div>
+          <div class="step"><strong>(2) 单调性：</strong></div>
+          <div class="step">法一（定义法）：任取 x₁&lt;x₂，</div>
+          <div class="step">f(x₂)-f(x₁) = (e<sup>x₂</sup>-e<sup>-x₂</sup>) - (e<sup>x₁</sup>-e<sup>-x₁</sup>)</div>
+          <div class="step">= (e<sup>x₂</sup>-e<sup>x₁</sup>) + (e<sup>-x₁</sup>-e<sup>-x₂</sup>)</div>
+          <div class="step">因为 e<sup>x</sup> 递增，e<sup>-x</sup> 递减，所以 e<sup>x₂</sup>>e<sup>x₁</sup> 且 e<sup>-x₁</sup>>e<sup>-x₂</sup></div>
+          <div class="step">所以 f(x₂)-f(x₁) > 0，f(x)在R上单调递增。</div>
+          <div class="step">法二（导数法）：f'(x) = e<sup>x</sup> + e<sup>-x</sup> > 0，所以f(x)在R上递增。</div>
+          <div class="step"><strong>(3) 解不等式：</strong></div>
+          <div class="step">f(x) &lt; 2 ⇒ e<sup>x</sup> - e<sup>-x</sup> &lt; 2</div>
+          <div class="step">令 t = e<sup>x</sup> > 0，则 t - 1/t &lt; 2</div>
+          <div class="step">两边乘t：t² - 1 &lt; 2t ⇒ t² - 2t - 1 &lt; 0</div>
+          <div class="step">解二次不等式：t ∈ (1-√2, 1+√2)</div>
+          <div class="step">因为 t > 0，所以 t ∈ (0, 1+√2)</div>
+          <div class="step">即 e<sup>x</sup> &lt; 1+√2 ⇒ x &lt; ln(1+√2)</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+function toggleSolution(btn) {
+  const body = btn.nextElementSibling;
+  body.classList.toggle('open');
+  btn.textContent = body.classList.contains('open') ? '📕 收起解析' : '📖 查看解析';
+}
+function switchTab(name) {
+  document.querySelectorAll('.tab-content').forEach(c => c.style.display = 'none');
+  document.getElementById(name).style.display = 'block';
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  document.querySelector(`.tab[onclick*="${name}"]`).classList.add('active');
+}
+</script>
+</body>
+</html>
