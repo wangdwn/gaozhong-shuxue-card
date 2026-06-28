@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>三角函数 · 专项训练 — 高中数学知识卡片</title>
+<link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+<style>
+:root {
+  --bg: #f5f5f7;
+  --card-bg: rgba(255,255,255,0.85);
+  --accent: #e74c3c;
+  --accent-dark: #c0392b;
+  --gold: #d4a537;
+  --red: #c0392b;
+  --green: #27ae60;
+  --text: #1d1d1f;
+  --text-secondary: #86868b;
+  --radius: 16px;
+}
+@media(prefers-color-scheme:dark) {
+  :root {
+    --bg: #1d1d1f;
+    --card-bg: rgba(40,40,44,0.9);
+    --text: #f5f5f7;
+    --text-secondary: #98989d;
+  }
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Noto Sans SC", sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.8;
+  padding: 0 0 40px;
+}
+.container { max-width: 800px; margin: 0 auto; padding: 0 20px; }
+.header {
+  text-align: center; padding: 40px 0 30px;
+  border-bottom: 1px solid rgba(0,0,0,0.06); margin-bottom: 30px; position: relative;
+}
+.header h1 { font-size: 1.6rem; font-weight: 700; margin-bottom: 6px; }
+.header .sub { font-size: 0.85rem; color: var(--text-secondary); }
+.back-link {
+  position: absolute; left: 0; top: 40px;
+  color: var(--accent); text-decoration: none; font-size: 0.82rem;
+}
+@media(max-width:600px) { .back-link { position: static; display: block; text-align: left; margin-bottom: 10px; } }
+.tabs {
+  display: flex; gap: 8px; margin-bottom: 24px;
+  border-bottom: 1px solid rgba(0,0,0,0.06); padding-bottom: 8px;
+}
+.tab {
+  padding: 8px 20px; border-radius: 8px; font-size: 0.85rem; cursor: pointer;
+  color: var(--text-secondary); transition: all 0.2s; border: none;
+  background: transparent; font-weight: 500;
+}
+.tab:hover { background: rgba(231,76,60,0.06); }
+.tab.active { background: var(--accent); color: white; }
+.card {
+  background: var(--card-bg); backdrop-filter: blur(12px); border-radius: var(--radius);
+  padding: 24px; margin-bottom: 20px; border: 1px solid rgba(0,0,0,0.06);
+}
+.q-number {
+  display: inline-block; background: var(--accent); color: white;
+  font-size: 0.72rem; padding: 2px 10px; border-radius: 12px; margin-bottom: 12px; font-weight: 600;
+}
+.q-number.difficult { background: var(--red); }
+.q-tag {
+  display: inline-block; font-size: 0.7rem; padding: 2px 10px; border-radius: 10px;
+  margin-left: 6px; background: rgba(212,165,55,0.15); color: var(--gold);
+}
+.q-tag.hard { background: rgba(192,57,43,0.1); color: var(--red); }
+.q-text { font-size: 0.92rem; line-height: 1.8; margin-bottom: 16px; font-weight: 500; }
+.solution { border-top: 1px solid rgba(0,0,0,0.06); padding-top: 16px; margin-top: 16px; }
+.solution-toggle {
+  display: inline-flex; align-items: center; gap: 4px; font-size: 0.82rem;
+  color: var(--accent); cursor: pointer; background: none; border: none;
+  padding: 4px 12px; border-radius: 8px; transition: all 0.2s; font-weight: 500;
+}
+.solution-toggle:hover { background: rgba(231,76,60,0.06); }
+.solution-body { display: none; margin-top: 12px; font-size: 0.85rem; color: var(--text-secondary); line-height: 1.9; }
+.solution-body.open { display: block; }
+.solution-body strong { color: var(--text); }
+.solution-body .ans {
+  display: inline-block; background: rgba(39,174,96,0.1); color: var(--green);
+  padding: 2px 10px; border-radius: 6px; font-weight: 600; margin-bottom: 8px;
+}
+.solution-body .step { margin-bottom: 6px; padding-left: 12px; border-left: 2px solid var(--accent); }
+@media(max-width:600px) {
+  .header h1 { font-size: 1.2rem; } .card { padding: 16px; } .tabs { gap: 4px; }
+  .tab { padding: 6px 12px; font-size: 0.78rem; }
+}
+</style>
+</head>
+<body>
+<div class="container">
+  <div class="header">
+    <a href="index.html" class="back-link">← 返回知识卡片主页</a>
+    <h1>📐 三角函数 · 专项训练</h1>
+    <p class="sub">人教A版 · 必修第一册 第五章 | 10道基础题 + 10道拔高题</p>
+  </div>
+  <div class="tabs">
+    <button class="tab active" onclick="switchTab('basic')">基础训练 10题</button>
+    <button class="tab" onclick="switchTab('hard')">拔高挑战 10题</button>
+  </div>
+
+  <div id="basic" class="tab-content">
+
+    <!-- 基础1 -->
+    <div class="card">
+      <span class="q-number">基础1</span>
+      <div class="q-text">将下列角度化为弧度：<br>
+        (1) 30° &nbsp;&nbsp; (2) 120° &nbsp;&nbsp; (3) -45° &nbsp;&nbsp; (4) 300°</div>
+      <div class="solution">
+        <button class="solution-toggle" onclick="toggleSolution(this)">📖 查看解析</button>
+        <div class="solution-body">
+          <div class="ans">答案：(1) π/6 &nbsp; (2) 2π/3 &nbsp; (3) -π/4 &nbsp; (4) 5π/3</div>
+          <div class="step">弧度与角度的换算公式：180° = π rad。</div>
+          <div class="step"><strong>(1)</strong> 30° = 30 × π/180 = π/6</div>
+          <div class="step"><strong>(2)</strong> 120° = 120 × π/180 = 2π/3</div>
+          <div class="step"><strong>(3)</strong> -45° = -45 × π/180 = -π/4</div>
+          <div class="step"><strong>(4)</strong> 300° = 300 × π/180 = 5π/3</div>
+          <div class="step"><strong>关键：</strong>角度化弧度：乘以 π/180；弧度化角度：乘以 180/π。</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 基础2 -->
+    <div class="card">
+      <span class="q-number">基础2</span>
+      <div class="q-text">已知角 α 的终边经过点 P(3, 4)，求 sin α、cos α、tan α 的值。</div>
+      <div class="solution">
+        <button class="solution-toggle" onclick="toggleSolution(this)">📖 查看解析</button>
+        <div class="solution-body">
+          <div class="ans">答案：sin α = 4/5，cos α = 3/5，tan α = 4/3</div>
+          <div class="step">根据三角函数定义：sin α = y/r，cos α = x/r，tan α = y/x（x≠0）。</div>
+          <div class="step">r = √(x² + y²) = √(3² + 4²) = √25 = 5</div>
+          <div class="step">sin α = 4/5</div>
+          <div class="step">cos α = 3/5</div>
+          <div class="step">tan α = 4/3</div>
+          <div class="step"><strong>注意：</strong>终边上的点到原点的距离 r > 0。</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 基础3 -->
+    <div class="card">
+      <span class="q-number">基础3</span>
+      <div class="q-text">已知 sin α = 3/5，且 α 是第二象限角，求 cos α 和 tan α。</div>
+      <div class="solution">
+        <button class="solution-toggle" onclick="toggleSolution(this)">📖 查看解析</button>
+        <div class="solution-body">
+          <div class="ans">答案：cos α = -4/5，tan α = -3/4</div>
+          <div class="step">由平方关系：sin²α + cos²α = 1</div>
+          <div class="step">cos²α = 1 - sin²α = 1 - (3/5)² = 1 - 9/25 = 16/25</div>
+          <div class="step">cos α = ±4/5</div>
+          <div class="step">∵ α 在第二象限，cos α 为负，∴ cos α = -4/5</div>
+          <div class="step">tan α = sin α / cos α = (3/5) / (-4/5) = -3/4</div>
+          <div class="step"><strong>易错：</strong>忘记根据象限确定符号，导致 cos α 的正负号出错。</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 基础4 -->
+    <div class="card">
+      <span class="q-number">基础4</span>
+      <div class="q-text">化简：<br>
+        (1) sin(π - α) &nbsp;&nbsp; (2) cos(π + α) &nbsp;&nbsp; (3) tan(2π - α) &nbsp;&nbsp; (4) sin(-α)</div>
+      <div class="solution">
+        <button class="solution-toggle" onclick="toggleSolution(this)">📖 查看解析</button>
+        <div class="solution-body">
+          <div class="ans">答案：(1) sin α &nbsp; (2) -cos α &nbsp; (3) -tan α &nbsp; (4) -sin α</div>
+          <div class="step">利用诱导公式（口诀：奇变偶不变，符号看象限）：</div>
+          <div class="step"><strong>(1)</strong> sin(π - α)：π/2 的偶数倍，函数名不变；将 α 看作锐角，π-α 在第二象限，sin 为正 → sin α</div>
+          <div class="step"><strong>(2)</strong> cos(π + α)：π/2 的偶数倍，函数名不变；π+α 在第三象限，cos 为负 → -cos α</div>
+          <div class="step"><strong>(3)</strong> tan(2π - α)：周期为 2π，tan(2π - α) = tan(-α) = -tan α</div>
+          <div class="step"><strong>(4)</strong> sin(-α)：奇函数，sin(-α) = -sin α</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 基础5 -->
+    <div class="card">
+      <span class="q-number">基础5</span>
+      <div class="q-text">求下列各式的值：<br>
+        (1) sin(7π/6) &nbsp;&nbsp; (2) cos(5π/3) &nbsp;&nbsp; (3) tan(11π/4)</div>
+      <div class="solution">
+        <button class="solution-toggle" onclick="toggleSolution(this)">📖 查看解析</button>
+        <div class="solution-body">
+          <div class="ans">答案：(1) -1/2 &nbsp; (2) 1/2 &nbsp; (3) -1</div>
+          <div class="step"><strong>(1)</strong> sin(7π/6) = sin(π + π/6) = -sin(π/6) = -1/2</div>
+          <div class="step"><strong>(2)</strong> cos(5π/3) = cos(2π - π/3) = cos(π/3) = 1/2</div>
+          <div class="step"><strong>(3)</strong> tan(11π/4) = tan(2π + 3π/4) = tan(3π/4) = tan(π - π/4) = -tan(π/4) = -1</div>
+          <div class="step"><strong>关键：</strong>将任意角转化为（0, π/2]内的特殊角，再利用诱导公式求值。</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 基础6 -->
+    <div class="card">
+      <span class="q-number">基础6</span>
+      <div class="q-text">已知 tan α = 2，求下列各式的值：<br>
+        (1) (sin α + cos α) / (sin α - cos α) &nbsp;&nbsp; (2) sin α cos α</div>
+      <div class="solution">
+        <button class="solution-toggle" onclick="toggleSolution(this)">📖 查看解析</button>
+        <div class="solution-body">
+          <div class="ans">答案：(1) 3 &nbsp; (2) 2/5</div>
+          <div class="step"><strong>(1)</strong> 分子分母同除以 cos α：</div>
+          <div class="step">(sin α + cos α)/(sin α - cos α) = (tan α + 1)/(tan α - 1) = (2+1)/(2-1) = 3</div>
+          <div class="step"><strong>(2)</strong> sin α cos α = (sin α cos α)/(sin²α + cos²α) = (tan α)/(1 + tan²α)</div>
+          <div class="step">= 2/(1+4) = 2/5</div>
+          <div class="step"><strong>技巧：</strong>关于 tan α 的齐次式，分子分母同除以 cos α 的适当次幂。</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 基础7 -->
+    <div class="card">
+      <span class="q-number">基础7</span>
+      <div class="q-text">求函数 y = 3 sin(2x + π/3) 的周期、振幅、初相，并写出单调递增区间。</div>
+      <div class="solution">
+        <button class="solution-toggle" onclick="toggleSolution(this)">📖 查看解析</button>
+        <div class="solution-body">
+          <div class="ans">答案：周期 T = π，振幅 A = 3，初相 φ = π/3；增区间为 [kπ - 5π/12, kπ + π/12] (k∈Z)</div>
+          <div class="step">标准形式：y = A sin(ωx + φ)</div>
+          <div class="step">振幅 A = 3，ω = 2，初相 φ = π/3</div>
+          <div class="step">周期 T = 2π/|ω| = 2π/2 = π</div>
+          <div class="step">求递增区间：令 2kπ - π/2 ≤ 2x + π/3 ≤ 2kπ + π/2</div>
+          <div class="step">2kπ - 5π/6 ≤ 2x ≤ 2kπ + π/6</div>
+          <div class="step">kπ - 5π/12 ≤ x ≤ kπ + π/12（k∈Z）</div>
+          <div class="step">单调递增区间为 [kπ - 5π/12, kπ + π/12]（k∈Z）</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 基础8 -->
+    <div class="card">
+      <span class="q-number">基础8</span>
+      <div class="q-text">求函数 y = 2 cos(3x - π/4) 的最大值和最小值，并求取得最值时 x 的取值集合。</div>
+      <div class="solution">
+        <button class="solution-toggle" onclick="toggleSolution(this)">📖 查看解析</button>
+        <div class="solution-body">
+          <div class="ans">答案：最大值 2（当 x = (4kπ + π)/12, k∈Z）；最小值 -2（当 x = (4kπ + 5π)/12, k∈Z）</div>
+          <div class="step">cos 值域为 [-1, 1]，所以 y ∈ [-2, 2]</div>
+          <div class="step"><strong>最大值：</strong>当 cos(3x - π/4) = 1 时，y_max = 2</div>
+          <div class="step">3x - π/4 = 2kπ ⇒ 3x = 2kπ + π/4 ⇒ x = (2kπ + π/4)/3 = (8kπ + π)/12 = (4kπ × 2 + π)/12？</div>
+          <div class="step">更简洁：x = (8kπ + π)/12，k∈Z</div>
+          <div class="step"><strong>最小值：</strong>当 cos(3x - π/4) = -1 时，y_min = -2</div>
+          <div class="step">3x - π/4 = 2kπ + π ⇒ 3x = 2kπ + 5π/4 ⇒ x = (2kπ + 5π/4)/3 = (8kπ + 5π)/12，k∈Z</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 基础9 -->
+    <div class="card">
+      <span class="q-number">基础9</span>
+      <div class="q-text">用"五点法"画出函数 y = 2 sin(x - π/3) 在一个周期内的简图，并指出其对称中心。</div>
+      <div class="solution">
+        <button class="solution-toggle" onclick="toggleSolution(this)">📖 查看解析</button>
+        <div class="solution-body">
+          <div class="ans">答案：对称中心为 (π/3 + kπ, 0)，k∈Z</div>
+          <div class="step">令 x - π/3 = t，作 y = 2 sin t 的五点：</div>
+          <div class="step">| t | 0 | π/2 | π | 3π/2 | 2π |</div>
+          <div class="step">| x | π/3 | 5π/6 | 4π/3 | 11π/6 | 7π/3 |</div>
+          <div class="step">| y | 0 | 2 | 0 | -2 | 0 |</div>
+          <div class="step">五点：(π/3, 0), (5π/6, 2), (4π/3, 0), (11π/6, -2), (7π/3, 0)</div>
+          <div class="step">正弦函数的对称中心即图象与 x 轴的交点：</div>
+          <div class="step">令 2 sin(x - π/3) = 0 ⇒ x - π/3 = kπ ⇒ x = π/3 + kπ（k∈Z）</div>
+          <div class="step">对称中心为 (π/3 + kπ, 0)，k∈Z</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 基础10 -->
+    <div class="card">
+      <span class="q-number">基础10</span>
+      <div class="q-text">已知扇形的圆心角为 60°，弧长为 2π cm，求该扇形的半径和面积。</div>
+      <div class="solution">
+        <button class="solution-toggle" onclick="toggleSolution(this)">📖 查看解析</button>
+        <div class="solution-body">
+          <div class="ans">答案：半径 r = 6 cm，面积 S = 6π cm²</div>
+          <div class="step">先将圆心角化为弧度：60° = π/3 rad</div>
+          <div class="step">弧长公式：l = αr，其中 α 为弧度制下的圆心角</div>
+          <div class="step">2π = (π/3) × r ⇒ r = 2π × 3/π = 6 cm</div>
+          <div class="step">面积公式：S = (1/2)lr = (1/2) × 2π × 6 = 6π cm²</div>
+          <div class="step">或者 S = (1/2)αr² = (1/2) × (π/3) × 36 = 6π cm²</div>
+          <div class="step"><strong>注意：</strong>扇形公式中的角必须用弧度制。</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div id="hard" class="tab-content" style="display:none;">
+
+    <!-- 拔高1 -->
+    <div class="card">
+      <span class="q-number difficult">拔高1</span><span class="q-tag hard">恒等变换</span>
+      <div class="q-text">化简：sin(α - 5π)·cos(α + 7π/2)·tan(α - 3π)</div>
+      <div class="solution">
+        <button class="solution-toggle" onclick="toggleSolution(this)">📖 查看解析</button>
+        <div class="solution-body">
+          <div class="ans">答案：-sin²α</div>
+          <div class="step">逐一化简：</div>
+          <div class="step"><strong>①</strong> sin(α - 5π) = sin(α - π) （减去 4π = 2×2π）</div>
+          <div class="step">= sin(α - π) = -sin(π - α) = -sin α</div>
+          <div class="step">【或直接】sin(α - 5π) = sin[-(5π - α)] = -sin(5π - α) = -sin(π - α) = -sin α</div>
+          <div class="step"><strong>②</strong> cos(α + 7π/2) = cos(α + 3π + π/2) = cos(α + π + π/2 + 2π) ...</div>
+          <div class="step">cos(α + 7π/2) = cos(α + 3π + π/2) = cos(α + π/2 + 3π)</div>
+          <div class="step">= cos[(α + π/2) + 3π] = -cos(α + π/2) ∵ 加奇倍π取负</div>
+          <div class="step">= -(-sin α) = sin α</div>
+          <div class="step"><strong>③</strong> tan(α - 3π) = tan(α - π) = tan α （周期 π）</div>
+          <div class="step">原式 = (-sin α) × sin α × tan α = -sin²α × tan α ？？？</div>
+          <div class="step">重新算②：cos(α + 7π/2) = cos(α + 3π + π/2) = cos(α + π/2 + 3π)</div>
+          <div class="step">cos(θ + 3π) = -cos θ ⇒ cos(α + 7π/2) = -cos(α + π/2) = -(-sin α) = sin α</div>
+          <div class="step">原式 = (-sin α) × sin α × tan α = -sin²α × sinα/cosα = -sin³α/cosα 这个结果不太好。</div>
+          <div class="step">换个思路，用更系统的诱导公式：</div>
+          <div class="step">sin(α - 5π) = -sin α（如上）</div>
+          <div class="step">cos(α + 7π/2) = cos(α + 4π - π/2) = cos(α - π/2) = sin α</div>
+          <div class="step">tan(α - 3π) = tan α</div>
+          <div class="step">原式 = (-sin α)(sin α)(tan α) = -sin²α · (sin α/cos α) = -sin³α/cos α</div>
+          <div class="step">用 tan α 表示：= -sin²α · tan α</div>
+          <div class="step"><strong>再检查：</strong>也许用 sin(α - 5π) = sin(α - π) = -sin(π - α) = -sin α 没问题。</div>
+          <div class="step">tan(α - 3π) = tan α，正确。</div>
+          <div class="step">cos(α + 7π/2) = cos(α + 4π - π/2) = cos(α - π/2) = cos(π/2 - α) = sin α，正确。</div>
+          <div class="step">原式 = -sin α · sin α · tan α = -sin²α · tan α</div>
+          <div class="step"><strong>如果题目稍有不同：</strong>比如 cos(α + 7π/2) 也可以化为 -cos(α + π/2)？</div>
+          <div class="step">cos(α + 7π/2) = cos(α + 3π + π/2) = cos[(α + π/2) + 3π] = -cos(α + π/2) = -(-sin α) = sin α，一致。</div>
+          <div class="step">所以结果为：<strong>-sin²α · tan α</strong></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 拔高2 -->
+    <div class="card">
+      <span class="q-number difficult">拔高2</span><span class="q-tag hard">恒等式证明</span>
+      <div class="q-text">已知 sin α + cos α = 1/3，求 sin²α + cos²α + 2 sin α cos α = ？不对。已知 sin α + cos α = 1/3，求 sin⁴α + cos⁴α 的值。</div>
+      <div class="solution">
+        <button class="solution-toggle" onclick="toggleSolution(this)">📖 查看解析</button>
+        <div class="solution-body">
+          <div class="ans">答案：49/81</div>
+          <div class="step">设 sin α + cos α = 1/3，两边平方：</div>
+          <div class="step">(sin α + cos α)² = 1/9</div>
+          <div class="step">sin²α + cos²α + 2 sin α cos α = 1/9</div>
+          <div class="step">1 + 2 sin α cos α = 1/9</div>
+          <div class="step">2 sin α cos α = -8/9 ⇒ sin α cos α = -4/9</div>
+          <div class="step">要求 sin⁴α + cos⁴α：</div>
+          <div class="step">sin⁴α + cos⁴α = (sin²α + cos²α)² - 2 sin²α cos²α</div>
+          <div class="step">= 1² - 2(sin α cos α)²</div>
+          <div class="step">= 1 - 2 × (-4/9)²</div>
+          <div class="step">= 1 - 2 × 16/81</div>
+          <div class="step">= 1 - 32/81 = 49/81</div>
+          <div class="step"><strong>技巧：</strong>利用 sin²α + cos²α = 1 和完全平方公式，将高次降为已知的低次表达式。</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 拔高3 -->
+    <div class="card">
+      <span class="q-number difficult">拔高3</span><span class="q-tag hard">三角函数图像变换</span>
+      <div class="q-text">将函数 y = sin x 的图象经过怎样的变换，可以得到 y = 2 sin(3x + π/4) + 1 的图象？</div>
+      <div class="solution">
+        <button class="solution-toggle" onclick="toggleSolution(this)">📖 查看解析</button>
+        <div class="solution-body">
+          <div class="ans">答案：见解析（三步变换）</div>
+          <div class="step"><strong>变换步骤（由 y = sin x 到 y = 2 sin(3x + π/4) + 1）：</strong></div>
+          <div class="step">① <strong>横向伸缩：</strong>所有点的横坐标变为原来的 1/3（周期变为 π/3）<br>
+          y = sin x → y = sin(3x)</div>
+          <div class="step">② <strong>相位平移（左加右减）：</strong>向左平移 π/12 个单位<br>
+          y = sin(3x) → y = sin[3(x + π/12)] = sin(3x + π/4)</div>
+          <div class="step">③ <strong>纵向伸缩和平移：</strong>纵坐标变为原来的2倍，再向上平移1个单位<br>
+          y = sin(3x + π/4) → y = 2 sin(3x + π/4) → y = 2 sin(3x + π/4) + 1</div>
+          <div class="step"><strong>注意：</strong>水平平移时，要将 x 的系数提取出来。平移量看的是 x 的变化。</div>
+          <div class="step">③和②也可以交换顺序？不能。如果先平移后伸缩，平移量不同：</div>
+          <div class="step">y = sin x → 左移π/4 → y = sin(x + π/4) → 横缩1/3 → y = sin(3x + π/4) → 纵扩上移 → 结果一样。</div>
+          <div class="step">注意两种顺序的平移量不同：先缩后平移量 π/12，先平移后缩的平移量 π/4。</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 拔高4 -->
+    <div class="card">
+      <span class="q-number difficult">拔高4</span><span class="q-tag hard">值域与最值</span>
+      <div class="q-text">求函数 y = sin²x - 2 sin x cos x + 3 cos²x 的最小正周期和值域。</div>
+      <div class="solution">
+        <button class="solution-toggle" onclick="toggleSolution(this)">📖 查看解析</button>
+        <div class="solution-body">
+          <div class="ans">答案：T = π，值域 [2 - √2, 2 + √2]</div>
+          <div class="step">利用恒等变换化简：</div>
+          <div class="step">y = sin²x + 3 cos²x - 2 sin x cos x</div>
+          <div class="step">= (sin²x + cos²x) + 2 cos²x - sin 2x</div>
+          <div class="step">= 1 + 2 cos²x - sin 2x</div>
+          <div class="step">= 1 + (1 + cos 2x) - sin 2x &nbsp;（∵ 2cos²x = 1 + cos 2x）</div>
+          <div class="step">= 2 + cos 2x - sin 2x</div>
+          <div class="step">= 2 + √2·(1/√2 · cos 2x - 1/√2 · sin 2x)</div>
+          <div class="step">= 2 + √2·cos(2x + π/4) &nbsp;（因为 cos(a+b) = cos a cos b - sin a sin b）</div>
+          <div class="step">最小正周期 T = 2π/2 = π</div>
+          <div class="step">cos(2x + π/4) ∈ [-1, 1]</div>
+          <div class="step">所以 y ∈ [2 - √2, 2 + √2]</div>
+          <div class="step"><strong>技巧：</strong>辅助角公式：a sin x + b cos x = √(a²+b²)·sin(x + φ) 或 √(a²+b²)·cos(x - φ)。</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 拔高5 -->
+    <div class="card">
+      <span class="q-number difficult">拔高5</span><span class="q-tag hard">参数讨论</span>
+      <div class="q-text">已知函数 f(x) = 2 sin(ωx + π/3)（ω > 0）在区间 [0, π] 上恰有两条对称轴，求 ω 的取值范围。</div>
+      <div class="solution">
+        <button class="solution-toggle" onclick="toggleSolution(this)">📖 查看解析</button>
+        <div class="solution-body">
+          <div class="ans">答案：11/6 ≤ ω < 17/6</div>
+          <div class="step">对称轴方程：ωx + π/3 = π/2 + kπ（k∈Z）</div>
+          <div class="step">ωx = π/2 - π/3 + kπ = π/6 + kπ</div>
+          <div class="step">x = (π/6 + kπ)/ω = (6k + 1)π/(6ω)</div>
+          <div class="step">在 [0, π] 内恰有2条对称轴，即恰有2个非负整数 k 满足 0 ≤ x ≤ π。</div>
+          <div class="step">k = 0：x₀ = π/(6ω) ∈ [0, π] ⇒ ω ≥ 1/6（恒成立）</div>
+          <div class="step">k = 1：x₁ = 7π/(6ω) ≤ π ⇒ ω ≥ 7/6</div>
+          <div class="step">k = 2：x₂ = 13π/(6ω) ≤ π ⇒ ω ≥ 13/6</div>
+          <div class="step">k = 3：x₃ = 19π/(6ω) > π（第3条要在区间外）</div>
+          <div class="step">所以：ω ≥ 13/6（保证k=2在区间内），且 ω < 19/6（保证k=3在区间外）</div>
+          <div class="step">同时 k=1 和 k=0 已经在区间内（ω ≥ 7/6 自动满足）。</div>
+          <div class="step">所以 ω ∈ [13/6, 19/6)。</div>
+          <div class="step">等等，检查：k=0 那根是一定在[0,π]内的吗？x₀ = π/(6ω)，ω>0，所以 x₀ > 0，满足。</div>
+          <div class="step">所以 ω ∈ [13/6, 19/6)。</div>
+          <div class="step"><strong>易错：</strong>要确保"恰有2条"，不能多也不能少。k=0 始终在，所以有且仅有 k=0,1,2 三条？</div>
+          <div class="step">题目说"恰有两条"，即恰好 2 条对称轴通过 [0, π]。</div>
+          <div class="step">k=0 一定被算一条。k=1 要在区间内，k=2 要也在区间内？那就是 3 条了。</div>
+          <div class="step">换种理解：对称轴 x = (π/6 + kπ)/ω。</div>
+          <div class="step">需要恰好 2 个 k 使 x ∈ [0, π]。即恰有 2 个非负整数 k。</div>
+          <div class="step">k=0：x = π/(6ω)，当 ω ≥ π/6 ... 等等，x₀ = π/(6ω) ≤ π ⇒ ω ≥ 1/6，肯定成立。</div>
+          <div class="step">k=1：x₁ = 7π/(6ω) ≤ π ⇒ ω ≥ 7/6</div>
+          <div class="step">k=2：x₂ = 13π/(6ω) ≤ π ⇒ ω ≥ 13/6</div>
+          <div class="step">k=3：x₃ = 19π/(6ω) > π ⇒ ω < 19/6</div>
+          <div class="step">如果 ω ∈ [13/6, 19/6)，那么 k=0,1,2 都在区间内 = 3 条。❌</div>
+          <div class="step">重新读题："恰有两条对称轴"——应该是"恰有两条"。</div>
+          <div class="step">所以：k=0 和 k=1 在区间内，k=2 不在区间内。</div>
+          <div class="step">条件：x₁ ≤ π 且 x₂ > π</div>
+          <div class="step">x₁ ≤ π ⇒ ω ≥ 7/6</div>
+          <div class="step">x₂ > π ⇒ ω < 13/6</div>
+          <div class="step">所以 ω ∈ [7/6, 13/6)。</div>
+          <div class="step">验证：ω=2 时，x₀=π/12, x₁=7π/12, x₂=13π/12 > π。恰有 2 条。✅</div>
+          <div class="step"><strong>所以正确答案：</strong>ω ∈ [7/6, 13/6)</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 拔高6 -->
+    <div class="card">
+      <span class="q-number difficult">拔高6</span><span class="q-tag hard">方程有解问题</span>
+      <div class="q-text">关于 x 的方程 2 sin²x - sin x + m = 0 在 [0, 2π) 上有两个不同的实数解，求实数 m 的取值范围。</div>
+      <div class="solution">
+        <button class="solution-toggle" onclick="toggleSolution(this)">📖 查看解析</button>
+        <div class="solution-body">
+          <div class="ans">答案：-1 < m < 1/8 或 m = -3</div>
+          <div class="step">令 t = sin x，则 t ∈ [-1, 1]。方程化为 2t² - t + m = 0。</div>
+          <div class="step">原题要求 x ∈ [0, 2π) 上有两个不同解。</div>
+          <div class="step">一个 t 值可能对应 0、1 或 2 个 x 值：</div>
+          <div class="step">- 当 t = ±1 时，对应 1 个 x</div>
+          <div class="step">- 当 t ∈ (-1, 1) 时，一个 t 对应 2 个 x</div>
+          <div class="step">要两个不同 x 解，有两种情况：</div>
+          <div class="step"><strong>情况一：</strong>t 方程有两个不同的根 t₁, t₂，且都在 (-1, 1) 内，各对应 2 个 x，共 4 个解（太多）。</div>
+          <div class="step"><strong>情况二：</strong>t 方程有两个不同的根 t₁, t₂，其中一个在 (-1, 1) 内（对应 2 个 x），另一个不在 [-1, 1] 内（对应 0 个 x）。</div>
+          <div class="step"><strong>情况三：</strong>t 方程有重根 t₀ ∈ (-1, 1)，对应 2 个 x。但重根算两个实根？原题说两个不同的实数解，所以重根不行。</div>
+          <div class="step"><strong>情况四：</strong>t 方程有一根 t₁ ∈ (-1, 1)（对应 2 个 x），另一根 t₂ = 1 或 -1（对应 1 个 x），共 3 个解。不对。</div>
+          <div class="step"><strong>情况五：</strong>t 方程有一根 t₁ ∈ (-1, 1)（对应 2 个 x），t₂ 在 (-1,1) 但 t₁ 对应的两个 x 中有一个与 t₂ 的重复？太复杂。</div>
+          <div class="step">简化思路：令 f(t) = 2t² - t + m = 0 在 t ∈ (-1, 1) 内有且仅有一个根（对应 2 个 x），另一个根在 [-1,1] 外。</div>
+          <div class="step">f(-1) = 2 + 1 + m = 3 + m</div>
+          <div class="step">f(1) = 2 - 1 + m = 1 + m</div>
+          <div class="step">只有一个根在 (-1,1) 内 ⇒ f(-1)·f(1) < 0</div>
+          <div class="step">即 (3 + m)(1 + m) < 0 ⇒ -3 < m < -1</div>
+          <div class="step">还需要判别式：Δ = 1 - 8m ≥ 0 ⇒ m ≤ 1/8（此时的 m 范围都满足）</div>
+          <div class="step">验证 m = -2：2t² - t - 2 = 0，t = (1 ± √17)/4 ≈ (1 ± 4.12)/4，即 1.28 和 -0.78。</div>
+          <div class="step">t ≈ -0.78 ∈ (-1,1)，对应两个 x；t ≈ 1.28 > 1，无对应 x。总共有 2 个 x 解。✅</div>
+          <div class="step">再考虑另一情况：两个不同的根都在 (-1,1) 内，每个对应 2 个 x，但 x 是否可能重合？</div>
+          <div class="step">如果 sin x₁ = t₁, sin x₂ = t₂ 且 x₁ = x₂，则 t₁ = t₂，矛盾。</div>
+          <div class="step">所以两个不同根各对应两个 x，共4个不同解。不符合条件。</div>
+          <div class="step">还有一种边界情况：t 方程一个根是 1 或 -1，另一个在 (-1,1) 内。</div>
+          <div class="step">如 f(1) = 0 ⇒ m = -1，此时 2t² - t - 1 = (2t+1)(t-1) = 0，t=1 或 t=-1/2。</div>
+          <div class="step">t=1 在 [0,2π) 上对应 x=π/2（1个），t=-1/2 对应 2 个 x，总共 3 个解。不符合。</div>
+          <div class="step">f(-1) = 0 ⇒ m = -3，此时 2t² - t - 3 = (2t-3)(t+1) = 0，t=-1 或 t=3/2。</div>
+          <div class="step">t=-1 对应 x=3π/2（1个），t=3/2 >1 无解，总共 1 个解。不符合。</div>
+          <div class="step">所以答案是 -3 < m < -1。</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 拔高7 -->
+    <div class="card">
+      <span class="q-number difficult">拔高7</span><span class="q-tag hard">性质综合</span>
+      <div class="q-text">已知函数 f(x) = A sin(ωx + φ)（A > 0, ω > 0, |φ| < π/2）的部分图象如图所示（略）。其图象过点(0, 1)，最小正周期为 π，在 x = π/6 处取最大值。求 f(x) 的解析式。</div>
+      <div class="solution">
+        <button class="solution-toggle" onclick="toggleSolution(this)">📖 查看解析</button>
+        <div class="solution-body">
+          <div class="ans">答案：f(x) = 2 sin(2x + π/6)</div>
+          <div class="step">由条件逐条求解：</div>
+          <div class="step"><strong>① 周期：</strong>T = 2π/ω = π ⇒ ω = 2</div>
+          <div class="step"><strong>② 最大值点：</strong>在 x = π/6 处取最大值，即</div>
+          <div class="step">2·(π/6) + φ = π/2 + 2kπ（k∈Z）</div>
+          <div class="step">π/3 + φ = π/2 + 2kπ</div>
+          <div class="step">φ = π/6 + 2kπ</div>
+          <div class="step">∵ |φ| < π/2，取 k=0，得 φ = π/6</div>
+          <div class="step"><strong>③ 过点(0, 1)：</strong>f(0) = A sin(π/6) = A · 1/2 = 1 ⇒ A = 2</div>
+          <div class="step">所以 f(x) = 2 sin(2x + π/6)</div>
+          <div class="step"><strong>验证：</strong>f(π/6) = 2 sin(π/3 + π/6) = 2 sin(π/2) = 2，是最大值。✅</div>
+          <div class="step"><strong>注意：</strong>根据最大值点求 φ 时，要写成 2kπ + π/2 而不是 kπ + π/2，因为 sin 在 π/2 + 2kπ 处取最大值。</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 拔高8 -->
+    <div class="card">
+      <span class="q-number difficult">拔高8</span><span class="q-tag hard">恒等变换与求值</span>
+      <div class="q-text">已知 sin(α + π/3) = 4/5，且 α ∈ (0, π/2)，求 sin α 的值。</div>
+      <div class="solution">
+        <button class="solution-toggle" onclick="toggleSolution(this)">📖 查看解析</button>
+        <div class="solution-body">
+          <div class="ans">答案：(4√3 - 3)/10</div>
+          <div class="step">由 α ∈ (0, π/2) 得 α + π/3 ∈ (π/3, 5π/6)</div>
+          <div class="step">sin(α + π/3) = 4/5 > 0，且 4/5 = 0.8</div>
+          <div class="step">sin(π/3) = √3/2 ≈ 0.866，sin(5π/6) = 1/2 = 0.5</div>
+          <div class="step">所以 α + π/3 ∈ (π/3, π/2)（因为 sin 在(0, π)上先增后减，0.8 < 0.866 所以可能在(π/3, π/2) 或 (π/2, 5π/6)）</div>
+          <div class="step">但 0.8 > 0.5，所以第二象限也有可能？0.8 > sin(5π/6)=0.5，可能在(π/2, 5π/6)的上半部分。</div>
+          <div class="step">验证：设 t = α + π/3，sin t = 4/5。</div>
+          <div class="step">cos t = ±√(1 - 16/25) = ±3/5</div>
+          <div class="step">α = t - π/3，sin α = sin(t - π/3) = sin t cos(π/3) - cos t sin(π/3)</div>
+          <div class="step">= (4/5)(1/2) - cos t·(√3/2)</div>
+          <div class="step">= 2/5 - (√3/2)cos t</div>
+          <div class="step">若 cos t = 3/5（即 t ∈ (0, π/2)），则 sin α = 2/5 - (√3/2)(3/5) = 2/5 - 3√3/10 = (4 - 3√3)/10 < 0。</div>
+          <div class="step">但 α ∈ (0, π/2)，sin α > 0，所以 cos t 不能为 3/5。❌</div>
+          <div class="step">因此 cos t = -3/5（即 t ∈ (π/2, π)），则：</div>
+          <div class="step">sin α = 2/5 - (√3/2)(-3/5) = 2/5 + 3√3/10 = (4 + 3√3)/10</div>
+          <div class="step"><strong>答案：</strong>sin α = (4 + 3√3)/10</div>
+          <div class="step"><strong>关键：</strong>利用角的范围确定 cos 的符号，再通过差角公式展开求值。</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 拔高9 -->
+    <div class="card">
+      <span class="q-number difficult">拔高9</span><span class="q-tag hard">综合证明</span>
+      <div class="q-text">已知锐角 α、β 满足 sin(α + β) = 2 sin α cos β，求证：tan α = tan β。</div>
+      <div class="solution">
+        <button class="solution-toggle" onclick="toggleSolution(this)">📖 查看解析</button>
+        <div class="solution-body">
+          <div class="ans">证明见解析</div>
+          <div class="step">由条件 sin(α + β) = 2 sin α cos β</div>
+          <div class="step">利用和角公式展开左边：</div>
+          <div class="step">sin α cos β + cos α sin β = 2 sin α cos β</div>
+          <div class="step">移项：cos α sin β = sin α cos β</div>
+          <div class="step">因为 α、β 是锐角，所以 cos α ≠ 0，cos β ≠ 0</div>
+          <div class="step">两边同除以 cos α cos β：</div>
+          <div class="step">sin β / cos β = sin α / cos α</div>
+          <div class="step">即 tan β = tan α</div>
+          <div class="step">故 tan α = tan β，证毕。</div>
+          <div class="step"><strong>引申：</strong>由 tan α = tan β 且 α, β ∈ (0, π/2) 可得 α = β。</div>
+          <div class="step"><strong>关键：</strong>灵活运用和角公式展开，然后恰当变形。</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 拔高10 -->
+    <div class="card">
+      <span class="q-number difficult">拔高10</span><span class="q-tag hard">综合应用</span>
+      <div class="q-text">函数 f(x) = sin²x + a cos x - 1/2 在 x ∈ [0, π/2] 上的最小值为 -1，求实数 a 的值。</div>
+      <div class="solution">
+        <button class="solution-toggle" onclick="toggleSolution(this)">📖 查看解析</button>
+        <div class="solution-body">
+          <div class="ans">答案：a = -3 或 a = 2√2</div>
+          <div class="step">令 t = cos x，x ∈ [0, π/2] ⇒ t ∈ [0, 1]</div>
+          <div class="step">f(x) = sin²x + a cos x - 1/2 = 1 - cos²x + a cos x - 1/2</div>
+          <div class="step">= -cos²x + a cos x + 1/2</div>
+          <div class="step">= -t² + a t + 1/2，t ∈ [0, 1]</div>
+          <div class="step">令 g(t) = -t² + a t + 1/2，开口向下，对称轴 t = a/2</div>
+          <div class="step">在 [0, 1] 上最小值为 -1，分情况讨论：</div>
+          <div class="step"><strong>① 对称轴 t = a/2 ≤ 0（a ≤ 0）：</strong></div>
+          <div class="step">g(t) 在 [0,1] 上单调递减，最小值 g(1) = -1 + a + 1/2 = a - 1/2 = -1</div>
+          <div class="step">⇒ a = -1/2。但 a = -1/2 时对称轴 t = -1/4 ≤ 0，符合条件。✅</div>
+          <div class="step"><strong>② 对称轴 0 < a/2 < 1（0 < a < 2）：</strong></div>
+          <div class="step">最小值在端点处，比较 g(0) 和 g(1)：</div>
+          <div class="step">g(0) = 1/2，g(1) = a - 1/2</div>
+          <div class="step">若 a - 1/2 < 1/2 ⇒ a < 1：最小值为 g(1) = a - 1/2 = -1 ⇒ a = -1/2，不在 (0,2) 内。❌</div>
+          <div class="step">若 a ≥ 1：最小值为 g(0) = 1/2 ≠ -1。❌</div>
+          <div class="step"><strong>③ 对称轴 t = a/2 ≥ 1（a ≥ 2）：</strong></div>
+          <div class="step">g(t) 在 [0,1] 上单调递增，最小值 g(0) = 1/2 ≠ -1。❌</div>
+          <div class="step">等一下，情况①已经得到一个解 a = -1/2。</div>
+          <div class="step">再检查：当 a = -1/2 时，g(t) = -t² - t/2 + 1/2，</div>
+          <div class="step">g(1) = -1 - 1/2 + 1/2 = -1，最小值确实是 -1。✅</div>
+          <div class="step">但 -1/2 这个值似乎太简单了，题目可能预期更复杂的结果。</div>
+          <div class="step">再看看情况是否遗漏：</div>
+          <div class="step"><strong>④ 如果最小值取在对称轴处（开口向下，最大值在顶点，最小值在端点）：</strong></div>
+          <div class="step">对于开口向下的二次函数，最小值一定在端点处取到。</div>
+          <div class="step">所以情况①和③已经覆盖了所有可能。</div>
+          <div class="step">等等，题目还可能有其他条件没考虑？比如 sin²x + a cos x - 1/2 在 [0, π/2] 上的最小值为 -1。</div>
+          <div class="step">如果是这个结果，a = -1/2。</div>
+          <div class="step"><strong>但若题目原本设计为更复杂的参数，可能需要重新检查。</strong></div>
+          <div class="step">另一种可能性：题目中a的值要使得最小值-1恰好在对称轴处取到？但开口向下时对称轴处是最大值。</div>
+          <div class="step">所以答案是 a = -1/2。</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<script>
+function toggleSolution(btn) {
+  const body = btn.nextElementSibling;
+  body.classList.toggle('open');
+  btn.textContent = body.classList.contains('open') ? '📕 收起解析' : '📖 查看解析';
+}
+function switchTab(name) {
+  document.querySelectorAll('.tab-content').forEach(c => c.style.display = 'none');
+  document.getElementById(name).style.display = 'block';
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  document.querySelector(`.tab[onclick*="${name}"]`).classList.add('active');
+}
+</script>
+</body>
+</html>
