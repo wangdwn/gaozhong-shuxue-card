@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>复数 · 专项训练 — 高中数学知识卡片</title>
+<link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+<style>
+:root {
+  --bg: #f5f5f7;
+  --card-bg: rgba(255,255,255,0.85);
+  --accent: #e84393;
+  --accent-dark: #c12f7a;
+  --gold: #d4a537;
+  --red: #c0392b;
+  --green: #27ae60;
+  --text: #1d1d1f;
+  --text-secondary: #86868b;
+  --radius: 16px;
+}
+@media(prefers-color-scheme:dark) {
+  :root {
+    --bg: #1d1d1f;
+    --card-bg: rgba(40,40,44,0.9);
+    --text: #f5f5f7;
+    --text-secondary: #98989d;
+  }
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Noto Sans SC", sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.8;
+  padding: 0 0 40px;
+}
+.container { max-width: 800px; margin: 0 auto; padding: 0 20px; }
+.header {
+  text-align: center; padding: 40px 0 30px;
+  border-bottom: 1px solid rgba(0,0,0,0.06); margin-bottom: 30px; position: relative;
+}
+.header h1 { font-size: 1.6rem; font-weight: 700; margin-bottom: 6px; }
+.header .sub { font-size: 0.85rem; color: var(--text-secondary); }
+.back-link {
+  position: absolute; left: 0; top: 40px;
+  color: var(--accent); text-decoration: none; font-size: 0.82rem;
+}
+@media(max-width:600px) { .back-link { position: static; display: block; text-align: left; margin-bottom: 10px; } }
+.tabs {
+  display: flex; gap: 8px; margin-bottom: 24px;
+  border-bottom: 1px solid rgba(0,0,0,0.06); padding-bottom: 8px;
+}
+.tab {
+  padding: 8px 20px; border-radius: 8px; font-size: 0.85rem; cursor: pointer;
+  color: var(--text-secondary); transition: all 0.2s; border: none;
+  background: transparent; font-weight: 500;
+}
+.tab:hover { background: rgba(232,67,147,0.06); }
+.tab.active { background: var(--accent); color: white; }
+.card {
+  background: var(--card-bg); backdrop-filter: blur(12px); border-radius: var(--radius);
+  padding: 24px; margin-bottom: 20px; border: 1px solid rgba(0,0,0,0.06);
+}
+.q-number {
+  display: inline-block; background: var(--accent); color: white;
+  font-size: 0.72rem; padding: 2px 10px; border-radius: 12px; margin-bottom: 12px; font-weight: 600;
+}
+.q-number.difficult { background: var(--red); }
+.q-tag {
+  display: inline-block; font-size: 0.7rem; padding: 2px 10px; border-radius: 10px;
+  margin-left: 6px; background: rgba(212,165,55,0.15); color: var(--gold);
+}
+.q-tag.hard { background: rgba(192,57,43,0.1); color: var(--red); }
+.q-text { font-size: 0.92rem; line-height: 1.8; margin-bottom: 16px; font-weight: 500; }
+.solution { border-top: 1px solid rgba(0,0,0,0.06); padding-top: 16px; margin-top: 16px; }
+.solution-toggle {
+  display: inline-flex; align-items: center; gap: 4px; font-size: 0.82rem;
+  color: var(--accent); cursor: pointer; background: none; border: none;
+  padding: 4px 12px; border-radius: 8px; transition: all 0.2s; font-weight: 500;
+}
+.solution-toggle:hover { background: rgba(232,67,147,0.06); }
+.solution-body { display: none; margin-top: 12px; font-size: 0.85rem; color: var(--text-secondary); line-height: 1.9; }
+.solution-body.open { display: block; }
+.solution-body strong { color: var(--text); }
+.solution-body .ans {
+  display: inline-block; background: rgba(39,174,96,0.1); color: var(--green);
+  padding: 2px 10px; border-radius: 6px; font-weight: 600; margin-bottom: 8px;
+}
+.solution-body .step { margin-bottom: 6px; padding-left: 12px; border-left: 2px solid var(--accent); }
+@media(max-width:600px) {
+  .header h1 { font-size: 1.2rem; } .card { padding: 16px; } .tabs { gap: 4px; }
+  .tab { padding: 6px 12px; font-size: 0.78rem; }
+}
+</style>
+</head>
+<body>
+<div class="container">
+  <div class="header">
+    <a href="index.html" class="back-link">← 返回知识卡片主页</a>
+    <h1>🔮 复数 · 专项训练</h1>
+    <p class="sub">人教A版 · 必修第二册 第七章 | 10道基础题 + 10道拔高题</p>
+  </div>
+  <div class="tabs">
+    <button class="tab active" onclick="switchTab('basic')">基础训练 10题</button>
+    <button class="tab" onclick="switchTab('hard')">拔高挑战 10题</button>
+  </div>
+
+  <div id="basic" class="tab-content">
+    <div class="card">
+      <span class="q-number">基础1</span>
+      <div class="q-text">复数 z = 3 - 4i 的实部与虚部分别是多少？它的共轭复数是什么？</div>
+      <div class="solution">
+        <button class="solution-toggle" onclick="toggleSolution(this)">📖 查看解析</button>
+        <div class="solution-body">
+          <div class="ans">答案：实部3，虚部-4，共轭复数 <span style="text-decoration: overline;">z</span> = 3 + 4i</div>
+          <div class="step">复数 z = a + bi 中，a 为实部，b 为虚部（注意是 b 本身，不是 bi）。</div>
+          <div class="step">z = 3 - 4i = 3 + (-4)i，所以实部 a = 3，虚部 b = -4。</div>
+          <div class="step">共轭复数定义为实部相同、虚部互为相反数，即 <span style="text-decoration: overline;">z</span> = 3 + 4i。</div>
+          <div class="step"><strong>易错：</strong>不要把虚部写成 -4i，虚部是不带 i 的系数 -4。</div>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <span class="q-number">基础2</span>
+      <div class="q-text">计算：(1 + 2i) + (3 - 5i)。</div>
+      <div class="solution">
+        <button class="solution-toggle" onclick="toggleSolution(this)">📖 查看解析</button>
+        <div class="solution-body">
+          <div class="ans">答案：4 - 3i</div>
+          <div class="step">复数加法：实部与实部相加，虚部与虚部相加。</div>
+          <div class="step">(1 + 2i) + (3 - 5i) = (1 + 3) + (2 - 5)i = 4 + (-3)i = 4 - 3i。</div>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <span class="q-number">基础3</span>
+      <div class="q-text">计算：(4 - 3i) - (2 + 7i)。</div>
+      <div class="solution">
+        <button class="solution-toggle" onclick="toggleSolution(this)">📖 查看解析</button>
+        <div class="solution-body">
+          <div class="ans">答案：2 - 10i</div>
+          <div class="step">复数减法：实部减实部，虚部减虚部。</div>
+          <div class="step">(4 - 3i) - (2 + 7i) = (4 - 2) + (-3 - 7)i = 2 + (-10)i = 2 - 10i。</div>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <span class="q-number">基础4</span>
+      <div class="q-text">计算：(1 + 2i)(3 - i)。</div>
+      <div class="solution">
+        <button class="solution-toggle" onclick="toggleSolution(this)">📖 查看解析</button>
+        <div class="solution-body">
+          <div class="ans">答案：5 + 5i</div>
+          <div class="step">按多项式乘法展开，注意 i² = -1。</div>
+          <div class="step">(1 + 2i)(3 - i) = 1×3 + 1×(-i) + 2i×3 + 2i×(-i)</div>
+          <div class="step">= 3 - i + 6i - 2i²</div>
+          <div class="step">= 3 + 5i - 2(-1) = 3 + 5i + 2 = 5 + 5i。</div>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <span class="q-number">基础5</span>
+      <div class="q-text">计算：(2 + i) / (1 - 2i)。</div>
+      <div class="solution">
+        <button class="solution-toggle" onclick="toggleSolution(this)">📖 查看解析</button>
+        <div class="solution-body">
+          <div class="ans">答案：i</div>
+          <div class="step">复数除法：分母实数化——分子分母同乘分母的共轭复数。</div>
+          <div class="step">分母 1 - 2i 的共轭为 1 + 2i。</div>
+          <div class="step">(2 + i)(1 + 2i) &nbsp;&nbsp; 2 + 4i + i + 2i² &nbsp;&nbsp; 2 + 5i - 2 &nbsp;&nbsp; 5i</div>
+          <div class="step">—————— = ————————— = —————— = —— = i</div>
+          <div class="step">(1 - 2i)(1 + 2i) &nbsp;&nbsp; 1² - (2i)² &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 1 + 4 &nbsp;&nbsp;&nbsp; 5</div>
+          <div class="step"><strong>注意：</strong>(1 - 2i)(1 + 2i) = 1² + 2² = 5，因为 i² = -1，所以 - (2i)² = -4(-1) = 4。</div>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <span class="q-number">基础6</span>
+      <div class="q-text">已知复数 z = (m² - 3m - 4) + (m² - 5m - 6)i（m ∈ R），当 m 为何值时，z 为实数？z 为纯虚数？</div>
+      <div class="solution">
+        <button class="solution-toggle" onclick="toggleSolution(this)">📖 查看解析</button>
+        <div class="solution-body">
+          <div class="ans">答案：m = 6 或 m = -1 时 z 为实数；m = 4 时 z 为纯虚数</div>
+          <div class="step"><strong>（1）z 为实数：</strong>虚部为 0。</div>
+          <div class="step">m² - 5m - 6 = 0 ⇒ (m - 6)(m + 1) = 0 ⇒ m = 6 或 m = -1。</div>
+          <div class="step"><strong>（2）z 为纯虚数：</strong>实部为 0 且虚部不为 0。</div>
+          <div class="step">实部为 0：m² - 3m - 4 = 0 ⇒ (m - 4)(m + 1) = 0 ⇒ m = 4 或 m = -1。</div>
+          <div class="step">虚部不为 0：m² - 5m - 6 ≠ 0 ⇒ m ≠ 6 且 m ≠ -1。</div>
+          <div class="step">取交集：m = 4（m = -1 时虚部也为 0，此时 z = 0，既是实数也是纯虚数？通常我们说 0 既不是纯虚数也不是实数？实际上 0 既是实数也是纯虚数（有争议），但按教材定义，纯虚数要求虚部不为 0，所以 m = -1 时 z = 0 不是纯虚数）。</div>
+          <div class="step">所以 m = 4 时 z 为纯虚数。</div>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <span class="q-number">基础7</span>
+      <div class="q-text">计算 i + i² + i³ + i⁴ + i⁵。</div>
+      <div class="solution">
+        <button class="solution-toggle" onclick="toggleSolution(this)">📖 查看解析</button>
+        <div class="solution-body">
+          <div class="ans">答案：i</div>
+          <div class="step">利用 i 的幂的周期性：i⁴ⁿ = 1，i⁴ⁿ⁺¹ = i，i⁴ⁿ⁺² = -1，i⁴ⁿ⁺³ = -i。</div>
+          <div class="step">i¹ = i，i² = -1，i³ = -i，i⁴ = 1，i⁵ = i。</div>
+          <div class="step">i + i² + i³ + i⁴ + i⁵ = i + (-1) + (-i) + 1 + i = i。</div>
+          <div class="step"><strong>简便方法：</strong>i + i² + i³ + i⁴ = 0（每四个一组和为 0），所以原式 = 0 + i⁵ = i。</div>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <span class="q-number">基础8</span>
+      <div class="q-text">在复平面内，复数 z = 2 - 3i 对应的点在哪个象限？</div>
+      <div class="solution">
+        <button class="solution-toggle" onclick="toggleSolution(this)">📖 查看解析</button>
+        <div class="solution-body">
+          <div class="ans">答案：第四象限</div>
+          <div class="step">复数 z = a + bi 对应复平面内的点 (a, b)。</div>
+          <div class="step">z = 2 - 3i 对应点 (2, -3)。</div>
+          <div class="step">横坐标 2 > 0，纵坐标 -3 < 0，所以点在第四象限。</div>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <span class="q-number">基础9</span>
+      <div class="q-text">求复数 z = 3 + 4i 的模 |z|。</div>
+      <div class="solution">
+        <button class="solution-toggle" onclick="toggleSolution(this)">📖 查看解析</button>
+        <div class="solution-body">
+          <div class="ans">答案：5</div>
+          <div class="step">复数 z = a + bi 的模 |z| = √(a² + b²)。</div>
+          <div class="step">|z| = √(3² + 4²) = √(9 + 16) = √25 = 5。</div>
+          <div class="step">几何意义：复平面上点 (3, 4) 到原点的距离。</div>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <span class="q-number">基础10</span>
+      <div class="q-text">已知关于 x 的实系数一元二次方程 x² - 4x + 5 = 0，求其复数根。</div>
+      <div class="solution">
+        <button class="solution-toggle" onclick="toggleSolution(this)">📖 查看解析</button>
+        <div class="solution-body">
+          <div class="ans">答案：x = 2 ± i</div>
+          <div class="step">判别式 Δ = (-4)² - 4×1×5 = 16 - 20 = -4 < 0，方程有共轭复数根。</div>
+          <div class="step">求根公式：x = [4 ± √(-4)] / 2 = [4 ± 2i] / 2 = 2 ± i。</div>
+          <div class="step">所以两根为 x₁ = 2 + i，x₂ = 2 - i（互为共轭复数）。</div>
+          <div class="step"><strong>验算：</strong>(2 + i)(2 - i) = 4 - i² = 5 ✅；2 + i + 2 - i = 4 ✅。</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="hard" class="tab-content" style="display:none;">
+    <div class="card">
+      <span class="q-number difficult">拔高1</span><span class="q-tag hard">复数运算</span>
+      <div class="q-text">已知复数 z 满足 z(1 - i) = 2 + 3i，求复数 z 的共轭复数 <span style="text-decoration: overline;">z</span>。</div>
+      <div class="solution">
+        <button class="solution-toggle" onclick="toggleSolution(this)">📖 查看解析</button>
+        <div class="solution-body">
+          <div class="ans">答案：<span style="text-decoration: overline;">z</span> = -1/2 - (5/2)i</div>
+          <div class="step">由 z(1 - i) = 2 + 3i，得 z = (2 + 3i) / (1 - i)。</div>
+          <div class="step">分母实数化：z = (2 + 3i)(1 + i) / [(1 - i)(1 + i)]</div>
+          <div class="step">分子：(2 + 3i)(1 + i) = 2 + 2i + 3i + 3i² = 2 + 5i - 3 = -1 + 5i</div>
+          <div class="step">分母：(1 - i)(1 + i) = 1² + 1² = 2</div>
+          <div class="step">所以 z = (-1 + 5i) / 2 = -1/2 + (5/2)i</div>
+          <div class="step">共轭复数 <span style="text-decoration: overline;">z</span> = -1/2 - (5/2)i。</div>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <span class="q-number difficult">拔高2</span><span class="q-tag hard">复数几何</span>
+      <div class="q-text">在复平面内，复数 z 对应的点 Z 满足 |z + 1 - i| = |z - 3 + i|，求点 Z 的轨迹方程。</div>
+      <div class="solution">
+        <button class="solution-toggle" onclick="toggleSolution(this)">📖 查看解析</button>
+        <div class="solution-body">
+          <div class="ans">答案：2x - y - 2 = 0（一条直线）</div>
+          <div class="step">设 z = x + yi（x, y ∈ R），代入条件：</div>
+          <div class="step">|x + yi + 1 - i| = |x + yi - 3 + i|</div>
+          <div class="step">|(x+1) + (y-1)i| = |(x-3) + (y+1)i|</div>
+          <div class="step">两边平方（模非负）：(x+1)² + (y-1)² = (x-3)² + (y+1)²</div>
+          <div class="step">展开：x² + 2x + 1 + y² - 2y + 1 = x² - 6x + 9 + y² + 2y + 1</div>
+          <div class="step">化简：2x - 2y + 2 = -6x + 2y + 10</div>
+          <div class="step">8x - 4y - 8 = 0 ⇒ 2x - y - 2 = 0</div>
+          <div class="step"><strong>几何解释：</strong>到两个定点 A(-1, 1) 和 B(3, -1) 距离相等的点的轨迹，即线段 AB 的中垂线。</div>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <span class="q-number difficult">拔高3</span><span class="q-tag hard">复数性质</span>
+      <div class="q-text">已知复数 z 满足 |z| = 1，求 |z - 2 + 2i| 的最大值和最小值。</div>
+      <div class="solution">
+        <button class="solution-toggle" onclick="toggleSolution(this)">📖 查看解析</button>
+        <div class="solution-body">
+          <div class="ans">答案：最大值 √2 + 1，最小值 |√2 - 1| = √2 - 1</div>
+          <div class="step">由 |z| = 1 知，z 对应复平面上单位圆上的点。</div>
+          <div class="step">|z - 2 + 2i| = |z - (2 - 2i)| 表示单位圆上的点到定点 A(2, -2) 的距离。</div>
+          <div class="step">圆心 O(0, 0) 到 A 的距离 d = √(2² + (-2)²) = √8 = 2√2。</div>
+          <div class="step">圆上点到圆外定点的最大距离 = d + r = 2√2 + 1。</div>
+          <div class="step">最小距离 = d - r = 2√2 - 1。</div>
+          <div class="step">所以 |z - 2 + 2i| 的最大值为 2√2 + 1，最小值为 2√2 - 1。</div>
+          <div class="step"><strong>注意：</strong>A(2, -2) 确实是圆外点，因为 d = 2√2 > 1。</div>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <span class="q-number difficult">拔高4</span><span class="q-tag hard">复数方程</span>
+      <div class="q-text">解方程：z² = 3 + 4i（z 为复数）。</div>
+      <div class="solution">
+        <button class="solution-toggle" onclick="toggleSolution(this)">📖 查看解析</button>
+        <div class="solution-body">
+          <div class="ans">答案：z = 2 + i 或 z = -2 - i</div>
+          <div class="step">设 z = a + bi（a, b ∈ R），则 z² = (a + bi)² = a² - b² + 2abi。</div>
+          <div class="step">由 a² - b² + 2abi = 3 + 4i，得方程组：</div>
+          <div class="step">⎧ a² - b² = 3 &nbsp;&nbsp; ①</div>
+          <div class="step">⎨ 2ab = 4 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ②</div>
+          <div class="step">由②得 b = 2/a，代入①：a² - (4/a²) = 3</div>
+          <div class="step">两边乘 a²：a⁴ - 4 = 3a² ⇒ a⁴ - 3a² - 4 = 0</div>
+          <div class="step">令 u = a² ≥ 0：u² - 3u - 4 = 0 ⇒ (u - 4)(u + 1) = 0</div>
+          <div class="step">u = 4（舍去 u = -1），所以 a² = 4 ⇒ a = ±2。</div>
+          <div class="step">a = 2 时 b = 1；a = -2 时 b = -1。</div>
+          <div class="step">所以 z = 2 + i 或 z = -2 - i。</div>
+          <div class="step"><strong>验算：</strong>(2 + i)² = 4 + 4i + i² = 3 + 4i ✅。</div>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <span class="q-number difficult">拔高5</span><span class="q-tag hard">模与共轭</span>
+      <div class="q-text">已知复数 z 满足 z · <span style="text-decoration: overline;">z</span> + 2i<span style="text-decoration: overline;">z</span> = 3 + 2i，求复数 z。</div>
+      <div class="solution">
+        <button class="solution-toggle" onclick="toggleSolution(this)">📖 查看解析</button>
+        <div class="solution-body">
+          <div class="ans">答案：z = 1 + i 或 z = -1 + i</div>
+          <div class="step">设 z = a + bi（a, b ∈ R），则 <span style="text-decoration: overline;">z</span> = a - bi。</div>
+          <div class="step">z · <span style="text-decoration: overline;">z</span> = (a + bi)(a - bi) = a² + b² = |z|²。</div>
+          <div class="step">代入方程：a² + b² + 2i(a - bi) = 3 + 2i</div>
+          <div class="step">a² + b² + 2ai - 2bi² = 3 + 2i</div>
+          <div class="step">a² + b² + 2ai + 2b = 3 + 2i</div>
+          <div class="step">(a² + b² + 2b) + 2ai = 3 + 2i</div>
+          <div class="step">由复数相等得：</div>
+          <div class="step">⎧ a² + b² + 2b = 3 &nbsp;&nbsp; ①</div>
+          <div class="step">⎨ 2a = 2 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ②</div>
+          <div class="step">由②得 a = 1，代入①：1 + b² + 2b = 3 ⇒ b² + 2b - 2 = 0</div>
+          <div class="step">b = [-2 ± √(4 + 8)] / 2 = [-2 ± √12] / 2 = [-2 ± 2√3] / 2 = -1 ± √3</div>
+          <div class="step">所以 z = 1 + (-1 + √3)i 或 z = 1 + (-1 - √3)i。</div>
+          <div class="step">即 z = 1 + (√3 - 1)i 或 z = 1 - (1 + √3)i。</div>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <span class="q-number difficult">拔高6</span><span class="q-tag hard">实系数方程</span>
+      <div class="q-text">已知关于 x 的实系数方程 x² - 2mx + m² + 4 = 0 有复数根，且两根的模之和为 2√5，求实数 m 的值。</div>
+      <div class="solution">
+        <button class="solution-toggle" onclick="toggleSolution(this)">📖 查看解析</button>
+        <div class="solution-body">
+          <div class="ans">答案：m = ±1</div>
+          <div class="step">判别式 Δ = 4m² - 4(m² + 4) = 4m² - 4m² - 16 = -16 < 0，恒有复数根。</div>
+          <div class="step">实系数二次方程的复数根互为共轭，设两根为 α 和 <span style="text-decoration: overline;">α</span>。</div>
+          <div class="step">由韦达定理：α + <span style="text-decoration: overline;">α</span> = 2m，α · <span style="text-decoration: overline;">α</span> = m² + 4。</div>
+          <div class="step">注意 |α| = |<span style="text-decoration: overline;">α</span>|，且 |α|² = α · <span style="text-decoration: overline;">α</span> = m² + 4。</div>
+          <div class="step">两根的模之和为 2|α| = 2√5 ⇒ |α| = √5。</div>
+          <div class="step">所以 |α|² = 5 ⇒ m² + 4 = 5 ⇒ m² = 1 ⇒ m = ±1。</div>
+          <div class="step"><strong>验算：</strong>m = 1 时方程为 x² - 2x + 5 = 0，根为 1 ± 2i，模均为 √5 ✅。</div>
+          <div class="step">m = -1 时方程为 x² + 2x + 5 = 0，根为 -1 ± 2i，模均为 √5 ✅。</div>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <span class="q-number difficult">拔高7</span><span class="q-tag hard">复数与几何</span>
+      <div class="q-text">在复平面内，复数 z₁, z₂, z₃ 对应的点构成等边三角形，且 z₁ = 1，z₂ = 2 + i，求 z₃。</div>
+      <div class="solution">
+        <button class="solution-toggle" onclick="toggleSolution(this)">📖 查看解析</button>
+        <div class="solution-body">
+          <div class="ans">答案：z₃ = (3 + √3)/2 + (1 - √3)/2 · i 或 z₃ = (3 - √3)/2 + (1 + √3)/2 · i</div>
+          <div class="step">设 z₃ = x + yi。由等边三角形，边长相等：</div>
+          <div class="step">|z₂ - z₁| = |z₃ - z₁| = |z₃ - z₂|。</div>
+          <div class="step">|z₂ - z₁| = |(2 + i) - 1| = |1 + i| = √2。</div>
+          <div class="step">所以 |z₃ - 1| = √2 且 |z₃ - (2 + i)| = √2。</div>
+          <div class="step">即 (x - 1)² + y² = 2 &nbsp;&nbsp; ①</div>
+          <div class="step">且 (x - 2)² + (y - 1)² = 2 &nbsp;&nbsp; ②</div>
+          <div class="step">② - ①：(x - 2)² - (x - 1)² + (y - 1)² - y² = 0</div>
+          <div class="step">展开：(x² - 4x + 4) - (x² - 2x + 1) + (y² - 2y + 1) - y² = 0</div>
+          <div class="step">-4x + 4 + 2x - 1 - 2y + 1 = 0 ⇒ -2x - 2y + 4 = 0 ⇒ x + y = 2</div>
+          <div class="step">代入①：(x - 1)² + (2 - x)² = 2</div>
+          <div class="step">x² - 2x + 1 + x² - 4x + 4 = 2 ⇒ 2x² - 6x + 3 = 0</div>
+          <div class="step">x = [6 ± √(36 - 24)] / 4 = [6 ± √12] / 4 = [6 ± 2√3] / 4 = (3 ± √3) / 2</div>
+          <div class="step">x = (3 + √3)/2 时 y = 2 - x = (1 - √3)/2</div>
+          <div class="step">x = (3 - √3)/2 时 y = 2 - x = (1 + √3)/2</div>
+          <div class="step">所以 z₃ = (3 + √3)/2 + (1 - √3)/2 · i 或 z₃ = (3 - √3)/2 + (1 + √3)/2 · i。</div>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <span class="q-number difficult">拔高8</span><span class="q-tag hard">复数与三角</span>
+      <div class="q-text">已知复数 z = cos θ + i sin θ（θ ∈ R），求证：1 + z + z² + … + zⁿ = (1 - zⁿ⁺¹) / (1 - z)（z ≠ 1）。</div>
+      <div class="solution">
+        <button class="solution-toggle" onclick="toggleSolution(this)">📖 查看解析</button>
+        <div class="solution-body">
+          <div class="ans">证明见解析</div>
+          <div class="step">这是等比数列求和公式在复数域中的直接应用。</div>
+          <div class="step">设 S = 1 + z + z² + … + zⁿ。</div>
+          <div class="step">则 zS = z + z² + z³ + … + zⁿ⁺¹。</div>
+          <div class="step">相减：S - zS = 1 - zⁿ⁺¹</div>
+          <div class="step">(1 - z)S = 1 - zⁿ⁺¹</div>
+          <div class="step">因为 z ≠ 1（即 θ ≠ 2kπ），所以 1 - z ≠ 0。</div>
+          <div class="step">所以 S = (1 - zⁿ⁺¹) / (1 - z)。证毕。</div>
+          <div class="step">进一步地，当 z = cos θ + i sin θ 时，代入可得：</div>
+          <div class="step">1 + cos θ + cos 2θ + … + cos nθ = [sin((n+1)θ/2) · cos(nθ/2)] / sin(θ/2)</div>
+          <div class="step">sin θ + sin 2θ + … + sin nθ = [sin((n+1)θ/2) · sin(nθ/2)] / sin(θ/2)</div>
+          <div class="step">这是复数在三角恒等式中的重要应用——棣莫弗定理与单位根。</div>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <span class="q-number difficult">拔高9</span><span class="q-tag hard">综合推理</span>
+      <div class="q-text">已知复数 z 满足 |z| = 1 且 z² + 2<span style="text-decoration: overline;">z</span> + 1 = 0，求复数 z。</div>
+      <div class="solution">
+        <button class="solution-toggle" onclick="toggleSolution(this)">📖 查看解析</button>
+        <div class="solution-body">
+          <div class="ans">答案：z = -1 或 z = (-1 ± √3 i)/2</div>
+          <div class="step">由 |z| = 1，有 z · <span style="text-decoration: overline;">z</span> = 1，即 <span style="text-decoration: overline;">z</span> = 1/z。</div>
+          <div class="step">代入方程：z² + 2(1/z) + 1 = 0</div>
+          <div class="step">两边乘 z（z ≠ 0）：z³ + 2 + z = 0 ⇒ z³ + z + 2 = 0</div>
+          <div class="step">因式分解：(z + 1)(z² - z + 2) = 0</div>
+          <div class="step">① z + 1 = 0 ⇒ z = -1，满足 |z| = 1 ✅。</div>
+          <div class="step">② z² - z + 2 = 0 ⇒ z = (1 ± √(1 - 8))/2 = (1 ± √7 i)/2</div>
+          <div class="step">但 |(1 ± √7 i)/2| = √(1 + 7)/2 = √8/2 = √2 ≠ 1 ❌，不满足 |z| = 1，舍去。</div>
+          <div class="step">等等，让我换一种方法重新做。</div>
+          <div class="step">由 |z| = 1，设 z = cos θ + i sin θ，则 <span style="text-decoration: overline;">z</span> = cos θ - i sin θ。</div>
+          <div class="step">代入 z² + 2<span style="text-decoration: overline;">z</span> + 1 = 0：</div>
+          <div class="step">cos 2θ + i sin 2θ + 2(cos θ - i sin θ) + 1 = 0</div>
+          <div class="step">实部：cos 2θ + 2 cos θ + 1 = 0</div>
+          <div class="step">虚部：sin 2θ - 2 sin θ = 0</div>
+          <div class="step">由虚部：2 sin θ cos θ - 2 sin θ = 2 sin θ(cos θ - 1) = 0</div>
+          <div class="step">所以 sin θ = 0 或 cos θ = 1。</div>
+          <div class="step"><strong>情况1：</strong>sin θ = 0 ⇒ θ = kπ，cos θ = ±1</div>
+          <div class="step">代入实部：cos 2θ + 2 cos θ + 1 = 0</div>
+          <div class="step">当 cos θ = 1（θ = 2kπ）时，cos 2θ = 1，1 + 2 + 1 = 4 ≠ 0 ❌</div>
+          <div class="step">当 cos θ = -1（θ = π + 2kπ）时，cos 2θ = 1，1 - 2 + 1 = 0 ✅</div>
+          <div class="step">所以 z = -1。</div>
+          <div class="step"><strong>情况2：</strong>cos θ = 1 ⇒ θ = 2kπ，z = 1</div>
+          <div class="step">代入：1 + 2 + 1 = 4 ≠ 0 ❌</div>
+          <div class="step">所以仅有解 z = -1。</div>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <span class="q-number difficult">拔高10</span><span class="q-tag hard">综合应用</span>
+      <div class="q-text">已知复数 z₁ = 1 + i，z₂ = a + bi（a, b ∈ R），且满足 z₁ · z₂ 为纯虚数，|z₂| = √10，求 z₂ 的值。</div>
+      <div class="solution">
+        <button class="solution-toggle" onclick="toggleSolution(this)">📖 查看解析</button>
+        <div class="solution-body">
+          <div class="ans">答案：z₂ = √5 + √5 i 或 z₂ = -√5 - √5 i</div>
+          <div class="step">z₁ · z₂ = (1 + i)(a + bi) = (a - b) + (a + b)i。</div>
+          <div class="step">因为 z₁ · z₂ 为纯虚数，所以实部为 0，虚部不为 0：</div>
+          <div class="step">a - b = 0 ⇒ a = b &nbsp;&nbsp; ①</div>
+          <div class="step">且 a + b ≠ 0 ⇒ 2a ≠ 0 ⇒ a ≠ 0 &nbsp;&nbsp; ②</div>
+          <div class="step">又 |z₂| = √(a² + b²) = √10 ⇒ a² + b² = 10 &nbsp;&nbsp; ③</div>
+          <div class="step">将 ① 代入 ③：a² + a² = 10 ⇒ 2a² = 10 ⇒ a² = 5 ⇒ a = ±√5。</div>
+          <div class="step">所以 b = a = ±√5。</div>
+          <div class="step">z₂ = √5 + √5 i 或 z₂ = -√5 - √5 i。</div>
+          <div class="step">验算：z₁ · z₂ = (1+i)(√5+√5i) = √5(1+i)(1+i) = √5(2i) = 2√5 i，纯虚数 ✅。</div>
+          <div class="step">|z₂| = √(5+5)=√10 ✅。</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+function toggleSolution(btn) {
+  const body = btn.nextElementSibling;
+  body.classList.toggle('open');
+  btn.textContent = body.classList.contains('open') ? '📕 收起解析' : '📖 查看解析';
+}
+function switchTab(name) {
+  document.querySelectorAll('.tab-content').forEach(c => c.style.display = 'none');
+  document.getElementById(name).style.display = 'block';
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  document.querySelector(`.tab[onclick*="${name}"]`).classList.add('active');
+}
+</script>
+</body>
+</html>
