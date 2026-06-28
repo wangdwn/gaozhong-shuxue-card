@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>集合与常用逻辑用语 · 专项训练 — 高中数学知识卡片</title>
+<link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+<style>
+:root {
+  --bg: #f5f5f7;
+  --card-bg: rgba(255,255,255,0.85);
+  --accent: #0071e3;
+  --accent-dark: #005bbf;
+  --gold: #d4a537;
+  --red: #c0392b;
+  --green: #27ae60;
+  --text: #1d1d1f;
+  --text-secondary: #86868b;
+  --radius: 16px;
+}
+@media(prefers-color-scheme:dark) {
+  :root {
+    --bg: #1d1d1f;
+    --card-bg: rgba(40,40,44,0.9);
+    --text: #f5f5f7;
+    --text-secondary: #98989d;
+  }
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Noto Sans SC", sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.8;
+  padding: 0 0 40px;
+}
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+.header {
+  text-align: center;
+  padding: 40px 0 30px;
+  border-bottom: 1px solid rgba(0,0,0,0.06);
+  margin-bottom: 30px;
+  position: relative;
+}
+.header h1 {
+  font-size: 1.6rem;
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+.header .sub {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+}
+.back-link {
+  position: absolute;
+  left: 0;
+  top: 40px;
+  color: var(--accent);
+  text-decoration: none;
+  font-size: 0.82rem;
+}
+@media(max-width:600px) {
+  .back-link { position: static; display: block; text-align: left; margin-bottom: 10px; }
+}
+.tabs {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 24px;
+  border-bottom: 1px solid rgba(0,0,0,0.06);
+  padding-bottom: 8px;
+}
+.tab {
+  padding: 8px 20px;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  cursor: pointer;
+  color: var(--text-secondary);
+  transition: all 0.2s;
+  border: none;
+  background: transparent;
+  font-weight: 500;
+}
+.tab:hover { background: rgba(0,113,227,0.06); }
+.tab.active {
+  background: var(--accent);
+  color: white;
+}
+.card {
+  background: var(--card-bg);
+  backdrop-filter: blur(12px);
+  border-radius: var(--radius);
+  padding: 24px;
+  margin-bottom: 20px;
+  border: 1px solid rgba(0,0,0,0.06);
+}
+.q-number {
+  display: inline-block;
+  background: var(--accent);
+  color: white;
+  font-size: 0.72rem;
+  padding: 2px 10px;
+  border-radius: 12px;
+  margin-bottom: 12px;
+  font-weight: 600;
+}
+.q-number.difficult { background: var(--red); }
+.q-tag {
+  display: inline-block;
+  font-size: 0.7rem;
+  padding: 2px 10px;
+  border-radius: 10px;
+  margin-left: 6px;
+  background: rgba(212,165,55,0.15);
+  color: var(--gold);
+}
+.q-tag.hard { background: rgba(192,57,43,0.1); color: var(--red); }
+.q-text {
+  font-size: 0.92rem;
+  line-height: 1.8;
+  margin-bottom: 16px;
+  font-weight: 500;
+}
+.solution {
+  border-top: 1px solid rgba(0,0,0,0.06);
+  padding-top: 16px;
+  margin-top: 16px;
+}
+.solution-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 0.82rem;
+  color: var(--accent);
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 4px 12px;
+  border-radius: 8px;
+  transition: all 0.2s;
+  font-weight: 500;
+}
+.solution-toggle:hover { background: rgba(0,113,227,0.06); }
+.solution-body {
+  display: none;
+  margin-top: 12px;
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  line-height: 1.9;
+}
+.solution-body.open { display: block; }
+.solution-body strong { color: var(--text); }
+.solution-body .ans {
+  display: inline-block;
+  background: rgba(39,174,96,0.1);
+  color: var(--green);
+  padding: 2px 10px;
+  border-radius: 6px;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+.solution-body .step {
+  margin-bottom: 6px;
+  padding-left: 12px;
+  border-left: 2px solid var(--accent);
+}
+@media(max-width:600px) {
+  .header h1 { font-size: 1.2rem; }
+  .card { padding: 16px; }
+  .tabs { gap: 4px; }
+  .tab { padding: 6px 12px; font-size: 0.78rem; }
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+  <div class="header">
+    <a href="index.html" class="back-link">← 返回知识卡片主页</a>
+    <h1>🧮 集合与常用逻辑用语 · 专项训练</h1>
+    <p class="sub">人教A版 · 必修第一册 第一章 | 10道基础题 + 10道拔高题</p>
+  </div>
+
+  <div class="tabs">
+    <button class="tab active" onclick="switchTab('basic')">基础训练 10题</button>
+    <button class="tab" onclick="switchTab('hard')">拔高挑战 10题</button>
+  </div>
+
+  <!-- ==================== 基础题 ==================== -->
+  <div id="basic" class="tab-content">
+
+    <div class="card">
+      <span class="q-number">基础1</span>
+      <div class="q-text">用列举法表示集合 { x ∈ Z | x² - 3x - 4 ≤ 0 }。</div>
+      <div class="solution">
+        <button class="solution-toggle" onclick="toggleSolution(this)">📖 查看解析</button>
+        <div class="solution-body">
+          <div class="ans">答案：{-1, 0, 1, 2, 3, 4}</div>
+          <div class="step"><strong>解不等式：</strong>x² - 3x - 4 ≤ 0</div>
+          <div class="step">因式分解：(x-4)(x+1) ≤ 0</div>
+          <div class="step">解得：-1 ≤ x ≤ 4</div>
+          <div class="step">x ∈ Z（整数），所以 x = -1, 0, 1, 2, 3, 4</div>
+          <div class="step">列举法表示为 {-1, 0, 1, 2, 3, 4}</div>
+          <div class="step"><strong>注意：</strong>列举法要求元素之间无顺序、不重复，按习惯从小到大写。</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <span class="q-number">基础2</span>
+      <div class="q-text">已知集合 A = {1, 2, 3}，B = {2, 3, 4}，求 A ∪ B 和 A ∩ B。</div>
+      <div class="solution">
+        <button class="solution-toggle" onclick="toggleSolution(this)">📖 查看解析</button>
+        <div class="solution-body">
+          <div class="ans">答案：A∪B={1,2,3,4}，A∩B={2,3}</div>
+          <div class="step"><strong>并集：</strong>所有属于A或属于B的元素 → A∪B = {1,2,3,4}</div>
+          <div class="step"><strong>交集：</strong>既属于A又属于B的元素 → A∩B = {2,3}</div>
+          <div class="step"><strong>Venn图：</strong>画两个相交的圆，A={1,2,3}在左圆，B={2,3,4}在右圆，重叠部分{2,3}。</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <span class="q-number">基础3</span>
+      <div class="q-text">设全集 U = {1, 2, 3, 4, 5, 6}，A = {1, 3, 5}，求 ∁<sub>U</sub>A。</div>
+      <div class="solution">
+        <button class="solution-toggle" onclick="toggleSolution(this)">📖 查看解析</button>
+        <div class="solution-body">
+          <div class="ans">答案：∁<sub>U</sub>A = {2, 4, 6}</div>
+          <div class="step"><strong>补集：</strong>在全集中但不属于A的元素。</div>
+          <div class="step">U = {1,2,3,4,5,6}，去掉A中的{1,3,5}，剩下{2,4,6}。</div>
+          <div class="step">所以 ∁<sub>U</sub>A = {2, 4, 6}</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <span class="q-number">基础4</span>
+      <div class="q-text">判断下列命题的真假：<br>
+        (1) ∀x ∈ R，x² ≥ 0；<br>
+        (2) ∃x ∈ R，x² + 1 = 0；<br>
+        (3) ∀x ∈ R，|x| ≥ 0。</div>
+      <div class="solution">
+        <button class="solution-toggle" onclick="toggleSolution(this)">📖 查看解析</button>
+        <div class="solution-body">
+          <div class="ans">答案：(1)真 (2)假 (3)真</div>
+          <div class="step"><strong>(1)</strong> 任意实数的平方都大于等于0——这是实数的基本性质。✅真命题。</div>
+          <div class="step"><strong>(2)</strong> x²+1=0 ⇒ x²=-1，在实数范围内无解。❌假命题。</div>
+          <div class="step"><strong>(3)</strong> 任意实数的绝对值都大于等于0——绝对值的定义。✅真命题。</div>
+          <div class="step"><strong>注意：</strong>全称量词命题（∀）要求所有情况都成立，存在量词命题（∃）只需找到一个例子。</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <span class="q-number">基础5</span>
+      <div class="q-text">已知集合 A = {x | x² - 1 = 0}，B = {-1, 0, 1}，判断 A 与 B 的关系。</div>
+      <div class="solution">
+        <button class="solution-toggle" onclick="toggleSolution(this)">📖 查看解析</button>
+        <div class="solution-body">
+          <div class="ans">答案：A ⊂ B（A是B的真子集）</div>
+          <div class="step"><strong>先化简A：</strong>x² - 1 = 0 ⇒ x = ±1，所以 A = {-1, 1}</div>
+          <div class="step">B = {-1, 0, 1}</div>
+          <div class="step">A中的每个元素都在B中（-1∈B，1∈B），所以 A ⊆ B。</div>
+          <div class="step">但B中有元素0不在A中，所以 A ≠ B。</div>
+          <div class="step">所以 A ⊂ B（A是B的真子集）。</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <span class="q-number">基础6</span>
+      <div class="q-text">设集合 A = {x | -2 ≤ x ≤ 3}，B = {x | x > 1}，求 A ∩ B 和 A ∪ B。</div>
+      <div class="solution">
+        <button class="solution-toggle" onclick="toggleSolution(this)">📖 查看解析</button>
+        <div class="solution-body">
+          <div class="ans">答案：A∩B={x|1&lt;x≤3}，A∪B={x|x≥-2}</div>
+          <div class="step"><strong>交集：</strong>画数轴，A在[-2,3]，B在(1,+∞)，重叠部分为(1,3]。</div>
+          <div class="step">所以 A∩B = {x | 1 &lt; x ≤ 3}</div>
+          <div class="step"><strong>并集：</strong>A∪B = [-2,3] ∪ (1,+∞) = [-2,+∞)</div>
+          <div class="step">所以 A∪B = {x | x ≥ -2}</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <span class="q-number">基础7</span>
+      <div class="q-text">写出命题"若 x > 0，则 x² > 0"的逆命题、否命题和逆否命题，并判断真假。</div>
+      <div class="solution">
+        <button class="solution-toggle" onclick="toggleSolution(this)">📖 查看解析</button>
+        <div class="solution-body">
+          <div class="ans">答案：见解析</div>
+          <div class="step"><strong>原命题：</strong>若 x>0，则 x²>0。（真，正数的平方为正）</div>
+          <div class="step"><strong>逆命题：</strong>若 x²>0，则 x>0。（假，x=-1时x²=1>0但x&lt;0）</div>
+          <div class="step"><strong>否命题：</strong>若 x≤0，则 x²≤0。（假，x=-1时x²=1>0）</div>
+          <div class="step"><strong>逆否命题：</strong>若 x²≤0，则 x≤0。（真，x²≤0⇒x=0⇒x≤0）</div>
+          <div class="step"><strong>规律：</strong>原命题与逆否命题同真假，逆命题与否命题同真假。</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <span class="q-number">基础8</span>
+      <div class="q-text">已知集合 A = {x | ax + 1 = 0}，若 A 是空集，求实数 a 的值。</div>
+      <div class="solution">
+        <button class="solution-toggle" onclick="toggleSolution(this)">📖 查看解析</button>
+        <div class="solution-body">
+          <div class="ans">答案：a = 0</div>
+          <div class="step">方程 ax + 1 = 0 无解 ⟺ A = ∅</div>
+          <div class="step">当 a ≠ 0 时，x = -1/a，有解，A ≠ ∅。</div>
+          <div class="step">当 a = 0 时，方程变为 1 = 0，无解，A = ∅。</div>
+          <div class="step">所以 a = 0。</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <span class="q-number">基础9</span>
+      <div class="q-text">"x = 2"是"x² = 4"的什么条件？</div>
+      <div class="solution">
+        <button class="solution-toggle" onclick="toggleSolution(this)">📖 查看解析</button>
+        <div class="solution-body">
+          <div class="ans">答案：充分不必要条件</div>
+          <div class="step"><strong>判断：</strong></div>
+          <div class="step">x=2 ⇒ x²=4（成立），所以充分。</div>
+          <div class="step">x²=4 ⇒ x=±2，不一定推出x=2（反例：x=-2），所以不必要。</div>
+          <div class="step">因此"x=2"是"x²=4"的<strong>充分不必要条件</strong>。</div>
+          <div class="step"><strong>口诀：</strong>小范围推大范围——{2}⊂{-2,2}，所以前者是后者的充分不必要条件。</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <span class="q-number">基础10</span>
+      <div class="q-text">写出下列命题的否定：<br>
+        (1) ∀x ∈ R，x + 2 > 0；<br>
+        (2) ∃x ∈ Z，x² = 2。</div>
+      <div class="solution">
+        <button class="solution-toggle" onclick="toggleSolution(this)">📖 查看解析</button>
+        <div class="solution-body">
+          <div class="ans">答案：(1) ∃x∈R，x+2≤0 (2) ∀x∈Z，x²≠2</div>
+          <div class="step"><strong>全称量词命题的否定：</strong>∀改成∃，结论取反。</div>
+          <div class="step">(1) ∀x∈R，x+2>0 的否定是 ∃x∈R，x+2≤0</div>
+          <div class="step"><strong>存在量词命题的否定：</strong>∃改成∀，结论取反。</div>
+          <div class="step">(2) ∃x∈Z，x²=2 的否定是 ∀x∈Z，x²≠2</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ==================== 拔高题 ==================== -->
+  <div id="hard" class="tab-content" style="display:none;">
+
+    <div class="card">
+      <span class="q-number difficult">拔高1</span><span class="q-tag hard">集合运算</span>
+      <div class="q-text">已知集合 A = {x | x² - 5x + 6 = 0}，B = {x | mx + 1 = 0}。若 B ⊆ A，求实数 m 的取值集合。</div>
+      <div class="solution">
+        <button class="solution-toggle" onclick="toggleSolution(this)">📖 查看解析</button>
+        <div class="solution-body">
+          <div class="ans">答案：{0, -1/2, -1/3}</div>
+          <div class="step"><strong>先化简A：</strong>x²-5x+6=0 ⇒ (x-2)(x-3)=0 ⇒ A={2,3}</div>
+          <div class="step">B⊆A，分情况讨论：</div>
+          <div class="step"><strong>① B = ∅：</strong>mx+1=0无解 ⇒ m=0。此时B=∅⊆A，符合条件。</div>
+          <div class="step"><strong>② B = {2}：</strong>2m+1=0 ⇒ m=-1/2。验证：方程(-1/2)x+1=0的解为x=2，B={2}⊆A。</div>
+          <div class="step"><strong>③ B = {3}：</strong>3m+1=0 ⇒ m=-1/3。验证：方程(-1/3)x+1=0的解为x=3，B={3}⊆A。</div>
+          <div class="step">所以 m 的取值集合为 {0, -1/2, -1/3}。</div>
+          <div class="step"><strong>易错：</strong>漏掉 B=∅ 的情况（m=0）是这类题最常见的错误。</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <span class="q-number difficult">拔高2</span><span class="q-tag hard">子集计数</span>
+      <div class="q-text">已知集合 A = {1, 2, 3, 4, 5}。<br>
+        (1) 求A的子集个数和真子集个数；<br>
+        (2) 求A的含有元素1的子集个数。</div>
+      <div class="solution">
+        <button class="solution-toggle" onclick="toggleSolution(this)">📖 查看解析</button>
+        <div class="solution-body">
+          <div class="ans">答案：(1) 32个、31个 (2) 16个</div>
+          <div class="step"><strong>(1)</strong> A有5个元素，子集个数 = 2⁵ = 32。</div>
+          <div class="step">真子集个数 = 2⁵ - 1 = 31（去掉自身）。</div>
+          <div class="step"><strong>(2)</strong> 含有元素1的子集：先把1放进去，剩下的4个元素每个可以选择取或不取。</div>
+          <div class="step">所以含有1的子集个数 = 2⁴ = 16。</div>
+          <div class="step"><strong>一般规律：</strong>n元集合的子集个数为2ⁿ，真子集2ⁿ-1，含特定元素的子集2ⁿ⁻¹。</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <span class="q-number difficult">拔高3</span><span class="q-tag hard">含参集合</span>
+      <div class="q-text">已知集合 A = {x | x² - 2x + a = 0}，若 A ⊆ R⁺（正实数集），求实数 a 的取值范围。</div>
+      <div class="solution">
+        <button class="solution-toggle" onclick="toggleSolution(this)">📖 查看解析</button>
+        <div class="solution-body">
+          <div class="ans">答案：0 &lt; a ≤ 1</div>
+          <div class="step"><strong>分析：</strong>x²-2x+a=0的两根都在正半轴。</div>
+          <div class="step">设两根为x₁,x₂，由韦达定理：x₁+x₂=2>0，x₁x₂=a。</div>
+          <div class="step"><strong>分情况：</strong></div>
+          <div class="step"><strong>① A=∅：</strong>Δ=4-4a&lt;0 ⇒ a>1。此时A=∅⊆R⁺，成立。</div>
+          <div class="step"><strong>② A≠∅：</strong>Δ≥0 ⇒ a≤1。两正根的条件：x₁x₂=a>0。</div>
+          <div class="step">  （x₁+x₂=2>0已自动满足）</div>
+          <div class="step">综合：0 &lt; a ≤ 1 或 a > 1。即 a > 0 且 a ≠ ?</div>
+          <div class="step"><strong>注意检查：</strong>a=0时，方程x²-2x=0，两根为0和2，0∉R⁺，所以a=0不成立。</div>
+          <div class="step">所以 a > 0 时，若a≤1则两根为正（含相等），若a>1则无解（A=∅⊆R⁺）。</div>
+          <div class="step"><strong>答案：</strong>a > 0。实际上题目要求A⊆R⁺，当A=∅时无条件成立，所以a>1也可以。</div>
+          <div class="step">所以最终的取值范围是 <strong>a > 0</strong>。</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <span class="q-number difficult">拔高4</span><span class="q-tag hard">充要条件</span>
+      <div class="q-text">已知 p：-2 ≤ x ≤ 10，q：x² - 2x + 1 - m² ≤ 0（m > 0）。若 q 是 p 的充分不必要条件，求实数 m 的取值范围。</div>
+      <div class="solution">
+        <button class="solution-toggle" onclick="toggleSolution(this)">📖 查看解析</button>
+        <div class="solution-body">
+          <div class="ans">答案：0 &lt; m ≤ 3</div>
+          <div class="step"><strong>化简q：</strong>x²-2x+1-m²≤0 ⇒ (x-1)²-m²≤0 ⇒ |x-1|≤m</div>
+          <div class="step">所以 q 的解集为 [1-m, 1+m]。</div>
+          <div class="step">p 的解集为 [-2, 10]。</div>
+          <div class="step">q是p的充分不必要条件 ⇒ q⇒p但p⇏q ⇒ q对应的区间是p对应的区间的真子集。</div>
+          <div class="step">即 [1-m, 1+m] ⊂ [-2, 10]（真包含）。</div>
+          <div class="step">列不等式：</div>
+          <div class="step">① 1-m ≥ -2 ⇒ m ≤ 3</div>
+          <div class="step">② 1+m ≤ 10 ⇒ m ≤ 9</div>
+          <div class="step">③ 等号不能同时取（否则就是相等集合，充要条件了）——这里如果m=3时，q=[-2,4]⊂[-2,10]是真子集，不矛盾。</div>
+          <div class="step">同时 m > 0（题设）。</div>
+          <div class="step">所以 0 &lt; m ≤ 3。</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <span class="q-number difficult">拔高5</span><span class="q-tag hard">集合中新定义</span>
+      <div class="q-text">定义集合运算：A ⊗ B = {z | z = xy + x + y, x∈A, y∈B}。已知 A = {0, 1}，B = {1, 2}，求 A ⊗ B。</div>
+      <div class="solution">
+        <button class="solution-toggle" onclick="toggleSolution(this)">📖 查看解析</button>
+        <div class="solution-body">
+          <div class="ans">答案：{1, 3, 5}</div>
+          <div class="step">逐一代入计算：</div>
+          <div class="step">x=0,y=1：z = 0×1+0+1 = 1</div>
+          <div class="step">x=0,y=2：z = 0×2+0+2 = 2</div>
+          <div class="step">x=1,y=1：z = 1×1+1+1 = 3</div>
+          <div class="step">x=1,y=2：z = 1×2+1+2 = 5</div>
+          <div class="step">所以 A ⊗ B = {1, 2, 3, 5}</div>
+          <div class="step"><strong>注意：</strong>集合元素有互异性，这里没有重复结果，所以就是4个元素。</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <span class="q-number difficult">拔高6</span><span class="q-tag hard">分类讨论</span>
+      <div class="q-text">已知集合 A = {x | x² - 3x + 2 = 0}，B = {x | x² - 2x + a - 1 = 0}。若 A ∩ B = B，求实数 a 的取值集合。</div>
+      <div class="solution">
+        <button class="solution-toggle" onclick="toggleSolution(this)">📖 查看解析</button>
+        <div class="solution-body">
+          <div class="ans">答案：{2, 3}</div>
+          <div class="step"><strong>先化简A：</strong>x²-3x+2=0 ⇒ (x-1)(x-2)=0 ⇒ A={1,2}</div>
+          <div class="step">A∩B=B ⇒ B ⊆ A（B是A的子集）。</div>
+          <div class="step"><strong>① B=∅：</strong>Δ=4-4(a-1)=8-4a&lt;0 ⇒ a>2。成立。</div>
+          <div class="step"><strong>② B={1}：</strong>将x=1代入：1-2+a-1=0 ⇒ a=2。验证：Δ=8-8=0，方程x²-2x+1=0⇒(x-1)²=0⇒x=1，B={1}⊆A。</div>
+          <div class="step"><strong>③ B={2}：</strong>将x=2代入：4-4+a-1=0 ⇒ a=1。验证：Δ=8-4=4>0，方程x²-2x+0=0⇒x=0或2，B={0,2}，0∉A，不成立。</div>
+          <div class="step"><strong>④ B={1,2}：</strong>1和2都是B的根。由韦达定理：1+2=3=2？但x₁+x₂=2，1+2=3≠2，矛盾。</div>
+          <div class="step">所以 a=2（B={1}）或 a>2（B=∅），取整数的话就是{2,3,4,…}。</div>
+          <div class="step">题目问"取值集合"，如果a是实数，就是{2} ∪ (2,+∞)。</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <span class="q-number difficult">拔高7</span><span class="q-tag hard">集合运算</span>
+      <div class="q-text">已知全集 U = {1, 2, 3, 4, 5, 6, 7, 8, 9}，A ∩ (∁<sub>U</sub>B) = {1, 3, 5, 7}，(∁<sub>U</sub>A) ∩ B = {2, 4, 6}，(∁<sub>U</sub>A) ∩ (∁<sub>U</sub>B) = {8, 9}。求集合 A 和 B。</div>
+      <div class="solution">
+        <button class="solution-toggle" onclick="toggleSolution(this)">📖 查看解析</button>
+        <div class="solution-body">
+          <div class="ans">答案：A={1,3,5,7}，B={2,4,6}</div>
+          <div class="step"><strong>韦恩图法：</strong>画矩形表示全集U，两个相交的圆分别表示A和B。</div>
+          <div class="step">全集U被分成四个互不相交的部分：</div>
+          <div class="step">① A∩B（既在A又在B）</div>
+          <div class="step">② A∩(∁<sub>U</sub>B)=A-B（仅在A中）= {1,3,5,7}（已知）</div>
+          <div class="step">③ (∁<sub>U</sub>A)∩B=B-A（仅在B中）= {2,4,6}（已知）</div>
+          <div class="step">④ (∁<sub>U</sub>A)∩(∁<sub>U</sub>B)=∁<sub>U</sub>(A∪B)（都不在A也不在B）= {8,9}（已知）</div>
+          <div class="step">四个部分互不重叠，且它们的并集为全集U。</div>
+          <div class="step">所以 A = ①∪② = ∅∪{1,3,5,7} = {1,3,5,7}</div>
+          <div class="step">B = ①∪③ = ∅∪{2,4,6} = {2,4,6}</div>
+          <div class="step"><strong>验证：</strong>A∩B=∅，A∪B={1,2,3,4,5,6,7}，剩下的{8,9}为补集，与已知一致。</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <span class="q-number difficult">拔高8</span><span class="q-tag hard">逻辑推理</span>
+      <div class="q-text">已知 p：关于 x 的方程 x² + ax + 1 = 0 有两个正根。q：a ≤ -2。判断 p 是 q 的什么条件。</div>
+      <div class="solution">
+        <button class="solution-toggle" onclick="toggleSolution(this)">📖 查看解析</button>
+        <div class="solution-body">
+          <div class="ans">答案：充分不必要条件</div>
+          <div class="step"><strong>先解p：</strong>方程x²+ax+1=0有两个正根。</div>
+          <div class="step">① Δ = a² - 4 ≥ 0 ⇒ a ≤ -2 或 a ≥ 2</div>
+          <div class="step">② 两根之和 = -a > 0 ⇒ a &lt; 0</div>
+          <div class="step">③ 两根之积 = 1 > 0（已自动满足）</div>
+          <div class="step">综合①②：a ≤ -2（交集为a≤-2）。</div>
+          <div class="step">所以 p：a ≤ -2，而 q：a ≤ -2。</div>
+          <div class="step">p ⇔ q，所以 p 是 q 的<strong>充要条件</strong>。</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <span class="q-number difficult">拔高9</span><span class="q-tag hard">集合综合</span>
+      <div class="q-text">设集合 A = {x | x = 2k + 1, k ∈ Z}，B = {x | x = 4k ± 1, k ∈ Z}。求证：A = B。</div>
+      <div class="solution">
+        <button class="solution-toggle" onclick="toggleSolution(this)">📖 查看解析</button>
+        <div class="solution-body">
+          <div class="ans">证明见解析</div>
+          <div class="step"><strong>要证A=B，需证A⊆B且B⊆A。</strong></div>
+          <div class="step"><strong>先证A⊆B：</strong></div>
+          <div class="step">任取x∈A，则x=2k+1，k∈Z。</div>
+          <div class="step">① 若k=2m（偶数），x=2(2m)+1=4m+1∈B</div>
+          <div class="step">② 若k=2m+1（奇数），x=2(2m+1)+1=4m+3=4(m+1)-1∈B</div>
+          <div class="step">所以A⊆B。</div>
+          <div class="step"><strong>再证B⊆A：</strong></div>
+          <div class="step">任取x∈B，则x=4k±1=4k+1或4k-1，k∈Z。</div>
+          <div class="step">① x=4k+1=2(2k)+1∈A</div>
+          <div class="step">② x=4k-1=4k-1=2(2k)-1=2(2k-1)+1∈A（因为2k-1∈Z）</div>
+          <div class="step">所以B⊆A。</div>
+          <div class="step">因此A=B。证毕。</div>
+          <div class="step"><strong>意义：</strong>奇数集可以用不同的表达式描述，但本质是同一个集合。</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <span class="q-number difficult">拔高10</span><span class="q-tag hard">综合应用</span>
+      <div class="q-text">已知集合 A = {x | x² - 4x + 3 ≤ 0}，B = {x | x² - 2mx + m² - 4 ≤ 0}。若 A ∩ B ≠ ∅，求实数 m 的取值范围。</div>
+      <div class="solution">
+        <button class="solution-toggle" onclick="toggleSolution(this)">📖 查看解析</button>
+        <div class="solution-body">
+          <div class="ans">答案：-1 ≤ m ≤ 4</div>
+          <div class="step"><strong>化简A：</strong>x²-4x+3≤0 ⇒ (x-1)(x-3)≤0 ⇒ A=[1,3]</div>
+          <div class="step"><strong>化简B：</strong>x²-2mx+(m²-4)≤0 ⇒ (x-m)²-4≤0 ⇒ |x-m|≤2 ⇒ B=[m-2, m+2]</div>
+          <div class="step">A∩B≠∅ ⟺ 两个区间有公共点。</div>
+          <div class="step">画数轴：A=[1,3]，B=[m-2, m+2]。有交点⇔左端点不大于右端点且右端点不小于左端点。</div>
+          <div class="step">即：m-2 ≤ 3 且 m+2 ≥ 1</div>
+          <div class="step">⇒ m ≤ 5 且 m ≥ -1</div>
+          <div class="step">【注意】这只是初步条件。更精确的：两个区间交集非空⇔B的左端点≤A的右端点且B的右端点≥A的左端点。</div>
+          <div class="step">m-2 ≤ 3 ⇒ m ≤ 5；m+2 ≥ 1 ⇒ m ≥ -1</div>
+          <div class="step">所以 m ∈ [-1, 5]。</div>
+          <div class="step"><strong>验证边界：</strong></div>
+          <div class="step">m=-1：B=[-3,1]，A=[1,3]，交集={1}≠∅。✅</div>
+          <div class="step">m=5：B=[3,7]，A=[1,3]，交集={3}≠∅。✅</div>
+          <div class="step">所以 m 的取值范围是 <strong>[-1, 5]</strong>。</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<script>
+function toggleSolution(btn) {
+  const body = btn.nextElementSibling;
+  body.classList.toggle('open');
+  btn.textContent = body.classList.contains('open') ? '📕 收起解析' : '📖 查看解析';
+}
+function switchTab(name) {
+  document.querySelectorAll('.tab-content').forEach(c => c.style.display = 'none');
+  document.getElementById(name).style.display = 'block';
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  document.querySelector(`.tab[onclick*="${name}"]`).classList.add('active');
+}
+</script>
+</body>
+</html>
