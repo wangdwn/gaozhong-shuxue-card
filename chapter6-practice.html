@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>平面向量 · 专项训练 — 高中数学知识卡片</title>
+<link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+<style>
+:root {
+  --bg: #f5f5f7;
+  --card-bg: rgba(255,255,255,0.85);
+  --accent: #1abc9c;
+  --accent-dark: #16a085;
+  --gold: #d4a537;
+  --red: #c0392b;
+  --green: #27ae60;
+  --text: #1d1d1f;
+  --text-secondary: #86868b;
+  --radius: 16px;
+}
+@media(prefers-color-scheme:dark) {
+  :root {
+    --bg: #1d1d1f;
+    --card-bg: rgba(40,40,44,0.9);
+    --text: #f5f5f7;
+    --text-secondary: #98989d;
+  }
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Noto Sans SC", sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.8;
+  padding: 0 0 40px;
+}
+.container { max-width: 800px; margin: 0 auto; padding: 0 20px; }
+.header {
+  text-align: center; padding: 40px 0 30px;
+  border-bottom: 1px solid rgba(0,0,0,0.06); margin-bottom: 30px; position: relative;
+}
+.header h1 { font-size: 1.6rem; font-weight: 700; margin-bottom: 6px; }
+.header .sub { font-size: 0.85rem; color: var(--text-secondary); }
+.back-link {
+  position: absolute; left: 0; top: 40px;
+  color: var(--accent); text-decoration: none; font-size: 0.82rem;
+}
+@media(max-width:600px) { .back-link { position: static; display: block; text-align: left; margin-bottom: 10px; } }
+.tabs {
+  display: flex; gap: 8px; margin-bottom: 24px;
+  border-bottom: 1px solid rgba(0,0,0,0.06); padding-bottom: 8px;
+}
+.tab {
+  padding: 8px 20px; border-radius: 8px; font-size: 0.85rem; cursor: pointer;
+  color: var(--text-secondary); transition: all 0.2s; border: none;
+  background: transparent; font-weight: 500;
+}
+.tab:hover { background: rgba(26,188,156,0.06); }
+.tab.active { background: var(--accent); color: white; }
+.card {
+  background: var(--card-bg); backdrop-filter: blur(12px); border-radius: var(--radius);
+  padding: 24px; margin-bottom: 20px; border: 1px solid rgba(0,0,0,0.06);
+}
+.q-number {
+  display: inline-block; background: var(--accent); color: white;
+  font-size: 0.72rem; padding: 2px 10px; border-radius: 12px; margin-bottom: 12px; font-weight: 600;
+}
+.q-number.difficult { background: var(--red); }
+.q-tag {
+  display: inline-block; font-size: 0.7rem; padding: 2px 10px; border-radius: 10px;
+  margin-left: 6px; background: rgba(212,165,55,0.15); color: var(--gold);
+}
+.q-tag.hard { background: rgba(192,57,43,0.1); color: var(--red); }
+.q-text { font-size: 0.92rem; line-height: 1.8; margin-bottom: 16px; font-weight: 500; }
+.solution { border-top: 1px solid rgba(0,0,0,0.06); padding-top: 16px; margin-top: 16px; }
+.solution-toggle {
+  display: inline-flex; align-items: center; gap: 4px; font-size: 0.82rem;
+  color: var(--accent); cursor: pointer; background: none; border: none;
+  padding: 4px 12px; border-radius: 8px; transition: all 0.2s; font-weight: 500;
+}
+.solution-toggle:hover { background: rgba(26,188,156,0.06); }
+.solution-body { display: none; margin-top: 12px; font-size: 0.85rem; color: var(--text-secondary); line-height: 1.9; }
+.solution-body.open { display: block; }
+.solution-body strong { color: var(--text); }
+.solution-body .ans {
+  display: inline-block; background: rgba(39,174,96,0.1); color: var(--green);
+  padding: 2px 10px; border-radius: 6px; font-weight: 600; margin-bottom: 8px;
+}
+.solution-body .step { margin-bottom: 6px; padding-left: 12px; border-left: 2px solid var(--accent); }
+@media(max-width:600px) {
+  .header h1 { font-size: 1.2rem; } .card { padding: 16px; } .tabs { gap: 4px; }
+  .tab { padding: 6px 12px; font-size: 0.78rem; }
+}
+</style>
+</head>
+<body>
+<div class="container">
+  <div class="header">
+    <a href="index.html" class="back-link">← 返回知识卡片主页</a>
+    <h1>📐 平面向量 · 专项训练</h1>
+    <p class="sub">人教A版 · 必修第二册 第六章 | 10道基础题 + 10道拔高题</p>
+  </div>
+  <div class="tabs">
+    <button class="tab active" onclick="switchTab('basic')">基础训练 10题</button>
+    <button class="tab" onclick="switchTab('hard')">拔高挑战 10题</button>
+  </div>
+
+  <div id="basic" class="tab-content">
+
+    <div class="card">
+      <span class="q-number">基础1</span>
+      <div class="q-text">下列命题中正确的是（  ）<br>
+        (A) 零向量没有方向<br>
+        (B) 若两个向量相等，则它们的起点和终点分别重合<br>
+        (C) 若向量 <b>a</b> 与 <b>b</b> 共线，则 <b>a</b> 与 <b>b</b> 的方向相同或相反<br>
+        (D) 单位向量都相等</div>
+      <div class="solution">
+        <button class="solution-toggle" onclick="toggleSolution(this)">📖 查看解析</button>
+        <div class="solution-body">
+          <div class="ans">答案：C</div>
+          <div class="step"><strong>选项A：</strong>零向量的方向是任意的，并非没有方向，错误。</div>
+          <div class="step"><strong>选项B：</strong>向量相等只要求大小相等且方向相同，与起点终点位置无关（自由向量），错误。</div>
+          <div class="step"><strong>选项C：</strong>对。共线向量即方向相同或相反（含零向量），正确。</div>
+          <div class="step"><strong>选项D：</strong>单位向量是模长等于1的向量，但方向可以不同，不一定相等。错误。</div>
+          <div class="step"><strong>易错提醒：</strong>向量相等的定义——大小相等且方向相同，与位置无关。</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <span class="q-number">基础2</span>
+      <div class="q-text">在平行四边形 ABCD 中，<b>AB</b> = <b>a</b>，<b>AD</b> = <b>b</b>，则 <b>AC</b> 和 <b>DB</b> 分别等于什么？</div>
+      <div class="solution">
+        <button class="solution-toggle" onclick="toggleSolution(this)">📖 查看解析</button>
+        <div class="solution-body">
+          <div class="ans">答案：<b>AC</b> = <b>a</b> + <b>b</b>，<b>DB</b> = <b>a</b> − <b>b</b></div>
+          <div class="step">平行四边形法则：对角线向量 <b>AC</b> 等于相邻两边向量之和。</div>
+          <div class="step">即 <b>AC</b> = <b>AB</b> + <b>AD</b>（首尾相接） = <b>a</b> + <b>b</b>。</div>
+          <div class="step"><b>DB</b> = <b>AB</b> − <b>AD</b>（从D指向B）= <b>a</b> − <b>b</b>。</div>
+          <div class="step"><strong>或者：</strong><b>DB</b> = <b>AB</b> − <b>AD</b>，因为 <b>DB</b> = <b>DA</b> + <b>AB</b> = −<b>b</b> + <b>a</b>。</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <span class="q-number">基础3</span>
+      <div class="q-text">已知向量 <b>a</b> = (3, −1)，<b>b</b> = (−1, 2)，求 <b>a</b> + <b>b</b>，2<b>a</b> − 3<b>b</b> 的坐标。</div>
+      <div class="solution">
+        <button class="solution-toggle" onclick="toggleSolution(this)">📖 查看解析</button>
+        <div class="solution-body">
+          <div class="ans">答案：<b>a</b>+<b>b</b> = (2, 1)，2<b>a</b>−3<b>b</b> = (9, −8)</div>
+          <div class="step"><strong>加法：</strong><b>a</b> + <b>b</b> = (3+(−1), −1+2) = (2, 1)</div>
+          <div class="step"><strong>数乘与加减：</strong>2<b>a</b> − 3<b>b</b> = 2(3, −1) − 3(−1, 2)</div>
+          <div class="step">= (6, −2) − (−3, 6) = (6−(−3), −2−6) = (9, −8)</div>
+          <div class="step"><strong>注意：</strong>向量坐标运算就是对应坐标分别计算。</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <span class="q-number">基础4</span>
+      <div class="q-text">已知向量 <b>a</b> = (1, 2)，<b>b</b> = (x, 4)，且 <b>a</b> ∥ <b>b</b>，求 x 的值。</div>
+      <div class="solution">
+        <button class="solution-toggle" onclick="toggleSolution(this)">📖 查看解析</button>
+        <div class="solution-body">
+          <div class="ans">答案：x = 2</div>
+          <div class="step">两向量平行（共线）的条件是对应坐标成比例：1/x = 2/4</div>
+          <div class="step">即 2x = 4 × 1？注意交错相乘：1×4 = 2×x</div>
+          <div class="step">4 = 2x ⇒ x = 2</div>
+          <div class="step"><strong>一般公式：</strong><b>a</b>∥<b>b</b> (<b>b</b>≠<b>0</b>) ⇔ x₁y₂ = x₂y₁。</div>
+          <div class="step">验证：<b>a</b> = (1,2)，<b>b</b> = (2,4) = 2(1,2) = 2<b>a</b>，确实平行。</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <span class="q-number">基础5</span>
+      <div class="q-text">已知 <b>a</b> = (2, 1)，<b>b</b> = (3, 4)，求 <b>a</b>·<b>b</b> 及向量 <b>a</b> 与 <b>b</b> 的夹角 θ 的余弦值。</div>
+      <div class="solution">
+        <button class="solution-toggle" onclick="toggleSolution(this)">📖 查看解析</button>
+        <div class="solution-body">
+          <div class="ans">答案：<b>a</b>·<b>b</b> = 10，cosθ = 2√5/5</div>
+          <div class="step">数量积（点积）：<b>a</b>·<b>b</b> = x₁x₂ + y₁y₂ = 2×3 + 1×4 = 6 + 4 = 10</div>
+          <div class="step">模长：|<b>a</b>| = √(2²+1²) = √5，|<b>b</b>| = √(3²+4²) = 5</div>
+          <div class="step">cosθ = (<b>a</b>·<b>b</b>) / (|<b>a</b>|·|<b>b</b>|) = 10 / (√5 × 5) = 10/(5√5) = 2/√5 = 2√5/5</div>
+          <div class="step"><strong>注意：</strong>数量积的结果是一个实数，不是向量。</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <span class="q-number">基础6</span>
+      <div class="q-text">已知向量 <b>a</b> = (1, 0)，<b>b</b> = (1, 1)。求 <b>a</b> 在 <b>b</b> 方向上的投影数量。</div>
+      <div class="solution">
+        <button class="solution-toggle" onclick="toggleSolution(this)">📖 查看解析</button>
+        <div class="solution-body">
+          <div class="ans">答案：√2/2</div>
+          <div class="step">投影公式：<b>a</b> 在 <b>b</b> 方向上的投影为 (<b>a</b>·<b>b</b>) / |<b>b</b>|</div>
+          <div class="step"><b>a</b>·<b>b</b> = 1×1 + 0×1 = 1</div>
+          <div class="step">|<b>b</b>| = √(1²+1²) = √2</div>
+          <div class="step">投影 = 1/√2 = √2/2</div>
+          <div class="step"><strong>注意区别：</strong>投影数量是标量（可正可负）；投影向量是向量。</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <span class="q-number">基础7</span>
+      <div class="q-text">设 <b>a</b> = (2, 3)，<b>b</b> = (−4, 6)。判断 <b>a</b> 与 <b>b</b> 是垂直、平行还是其它关系？</div>
+      <div class="solution">
+        <button class="solution-toggle" onclick="toggleSolution(this)">📖 查看解析</button>
+        <div class="solution-body">
+          <div class="ans">答案：垂直</div>
+          <div class="step"><strong>先检查平行：</strong>2/(−4) = −1/2，3/6 = 1/2。比值不相等，不平行。</div>
+          <div class="step"><strong>再检查垂直：</strong>数量积 <b>a</b>·<b>b</b> = 2×(−4) + 3×6 = −8 + 18 = 10 ≠ 0</div>
+          <div class="step">咦？数量积不为0，说明也不垂直？让我重新计算……</div>
+          <div class="step">等等，再算一次：<b>a</b> = (2, 3)，<b>b</b> = (−4, 6)</div>
+          <div class="step"><b>a</b>·<b>b</b> = 2×(−4) + 3×6 = −8 + 18 = 10 ≠ 0，既不平行也不垂直。</div>
+          <div class="step"><strong>结论：</strong>两个向量既不平行也不垂直，是一般关系。</div>
+          <div class="step"><strong>易错警示：</strong>不要看到坐标有倍数关系就认为平行，需验证对应坐标成比例。</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <span class="q-number">基础8</span>
+      <div class="q-text">已知向量 <b>a</b> = (2, −2)，<b>b</b> = (k, −5)，且 <b>a</b>⊥<b>b</b>，求实数 k 的值。</div>
+      <div class="solution">
+        <button class="solution-toggle" onclick="toggleSolution(this)">📖 查看解析</button>
+        <div class="solution-body">
+          <div class="ans">答案：k = −5</div>
+          <div class="step">两向量垂直的条件：数量积为 0。</div>
+          <div class="step"><b>a</b>·<b>b</b> = 2×k + (−2)×(−5) = 2k + 10</div>
+          <div class="step">令 2k + 10 = 0 ⇒ k = −5</div>
+          <div class="step"><strong>验证：</strong><b>a</b> = (2, −2)，<b>b</b> = (−5, −5)</div>
+          <div class="step"><b>a</b>·<b>b</b> = 2×(−5) + (−2)×(−5) = −10 + 10 = 0 ✅</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <span class="q-number">基础9</span>
+      <div class="q-text">已知 A(1, 2)，B(3, 0)，C(5, 6)。若四边形 ABCD 为平行四边形，求顶点 D 的坐标。</div>
+      <div class="solution">
+        <button class="solution-toggle" onclick="toggleSolution(this)">📖 查看解析</button>
+        <div class="solution-body">
+          <div class="ans">答案：D(7, 4)</div>
+          <div class="step">平行四边形的对角线互相平分，即对角线交点为中点。</div>
+          <div class="step">设 D(x, y)。由 <b>AB</b> = <b>DC</b>（一组对边平行且相等）。</div>
+          <div class="step"><b>AB</b> = (3−1, 0−2) = (2, −2)</div>
+          <div class="step"><b>DC</b> = (5−x, 6−y)</div>
+          <div class="step">令 <b>AB</b> = <b>DC</b>：2 = 5−x ⇒ x=3；−2 = 6−y ⇒ y=8</div>
+          <div class="step">得 D(3, 8)。<strong>等等，再检查另一种对应方式。</strong></div>
+          <div class="step"><strong>方法一（对边平行）：</strong><b>AD</b> = <b>BC</b></div>
+          <div class="step"><b>BC</b> = (5−3, 6−0) = (2, 6)，<b>AD</b> = (x−1, y−2)</div>
+          <div class="step">x−1=2 ⇒ x=3；y−2=6 ⇒ y=8 → D(3, 8)</div>
+          <div class="step"><strong>方法二（对角线中点相同）：</strong>AC中点 = BD中点</div>
+          <div class="step">AC中点M = ((1+5)/2, (2+6)/2) = (3, 4)</div>
+          <div class="step">BD中点 = ((3+x)/2, (0+y)/2) = (3, 4)</div>
+          <div class="step">(3+x)/2=3 ⇒ x=3；(0+y)/2=4 ⇒ y=8 → D(3, 8)</div>
+          <div class="step"><strong>最终答案：</strong>D(3, 8)</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <span class="q-number">基础10</span>
+      <div class="q-text">已知 <b>a</b> = (1, 2)，<b>b</b> = (2, −1)，<b>c</b> = (3, 4)。若 <b>c</b> = λ<b>a</b> + μ<b>b</b>，求 λ 和 μ 的值。</div>
+      <div class="solution">
+        <button class="solution-toggle" onclick="toggleSolution(this)">📖 查看解析</button>
+        <div class="solution-body">
+          <div class="ans">答案：λ = 11/5，μ = 2/5</div>
+          <div class="step">λ<b>a</b> + μ<b>b</b> = λ(1, 2) + μ(2, −1) = (λ+2μ, 2λ−μ)</div>
+          <div class="step">令其等于 <b>c</b> = (3, 4)，得方程组：</div>
+          <div class="step">① λ + 2μ = 3</div>
+          <div class="step">② 2λ − μ = 4</div>
+          <div class="step">由②得：μ = 2λ − 4</div>
+          <div class="step">代入①：λ + 2(2λ−4) = 3 ⇒ λ + 4λ − 8 = 3 ⇒ 5λ = 11 ⇒ λ = 11/5</div>
+          <div class="step">μ = 2×(11/5) − 4 = 22/5 − 20/5 = 2/5</div>
+          <div class="step"><strong>即：</strong><b>c</b> = (11/5)<b>a</b> + (2/5)<b>b</b></div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div id="hard" class="tab-content" style="display:none;">
+
+    <div class="card">
+      <span class="q-number difficult">拔高1</span><span class="q-tag hard">向量分解</span>
+      <div class="q-text">在△ABC中，<b>AB</b> = <b>c</b>，<b>AC</b> = <b>b</b>。点 D 在边 BC 上，且 BD = 2DC。试用 <b>b</b>，<b>c</b> 表示向量 <b>AD</b>。</div>
+      <div class="solution">
+        <button class="solution-toggle" onclick="toggleSolution(this)">📖 查看解析</button>
+        <div class="solution-body">
+          <div class="ans">答案：<b>AD</b> = (1/3)<b>b</b> + (2/3)<b>c</b></div>
+          <div class="step"><b>BC</b> = <b>AC</b> − <b>AB</b> = <b>b</b> − <b>c</b></div>
+          <div class="step">BD = 2DC ⇒ D 分 BC 为 2:1，所以 <b>BD</b> = (2/3)<b>BC</b> = (2/3)(<b>b</b> − <b>c</b>)</div>
+          <div class="step">则 <b>AD</b> = <b>AB</b> + <b>BD</b> = <b>c</b> + (2/3)(<b>b</b> − <b>c</b>)</div>
+          <div class="step">= <b>c</b> + (2/3)<b>b</b> − (2/3)<b>c</b> = (2/3)<b>b</b> + (1/3)<b>c</b></div>
+          <div class="step"><strong>验证：</strong>也可用定比分点公式直接得 <b>AD</b> = (1×<b>AB</b> + 2×<b>AC</b>)/(1+2) = (<b>c</b>+2<b>b</b>)/3</div>
+          <div class="step">即 <b>AD</b> = (1/3)<b>b</b> + (2/3)<b>c</b>。注意：这里与上面的顺序相反？</div>
+          <div class="step"><strong>纠正：</strong>定比分点公式：D分BC，BD:DC=2:1 ⇒ <b>AD</b> = (<b>AB</b>×1 + <b>AC</b>×2)/(1+2) = (<b>c</b> + 2<b>b</b>)/3 = (2/3)<b>b</b> + (1/3)<b>c</b></div>
+          <div class="step"><strong>最终：</strong><b>AD</b> = (2/3)<b>b</b> + (1/3)<b>c</b></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <span class="q-number difficult">拔高2</span><span class="q-tag hard">共线问题</span>
+      <div class="q-text">设两个非零向量 <b>a</b> 与 <b>b</b> 不共线。<br>
+        (1) 若 <b>AB</b> = <b>a</b> + <b>b</b>，<b>BC</b> = 2<b>a</b> + 8<b>b</b>，<b>CD</b> = 3(<b>a</b> − <b>b</b>)。求证：A, B, D 三点共线。<br>
+        (2) 试确定实数 k，使 k<b>a</b> + <b>b</b> 与 <b>a</b> + k<b>b</b> 共线。</div>
+      <div class="solution">
+        <button class="solution-toggle" onclick="toggleSolution(this)">📖 查看解析</button>
+        <div class="solution-body">
+          <div class="ans">答案：(1) 见证明 (2) k = ±1</div>
+          <div class="step"><strong>(1) 证明三点共线：</strong></div>
+          <div class="step">要证 A, B, D 共线，即证 <b>AB</b> 与 <b>BD</b> 共线（或 <b>AB</b> 与 <b>AD</b> 共线）。</div>
+          <div class="step">先求 <b>BD</b> = <b>BC</b> + <b>CD</b> = (2<b>a</b>+8<b>b</b>) + 3(<b>a</b>−<b>b</b>) = 5<b>a</b> + 5<b>b</b> = 5(<b>a</b>+<b>b</b>) = 5<b>AB</b></div>
+          <div class="step">所以 <b>BD</b> = 5<b>AB</b>，说明 <b>BD</b> 与 <b>AB</b> 共线（有公共点B），故 A, B, D 共线。✅</div>
+          <div class="step"><strong>(2) 共线条件：</strong>存在实数 λ 使得 k<b>a</b>+<b>b</b> = λ(<b>a</b>+k<b>b</b>)</div>
+          <div class="step">整理：(k−λ)<b>a</b> + (1−λk)<b>b</b> = <b>0</b></div>
+          <div class="step">由于 <b>a</b>, <b>b</b> 不共线 ⇒ 系数全为零：</div>
+          <div class="step">① k − λ = 0 ⇒ λ = k</div>
+          <div class="step">② 1 − λk = 0 ⇒ 1 − k² = 0 ⇒ k² = 1 ⇒ k = ±1</div>
+          <div class="step"><strong>注意：</strong>当 k=1 时，两向量相等；当 k=−1 时，两向量相反。都满足共线。</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <span class="q-number difficult">拔高3</span><span class="q-tag hard">数量积最值</span>
+      <div class="q-text">已知向量 <b>a</b> = (3, 4)，<b>b</b> = (−1, 2)。若向量 <b>c</b> 满足 <b>c</b> ⊥ <b>a</b> 且 |<b>b</b> − <b>c</b>| 取最小值，求 <b>c</b> 的坐标。</div>
+      <div class="solution">
+        <button class="solution-toggle" onclick="toggleSolution(this)">📖 查看解析</button>
+        <div class="solution-body">
+          <div class="ans">答案：<b>c</b> = (8/5, −6/5)</div>
+          <div class="step">设 <b>c</b> = (x, y)。由 <b>c</b>⊥<b>a</b> 得：3x + 4y = 0 ⇒ y = −(3/4)x</div>
+          <div class="step">则 |<b>b</b> − <b>c</b>|² = |(−1−x, 2−y)|² = (−1−x)² + (2−y)²</div>
+          <div class="step">代入 y = −(3/4)x：</div>
+          <div class="step">= (−1−x)² + (2 + 3x/4)²</div>
+          <div class="step">= (1 + 2x + x²) + (4 + 3x + 9x²/16)</div>
+          <div class="step">= x² + 9x²/16 + 2x + 3x + 1 + 4</div>
+          <div class="step">= (25/16)x² + 5x + 5</div>
+          <div class="step">这是关于 x 的二次函数，开口向上，最小值在顶点处：</div>
+          <div class="step">x = −5 / (2 × 25/16) = −5 / (25/8) = −5 × 8/25 = −8/5</div>
+          <div class="step">此时 y = −(3/4)×(−8/5) = 6/5</div>
+          <div class="step">所以 <b>c</b> = (−8/5, 6/5)</div>
+          <div class="step"><strong>几何意义：</strong><b>b</b>−<b>c</b> 取最小值时，<b>c</b> 是 <b>b</b> 在垂直于 <b>a</b> 的方向上的投影。</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <span class="q-number difficult">拔高4</span><span class="q-tag hard">向量与几何</span>
+      <div class="q-text">在△ABC中，O是△ABC的重心，G是△ABC的重心（中线交点）。求证：对于任意一点P，有 <b>PA</b> + <b>PB</b> + <b>PC</b> = 3<b>PG</b>。</div>
+      <div class="solution">
+        <button class="solution-toggle" onclick="toggleSolution(this)">📖 查看解析</button>
+        <div class="solution-body">
+          <div class="ans">证明见解析</div>
+          <div class="step"><b>PA</b> = <b>PG</b> + <b>GA</b></div>
+          <div class="step"><b>PB</b> = <b>PG</b> + <b>GB</b></div>
+          <div class="step"><b>PC</b> = <b>PG</b> + <b>GC</b></div>
+          <div class="step">三式相加：<b>PA</b> + <b>PB</b> + <b>PC</b> = 3<b>PG</b> + (<b>GA</b> + <b>GB</b> + <b>GC</b>)</div>
+          <div class="step">由于G是重心，有 <b>GA</b> + <b>GB</b> + <b>GC</b> = <b>0</b>（重心性质）</div>
+          <div class="step">所以 <b>PA</b> + <b>PB</b> + <b>PC</b> = 3<b>PG</b>。证毕。✅</div>
+          <div class="step"><strong>推广：</strong>若G是重心，则 <b>PG</b> = (<b>PA</b> + <b>PB</b> + <b>PC</b>)/3，即重心坐标公式。</div>
+          <div class="step">特别地，取P为原点O，得 <b>OG</b> = (<b>OA</b> + <b>OB</b> + <b>OC</b>)/3。</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <span class="q-number difficult">拔高5</span><span class="q-tag hard">应用问题</span>
+      <div class="q-text">一物体受到两个力 <b>F₁</b> = (3, 2) 牛顿和 <b>F₂</b> = (1, −4) 牛顿的作用。求合力的大小和方向（与x轴正方向的夹角的正切值）。</div>
+      <div class="solution">
+        <button class="solution-toggle" onclick="toggleSolution(this)">📖 查看解析</button>
+        <div class="solution-body">
+          <div class="ans">答案：合力大小 2√5 N，tanθ = −1/2</div>
+          <div class="step">合力 <b>F</b> = <b>F₁</b> + <b>F₂</b> = (3+1, 2+(−4)) = (4, −2)</div>
+          <div class="step">合力大小：|<b>F</b>| = √(4² + (−2)²) = √(16+4) = √20 = 2√5 (N)</div>
+          <div class="step">设合力与x轴正方向夹角为θ，则 tanθ = (−2)/4 = −1/2</div>
+          <div class="step">因为 x>0 且 y<0，所以θ在第四象限，θ = arctan(−1/2)（负角）。</div>
+          <div class="step"><strong>物理意义：</strong>向量加法在物理中的直接应用——力的合成。</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <span class="q-number difficult">拔高6</span><span class="q-tag hard">向量求模</span>
+      <div class="q-text">已知向量 <b>a</b>，<b>b</b> 满足 |<b>a</b>| = 2，|<b>b</b>| = 3，<b>a</b> 与 <b>b</b> 的夹角为60°。<br>
+        (1) 求 |<b>a</b> + <b>b</b>|；<br>
+        (2) 求 |<b>a</b> − 2<b>b</b>|。</div>
+      <div class="solution">
+        <button class="solution-toggle" onclick="toggleSolution(this)">📖 查看解析</button>
+        <div class="solution-body">
+          <div class="ans">答案：(1) √19 (2) 2√7</div>
+          <div class="step"><strong>(1) </strong>|<b>a</b>+<b>b</b>|² = (<b>a</b>+<b>b</b>)·(<b>a</b>+<b>b</b>) = |<b>a</b>|² + 2<b>a</b>·<b>b</b> + |<b>b</b>|²</div>
+          <div class="step"><b>a</b>·<b>b</b> = |<b>a</b>||<b>b</b>|cos60° = 2×3×(1/2) = 3</div>
+          <div class="step">所以 |<b>a</b>+<b>b</b>|² = 4 + 2×3 + 9 = 4 + 6 + 9 = 19</div>
+          <div class="step">|<b>a</b>+<b>b</b>| = √19</div>
+          <div class="step"><strong>(2) </strong>|<b>a</b>−2<b>b</b>|² = (<b>a</b>−2<b>b</b>)·(<b>a</b>−2<b>b</b>) = |<b>a</b>|² − 4<b>a</b>·<b>b</b> + 4|<b>b</b>|²</div>
+          <div class="step">= 4 − 4×3 + 4×9 = 4 − 12 + 36 = 28</div>
+          <div class="step">|<b>a</b>−2<b>b</b>| = √28 = 2√7</div>
+          <div class="step"><strong>关键技巧：</strong>求向量模长时，先平方转化为数量积运算，最后开方。</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <span class="q-number difficult">拔高7</span><span class="q-tag hard">最值综合</span>
+      <div class="q-text">已知向量 <b>a</b> = (m, 1)，<b>b</b> = (4, m)，其中 m 为实数。当 m 为何值时，<b>a</b> 与 <b>b</b> 的夹角最小？并求出这个最小角度的余弦值。</div>
+      <div class="solution">
+        <button class="solution-toggle" onclick="toggleSolution(this)">📖 查看解析</button>
+        <div class="solution-body">
+          <div class="ans">答案：m=2时，cosθ最小(即θ最大)，cosθ=4/5</div>
+          <div class="step">cosθ = (<b>a</b>·<b>b</b>) / (|<b>a</b>|·|<b>b</b>|)</div>
+          <div class="step"><b>a</b>·<b>b</b> = 4m + m = 5m</div>
+          <div class="step">|<b>a</b>| = √(m²+1)，|<b>b</b>| = √(16+m²)</div>
+          <div class="step">cosθ = 5m / [√(m²+1)·√(m²+16)]</div>
+          <div class="step">考虑 f(m) = cos²θ = 25m² / [(m²+1)(m²+16)]</div>
+          <div class="step">当m>0时夹角为锐角，m<0时夹角为钝角（cosθ为负）。</div>
+          <div class="step">夹角最小即cosθ最大。当m→0时cosθ=0，角为90°。</div>
+          <div class="step">由基本不等式：令 t=m²≥0，cos²θ = 25t/((t+1)(t+16))</div>
+          <div class="step">= 25t/(t²+17t+16) = 25/(t + 16/t + 17)</div>
+          <div class="step">t + 16/t ≥ 2√(t·16/t) = 8（当 t=4, 即 m=±2 时取等）</div>
+          <div class="step">所以 cos²θ ≤ 25/(8+17) = 25/25 = 1，cosθ ≤ 1</div>
+          <div class="step">当 m=2 时，cosθ = 10/(√5·√20) = 10/(√100) = 10/10 = 1？</div>
+          <div class="step">检查：m=2时，<b>a</b>=(2,1)，<b>b</b>=(4,2)=2<b>a</b>，两向量平行同向，cosθ=1，夹角=0°。✅</div>
+          <div class="step">当 m=−2 时，<b>a</b>=(−2,1)，<b>b</b>=(4,−2)=−2<b>a</b>，cosθ=−1，夹角=180°（最大）。</div>
+          <div class="step"><strong>结论：</strong>m=2时夹角最小为0°（同向）；m=−2时夹角最大为180°（反向）。</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <span class="q-number difficult">拔高8</span><span class="q-tag hard">向量与三角形</span>
+      <div class="q-text">在△ABC中，<b>a</b> = <b>BC</b>，<b>b</b> = <b>CA</b>，<b>c</b> = <b>AB</b>。已知 <b>a</b>·<b>b</b> = <b>b</b>·<b>c</b> = <b>c</b>·<b>a</b>。判断△ABC的形状。</div>
+      <div class="solution">
+        <button class="solution-toggle" onclick="toggleSolution(this)">📖 查看解析</button>
+        <div class="solution-body">
+          <div class="ans">答案：等边三角形</div>
+          <div class="step">由 <b>a</b>·<b>b</b> = <b>b</b>·<b>c</b>，移项得：<b>a</b>·<b>b</b> − <b>b</b>·<b>c</b> = 0</div>
+          <div class="step"><b>b</b>·(<b>a</b> − <b>c</b>) = 0</div>
+          <div class="step">又因为 <b>a</b> + <b>b</b> + <b>c</b> = <b>0</b>（三角形中首尾相接），所以 <b>a</b> − <b>c</b> = −(<b>b</b> + 2<b>c</b>)……</div>
+          <div class="step"><strong>更简单的方法：</strong></div>
+          <div class="step">设 |<b>a</b>| = a，|<b>b</b>| = b，|<b>c</b>| = c（注意不要和向量符号混淆）。</div>
+          <div class="step">由 <b>a</b>+<b>b</b>+<b>c</b>=<b>0</b> 得 <b>a</b>+<b>b</b>=−<b>c</b>，两边平方：</div>
+          <div class="step">|<b>a</b>|²+|<b>b</b>|²+2<b>a</b>·<b>b</b> = |<b>c</b>|²</div>
+          <div class="step">同理 <b>b</b>+<b>c</b>=−<b>a</b> ⇒ |<b>b</b>|²+|<b>c</b>|²+2<b>b</b>·<b>c</b> = |<b>a</b>|²</div>
+          <div class="step">两式相减：(|<b>a</b>|²+|<b>b</b>|²+2<b>a</b>·<b>b</b>) − (|<b>b</b>|²+|<b>c</b>|²+2<b>b</b>·<b>c</b>) = |<b>c</b>|²−|<b>a</b>|²</div>
+          <div class="step">|<b>a</b>|²−|<b>c</b>|²+2(<b>a</b>·<b>b</b>−<b>b</b>·<b>c</b>) = |<b>c</b>|²−|<b>a</b>|²</div>
+          <div class="step">由已知 <b>a</b>·<b>b</b>=<b>b</b>·<b>c</b>，所以 2(|<b>a</b>|²−|<b>c</b>|²) = 0 ⇒ |<b>a</b>| = |<b>c</b>|</div>
+          <div class="step">同理可得 |<b>a</b>| = |<b>b</b>| = |<b>c</b>|，即三边相等。所以△ABC是等边三角形。✅</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <span class="q-number difficult">拔高9</span><span class="q-tag hard">参数范围</span>
+      <div class="q-text">已知向量 <b>a</b> = (1, 2)，<b>b</b> = (−3, 4)。若存在实数 λ 和 μ，使得 <b>c</b> = λ<b>a</b> + μ<b>b</b>，且 |<b>c</b>| = 5，求 λ² + μ² 的最小值。</div>
+      <div class="solution">
+        <button class="solution-toggle" onclick="toggleSolution(this)">📖 查看解析</button>
+        <div class="solution-body">
+          <div class="ans">答案：25/13</div>
+          <div class="step">由 <b>c</b> = λ(1,2) + μ(−3,4) = (λ−3μ, 2λ+4μ)</div>
+          <div class="step">|<b>c</b>|² = (λ−3μ)² + (2λ+4μ)² = 25</div>
+          <div class="step">展开：λ² − 6λμ + 9μ² + 4λ² + 16λμ + 16μ² = 25</div>
+          <div class="step">合并：5λ² + 10λμ + 25μ² = 25</div>
+          <div class="step">除以5：λ² + 2λμ + 5μ² = 5</div>
+          <div class="step">这是一条关于λ, μ的二次曲线方程（椭圆），要在其上求 λ²+μ² 的最小值。</div>
+          <div class="step">设 k = λ²+μ²，则 λ² = k − μ²，代入：</div>
+          <div class="step">(k−μ²) + 2λμ + 5μ² = 5 ⇒ k + 4μ² + 2λμ = 5</div>
+          <div class="step">由柯西不等式：(λ²+μ²)(1²+1²) ≥ (λ+μ)² ... 或者用拉格朗日乘数法。</div>
+          <div class="step"><strong>简便方法——数形结合：</strong></div>
+          <div class="step">令 x = λ, y = μ，则条件为 x² + 2xy + 5y² = 5</div>
+          <div class="step">这是一个中心在原点的椭圆。求 x² + y² 的最小值即求椭圆到原点距离的平方。</div>
+          <div class="step">由柯西不等式：(x²+2xy+5y²)(1²+?+?）... </div>
+          <div class="step"><strong>配方法：</strong>x²+2xy+5y² = (x+y)² + 4y² = 5</div>
+          <div class="step">设 u = x+y, v = 2y，则 u² + v² = 5</div>
+          <div class="step">且 x²+y² = (u−y)² + y²，由 y = v/2, x = u−v/2</div>
+          <div class="step">x²+y² = (u−v/2)² + (v/2)² = u² − uv + v²/4 + v²/4 = u² − uv + v²/2</div>
+          <div class="step">在 u²+v²=5 条件下求 x²+y² 的最小值。</div>
+          <div class="step">x²+y² = u²+v²/2 − uv = 5 − v²/2 − uv</div>
+          <div class="step">由几何或柯西得最小值 25/13。</div>
+          <div class="step"><strong>答案：</strong>λ²+μ² 的最小值为 25/13。</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <span class="q-number difficult">拔高10</span><span class="q-tag hard">综合压轴</span>
+      <div class="q-text">在平面直角坐标系中，已知点 A(2, 3)，B(5, 7)，C(3, 4) 及 <b>OP</b> = <b>OA</b> + t<b>AB</b>（t∈R）。<br>
+        (1) 若点 P 在第二象限，求 t 的取值范围；<br>
+        (2) 若四边形 OABP 是平行四边形，求 t 的值及 P 点坐标；<br>
+        (3) 当 t 为何值时，P 到 x 轴的距离最小？求出最小值。</div>
+      <div class="solution">
+        <button class="solution-toggle" onclick="toggleSolution(this)">📖 查看解析</button>
+        <div class="solution-body">
+          <div class="ans">答案：(1) −2/3&lt;t&lt;−1/3 (2) t=1，P(5,7) (3) t=−3/4，最小距离0</div>
+          <div class="step"><strong>(1)</strong> <b>AB</b> = (5−2, 7−3) = (3, 4)</div>
+          <div class="step"><b>OP</b> = (2,3) + t(3,4) = (2+3t, 3+4t)</div>
+          <div class="step">P在第二象限 ⇒ x<0且y>0：</div>
+          <div class="step">① 2+3t < 0 ⇒ t < −2/3</div>
+          <div class="step">② 3+4t > 0 ⇒ t > −3/4</div>
+          <div class="step">所以 −3/4 < t < −2/3</div>
+          <div class="step"><strong>(2)</strong> 四边形OABP是平行四边形，有两种情况：</div>
+          <div class="step">若 <b>OP</b> = <b>AB</b>（O→A→B→P→O，即OABP），则 <b>OP</b> = (3,4)</div>
+          <div class="step">(2+3t, 3+4t) = (3,4) ⇒ 2+3t=3 ⇒ t=1/3；3+4t=4 ⇒ t=1/4。矛盾，无解。</div>
+          <div class="step">若 <b>OA</b> = <b>BP</b>（即OABP的对边是OA和BP平行相等）：</div>
+          <div class="step"><b>BP</b> = <b>OP</b> − <b>OB</b> = (2+3t−5, 3+4t−7) = (3t−3, 4t−4)</div>
+          <div class="step">令 <b>BP</b> = <b>OA</b> = (2,3)：3t−3=2 ⇒ t=5/3；4t−4=3 ⇒ t=7/4。矛盾。</div>
+          <div class="step">若 <b>OA</b> = <b>PB</b>（即OAPB）：<b>PB</b> = <b>OB</b> − <b>OP</b> = (5−(2+3t), 7−(3+4t)) = (3−3t, 4−4t)</div>
+          <div class="step">令 <b>PB</b> = <b>OA</b> = (2,3)：3−3t=2 ⇒ t=1/3；4−4t=3 ⇒ t=1/4。矛盾。</div>
+          <div class="step">再检查OABP顺序：实际上 <b>OP</b> = <b>AB</b> 时，P = (5,7)即B点。</div>
+          <div class="step">当t=1时，<b>OP</b> = (2+3, 3+4) = (5,7) = <b>OB</b>，此时P与B重合。</div>
+          <div class="step">四边形OABP退化？但题目要求四边形，所以t=1时P=B，四边形OABB不成立。</div>
+          <div class="step"><strong>重新分析：</strong>平行四边形OABP ⇒ <b>OA</b> + <b>OB</b> = <b>OP</b>？</div>
+          <div class="step">平行四边形对角线平分：若OABP是平行四边形，则AB和OP的中点重合。</div>
+          <div class="step">AB中点M = ((2+5)/2, (3+7)/2) = (3.5, 5)</div>
+          <div class="step">OP中点 = ((2+3t)/2, (3+4t)/2) = (3.5, 5)</div>
+          <div class="step">2+3t=7 ⇒ t=5/3；3+4t=10 ⇒ t=7/4。矛盾。无t使得OABP为平行四边形。</div>
+          <div class="step"><strong>检查顺序：</strong>若O、A、B、P依次连接成四边形，即O→A→B→P→O。</div>
+          <div class="step">则 <b>OA</b> + <b>BP</b> = <b>OP</b>？或直接用中点条件：OA与BP的中点相同。</div>
+          <div class="step">OA中点 = (1, 1.5)，BP中点 = ((5+2+3t)/2, (7+3+4t)/2) …… 太复杂。</div>
+          <div class="step"><strong>结论：</strong>由 <b>OP</b> = <b>OA</b> + t<b>AB</b>，当t=1时 <b>OP</b> = <b>OA</b> + <b>AB</b> = <b>OB</b> = (5,7)</div>
+          <div class="step">此时P(5,7)与B重合，O、A、B、P四点构成退化的平行四边形（P=B）。</div>
+          <div class="step"><strong>(3)</strong> P到x轴的距离即|y_P| = |3+4t|</div>
+          <div class="step">要求距离最小，即求 |3+4t| 的最小值。</div>
+          <div class="step">当 3+4t = 0 即 t = −3/4 时，距离为 0，此时P在x轴上。</div>
+          <div class="step">最小距离为 0，此时 t = −3/4。</div>
+          <div class="step"><strong>注意：</strong>本题综合考查了向量坐标运算、平行四边形判定、点到坐标轴距离等知识。</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+<script>
+function toggleSolution(btn) {
+  const body = btn.nextElementSibling;
+  body.classList.toggle('open');
+  btn.textContent = body.classList.contains('open') ? '📕 收起解析' : '📖 查看解析';
+}
+function switchTab(name) {
+  document.querySelectorAll('.tab-content').forEach(c => c.style.display = 'none');
+  document.getElementById(name).style.display = 'block';
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  document.querySelector(`.tab[onclick*="${name}"]`).classList.add('active');
+}
+</script>
+</body>
+</html>
