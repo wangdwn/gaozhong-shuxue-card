@@ -7,7 +7,38 @@
 
 <!-- KaTeX 加载 -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css" crossorigin="anonymous">
-<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js" crossorigin="anonymous">function getTrainingBanner(chapter){
+  var bannerMap = {
+    "第一章 集合与常用逻辑用语": "chapter1-practice.html",
+    "第二章 一元二次函数、方程和不等式": "chapter2-practice.html",
+    "第三章 函数概念与性质": "chapter3-practice.html",
+    "第四章 指数函数与对数函数": "chapter4-practice.html",
+    "第五章 三角函数": "chapter5-practice.html",
+    "第六章 平面向量及其应用": "chapter6-practice.html",
+    "第七章 复数": "chapter7-practice.html",
+    "第八章 立体几何初步": "geometry-practice.html",
+    "第九章 统计": "chapter9-practice.html",
+    "第十章 概率": "chapter10-practice.html"
+  };
+  var colorMap = {
+    "第一章 集合与常用逻辑用语": ["#4da6e0","rgba(0,113,227,0.1),rgba(0,113,227,0.05)","linear-gradient(135deg,#0071e3,#4da6e0)","#fff"],
+    "第二章 一元二次函数、方程和不等式": ["#d4a537","rgba(212,165,55,0.1),rgba(212,165,55,0.05)","linear-gradient(135deg,#d4a537,#e8c34a)","#1a1a2e"],
+    "第三章 函数概念与性质": ["#27ae60","rgba(39,174,96,0.1),rgba(39,174,96,0.05)","linear-gradient(135deg,#27ae60,#2ecc71)","#fff"],
+    "第四章 指数函数与对数函数": ["#8e44ad","rgba(142,68,173,0.1),rgba(142,68,173,0.05)","linear-gradient(135deg,#8e44ad,#9b59b6)","#fff"],
+    "第五章 三角函数": ["#e74c3c","rgba(231,76,60,0.1),rgba(231,76,60,0.05)","linear-gradient(135deg,#e74c3c,#c0392b)","#fff"],
+    "第六章 平面向量及其应用": ["#1abc9c","rgba(26,188,156,0.1),rgba(26,188,156,0.05)","linear-gradient(135deg,#1abc9c,#16a085)","#fff"],
+    "第七章 复数": ["#e84393","rgba(232,67,147,0.1),rgba(232,67,147,0.05)","linear-gradient(135deg,#e84393,#fd79a8)","#fff"],
+    "第八章 立体几何初步": ["#ffd200","rgba(247,151,30,0.12),rgba(255,210,0,0.08)","linear-gradient(135deg,#f7971e,#ffd200)","#1a1a2e"],
+    "第九章 统计": ["#e67e22","rgba(230,126,34,0.1),rgba(230,126,34,0.05)","linear-gradient(135deg,#e67e22,#f39c12)","#fff"],
+    "第十章 概率": ["#bdc3c7","rgba(44,62,80,0.15),rgba(44,62,80,0.08)","linear-gradient(135deg,#2c3e50,#34495e)","#fff"]
+  };
+  var f = bannerMap[chapter];
+  if(!f) return '';
+  var c = colorMap[chapter] || ['#0071e3','rgba(0,113,227,0.1),rgba(0,113,227,0.05)','linear-gradient(135deg,#0071e3,#4da6e0)','#fff'];
+  return '<div style="text-align:center;margin:8px auto 16px;padding:10px;border-radius:12px;background:linear-gradient(135deg,' + c[1] + ');border:1px solid ' + c[0] + '33;max-width:420px;"><div style="font-size:0.82rem;font-weight:700;color:' + c[0] + ';margin-bottom:3px;">📝 本章专项训练</div><div style="font-size:0.68rem;color:rgba(255,255,255,0.35);margin-bottom:5px;">20道精选题（10基础+10拔高）· 详细解析</div><a href="' + f + '" style="display:inline-block;padding:5px 20px;border-radius:18px;background:' + c[2] + ';color:' + c[3] + ';font-weight:600;font-size:0.78rem;text-decoration:none;">开始练习 →</a></div>';
+}
+
+</script>
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js" crossorigin="anonymous"
   onload="renderMathInElement(document.body, {
     delimiters: [
@@ -15,7 +46,38 @@
       {left: '$', right: '$', display: false}
     ],
     throwOnError: false
-  });"></script>
+  });">function getTrainingBanner(chapter){
+  var bannerMap = {
+    "第一章 集合与常用逻辑用语": "chapter1-practice.html",
+    "第二章 一元二次函数、方程和不等式": "chapter2-practice.html",
+    "第三章 函数概念与性质": "chapter3-practice.html",
+    "第四章 指数函数与对数函数": "chapter4-practice.html",
+    "第五章 三角函数": "chapter5-practice.html",
+    "第六章 平面向量及其应用": "chapter6-practice.html",
+    "第七章 复数": "chapter7-practice.html",
+    "第八章 立体几何初步": "geometry-practice.html",
+    "第九章 统计": "chapter9-practice.html",
+    "第十章 概率": "chapter10-practice.html"
+  };
+  var colorMap = {
+    "第一章 集合与常用逻辑用语": ["#4da6e0","rgba(0,113,227,0.1),rgba(0,113,227,0.05)","linear-gradient(135deg,#0071e3,#4da6e0)","#fff"],
+    "第二章 一元二次函数、方程和不等式": ["#d4a537","rgba(212,165,55,0.1),rgba(212,165,55,0.05)","linear-gradient(135deg,#d4a537,#e8c34a)","#1a1a2e"],
+    "第三章 函数概念与性质": ["#27ae60","rgba(39,174,96,0.1),rgba(39,174,96,0.05)","linear-gradient(135deg,#27ae60,#2ecc71)","#fff"],
+    "第四章 指数函数与对数函数": ["#8e44ad","rgba(142,68,173,0.1),rgba(142,68,173,0.05)","linear-gradient(135deg,#8e44ad,#9b59b6)","#fff"],
+    "第五章 三角函数": ["#e74c3c","rgba(231,76,60,0.1),rgba(231,76,60,0.05)","linear-gradient(135deg,#e74c3c,#c0392b)","#fff"],
+    "第六章 平面向量及其应用": ["#1abc9c","rgba(26,188,156,0.1),rgba(26,188,156,0.05)","linear-gradient(135deg,#1abc9c,#16a085)","#fff"],
+    "第七章 复数": ["#e84393","rgba(232,67,147,0.1),rgba(232,67,147,0.05)","linear-gradient(135deg,#e84393,#fd79a8)","#fff"],
+    "第八章 立体几何初步": ["#ffd200","rgba(247,151,30,0.12),rgba(255,210,0,0.08)","linear-gradient(135deg,#f7971e,#ffd200)","#1a1a2e"],
+    "第九章 统计": ["#e67e22","rgba(230,126,34,0.1),rgba(230,126,34,0.05)","linear-gradient(135deg,#e67e22,#f39c12)","#fff"],
+    "第十章 概率": ["#bdc3c7","rgba(44,62,80,0.15),rgba(44,62,80,0.08)","linear-gradient(135deg,#2c3e50,#34495e)","#fff"]
+  };
+  var f = bannerMap[chapter];
+  if(!f) return '';
+  var c = colorMap[chapter] || ['#0071e3','rgba(0,113,227,0.1),rgba(0,113,227,0.05)','linear-gradient(135deg,#0071e3,#4da6e0)','#fff'];
+  return '<div style="text-align:center;margin:8px auto 16px;padding:10px;border-radius:12px;background:linear-gradient(135deg,' + c[1] + ');border:1px solid ' + c[0] + '33;max-width:420px;"><div style="font-size:0.82rem;font-weight:700;color:' + c[0] + ';margin-bottom:3px;">📝 本章专项训练</div><div style="font-size:0.68rem;color:rgba(255,255,255,0.35);margin-bottom:5px;">20道精选题（10基础+10拔高）· 详细解析</div><a href="' + f + '" style="display:inline-block;padding:5px 20px;border-radius:18px;background:' + c[2] + ';color:' + c[3] + ';font-weight:600;font-size:0.78rem;text-decoration:none;">开始练习 →</a></div>';
+}
+
+</script>
 
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
@@ -164,9 +226,102 @@ const __volOrder = [
   {book:"必修第二册", chapter:"第九章 统计"},
   {book:"必修第二册", chapter:"第十章 概率"}
 ];
+function getTrainingBanner(chapter){
+  var bannerMap = {
+    "第一章 集合与常用逻辑用语": "chapter1-practice.html",
+    "第二章 一元二次函数、方程和不等式": "chapter2-practice.html",
+    "第三章 函数概念与性质": "chapter3-practice.html",
+    "第四章 指数函数与对数函数": "chapter4-practice.html",
+    "第五章 三角函数": "chapter5-practice.html",
+    "第六章 平面向量及其应用": "chapter6-practice.html",
+    "第七章 复数": "chapter7-practice.html",
+    "第八章 立体几何初步": "geometry-practice.html",
+    "第九章 统计": "chapter9-practice.html",
+    "第十章 概率": "chapter10-practice.html"
+  };
+  var colorMap = {
+    "第一章 集合与常用逻辑用语": ["#4da6e0","rgba(0,113,227,0.1),rgba(0,113,227,0.05)","linear-gradient(135deg,#0071e3,#4da6e0)","#fff"],
+    "第二章 一元二次函数、方程和不等式": ["#d4a537","rgba(212,165,55,0.1),rgba(212,165,55,0.05)","linear-gradient(135deg,#d4a537,#e8c34a)","#1a1a2e"],
+    "第三章 函数概念与性质": ["#27ae60","rgba(39,174,96,0.1),rgba(39,174,96,0.05)","linear-gradient(135deg,#27ae60,#2ecc71)","#fff"],
+    "第四章 指数函数与对数函数": ["#8e44ad","rgba(142,68,173,0.1),rgba(142,68,173,0.05)","linear-gradient(135deg,#8e44ad,#9b59b6)","#fff"],
+    "第五章 三角函数": ["#e74c3c","rgba(231,76,60,0.1),rgba(231,76,60,0.05)","linear-gradient(135deg,#e74c3c,#c0392b)","#fff"],
+    "第六章 平面向量及其应用": ["#1abc9c","rgba(26,188,156,0.1),rgba(26,188,156,0.05)","linear-gradient(135deg,#1abc9c,#16a085)","#fff"],
+    "第七章 复数": ["#e84393","rgba(232,67,147,0.1),rgba(232,67,147,0.05)","linear-gradient(135deg,#e84393,#fd79a8)","#fff"],
+    "第八章 立体几何初步": ["#ffd200","rgba(247,151,30,0.12),rgba(255,210,0,0.08)","linear-gradient(135deg,#f7971e,#ffd200)","#1a1a2e"],
+    "第九章 统计": ["#e67e22","rgba(230,126,34,0.1),rgba(230,126,34,0.05)","linear-gradient(135deg,#e67e22,#f39c12)","#fff"],
+    "第十章 概率": ["#bdc3c7","rgba(44,62,80,0.15),rgba(44,62,80,0.08)","linear-gradient(135deg,#2c3e50,#34495e)","#fff"]
+  };
+  var f = bannerMap[chapter];
+  if(!f) return '';
+  var c = colorMap[chapter] || ['#0071e3','rgba(0,113,227,0.1),rgba(0,113,227,0.05)','linear-gradient(135deg,#0071e3,#4da6e0)','#fff'];
+  return '<div style="text-align:center;margin:8px auto 16px;padding:10px;border-radius:12px;background:linear-gradient(135deg,' + c[1] + ');border:1px solid ' + c[0] + '33;max-width:420px;"><div style="font-size:0.82rem;font-weight:700;color:' + c[0] + ';margin-bottom:3px;">📝 本章专项训练</div><div style="font-size:0.68rem;color:rgba(255,255,255,0.35);margin-bottom:5px;">20道精选题（10基础+10拔高）· 详细解析</div><a href="' + f + '" style="display:inline-block;padding:5px 20px;border-radius:18px;background:' + c[2] + ';color:' + c[3] + ';font-weight:600;font-size:0.78rem;text-decoration:none;">开始练习 →</a></div>';
+}
+
 </script>
-<script src="vol1_data.js"></script>
-<script src="vol2_data.js"></script>
+<script src="vol1_data.js">function getTrainingBanner(chapter){
+  var bannerMap = {
+    "第一章 集合与常用逻辑用语": "chapter1-practice.html",
+    "第二章 一元二次函数、方程和不等式": "chapter2-practice.html",
+    "第三章 函数概念与性质": "chapter3-practice.html",
+    "第四章 指数函数与对数函数": "chapter4-practice.html",
+    "第五章 三角函数": "chapter5-practice.html",
+    "第六章 平面向量及其应用": "chapter6-practice.html",
+    "第七章 复数": "chapter7-practice.html",
+    "第八章 立体几何初步": "geometry-practice.html",
+    "第九章 统计": "chapter9-practice.html",
+    "第十章 概率": "chapter10-practice.html"
+  };
+  var colorMap = {
+    "第一章 集合与常用逻辑用语": ["#4da6e0","rgba(0,113,227,0.1),rgba(0,113,227,0.05)","linear-gradient(135deg,#0071e3,#4da6e0)","#fff"],
+    "第二章 一元二次函数、方程和不等式": ["#d4a537","rgba(212,165,55,0.1),rgba(212,165,55,0.05)","linear-gradient(135deg,#d4a537,#e8c34a)","#1a1a2e"],
+    "第三章 函数概念与性质": ["#27ae60","rgba(39,174,96,0.1),rgba(39,174,96,0.05)","linear-gradient(135deg,#27ae60,#2ecc71)","#fff"],
+    "第四章 指数函数与对数函数": ["#8e44ad","rgba(142,68,173,0.1),rgba(142,68,173,0.05)","linear-gradient(135deg,#8e44ad,#9b59b6)","#fff"],
+    "第五章 三角函数": ["#e74c3c","rgba(231,76,60,0.1),rgba(231,76,60,0.05)","linear-gradient(135deg,#e74c3c,#c0392b)","#fff"],
+    "第六章 平面向量及其应用": ["#1abc9c","rgba(26,188,156,0.1),rgba(26,188,156,0.05)","linear-gradient(135deg,#1abc9c,#16a085)","#fff"],
+    "第七章 复数": ["#e84393","rgba(232,67,147,0.1),rgba(232,67,147,0.05)","linear-gradient(135deg,#e84393,#fd79a8)","#fff"],
+    "第八章 立体几何初步": ["#ffd200","rgba(247,151,30,0.12),rgba(255,210,0,0.08)","linear-gradient(135deg,#f7971e,#ffd200)","#1a1a2e"],
+    "第九章 统计": ["#e67e22","rgba(230,126,34,0.1),rgba(230,126,34,0.05)","linear-gradient(135deg,#e67e22,#f39c12)","#fff"],
+    "第十章 概率": ["#bdc3c7","rgba(44,62,80,0.15),rgba(44,62,80,0.08)","linear-gradient(135deg,#2c3e50,#34495e)","#fff"]
+  };
+  var f = bannerMap[chapter];
+  if(!f) return '';
+  var c = colorMap[chapter] || ['#0071e3','rgba(0,113,227,0.1),rgba(0,113,227,0.05)','linear-gradient(135deg,#0071e3,#4da6e0)','#fff'];
+  return '<div style="text-align:center;margin:8px auto 16px;padding:10px;border-radius:12px;background:linear-gradient(135deg,' + c[1] + ');border:1px solid ' + c[0] + '33;max-width:420px;"><div style="font-size:0.82rem;font-weight:700;color:' + c[0] + ';margin-bottom:3px;">📝 本章专项训练</div><div style="font-size:0.68rem;color:rgba(255,255,255,0.35);margin-bottom:5px;">20道精选题（10基础+10拔高）· 详细解析</div><a href="' + f + '" style="display:inline-block;padding:5px 20px;border-radius:18px;background:' + c[2] + ';color:' + c[3] + ';font-weight:600;font-size:0.78rem;text-decoration:none;">开始练习 →</a></div>';
+}
+
+</script>
+<script src="vol2_data.js">function getTrainingBanner(chapter){
+  var bannerMap = {
+    "第一章 集合与常用逻辑用语": "chapter1-practice.html",
+    "第二章 一元二次函数、方程和不等式": "chapter2-practice.html",
+    "第三章 函数概念与性质": "chapter3-practice.html",
+    "第四章 指数函数与对数函数": "chapter4-practice.html",
+    "第五章 三角函数": "chapter5-practice.html",
+    "第六章 平面向量及其应用": "chapter6-practice.html",
+    "第七章 复数": "chapter7-practice.html",
+    "第八章 立体几何初步": "geometry-practice.html",
+    "第九章 统计": "chapter9-practice.html",
+    "第十章 概率": "chapter10-practice.html"
+  };
+  var colorMap = {
+    "第一章 集合与常用逻辑用语": ["#4da6e0","rgba(0,113,227,0.1),rgba(0,113,227,0.05)","linear-gradient(135deg,#0071e3,#4da6e0)","#fff"],
+    "第二章 一元二次函数、方程和不等式": ["#d4a537","rgba(212,165,55,0.1),rgba(212,165,55,0.05)","linear-gradient(135deg,#d4a537,#e8c34a)","#1a1a2e"],
+    "第三章 函数概念与性质": ["#27ae60","rgba(39,174,96,0.1),rgba(39,174,96,0.05)","linear-gradient(135deg,#27ae60,#2ecc71)","#fff"],
+    "第四章 指数函数与对数函数": ["#8e44ad","rgba(142,68,173,0.1),rgba(142,68,173,0.05)","linear-gradient(135deg,#8e44ad,#9b59b6)","#fff"],
+    "第五章 三角函数": ["#e74c3c","rgba(231,76,60,0.1),rgba(231,76,60,0.05)","linear-gradient(135deg,#e74c3c,#c0392b)","#fff"],
+    "第六章 平面向量及其应用": ["#1abc9c","rgba(26,188,156,0.1),rgba(26,188,156,0.05)","linear-gradient(135deg,#1abc9c,#16a085)","#fff"],
+    "第七章 复数": ["#e84393","rgba(232,67,147,0.1),rgba(232,67,147,0.05)","linear-gradient(135deg,#e84393,#fd79a8)","#fff"],
+    "第八章 立体几何初步": ["#ffd200","rgba(247,151,30,0.12),rgba(255,210,0,0.08)","linear-gradient(135deg,#f7971e,#ffd200)","#1a1a2e"],
+    "第九章 统计": ["#e67e22","rgba(230,126,34,0.1),rgba(230,126,34,0.05)","linear-gradient(135deg,#e67e22,#f39c12)","#fff"],
+    "第十章 概率": ["#bdc3c7","rgba(44,62,80,0.15),rgba(44,62,80,0.08)","linear-gradient(135deg,#2c3e50,#34495e)","#fff"]
+  };
+  var f = bannerMap[chapter];
+  if(!f) return '';
+  var c = colorMap[chapter] || ['#0071e3','rgba(0,113,227,0.1),rgba(0,113,227,0.05)','linear-gradient(135deg,#0071e3,#4da6e0)','#fff'];
+  return '<div style="text-align:center;margin:8px auto 16px;padding:10px;border-radius:12px;background:linear-gradient(135deg,' + c[1] + ');border:1px solid ' + c[0] + '33;max-width:420px;"><div style="font-size:0.82rem;font-weight:700;color:' + c[0] + ';margin-bottom:3px;">📝 本章专项训练</div><div style="font-size:0.68rem;color:rgba(255,255,255,0.35);margin-bottom:5px;">20道精选题（10基础+10拔高）· 详细解析</div><a href="' + f + '" style="display:inline-block;padding:5px 20px;border-radius:18px;background:' + c[2] + ';color:' + c[3] + ';font-weight:600;font-size:0.78rem;text-decoration:none;">开始练习 →</a></div>';
+}
+
+</script>
 <script>
 // ============ 合并数据 ============
 const cardData = {};
@@ -231,11 +386,16 @@ function renderCards(){
       html += '<div class="cards-grid">';
       filtered.forEach(function(card){ html += renderCard(card, item.book, item.chapter); });
       html += '</div>';
+      // Training banner for this chapter
+      var chBanner = getTrainingBanner(item.chapter);
+      if(chBanner) html += chBanner;
     } else {
       if(filtered.length > 0){
         html += '<div class="section-title">' + item.book + ' — ' + item.chapter + '</div><div class="cards-grid">';
         filtered.forEach(function(card){ html += renderCard(card, item.book, item.chapter); });
         html += '</div>';
+        var chBanner2 = getTrainingBanner(item.chapter);
+        if(chBanner2) html += chBanner2;
       }
     }
   });
@@ -269,6 +429,37 @@ function filterCards(){
 // 初始化
 renderNav();
 renderCards();
+function getTrainingBanner(chapter){
+  var bannerMap = {
+    "第一章 集合与常用逻辑用语": "chapter1-practice.html",
+    "第二章 一元二次函数、方程和不等式": "chapter2-practice.html",
+    "第三章 函数概念与性质": "chapter3-practice.html",
+    "第四章 指数函数与对数函数": "chapter4-practice.html",
+    "第五章 三角函数": "chapter5-practice.html",
+    "第六章 平面向量及其应用": "chapter6-practice.html",
+    "第七章 复数": "chapter7-practice.html",
+    "第八章 立体几何初步": "geometry-practice.html",
+    "第九章 统计": "chapter9-practice.html",
+    "第十章 概率": "chapter10-practice.html"
+  };
+  var colorMap = {
+    "第一章 集合与常用逻辑用语": ["#4da6e0","rgba(0,113,227,0.1),rgba(0,113,227,0.05)","linear-gradient(135deg,#0071e3,#4da6e0)","#fff"],
+    "第二章 一元二次函数、方程和不等式": ["#d4a537","rgba(212,165,55,0.1),rgba(212,165,55,0.05)","linear-gradient(135deg,#d4a537,#e8c34a)","#1a1a2e"],
+    "第三章 函数概念与性质": ["#27ae60","rgba(39,174,96,0.1),rgba(39,174,96,0.05)","linear-gradient(135deg,#27ae60,#2ecc71)","#fff"],
+    "第四章 指数函数与对数函数": ["#8e44ad","rgba(142,68,173,0.1),rgba(142,68,173,0.05)","linear-gradient(135deg,#8e44ad,#9b59b6)","#fff"],
+    "第五章 三角函数": ["#e74c3c","rgba(231,76,60,0.1),rgba(231,76,60,0.05)","linear-gradient(135deg,#e74c3c,#c0392b)","#fff"],
+    "第六章 平面向量及其应用": ["#1abc9c","rgba(26,188,156,0.1),rgba(26,188,156,0.05)","linear-gradient(135deg,#1abc9c,#16a085)","#fff"],
+    "第七章 复数": ["#e84393","rgba(232,67,147,0.1),rgba(232,67,147,0.05)","linear-gradient(135deg,#e84393,#fd79a8)","#fff"],
+    "第八章 立体几何初步": ["#ffd200","rgba(247,151,30,0.12),rgba(255,210,0,0.08)","linear-gradient(135deg,#f7971e,#ffd200)","#1a1a2e"],
+    "第九章 统计": ["#e67e22","rgba(230,126,34,0.1),rgba(230,126,34,0.05)","linear-gradient(135deg,#e67e22,#f39c12)","#fff"],
+    "第十章 概率": ["#bdc3c7","rgba(44,62,80,0.15),rgba(44,62,80,0.08)","linear-gradient(135deg,#2c3e50,#34495e)","#fff"]
+  };
+  var f = bannerMap[chapter];
+  if(!f) return '';
+  var c = colorMap[chapter] || ['#0071e3','rgba(0,113,227,0.1),rgba(0,113,227,0.05)','linear-gradient(135deg,#0071e3,#4da6e0)','#fff'];
+  return '<div style="text-align:center;margin:8px auto 16px;padding:10px;border-radius:12px;background:linear-gradient(135deg,' + c[1] + ');border:1px solid ' + c[0] + '33;max-width:420px;"><div style="font-size:0.82rem;font-weight:700;color:' + c[0] + ';margin-bottom:3px;">📝 本章专项训练</div><div style="font-size:0.68rem;color:rgba(255,255,255,0.35);margin-bottom:5px;">20道精选题（10基础+10拔高）· 详细解析</div><a href="' + f + '" style="display:inline-block;padding:5px 20px;border-radius:18px;background:' + c[2] + ';color:' + c[3] + ';font-weight:600;font-size:0.78rem;text-decoration:none;">开始练习 →</a></div>';
+}
+
 </script>
 
 <div 
