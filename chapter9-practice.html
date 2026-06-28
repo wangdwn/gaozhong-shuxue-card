@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>统计 · 专项训练 — 高中数学知识卡片</title>
+<link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+<style>
+:root {
+  --bg: #f5f5f7;
+  --card-bg: rgba(255,255,255,0.85);
+  --accent: #e67e22;
+  --accent-dark: #d35400;
+  --gold: #d4a537;
+  --red: #c0392b;
+  --green: #27ae60;
+  --text: #1d1d1f;
+  --text-secondary: #86868b;
+  --radius: 16px;
+}
+@media(prefers-color-scheme:dark) {
+  :root {
+    --bg: #1d1d1f;
+    --card-bg: rgba(40,40,44,0.9);
+    --text: #f5f5f7;
+    --text-secondary: #98989d;
+  }
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Noto Sans SC", sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.8;
+  padding: 0 0 40px;
+}
+.container { max-width: 800px; margin: 0 auto; padding: 0 20px; }
+.header {
+  text-align: center; padding: 40px 0 30px;
+  border-bottom: 1px solid rgba(0,0,0,0.06); margin-bottom: 30px; position: relative;
+}
+.header h1 { font-size: 1.6rem; font-weight: 700; margin-bottom: 6px; }
+.header .sub { font-size: 0.85rem; color: var(--text-secondary); }
+.back-link {
+  position: absolute; left: 0; top: 40px;
+  color: var(--accent); text-decoration: none; font-size: 0.82rem;
+}
+@media(max-width:600px) { .back-link { position: static; display: block; text-align: left; margin-bottom: 10px; } }
+.tabs {
+  display: flex; gap: 8px; margin-bottom: 24px;
+  border-bottom: 1px solid rgba(0,0,0,0.06); padding-bottom: 8px;
+}
+.tab {
+  padding: 8px 20px; border-radius: 8px; font-size: 0.85rem; cursor: pointer;
+  color: var(--text-secondary); transition: all 0.2s; border: none;
+  background: transparent; font-weight: 500;
+}
+.tab:hover { background: rgba(230,126,34,0.06); }
+.tab.active { background: var(--accent); color: white; }
+.card {
+  background: var(--card-bg); backdrop-filter: blur(12px); border-radius: var(--radius);
+  padding: 24px; margin-bottom: 20px; border: 1px solid rgba(0,0,0,0.06);
+}
+.q-number {
+  display: inline-block; background: var(--accent); color: white;
+  font-size: 0.72rem; padding: 2px 10px; border-radius: 12px; margin-bottom: 12px; font-weight: 600;
+}
+.q-number.difficult { background: var(--red); }
+.q-tag {
+  display: inline-block; font-size: 0.7rem; padding: 2px 10px; border-radius: 10px;
+  margin-left: 6px; background: rgba(212,165,55,0.15); color: var(--gold);
+}
+.q-tag.hard { background: rgba(192,57,43,0.1); color: var(--red); }
+.q-text { font-size: 0.92rem; line-height: 1.8; margin-bottom: 16px; font-weight: 500; }
+.solution { border-top: 1px solid rgba(0,0,0,0.06); padding-top: 16px; margin-top: 16px; }
+.solution-toggle {
+  display: inline-flex; align-items: center; gap: 4px; font-size: 0.82rem;
+  color: var(--accent); cursor: pointer; background: none; border: none;
+  padding: 4px 12px; border-radius: 8px; transition: all 0.2s; font-weight: 500;
+}
+.solution-toggle:hover { background: rgba(230,126,34,0.06); }
+.solution-body { display: none; margin-top: 12px; font-size: 0.85rem; color: var(--text-secondary); line-height: 1.9; }
+.solution-body.open { display: block; }
+.solution-body strong { color: var(--text); }
+.solution-body .ans {
+  display: inline-block; background: rgba(39,174,96,0.1); color: var(--green);
+  padding: 2px 10px; border-radius: 6px; font-weight: 600; margin-bottom: 8px;
+}
+.solution-body .step { margin-bottom: 6px; padding-left: 12px; border-left: 2px solid var(--accent); }
+@media(max-width:600px) {
+  .header h1 { font-size: 1.2rem; } .card { padding: 16px; } .tabs { gap: 4px; }
+  .tab { padding: 6px 12px; font-size: 0.78rem; }
+}
+</style>
+</head>
+<body>
+<div class="container">
+  <div class="header">
+    <a href="index.html" class="back-link">← 返回知识卡片主页</a>
+    <h1>📊 统计 · 专项训练</h1>
+    <p class="sub">人教A版 · 必修第二册 第九章 | 10道基础题 + 10道拔高题</p>
+  </div>
+  <div class="tabs">
+    <button class="tab active" onclick="switchTab('basic')">基础训练 10题</button>
+    <button class="tab" onclick="switchTab('hard')">拔高挑战 10题</button>
+  </div>
+
+  <div id="basic" class="tab-content">
+    <div class="card">
+      <span class="q-number">基础1</span>
+      <div class="q-text">为了了解某校高一年级500名学生的体重情况，从中抽取50名学生进行测量。下列说法中正确的是（  ）。<br>
+A. 500名学生是总体 &nbsp;&nbsp; B. 每个学生是个体<br>
+C. 50名学生的体重是一个样本 &nbsp;&nbsp; D. 样本容量是50</div>
+      <div class="solution">
+        <button class="solution-toggle" onclick="toggleSolution(this)">📖 查看解析</button>
+        <div class="solution-body">
+          <div class="ans">答案：D</div>
+          <div class="step"><strong>分析：</strong>总体是研究对象的全体——500名学生的<strong>体重</strong>，不是学生本身。A错。</div>
+          <div class="step">个体是每个学生的体重，不是每个学生。B错。</div>
+          <div class="step">样本是抽取的50名学生的体重，C的说法"50名学生"不够准确。</div>
+          <div class="step">样本容量是样本中包含的个体数目（无单位），即50。D正确。</div>
+          <div class="step"><strong>易错点：</strong>总体、个体、样本都是指<strong>数据</strong>，不是指人。</div>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <span class="q-number">基础2</span>
+      <div class="q-text">下列抽样方法中，属于简单随机抽样的是（  ）。<br>
+A. 从全班50人中依次抽取学号为1,2,3,…,10的学生<br>
+B. 将全班学生编号，用随机数表法抽取10人<br>
+C. 按学号奇偶性抽取<br>
+D. 按成绩分层抽取</div>
+      <div class="solution">
+        <button class="solution-toggle" onclick="toggleSolution(this)">📖 查看解析</button>
+        <div class="solution-body">
+          <div class="ans">答案：B</div>
+          <div class="step"><strong>简单随机抽样的特点：</strong>每个个体被抽到的<strong>机会均等</strong>，且<strong>逐个抽取</strong>、<strong>不放回</strong>。</div>
+          <div class="step">A是系统抽样（等距抽样），不是简单随机抽样。</div>
+          <div class="step">B使用随机数表法，属于简单随机抽样。✅</div>
+          <div class="step">C按奇偶性，不是等概率（奇偶人数可能不等）。</div>
+          <div class="step">D是分层抽样。</div>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <span class="q-number">基础3</span>
+      <div class="q-text">某校有高一学生400人、高二学生300人、高三学生300人，现用分层抽样法从全校学生中抽取一个容量为50的样本。高一、高二、高三应各抽取多少人？</div>
+      <div class="solution">
+        <button class="solution-toggle" onclick="toggleSolution(this)">📖 查看解析</button>
+        <div class="solution-body">
+          <div class="ans">答案：高一20人，高二15人，高三15人</div>
+          <div class="step">全校总人数：400 + 300 + 300 = 1000人。</div>
+          <div class="step">抽样比例：k = 50 / 1000 = 1/20。</div>
+          <div class="step">高一：400 × 1/20 = 20人</div>
+          <div class="step">高二：300 × 1/20 = 15人</div>
+          <div class="step">高三：300 × 1/20 = 15人</div>
+          <div class="step"><strong>检查：</strong>20 + 15 + 15 = 50 ✓</div>
+          <div class="step"><strong>注意：</strong>分层抽样中，各层抽取人数按比例计算：<br>
+          <strong>某层抽取数 = 该层人数 × (样本容量 / 总体容量)</strong></div>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <span class="q-number">基础4</span>
+      <div class="q-text">一个样本的数据如下：<br>
+      12, 15, 18, 20, 22, 25, 28, 30。<br>
+      求该样本的第25百分位数（即下四分位数）。</div>
+      <div class="solution">
+        <button class="solution-toggle" onclick="toggleSolution(this)">📖 查看解析</button>
+        <div class="solution-body">
+          <div class="ans">答案：15.75</div>
+          <div class="step">数据已从小到大排列，共 n = 8 个数据。</div>
+          <div class="step">计算位置：i = n × p% = 8 × 25% = 2。</div>
+          <div class="step">i = 2 是整数，则第25百分位数为第2个和第3个数据的平均值。</div>
+          <div class="step">第2个数据是15，第3个数据是18。</div>
+          <div class="step">第25百分位数 = (15 + 18) / 2 = 16.5</div>
+          <div class="step"><strong>注意：</strong>百分位数的计算方法有多种（如插值法），教材常用位置法。<br>
+          另一种常见算法：位置 i = n × p% = 2，取第 i 个和第 i+1 个的平均值。<br></div>
+          <div class="step">如果按教材更常见的公式：i = (n+1) × p% = 9 × 0.25 = 2.25，<br>
+          则第25百分位数 = 第2个数 + 0.25 × (第3个数 - 第2个数) = 15 + 0.25×3 = 15.75。</div>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <span class="q-number">基础5</span>
+      <div class="q-text">某组数据的方差计算公式为：<br>
+      s² = [(2-5)² + (4-5)² + (5-5)² + (7-5)² + (7-5)²] / 5<br>
+      求这组数据的平均数和标准差。</div>
+      <div class="solution">
+        <button class="solution-toggle" onclick="toggleSolution(this)">📖 查看解析</button>
+        <div class="solution-body">
+          <div class="ans">答案：平均数 = 5，标准差 = 2</div>
+          <div class="step">从公式看出平均数为 <strong>5</strong>（每个偏差²的中间项）。</div>
+          <div class="step">样本数据：2, 4, 5, 7, 7。验证平均数 = (2+4+5+7+7)/5 = 25/5 = 5。✅</div>
+          <div class="step">方差 s² = [(2-5)² + (4-5)² + (5-5)² + (7-5)² + (7-5)²] / 5</div>
+          <div class="step">= [9 + 1 + 0 + 4 + 4] / 5 = 18 / 5 = 3.6</div>
+          <div class="step">标准差 s = √s² = √3.6 ≈ 1.897</div>
+          <div class="step">（注意：分母是n还是n-1，如果是总体方差用n，样本方差用n-1。此处分母为5，是按总体方差计算。）</div>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <span class="q-number">基础6</span>
+      <div class="q-text">为了解某小区居民月用电量情况，随机抽查了50户居民的月用电量，数据如下（单位：度）：<br>
+      最低40，最高180。若将数据分为7组，则组距大约是多少？</div>
+      <div class="solution">
+        <button class="solution-toggle" onclick="toggleSolution(this)">📖 查看解析</button>
+        <div class="solution-body">
+          <div class="ans">答案：20</div>
+          <div class="step">极差 = 最大值 - 最小值 = 180 - 40 = 140。</div>
+          <div class="step">组距 = 极差 / 组数 = 140 / 7 = 20。</div>
+          <div class="step">取整后组距为20。</div>
+          <div class="step"><strong>分组建议：</strong>[40,60), [60,80), [80,100), [100,120), [120,140), [140,160), [160,180]。</div>
+          <div class="step">实际画频率分布直方图时，组距常取整数以便于操作。</div>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <span class="q-number">基础7</span>
+      <div class="q-text">在频率分布直方图中，小长方形的面积表示什么？所有小长方形面积之和等于多少？</div>
+      <div class="solution">
+        <button class="solution-toggle" onclick="toggleSolution(this)">📖 查看解析</button>
+        <div class="solution-body">
+          <div class="ans">答案：频率；1</div>
+          <div class="step">在频率分布直方图中：</div>
+          <div class="step"><strong>小长方形面积 = 组距 × (频率/组距) = 频率</strong></div>
+          <div class="step">纵轴是"频率/组距"，即频率密度。</div>
+          <div class="step">所有组的频率之和等于1，所以所有小长方形面积之和 = 1。</div>
+          <div class="step"><strong>注意：</strong>纵轴不是频率，而是<strong>频率/组距</strong>！这是最常见的易错点。</div>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <span class="q-number">基础8</span>
+      <div class="q-text">甲、乙两名射击运动员的10次射击成绩（环数）如下：<br>
+      甲：8, 9, 9, 10, 8, 9, 10, 7, 9, 9<br>
+      乙：6, 10, 10, 8, 9, 10, 7, 10, 8, 10<br>
+      谁的成绩更稳定？</div>
+      <div class="solution">
+        <button class="solution-toggle" onclick="toggleSolution(this)">📖 查看解析</button>
+        <div class="solution-body">
+          <div class="ans">答案：甲更稳定</div>
+          <div class="step"><strong>思路：</strong>比较方差或标准差，方差越小越稳定。</div>
+          <div class="step"><strong>甲的平均数：</strong>(8+9+9+10+8+9+10+7+9+9)/10 = 88/10 = 8.8</div>
+          <div class="step">甲偏离平方和：0.64+0.04+0.04+1.44+0.64+0.04+1.44+3.24+0.04+0.04 = 7.6</div>
+          <div class="step">甲方差（样本）：s²(甲) = 7.6/9 ≈ 0.84</div>
+          <div class="step"><strong>乙的平均数：</strong>(6+10+10+8+9+10+7+10+8+10)/10 = 88/10 = 8.8</div>
+          <div class="step">乙偏离平方和：7.84+1.44+1.44+0.64+0.04+1.44+3.24+1.44+0.64+1.44 = 19.6</div>
+          <div class="step">乙方差（样本）：s²(乙) = 19.6/9 ≈ 2.18</div>
+          <div class="step">因为 s²(甲) &lt; s²(乙)，所以甲的成绩更稳定。</div>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <span class="q-number">基础9</span>
+      <div class="q-text">从某校随机抽取20名学生的数学成绩（满分100分）：<br>
+      56, 62, 68, 70, 72, 74, 76, 78, 80, 82,<br>
+      83, 85, 86, 87, 88, 89, 91, 93, 95, 98。<br>
+      求这组数据的第80百分位数。</div>
+      <div class="solution">
+        <button class="solution-toggle" onclick="toggleSolution(this)">📖 查看解析</button>
+        <div class="solution-body">
+          <div class="ans">答案：92</div>
+          <div class="step">数据已从小到大排列，共20个数据。</div>
+          <div class="step">计算位置：i = n × p% = 20 × 80% = 16。</div>
+          <div class="step">i = 16是整数，取第16个和第17个数据的平均值。</div>
+          <div class="step">第16个数据（从1开始数）：89</div>
+          <div class="step">第17个数据：91</div>
+          <div class="step">第80百分位数 = (89 + 91) / 2 = 90。</div>
+          <div class="step">若使用(i = (n+1)×p%)：i = 21×0.8 = 16.8，<br>
+          则第80百分位数 = 第16个数 + 0.8×(第17个数-第16个数) = 89 + 0.8×2 = 90.6。</div>
+          <div class="step">两种算法结果略有差异，考试时以题目指定的方法为准。</div>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <span class="q-number">基础10</span>
+      <div class="q-text">某工厂用简单随机抽样法从一批产品中抽取100件进行检验，发现有5件次品。<br>
+      (1) 这批产品的次品率约为多少？<br>
+      (2) 若这批产品共有2000件，估计次品数量约为多少？</div>
+      <div class="solution">
+        <button class="solution-toggle" onclick="toggleSolution(this)">📖 查看解析</button>
+        <div class="solution-body">
+          <div class="ans">答案：(1) 5% &nbsp;&nbsp; (2) 100件</div>
+          <div class="step"><strong>(1)</strong> 样本次品率 = 5 / 100 = 0.05 = 5%</div>
+          <div class="step">用样本估计总体，总体次品率 ≈ 5%。</div>
+          <div class="step"><strong>(2)</strong> 估计次品数量 = 2000 × 5% = 100件。</div>
+          <div class="step"><strong>注意：</strong>这是<strong>点估计</strong>，实际值可能略有出入。样本容量越大，估计越准确。</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="hard" class="tab-content" style="display:none;">
+    <div class="card">
+      <span class="q-number difficult">拔高1</span><span class="q-tag hard">分层抽样</span>
+      <div class="q-text">某地区有甲、乙、丙三个工厂，分别有职工1000人、1500人、2500人。现用分层抽样法抽取一个容量为200的样本调查工资水平。已知甲厂抽取了40人，但实际甲厂职工人数为800人（数据有误）。请问：<br>
+      (1) 按原计划的1000人计算，甲厂应抽多少人？<br>
+      (2) 按实际800人重新计算，甲厂应抽多少人？<br>
+      (3) 两次抽样结果差异说明了什么？</div>
+      <div class="solution">
+        <button class="solution-toggle" onclick="toggleSolution(this)">📖 查看解析</button>
+        <div class="solution-body">
+          <div class="ans">答案：(1) 40人 &nbsp; (2) 约33人 &nbsp; (3) 各层人数准确性对分层抽样很重要</div>
+          <div class="step"><strong>(1)</strong> 原总人数 = 1000+1500+2500 = 5000人</div>
+          <div class="step">抽样比例 k = 200/5000 = 1/25</div>
+          <div class="step">甲厂应抽：1000 × 1/25 = 40人 ✅</div>
+          <div class="step"><strong>(2)</strong> 实际总人数 = 800+1500+2500 = 4800人</div>
+          <div class="step">抽样比例 k = 200/4800 = 1/24</div>
+          <div class="step">甲厂应抽：800 × 1/24 = 100/3 ≈ 33.3，即33人。</div>
+          <div class="step"><strong>(3)</strong> 两次结果相差7人，说明如果各层人数信息不准确，<br>
+          分层抽样的样本结构与总体结构就会产生偏差，<br>
+          影响样本的代表性。<strong>分层抽样的前提是各层人数准确。</strong></div>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <span class="q-number difficult">拔高2</span><span class="q-tag hard">频率分布直方图</span>
+      <div class="q-text">某校100名学生的数学成绩的频率分布直方图如下（各组数据已简化）：<br>
+      分组 [50,60) 频率0.05，[60,70) 频率0.15，[70,80) 频率0.30，<br>
+      [80,90) 频率0.35，[90,100] 频率0.15。<br>
+      (1) 求成绩在[70,90)的人数；<br>
+      (2) 若规定85分及以上为优秀，估计优秀人数。</div>
+      <div class="solution">
+        <button class="solution-toggle" onclick="toggleSolution(this)">📖 查看解析</button>
+        <div class="solution-body">
+          <div class="ans">答案：(1) 65人 &nbsp; (2) 约35人</div>
+          <div class="step"><strong>(1)</strong> [70,80)频率0.30，[80,90)频率0.35</div>
+          <div class="step">[70,90)的频率 = 0.30 + 0.35 = 0.65</div>
+          <div class="step">人数 = 100 × 0.65 = 65人。</div>
+          <div class="step"><strong>(2)</strong> 85分在区间[80,90)内，该组频率0.35，组距10。</div>
+          <div class="step">区间[80,90)且≥85的部分占该组的比例：(90-85)/10 = 0.5</div>
+          <div class="step">所以≥85分的频率 ≈ 0.35 × 0.5 = 0.175</div>
+          <div class="step">再加上[90,100]的频率0.15</div>
+          <div class="step">优秀频率 = 0.175 + 0.15 = 0.325</div>
+          <div class="step">估计优秀人数 = 100 × 0.325 ≈ 33人。</div>
+          <div class="step"><strong>注意：</strong>利用频率分布直方图估计时，需要假设数据在组内均匀分布。</div>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <span class="q-number difficult">拔高3</span><span class="q-tag hard">方差性质</span>
+      <div class="q-text">已知一组数据 x₁, x₂, …, xₙ 的平均数为 \bar{x}，方差为 s²。<br>
+      若对每个数据作变换 yᵢ = axᵢ + b（a, b为常数，a ≠ 0），<br>
+      求新数据 y₁, y₂, …, yₙ 的平均数和方差。</div>
+      <div class="solution">
+        <button class="solution-toggle" onclick="toggleSolution(this)">📖 查看解析</button>
+        <div class="solution-body">
+          <div class="ans">答案：平均数 = a\bar{x} + b，方差 = a²s²</div>
+          <div class="step"><strong>平均数：</strong>ȳ = (1/n)∑(axᵢ+b) = a·(1/n)∑xᵢ + (1/n)·nb = a\bar{x} + b</div>
+          <div class="step"><strong>方差：</strong>s²(y) = (1/n)∑(yᵢ - ȳ)² = (1/n)∑[(axᵢ+b) - (a\bar{x}+b)]²</div>
+          <div class="step">= (1/n)∑[a(xᵢ - \bar{x})]² = a²·(1/n)∑(xᵢ - \bar{x})² = a²s²</div>
+          <div class="step"><strong>结论：</strong>线性变换 y = ax + b 下，</div>
+          <div class="step">平均数：加上b（平移），乘上a（缩放）</div>
+          <div class="step">方差：只被a影响（缩放），不受b影响（平移不变性），且a被平方</div>
+          <div class="step"><strong>记忆口诀：</strong>平均数跟着变，方差只受乘影响，平移不改变分散程度。</div>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <span class="q-number difficult">拔高4</span><span class="q-tag hard">加权平均数</span>
+      <div class="q-text">某次考试，甲班50人平均分为78分，乙班40人平均分为82分，丙班30人平均分为85分。求三个班的<strong>总平均分</strong>。（保留2位小数）</div>
+      <div class="solution">
+        <button class="solution-toggle" onclick="toggleSolution(this)">📖 查看解析</button>
+        <div class="solution-body">
+          <div class="ans">答案：81.33分</div>
+          <div class="step">不能直接加三个平均分除以3（78+82+85)/3≈81.67——❌ 这是错的！</div>
+          <div class="step">因为各班人数不同，需要用<strong>加权平均数</strong>：</div>
+          <div class="step">总平均分 = (甲总分 + 乙总分 + 丙总分) / 总人数</div>
+          <div class="step">甲总分 = 50 × 78 = 3900</div>
+          <div class="step">乙总分 = 40 × 82 = 3280</div>
+          <div class="step">丙总分 = 30 × 85 = 2550</div>
+          <div class="step">总平均分 = (3900 + 3280 + 2550) / (50 + 40 + 30) = 9760 / 120 ≈ 81.33分</div>
+          <div class="step"><strong>易错点：</strong>各组人数不同时，简单平均(算术平均)会出错，必须用加权平均。</div>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <span class="q-number difficult">拔高5</span><span class="q-tag hard">样本与总体</span>
+      <div class="q-text">某公司有员工200人，其中研发部80人、市场部60人、后勤部60人。为调查员工满意度，分别从三个部门用简单随机抽样各抽取10人，共30人。请问这是否是分层抽样？理由是什么？</div>
+      <div class="solution">
+        <button class="solution-toggle" onclick="toggleSolution(this)">📖 查看解析</button>
+        <div class="solution-body">
+          <div class="ans">答案：不是严格的分层抽样</div>
+          <div class="step"><strong>分层抽样的核心要求：</strong>各层抽取比例相同，即按人数比例分配样本容量。</div>
+          <div class="step">三个部门各抽10人，总人数分别为80,60,60。</div>
+          <div class="step">研发部比例：10/80 = 1/8 = 12.5%</div>
+          <div class="step">市场部比例：10/60 = 1/6 ≈ 16.7%</div>
+          <div class="step">后勤部比例：10/60 = 1/6 ≈ 16.7%</div>
+          <div class="step">各层比例不同，所以这不是<strong>严格意义</strong>的分层抽样。</div>
+          <div class="step">如果改为按比例：总200人样本30人，比例k=30/200=3/20，</div>
+          <div class="step">则研发应抽80×(3/20)=12人，市场60×(3/20)=9人，后勤60×(3/20)=9人。</div>
+          <div class="step"><strong>本题的抽样方法</strong>实际上是"分层后等额抽样"（每层抽相同数量），<br>
+          在某些情况下也会使用（如比较各层差异），但比例的<strong>代表性</strong>不如真正的分层抽样。</div>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <span class="q-number difficult">拔高6</span><span class="q-tag hard">百分位数应用</span>
+      <div class="q-text">某公司员工月薪（单位：千元）如下：<br>
+      3, 4, 4, 5, 5, 5, 6, 6, 7, 8, 8, 9, 10, 12, 15, 20, 25, 30, 35, 50。<br>
+      (1) 求这组数据的第90百分位数。<br>
+      (2) 若公司声称"90%的员工月薪不超过某个数"，这个数是多少？</div>
+      <div class="solution">
+        <button class="solution-toggle" onclick="toggleSolution(this)">📖 查看解析</button>
+        <div class="solution-body">
+          <div class="ans">答案：(1) 32.5千元 &nbsp; (2) 32.5千元</div>
+          <div class="step">数据已从小到大排列，共20个数据。</div>
+          <div class="step"><strong>(1)</strong> i = n × p% = 20 × 90% = 18</div>
+          <div class="step">i=18是整数，取第18个和第19个的平均值。</div>
+          <div class="step">第18个数：30，第19个数：35</div>
+          <div class="step">第90百分位数 = (30+35)/2 = 32.5（千元）。</div>
+          <div class="step"><strong>(2)</strong>"90%的员工月薪不超过某个数"——这个数就是第90百分位数。</div>
+          <div class="step">即 32.5千元 = 32500元。意味着有90%的员工月薪低于或等于32500元。</div>
+          <div class="step"><strong>注意：</strong>百分位数的实际意义——p%的数据小于等于第p百分位数。</div>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <span class="q-number difficult">拔高7</span><span class="q-tag hard">标准差综合</span>
+      <div class="q-text">甲、乙两组各5名学生的数学成绩如下：<br>
+      甲组：70, 75, 80, 85, 90<br>
+      乙组：60, 70, 80, 90, 100<br>
+      (1) 分别计算两组数据的平均数和标准差；<br>
+      (2) 哪组数据的离散程度更大？为什么？</div>
+      <div class="solution">
+        <button class="solution-toggle" onclick="toggleSolution(this)">📖 查看解析</button>
+        <div class="solution-body">
+          <div class="ans">答案：(1) 甲：\bar{x}=80, s≈7.07；乙：\bar{x}=80, s≈14.14 (2) 乙组更大</div>
+          <div class="step"><strong>(1) 甲组：</strong></div>
+          <div class="step">平均数 = (70+75+80+85+90)/5 = 400/5 = 80</div>
+          <div class="step">方差（总体）= [(70-80)²+(75-80)²+0²+5²+10²]/5 = [100+25+0+25+100]/5 = 250/5 = 50</div>
+          <div class="step">标准差 = √50 = 5√2 ≈ 7.07</div>
+          <div class="step"><strong>乙组：</strong></div>
+          <div class="step">平均数 = (60+70+80+90+100)/5 = 400/5 = 80</div>
+          <div class="step">方差 = [(-20)²+(-10)²+0²+10²+20²]/5 = [400+100+0+100+400]/5 = 1000/5 = 200</div>
+          <div class="step">标准差 = √200 = 10√2 ≈ 14.14</div>
+          <div class="step"><strong>(2)</strong> 两组平均数相同（都是80），但乙组的标准差更大（14.14 > 7.07），</div>
+          <div class="step">说明乙组的成绩<strong>离散程度更大</strong>，即数据更分散、两极分化更明显。</div>
+          <div class="step"><strong>直观理解：</strong>甲组从70到90均匀分布，乙组从60到100分布更广。</div>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <span class="q-number difficult">拔高8</span><span class="q-tag hard">抽样方法辨析</span>
+      <div class="q-text">以下抽样方法是否合理？如不合理，请说明理由并提出改进建议。<br>
+      (1) 为了调查某路口车流量，只统计周一上午8:00-9:00的数据。<br>
+      (2) 为了了解全校学生的视力情况，在操场上随机询问正在上体育课的学生。<br>
+      (3) 为了了解某小区居民对垃圾分类的态度，在小区业主群发放电子问卷。</div>
+      <div class="solution">
+        <button class="solution-toggle" onclick="toggleSolution(this)">📖 查看解析</button>
+        <div class="solution-body">
+          <div class="ans">答案：三个都不合理</div>
+          <div class="step"><strong>(1) 不合理。</strong></div>
+          <div class="step">理由：只统计周一早高峰，不能代表一周平均车流量（周末、非高峰时段流量不同）。</div>
+          <div class="step">建议：在一周不同日期、不同时段（早高峰、平峰、晚高峰）分别抽样，或采用等距时间抽样。</div>
+          <div class="step"><strong>(2) 不合理。</strong></div>
+          <div class="step">理由：上体育课的学生身体活动能力强，视力可能相对较好，存在<strong>样本偏差</strong>（健康样本偏差）。</div>
+          <div class="step">建议：按学号用简单随机抽样或分层抽样（按年级层）从全校学生中抽取。</div>
+          <div class="step"><strong>(3) 不合理。</strong></div>
+          <div class="step">理由：业主群只能覆盖会使用手机的老人和年轻人，且愿意填问卷的居民可能态度更积极，<br>
+          存在<strong>覆盖偏差</strong>和<strong>自愿回答偏差</strong>。</div>
+          <div class="step">建议：结合入户访问和线上问卷相结合，或采用分层抽样（按年龄层、楼栋层）。</div>
+          <div class="step"><strong>核心：</strong>样本要<strong>代表</strong>总体，避免<strong>系统性偏差</strong>。</div>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <span class="q-number difficult">拔高9</span><span class="q-tag hard">统计图表综合</span>
+      <div class="q-text">某班50名学生期中考试数学成绩的频率分布直方图中，<br>
+      各组的频率/组距值如下（组距均为10）：<br>
+      [30,40)：0.005 &nbsp; [40,50)：0.010 &nbsp; [50,60)：0.020<br>
+      [60,70)：0.030 &nbsp; [70,80)：0.025 &nbsp; [80,90)：0.010 &nbsp; [90,100]：0.005<br>
+      (1) 求成绩在[60,80)的人数；<br>
+      (2) 求该班数学成绩的平均分估计值；<br>
+      (3) 该直方图是否合理？说明理由。</div>
+      <div class="solution">
+        <button class="solution-toggle" onclick="toggleSolution(this)">📖 查看解析</button>
+        <div class="solution-body">
+          <div class="ans">答案：(1) 27.5人≈28人 &nbsp; (2) 68.75分 &nbsp; (3) 不合理</div>
+          <div class="step"><strong>(1)</strong> [60,70)频率 = 0.030×10 = 0.30</div>
+          <div class="step">[70,80)频率 = 0.025×10 = 0.25</div>
+          <div class="step">[60,80)频率 = 0.30+0.25 = 0.55</div>
+          <div class="step">人数 = 50×0.55 = 27.5人（实际应为整数，约28人）。</div>
+          <div class="step"><strong>(2)</strong> 用各组组中值估计：</div>
+          <div class="step">30-40：35×0.005×10 = 35×0.05 = 1.75</div>
+          <div class="step">40-50：45×0.010×10 = 45×0.1 = 4.5</div>
+          <div class="step">50-60：55×0.020×10 = 55×0.2 = 11</div>
+          <div class="step">60-70：65×0.030×10 = 65×0.3 = 19.5</div>
+          <div class="step">70-80：75×0.025×10 = 75×0.25 = 18.75</div>
+          <div class="step">80-90：85×0.010×10 = 85×0.1 = 8.5</div>
+          <div class="step">90-100：95×0.005×10 = 95×0.05 = 4.75</div>
+          <div class="step">平均分 = 1.75+4.5+11+19.5+18.75+8.5+4.75 = 68.75分</div>
+          <div class="step"><strong>(3) 不合理。</strong></div>
+          <div class="step">检查频率之和：0.05+0.1+0.2+0.3+0.25+0.1+0.05 = 1.05 > 1</div>
+          <div class="step">频率之和不应大于1！说明直方图中各组频率/组距数据有误。</div>
+          <div class="step">应调整为总和正好等于1。例如可能[60,70)的频密度应为0.025而不是0.030。</div>
+          <div class="step"><strong>易错点：</strong>频率分布直方图中，各小长方形面积之和必须等于1。</div>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <span class="q-number difficult">拔高10</span><span class="q-tag hard">综合应用</span>
+      <div class="q-text">甲、乙两名运动员的射击成绩如下（环数）：<br>
+      甲：9.5, 10.2, 9.8, 10.5, 10.0, 9.6, 10.3, 9.9, 10.1, 10.4<br>
+      乙：10.0, 9.0, 10.8, 9.5, 10.5, 9.2, 10.6, 9.8, 10.2, 9.4<br>
+      (1) 分别计算甲、乙的平均数和标准差；<br>
+      (2) 如果你是教练，会选择谁去参加比赛？说明理由。<br>
+      （计算结果保留3位小数）</div>
+      <div class="solution">
+        <button class="solution-toggle" onclick="toggleSolution(this)">📖 查看解析</button>
+        <div class="solution-body">
+          <div class="ans">答案：(1) 甲：\bar{x}=10.03, s≈0.308；乙：\bar{x}=9.90, s≈0.568 (2) 选甲</div>
+          <div class="step"><strong>(1) 甲组：</strong></div>
+          <div class="step">数据：9.5, 10.2, 9.8, 10.5, 10.0, 9.6, 10.3, 9.9, 10.1, 10.4</div>
+          <div class="step">平均 = (9.5+10.2+9.8+10.5+10.0+9.6+10.3+9.9+10.1+10.4)/10 = 100.3/10 = 10.030</div>
+          <div class="step">偏差平方和：</div>
+          <div class="step">(9.5-10.03)²=0.2809, (10.2-10.03)²=0.0289, (9.8-10.03)²=0.0529,</div>
+          <div class="step">(10.5-10.03)²=0.2209, (10-10.03)²=0.0009, (9.6-10.03)²=0.1849,</div>
+          <div class="step">(10.3-10.03)²=0.0729, (9.9-10.03)²=0.0169, (10.1-10.03)²=0.0049,</div>
+          <div class="step">(10.4-10.03)²=0.1369</div>
+          <div class="step">总和 ≈ 0.2809+0.0289+0.0529+0.2209+0.0009+0.1849+0.0729+0.0169+0.0049+0.1369 = 1.001</div>
+          <div class="step">方差（总体）≈ 1.001/10 = 0.1001</div>
+          <div class="step">标准差 ≈ √0.1001 ≈ 0.316</div>
+          <div class="step"><strong>乙组：</strong></div>
+          <div class="step">数据：10.0, 9.0, 10.8, 9.5, 10.5, 9.2, 10.6, 9.8, 10.2, 9.4</div>
+          <div class="step">平均 = (10.0+9.0+10.8+9.5+10.5+9.2+10.6+9.8+10.2+9.4)/10 = 99.0/10 = 9.900</div>
+          <div class="step">偏差平方和：</div>
+          <div class="step">(10-9.9)²=0.01, (9-9.9)²=0.81, (10.8-9.9)²=0.81,</div>
+          <div class="step">(9.5-9.9)²=0.16, (10.5-9.9)²=0.36, (9.2-9.9)²=0.49,</div>
+          <div class="step">(10.6-9.9)²=0.49, (9.8-9.9)²=0.01, (10.2-9.9)²=0.09,</div>
+          <div class="step">(9.4-9.9)²=0.25</div>
+          <div class="step">总和 = 0.01+0.81+0.81+0.16+0.36+0.49+0.49+0.01+0.09+0.25 = 3.48</div>
+          <div class="step">方差（总体）≈ 3.48/10 = 0.348</div>
+          <div class="step">标准差 ≈ √0.348 ≈ 0.590</div>
+          <div class="step"><strong>(2) 选择甲。</strong></div>
+          <div class="step">理由：</div>
+          <div class="step">① 甲的平均分（10.03）高于乙（9.90），说明甲总体水平更高。</div>
+          <div class="step">② 甲的标准差（0.316）远小于乙（0.590），说明甲成绩更稳定。</div>
+          <div class="step">③ 甲的最低分9.5，最高分10.5，波动范围小；乙最低9.0，最高10.8，起伏大。</div>
+          <div class="step">综合来看，甲<strong>更高、更稳</strong>，是更可靠的选手。</div>
+          <div class="step"><strong>注意：</strong>实际选人时还考虑比赛类型（资格赛选上升空间大的？还是决赛选稳定的？）。<br>
+          但基于数据统计，甲的综合表现更优。</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+function toggleSolution(btn) {
+  const body = btn.nextElementSibling;
+  body.classList.toggle('open');
+  btn.textContent = body.classList.contains('open') ? '📕 收起解析' : '📖 查看解析';
+}
+function switchTab(name) {
+  document.querySelectorAll('.tab-content').forEach(c => c.style.display = 'none');
+  document.getElementById(name).style.display = 'block';
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  document.querySelector(`.tab[onclick*="${name}"]`).classList.add('active');
+}
+</script>
+</body>
+</html>
