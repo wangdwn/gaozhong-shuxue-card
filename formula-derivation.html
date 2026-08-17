@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>高中数学 · 公式推导专题（一级公式 → 二级公式）</title>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js" crossorigin="anonymous"
+  onload="renderMathInElement(document.body, {delimiters:[{left:'$$',right:'$$',display:true},{left:'$',right:'$',display:false}], throwOnError:false});"></script>
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  font-family:"Noto Serif SC","Source Han Serif SC","PingFang SC",serif;
+  min-height:100vh;
+  background:linear-gradient(135deg,#0f0c29,#302b63,#24243e);
+  color:#e0e0e0;padding:20px;
+}
+.container{max-width:1000px;margin:0 auto}
+
+/* 头部 */
+.header{text-align:center;padding:26px 0 14px;margin-bottom:6px}
+.header h1{font-size:1.7rem;font-weight:900;
+  background:linear-gradient(90deg,#f7971e,#ffd200);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+  margin-bottom:6px;}
+.header .sub{font-size:0.85rem;color:rgba(255,255,255,0.45);margin-bottom:12px}
+.header .back{display:inline-block;font-size:0.8rem;color:#ffd200;text-decoration:none;
+  padding:5px 16px;border:1px solid rgba(255,210,0,0.3);border-radius:18px;
+  background:rgba(255,210,0,0.08);margin-bottom:10px}
+.header .legend{font-size:0.75rem;color:rgba(255,255,255,0.4)}
+
+/* 顶部导航 */
+.toc{display:flex;flex-wrap:wrap;gap:6px;justify-content:center;
+  padding:14px 0;border-top:1px solid rgba(255,255,255,0.08);
+  border-bottom:1px solid rgba(255,255,255,0.08);margin-bottom:20px;
+  position:sticky;top:0;z-index:20;background:rgba(15,12,41,0.92);
+  backdrop-filter:blur(8px);}
+.toc a{font-size:0.72rem;padding:4px 11px;border-radius:15px;text-decoration:none;
+  color:rgba(255,255,255,0.55);background:rgba(255,255,255,0.05);
+  border:1px solid rgba(255,255,255,0.07);white-space:nowrap;transition:all .2s}
+.toc a:hover{color:#ffd200;border-color:rgba(255,210,0,0.35)}
+
+/* 章节 */
+.chapter{margin-bottom:34px;scroll-margin-top:70px}
+.chapter-head{font-size:1.25rem;font-weight:800;color:#ffd200;
+  padding:8px 0 10px;border-bottom:1px solid rgba(255,210,0,0.2);margin-bottom:16px}
+.chapter-head span{font-size:0.72rem;color:rgba(255,255,255,0.35);font-weight:400;margin-left:8px}
+
+/* 卡片通用 */
+.card{background:rgba(255,255,255,0.055);backdrop-filter:blur(14px);
+  border:1px solid rgba(255,255,255,0.09);border-radius:14px;
+  padding:18px 20px;margin-bottom:14px}
+.card-title{font-size:1rem;font-weight:700;margin-bottom:10px;display:flex;align-items:center;gap:8px}
+
+/* 一级公式卡片 */
+.card.primary{border-left:3px solid #f7971e}
+.card.primary .card-title{color:#f7971e}
+
+/* 二级公式卡片 */
+.card.secondary{border-left:3px solid #1abc9c}
+.card.secondary .card-title{color:#1abc9c}
+
+/* 推导案例卡片 */
+.card.derive{border-left:3px solid #e74c3c;background:rgba(231,76,60,0.06)}
+.card.derive .card-title{color:#ff7b72}
+
+/* 标签 */
+.tag{display:inline-block;font-size:0.7rem;font-weight:700;padding:2px 9px;border-radius:4px}
+.tag.primary{color:#f7971e;background:rgba(247,151,30,0.14)}
+.tag.secondary{color:#1abc9c;background:rgba(26,188,156,0.14)}
+.tag.derive{color:#ff7b72;background:rgba(231,76,60,0.14)}
+
+/* 公式内容 */
+.card-content{line-height:1.9;font-size:0.92rem;color:rgba(255,255,255,0.85)}
+.card-content p{margin:7px 0}
+.card-content .fl{font-size:0.95rem;margin:8px 0;padding:6px 0}
+.card-content .fn{color:rgba(255,255,255,0.45);font-size:0.82rem}
+
+/* 推导步骤 */
+.derive-steps{display:flex;flex-direction:column;gap:6px;margin-top:6px}
+.step{display:flex;gap:10px;align-items:flex-start;background:rgba(255,255,255,0.04);
+  border-radius:9px;padding:9px 12px}
+.step-num{flex-shrink:0;width:24px;height:24px;border-radius:50%;
+  background:linear-gradient(135deg,#e74c3c,#ff7b72);color:#fff;
+  display:flex;align-items:center;justify-content:center;
+  font-size:0.75rem;font-weight:700;margin-top:3px}
+.step-body{flex:1;line-height:1.75;font-size:0.9rem}
+.step-body .why{color:rgba(255,255,255,0.45);font-size:0.8rem;margin-top:3px}
+.derive-arrow{text-align:center;color:rgba(255,255,255,0.3);font-size:1rem;margin:2px 0}
+
+/* 二级公式推导链 */
+.chain{display:inline-block;font-size:0.72rem;color:rgba(255,255,255,0.5);
+  background:rgba(255,255,255,0.05);padding:2px 9px;border-radius:10px;margin:4px 4px 4px 0}
+.chain b{color:#1abc9c;font-weight:600}
+
+/* 速查表 */
+table.mini{border-collapse:collapse;width:100%;margin:10px 0;font-size:0.82rem}
+table.mini th,table.mini td{border:1px solid rgba(255,255,255,0.12);padding:7px 9px;text-align:left}
+table.mini th{background:rgba(255,255,255,0.06);color:#ffd200;font-weight:600;font-size:0.78rem}
+table.mini td{color:rgba(255,255,255,0.8);vertical-align:top}
+table.mini td:first-child{color:#f7971e}
+table.mini td:last-child{color:#1abc9c}
+
+/* 学习路径 */
+.path{margin-top:14px}
+.path ol{padding-left:20px;line-height:2;font-size:0.88rem;color:rgba(255,255,255,0.8)}
+
+.footer{text-align:center;padding:20px 0 8px;color:rgba(255,255,255,0.2);font-size:0.78rem}
+.footer a{color:rgba(255,210,0,0.5);text-decoration:none}
+
+::-webkit-scrollbar{width:5px}
+::-webkit-scrollbar-track{background:transparent}
+::-webkit-scrollbar-thumb{background:rgba(255,255,255,0.12);border-radius:3px}
+
+@media(max-width:600px){
+  body{padding:10px}
+  .header h1{font-size:1.2rem}
+  .header .sub{font-size:0.72rem}
+  .toc{position:static}
+  .toc a{font-size:0.64rem;padding:3px 8px}
+  .chapter-head{font-size:1.05rem}
+  .card{padding:14px}
+  .card-content{font-size:0.85rem;line-height:1.75}
+  .step-body{font-size:0.82rem}
+  table.mini{font-size:0.72rem}
+  table.mini th,table.mini td{padding:5px 6px}
+}
+</style>
+</head>
+<body>
+<div class="container">
+
+<div class="header">
+  <h1>公式推导专题</h1>
+  <div class="sub">高中数学必修 · 人教A版（2019）｜ 一级公式 → 二级公式 全链推导</div>
+  <a class="back" href="index.html">← 返回知识卡片主页</a>
+  <div class="legend">🟠 一级公式（源头）　🔴 经典推导案例　🟢 二级公式（结论）　·　记链不记果</div>
+</div>
+
+<nav class="toc">
+  <a href="#ch1">①集合</a><a href="#ch2">②不等式</a><a href="#ch3">③函数</a>
+  <a href="#ch4">④指对</a><a href="#ch5">⑤三角</a><a href="#ch6">⑥向量</a>
+  <a href="#ch7">⑦复数</a><a href="#ch8">⑧立几</a><a href="#ch9">⑨统计</a>
+  <a href="#ch10">⑩概率</a><a href="#table">全链速查</a><a href="#path">学习路径</a>
+</nav>
+
+<!-- ============ 第一章 ============ -->
+<section class="chapter" id="ch1">
+  <div class="chapter-head">第一章 集合与常用逻辑用语<span>公式型结论少，以概念与运算为主</span></div>
+
+  <div class="card primary">
+    <div class="card-title">📌 一级公式</div>
+    <div class="card-content">
+      <p class="fl">德摩根律</p>
+      <p>$$\complement_U(A\cup B)=(\complement_U A)\cap(\complement_U B)$$</p>
+      <p>$$\complement_U(A\cap B)=(\complement_U A)\cup(\complement_U B)$$</p>
+    </div>
+  </div>
+
+  <div class="card secondary">
+    <div class="card-title">⚡ 二级公式</div>
+    <div class="card-content">
+      <p class="fl">容斥原理</p>
+      <p>$$\operatorname{card}(A\cup B)=\operatorname{card}(A)+\operatorname{card}(B)-\operatorname{card}(A\cap B)$$</p>
+      <span class="chain">← 由 <b>集合互斥拆分</b> 推来：把 $A\cup B$ 拆成 $A\setminus B$、$A\cap B$、$B\setminus A$ 三块，$A\cap B$ 被算了两次，减去一次。</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 第二章 ============ -->
+<section class="chapter" id="ch2">
+  <div class="chapter-head">第二章 一元二次函数、方程和不等式<span>配方法是本章总根</span></div>
+
+  <div class="card primary">
+    <div class="card-title">📌 一级公式</div>
+    <div class="card-content">
+      <p class="fl">① 求根公式　② 韦达定理　③ 基本不等式</p>
+      <p>$$x=\frac{-b\pm\sqrt{b^2-4ac}}{2a}\quad(a\neq 0)$$</p>
+      <p>$$x_1+x_2=-\frac{b}{a},\qquad x_1x_2=\frac{c}{a}$$</p>
+      <p>$$\frac{a+b}{2}\ge\sqrt{ab}\quad(a,b>0)$$</p>
+    </div>
+  </div>
+
+  <div class="card derive">
+    <div class="card-title">🔍 经典推导案例</div>
+    <div class="derive-steps">
+      <div class="step"><div class="step-num">1</div><div class="step-body"><b>求根公式（配方法）</b>：$ax^2+bx+c=0$ 两边除以 $a$，再配方<br>$$x^2+\frac{b}{a}x+\left(\frac{b}{2a}\right)^2=\left(\frac{b}{2a}\right)^2-\frac{c}{a}$$<span class="why">→ 凑成完全平方</span></div></div>
+      <div class="step"><div class="step-num">2</div><div class="step-body">开方得 $x+\frac{b}{2a}=\pm\frac{\sqrt{b^2-4ac}}{2a}$，移项即 $\displaystyle x=\frac{-b\pm\sqrt{b^2-4ac}}{2a}$<span class="why">→ 判别式 $\Delta=b^2-4ac$ 藏在根号内</span></div></div>
+      <div class="derive-arrow">↓</div>
+      <div class="step"><div class="step-num">3</div><div class="step-body"><b>韦达定理（由求根公式）</b>：两根相加、相乘<br>$$x_1+x_2=\frac{-b+\sqrt{b^2-4ac}}{2a}+\frac{-b-\sqrt{b^2-4ac}}{2a}=-\frac{b}{a}$$<br>$$x_1x_2=\frac{(-b)^2-(b^2-4ac)}{4a^2}=\frac{c}{a}$$</div></div>
+      <div class="derive-arrow">↓</div>
+      <div class="step"><div class="step-num">4</div><div class="step-body"><b>基本不等式（完全平方非负）</b>：$(\sqrt{a}-\sqrt{b})^2\ge 0$<br>展开 $a-2\sqrt{ab}+b\ge 0\;\Rightarrow\;\frac{a+b}{2}\ge\sqrt{ab}$，等号当 $a=b$<span class="why">→ 一根「非负平方」推出整章不等式</span></div></div>
+    </div>
+  </div>
+
+  <div class="card secondary">
+    <div class="card-title">⚡ 二级公式</div>
+    <div class="card-content">
+      <p>顶点式 $y=a\left(x+\frac{b}{2a}\right)^2+\frac{4ac-b^2}{4a}$，顶点 $\left(-\frac{b}{2a},\frac{4ac-b^2}{4a}\right)$</p>
+      <span class="chain">← 由 <b>配方法</b> 推来</span>
+      <p>均值不等式链（$a,b>0$）：$\dfrac{2}{\frac{1}{a}+\frac{1}{b}}\le\sqrt{ab}\le\dfrac{a+b}{2}\le\sqrt{\dfrac{a^2+b^2}{2}}$</p>
+      <span class="chain">← 由 <b>完全平方非负 + 平方差</b> 推来</span>
+      <p>对勾函数 $x+\frac{1}{x}\ge 2$（$x>0$）</p>
+      <span class="chain">← 由 <b>基本不等式</b>（$a=x,b=\frac1x$）推来</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 第三章 ============ -->
+<section class="chapter" id="ch3">
+  <div class="chapter-head">第三章 函数的概念与性质<span>以定义为主，公式型结论少</span></div>
+
+  <div class="card primary">
+    <div class="card-title">📌 一级（定义/性质）</div>
+    <div class="card-content">
+      <p>单调性：$x_1<x_2\Rightarrow f(x_1)<f(x_2)$（增）；$f(x_1)>f(x_2)$（减）</p>
+      <p>奇偶性：$f(-x)=-f(x)$（奇）；$f(-x)=f(x)$（偶）</p>
+    </div>
+  </div>
+
+  <div class="card derive">
+    <div class="card-title">🔍 经典推导案例</div>
+    <div class="derive-steps">
+      <div class="step"><div class="step-num">1</div><div class="step-body"><b>奇函数过原点</b>：奇函数若在 $x=0$ 有定义，则 $f(0)=0$<br>令 $x=0$，$f(-0)=-f(0)\Rightarrow f(0)=-f(0)\Rightarrow f(0)=0$<span class="why">→ 直接由定义一步推出</span></div></div>
+    </div>
+  </div>
+
+  <div class="card secondary">
+    <div class="card-title">⚡ 二级公式（性质结论）</div>
+    <div class="card-content">
+      <p>偶函数图像关于 $y$ 轴对称；奇函数图像关于原点对称</p>
+      <span class="chain">← 由 <b>定义几何化</b> 推来</span>
+      <p>复合函数单调性「同增异减」</p>
+      <span class="chain">← 由 <b>单调性定义传递</b> 推来</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 第四章 ============ -->
+<section class="chapter" id="ch4">
+  <div class="chapter-head">第四章 指数函数与对数函数<span>对数定义是枢纽</span></div>
+
+  <div class="card primary">
+    <div class="card-title">📌 一级公式</div>
+    <div class="card-content">
+      <p class="fl">① 指数运算法则　② 对数定义　③ 对数运算法则　④ 换底公式</p>
+      <p>$$a^m\cdot a^n=a^{m+n},\quad \frac{a^m}{a^n}=a^{m-n},\quad (a^m)^n=a^{mn}$$</p>
+      <p>$$a^b=N\iff \log_a N=b$$</p>
+      <p>$$\log_a(MN)=\log_a M+\log_a N,\qquad \log_a\frac{M}{N}=\log_a M-\log_a N,\qquad \log_a M^n=n\log_a M$$</p>
+      <p>$$\log_a b=\frac{\log_c b}{\log_c a}$$</p>
+    </div>
+  </div>
+
+  <div class="card derive">
+    <div class="card-title">🔍 经典推导案例</div>
+    <div class="derive-steps">
+      <div class="step"><div class="step-num">1</div><div class="step-body"><b>对数运算法则（由指数法则 + 对数定义）</b>：设 $\log_a M=m,\ \log_a N=n$，则 $M=a^m,\ N=a^n$<br>于是 $MN=a^m a^n=a^{m+n}$，再取对数 $\log_a(MN)=m+n=\log_a M+\log_a N$<span class="why">→ 商的法则、幂的法则同理</span></div></div>
+      <div class="derive-arrow">↓</div>
+      <div class="step"><div class="step-num">2</div><div class="step-body"><b>换底公式（设中间量）</b>：设 $\log_a b=x$，则 $a^x=b$，两边取以 $c$ 为底的对数<br>$$x\log_c a=\log_c b\;\Rightarrow\; x=\frac{\log_c b}{\log_c a}$$</div></div>
+    </div>
+  </div>
+
+  <div class="card secondary">
+    <div class="card-title">⚡ 二级公式</div>
+    <div class="card-content">
+      <p>对数恒等式 $a^{\log_a N}=N$</p>
+      <span class="chain">← 由 <b>对数定义</b> 直接推来</span>
+      <p>倒数关系 $\log_a b\cdot\log_b a=1$</p>
+      <span class="chain">← 由 <b>换底公式</b>（令 $c=b$）推来</span>
+      <p>底指可移 $\log_{a^m}b^n=\frac{n}{m}\log_a b$</p>
+      <span class="chain">← 由 <b>换底公式 + 幂的对数</b> 推来</span>
+      <p>特殊值 $\log_a 1=0,\ \log_a a=1$</p>
+      <span class="chain">← 由 <b>$a^0=1,\ a^1=a$</b> 推来</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 第五章 ============ -->
+<section class="chapter" id="ch5">
+  <div class="chapter-head">第五章 三角函数<span>全册公式最密集，链式推导范本</span></div>
+
+  <div class="card primary">
+    <div class="card-title">📌 一级公式</div>
+    <div class="card-content">
+      <p class="fl">① 同角关系　② 诱导公式　③ 两角和差</p>
+      <p>$$\sin^2\alpha+\cos^2\alpha=1,\qquad \tan\alpha=\frac{\sin\alpha}{\cos\alpha}$$</p>
+      <p>$$\cos(\alpha-\beta)=\cos\alpha\cos\beta+\sin\alpha\sin\beta$$</p>
+      <p>$$\cos(\alpha+\beta)=\cos\alpha\cos\beta-\sin\alpha\sin\beta$$</p>
+      <p>$$\sin(\alpha\pm\beta)=\sin\alpha\cos\beta\pm\cos\alpha\sin\beta$$</p>
+      <p>$$\tan(\alpha\pm\beta)=\frac{\tan\alpha\pm\tan\beta}{1\mp\tan\alpha\tan\beta}$$</p>
+    </div>
+  </div>
+
+  <div class="card derive">
+    <div class="card-title">🔍 经典推导案例</div>
+    <div class="derive-steps">
+      <div class="step"><div class="step-num">1</div><div class="step-body"><b>$\sin^2\alpha+\cos^2\alpha=1$（单位圆）</b>：角 $\alpha$ 终边交单位圆于 $P(\cos\alpha,\sin\alpha)$，$P$ 在圆上满足 $x^2+y^2=1$<span class="why">→ 勾股定理的三角形式</span></div></div>
+      <div class="derive-arrow">↓</div>
+      <div class="step"><div class="step-num">2</div><div class="step-body"><b>$\cos(\alpha-\beta)$（向量法，教材总源头）</b>：单位圆上 $P_1(\cos\alpha,\sin\alpha)$、$P_2(\cos\beta,\sin\beta)$<br>$$\overrightarrow{OP_1}\cdot\overrightarrow{OP_2}=\cos\alpha\cos\beta+\sin\alpha\sin\beta$$<br>又由数量积定义 $=\cos(\alpha-\beta)$，两式相等得证<span class="why">→ 一切和差角公式从这里长出来</span></div></div>
+      <div class="derive-arrow">↓</div>
+      <div class="step"><div class="step-num">3</div><div class="step-body"><b>二倍角公式（令 $\beta=\alpha$）</b>：$\sin 2\alpha=2\sin\alpha\cos\alpha$；$\cos 2\alpha=\cos^2\alpha-\sin^2\alpha=2\cos^2\alpha-1=1-2\sin^2\alpha$</div></div>
+      <div class="derive-arrow">↓</div>
+      <div class="step"><div class="step-num">4</div><div class="step-body"><b>辅助角公式（凑和角）</b>：$a\sin x+b\cos x=\sqrt{a^2+b^2}\sin(x+\varphi)$，$\tan\varphi=\frac{b}{a}$<br>把 $a,b$ 配成 $\cos\varphi,\sin\varphi$ 的系数，套用 $\sin(x+\varphi)$ 展开式</div></div>
+    </div>
+  </div>
+
+  <div class="card secondary">
+    <div class="card-title">⚡ 二级公式</div>
+    <div class="card-content">
+      <p>二倍角：$\sin 2\alpha=2\sin\alpha\cos\alpha$；$\cos 2\alpha=\cos^2\alpha-\sin^2\alpha$；$\tan 2\alpha=\frac{2\tan\alpha}{1-\tan^2\alpha}$</p>
+      <span class="chain">← 由 <b>两角和公式令 $\beta=\alpha$</b> 推来</span>
+      <p>降幂：$\sin^2\alpha=\frac{1-\cos 2\alpha}{2}$，$\cos^2\alpha=\frac{1+\cos 2\alpha}{2}$</p>
+      <span class="chain">← 由 <b>$\cos 2\alpha$ 的两个变式</b> 反解推来</span>
+      <p>辅助角：$a\sin x+b\cos x=\sqrt{a^2+b^2}\sin(x+\varphi)$</p>
+      <span class="chain">← 由 <b>和角公式逆向</b> 凑出推来</span>
+      <p>半角：$\sin\frac{\alpha}{2}=\pm\sqrt{\frac{1-\cos\alpha}{2}}$，$\cos\frac{\alpha}{2}=\pm\sqrt{\frac{1+\cos\alpha}{2}}$</p>
+      <span class="chain">← 由 <b>降幂公式令 $\alpha\to\frac\alpha2$</b> 开方推来</span>
+      <p>和差化积：$\sin A+\sin B=2\sin\frac{A+B}{2}\cos\frac{A-B}{2}$</p>
+      <span class="chain">← 由 <b>两角和差公式</b> 令 $A=\alpha+\beta,\ B=\alpha-\beta$ 相加减推来</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 第六章 ============ -->
+<section class="chapter" id="ch6">
+  <div class="chapter-head">第六章 平面向量及其应用<span>数量积是向量解几何的引擎</span></div>
+
+  <div class="card primary">
+    <div class="card-title">📌 一级公式</div>
+    <div class="card-content">
+      <p class="fl">① 基本定理　② 数量积定义　③ 数量积坐标　④ 余弦定理　⑤ 正弦定理</p>
+      <p>$$\vec{a}=\lambda_1\vec{e}_1+\lambda_2\vec{e}_2\quad(\vec{e}_1,\vec{e}_2\text{不共线})$$</p>
+      <p>$$\vec{a}\cdot\vec{b}=|\vec{a}||\vec{b}|\cos\theta=x_1x_2+y_1y_2$$</p>
+      <p>$$a^2=b^2+c^2-2bc\cos A$$</p>
+      <p>$$\frac{a}{\sin A}=\frac{b}{\sin B}=\frac{c}{\sin C}=2R$$</p>
+    </div>
+  </div>
+
+  <div class="card derive">
+    <div class="card-title">🔍 经典推导案例</div>
+    <div class="derive-steps">
+      <div class="step"><div class="step-num">1</div><div class="step-body"><b>余弦定理（向量法）</b>：$\vec{c}=\vec{a}-\vec{b}$，两边平方<br>$$|\vec{c}|^2=|\vec{a}|^2+|\vec{b}|^2-2\vec{a}\cdot\vec{b}\;\Rightarrow\; c^2=a^2+b^2-2ab\cos C$$<span class="why">→ 「用向量平方证几何定理」的典范</span></div></div>
+      <div class="derive-arrow">↓</div>
+      <div class="step"><div class="step-num">2</div><div class="step-body"><b>正弦定理（面积法）</b>：$S=\frac12 ab\sin C=\frac12 bc\sin A=\frac12 ca\sin B$，同除以 $\frac12 abc$<br>$$\frac{\sin C}{c}=\frac{\sin A}{a}=\frac{\sin B}{b}\;\Rightarrow\;\frac{a}{\sin A}=\frac{b}{\sin B}=\frac{c}{\sin C}$$</div></div>
+      <div class="derive-arrow">↓</div>
+      <div class="step"><div class="step-num">3</div><div class="step-body"><b>数量积坐标公式（定义 + 基本定理）</b>：取单位正交基 $\vec{i},\vec{j}$，$\vec{a}=x_1\vec{i}+y_1\vec{j},\ \vec{b}=x_2\vec{i}+y_2\vec{j}$<br>展开 $\vec{a}\cdot\vec{b}$，用 $\vec{i}\cdot\vec{j}=0,\ \vec{i}\cdot\vec{i}=\vec{j}\cdot\vec{j}=1$，得 $x_1x_2+y_1y_2$</div></div>
+    </div>
+  </div>
+
+  <div class="card secondary">
+    <div class="card-title">⚡ 二级公式</div>
+    <div class="card-content">
+      <p>中点坐标 $M\left(\frac{x_1+x_2}{2},\frac{y_1+y_2}{2}\right)$</p>
+      <span class="chain">← 由 <b>$\overrightarrow{OM}=\frac12(\overrightarrow{OA}+\overrightarrow{OB})$</b> 推来</span>
+      <p>三角形面积族 $S=\frac12 ab\sin C=\frac{abc}{4R}=rp$</p>
+      <span class="chain">← 由 <b>面积定义 + 正弦定理</b> 推来</span>
+      <p>重心坐标 $G\left(\frac{x_1+x_2+x_3}{3},\frac{y_1+y_2+y_3}{3}\right)$</p>
+      <span class="chain">← 由 <b>中点公式 + 定比分点</b> 推来</span>
+      <p>投影向量 $\frac{\vec{a}\cdot\vec{b}}{|\vec{b}|^2}\vec{b}$</p>
+      <span class="chain">← 由 <b>数量积几何意义</b> 推来</span>
+      <p>柯西不等式（二维）$(x_1^2+y_1^2)(x_2^2+y_2^2)\ge(x_1x_2+y_1y_2)^2$</p>
+      <span class="chain">← 由 <b>$|\vec{a}||\vec{b}|\ge|\vec{a}\cdot\vec{b}|$</b>（$|\cos\theta|\le1$）推来</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 第七章 ============ -->
+<section class="chapter" id="ch7">
+  <div class="chapter-head">第七章 复数<span>$i^2=-1$ 是唯一引擎</span></div>
+
+  <div class="card primary">
+    <div class="card-title">📌 一级公式</div>
+    <div class="card-content">
+      <p class="fl">① 四则运算　② 共轭与模</p>
+      <p>$$z_1\pm z_2=(a\pm c)+(b\pm d)i,\qquad z_1z_2=(ac-bd)+(ad+bc)i$$</p>
+      <p>$$|z|=|a+bi|=\sqrt{a^2+b^2},\qquad \bar{z}=a-bi$$</p>
+    </div>
+  </div>
+
+  <div class="card derive">
+    <div class="card-title">🔍 经典推导案例</div>
+    <div class="derive-steps">
+      <div class="step"><div class="step-num">1</div><div class="step-body"><b>复数除法（分母实数化）</b>：分子分母同乘分母的共轭 $c-di$<br>$$\frac{a+bi}{c+di}=\frac{(a+bi)(c-di)}{(c+di)(c-di)}=\frac{(ac+bd)+(bc-ad)i}{c^2+d^2}$$<span class="why">→ 用 $i^2=-1$ 消去分母虚部</span></div></div>
+    </div>
+  </div>
+
+  <div class="card secondary">
+    <div class="card-title">⚡ 二级公式</div>
+    <div class="card-content">
+      <p>$z\cdot\bar{z}=|z|^2$</p>
+      <span class="chain">← 由 <b>$(a+bi)(a-bi)=a^2+b^2$</b> 推来</span>
+      <p>$|z_1z_2|=|z_1||z_2|$</p>
+      <span class="chain">← 由 <b>$|z_1z_2|^2=z_1z_2\bar{z}_1\bar{z}_2$</b> 推来</span>
+      <p>$i$ 周期性：$i^{4k}=1,\ i^{4k+1}=i,\ i^{4k+2}=-1,\ i^{4k+3}=-i$</p>
+      <span class="chain">← 由 <b>$i^2=-1\Rightarrow i^4=1$</b> 推来</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 第八章 ============ -->
+<section class="chapter" id="ch8">
+  <div class="chapter-head">第八章 立体几何初步<span>祖暅原理是体积公式总根</span></div>
+
+  <div class="card primary">
+    <div class="card-title">📌 一级公式</div>
+    <div class="card-content">
+      <p class="fl">① 柱体　② 锥体　③ 球</p>
+      <p>$$V_{\text{柱}}=Sh,\qquad V_{\text{锥}}=\frac{1}{3}Sh$$</p>
+      <p>$$V_{\text{球}}=\frac{4}{3}\pi R^3,\qquad S_{\text{球}}=4\pi R^2$$</p>
+    </div>
+  </div>
+
+  <div class="card derive">
+    <div class="card-title">🔍 经典推导案例</div>
+    <div class="derive-steps">
+      <div class="step"><div class="step-num">1</div><div class="step-body"><b>锥体体积 $=\frac13$ 柱体（祖暅原理）</b>：「幂势既同，则积不容异」——等底等高、任意等高截面面积相等 ⇒ 体积相等。三棱锥可拆为三个等底等高三棱锥，故 $V=\frac13 Sh$；一般锥体归结为三棱锥</div></div>
+      <div class="derive-arrow">↓</div>
+      <div class="step"><div class="step-num">2</div><div class="step-body"><b>球体积（祖暅原理）</b>：半球 vs「圆柱挖去倒圆锥」，高度 $h$ 处截面面积都是 $\pi(R^2-h^2)$，体积相等<br>$$V_{\text{半球}}=\pi R^3-\frac13\pi R^3=\frac23\pi R^3\;\Rightarrow\; V_{\text{球}}=\frac43\pi R^3$$<span class="why">→ 对 $V$ 求导即得 $S=4\pi R^2$（拓展）</span></div></div>
+    </div>
+  </div>
+
+  <div class="card secondary">
+    <div class="card-title">⚡ 二级公式</div>
+    <div class="card-content">
+      <p>台体体积 $V=\frac13 h(S+\sqrt{SS'}+S')$</p>
+      <span class="chain">← 由 <b>大锥减小锥</b> 推来</span>
+      <p>斜二测面积关系：直观图面积 $=\frac{\sqrt2}{4}$ 原图面积</p>
+      <span class="chain">← 由 <b>纵向压缩一半 + 倾斜 45°</b> 推来</span>
+      <p>长方体对角线 $\sqrt{a^2+b^2+c^2}$</p>
+      <span class="chain">← 由 <b>勾股定理两次（先面后体）</b> 推来</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 第九章 ============ -->
+<section class="chapter" id="ch9">
+  <div class="chapter-head">第九章 统计<span>方差定义展开即得简化公式</span></div>
+
+  <div class="card primary">
+    <div class="card-title">📌 一级公式</div>
+    <div class="card-content">
+      <p class="fl">① 平均数　② 方差　③ 标准差</p>
+      <p>$$\bar{x}=\frac{1}{n}\sum_{i=1}^{n}x_i,\qquad s^2=\frac{1}{n}\sum_{i=1}^{n}(x_i-\bar{x})^2,\qquad s=\sqrt{\frac{1}{n}\sum_{i=1}^{n}(x_i-\bar{x})^2}$$</p>
+    </div>
+  </div>
+
+  <div class="card derive">
+    <div class="card-title">🔍 经典推导案例</div>
+    <div class="derive-steps">
+      <div class="step"><div class="step-num">1</div><div class="step-body"><b>方差简化公式</b>：展开平方<br>$$s^2=\frac1n\sum(x_i-\bar{x})^2=\frac1n\sum(x_i^2-2x_i\bar{x}+\bar{x}^2)$$</div></div>
+      <div class="step"><div class="step-num">2</div><div class="step-body">利用 $\sum x_i=n\bar{x}$：<br>$$s^2=\frac1n\left(\sum x_i^2-2n\bar{x}^2+n\bar{x}^2\right)=\frac1n\sum x_i^2-\bar{x}^2$$<span class="why">→ 只需算平方均值，不用逐个减平均数</span></div></div>
+    </div>
+  </div>
+
+  <div class="card secondary">
+    <div class="card-title">⚡ 二级公式</div>
+    <div class="card-content">
+      <p>方差简化公式 $s^2=\frac1n\sum x_i^2-\bar{x}^2$</p>
+      <span class="chain">← 由 <b>方差定义展开</b> 推来</span>
+      <p>线性变换 $y_i=ax_i+b$：$\bar{y}=a\bar{x}+b$，$s_y^2=a^2s_x^2$</p>
+      <span class="chain">← 由 <b>定义代入，加常数抵消、乘系数平方</b> 推来</span>
+      <p>分层抽样平均数 $\bar{x}=\frac1N\sum n_i\bar{x}_i$</p>
+      <span class="chain">← 由 <b>各层加权求和</b> 推来</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 第十章 ============ -->
+<section class="chapter" id="ch10">
+  <div class="chapter-head">第十章 概率<span>加法公式本质是容斥</span></div>
+
+  <div class="card primary">
+    <div class="card-title">📌 一级公式</div>
+    <div class="card-content">
+      <p class="fl">① 古典概型　② 加法公式　③ 对立事件</p>
+      <p>$$P(A)=\frac{m}{n}$$</p>
+      <p>$$P(A\cup B)=P(A)+P(B)-P(A\cap B)$$</p>
+      <p>$$P(\bar{A})=1-P(A)$$</p>
+    </div>
+  </div>
+
+  <div class="card derive">
+    <div class="card-title">🔍 经典推导案例</div>
+    <div class="derive-steps">
+      <div class="step"><div class="step-num">1</div><div class="step-body"><b>加法公式（古典概型 + 容斥）</b>：$n(A\cup B)=n(A)+n(B)-n(A\cap B)$，两边除以样本点总数 $n$<br>$$P(A\cup B)=P(A)+P(B)-P(A\cap B)$$<span class="why">→ 集合容斥原理的概率版</span></div></div>
+      <div class="derive-arrow">↓</div>
+      <div class="step"><div class="step-num">2</div><div class="step-body"><b>对立事件</b>：$A\cup\bar A=\Omega$ 且互斥，$P(\Omega)=P(A)+P(\bar A)=1\Rightarrow P(\bar A)=1-P(A)$</div></div>
+    </div>
+  </div>
+
+  <div class="card secondary">
+    <div class="card-title">⚡ 二级公式</div>
+    <div class="card-content">
+      <p>互斥加法：$A,B$ 互斥则 $P(A\cup B)=P(A)+P(B)$</p>
+      <span class="chain">← 由 <b>加法公式令 $P(A\cap B)=0$</b> 推来</span>
+      <p>独立乘法：$P(AB)=P(A)P(B)$</p>
+      <span class="chain">← 由 <b>条件概率 + 独立性定义</b> 推来</span>
+      <p>「至少一个」转化：$P(\text{至少发生一个})=1-P(\text{全不发生})$</p>
+      <span class="chain">← 由 <b>对立事件 + 独立性</b> 推来</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 全链速查表 ============ -->
+<section class="chapter" id="table">
+  <div class="chapter-head">全链速查表<span>一级公式 → 推导手段 → 二级公式</span></div>
+  <div class="card">
+    <div class="card-content">
+      <table class="mini">
+        <tr><th style="width:30%">一级公式（源头）</th><th style="width:22%">推导手段</th><th>二级公式（结论）</th></tr>
+        <tr><td>求根公式</td><td>配方法</td><td>顶点式、判别式根的分布</td></tr>
+        <tr><td>求根公式</td><td>两根相加/相乘</td><td>韦达定理</td></tr>
+        <tr><td>$(\sqrt a-\sqrt b)^2\ge0$</td><td>展开</td><td>基本不等式、均值不等式链</td></tr>
+        <tr><td>对数定义 + 指数法则</td><td>设中间量取对数</td><td>对数运算法则、换底公式、对数恒等式</td></tr>
+        <tr><td>$\cos(\alpha-\beta)$（向量法）</td><td>令 $\beta=\alpha$ / 相加减</td><td>二倍角、降幂、半角、和差化积</td></tr>
+        <tr><td>数量积定义 + 坐标</td><td>向量平方</td><td>余弦定理、柯西不等式、投影向量</td></tr>
+        <tr><td>$S=\frac12 ab\sin C$</td><td>代入正弦定理</td><td>正弦定理、$S=\frac{abc}{4R}$、海伦公式</td></tr>
+        <tr><td>复数乘法 + $i^2=-1$</td><td>分母实数化</td><td>复数除法、$z\bar z=|z|^2$</td></tr>
+        <tr><td>柱体体积 $V=Sh$</td><td>祖暅原理</td><td>锥体 $\frac13 Sh$、球体 $\frac43\pi R^3$</td></tr>
+        <tr><td>方差定义</td><td>展开平方</td><td>方差简化公式 $s^2=\frac1n\sum x_i^2-\bar x^2$</td></tr>
+        <tr><td>概率加法公式</td><td>交集为空 / 取对立</td><td>互斥加法、独立乘法、至少一个转化</td></tr>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 学习路径 ============ -->
+<section class="chapter" id="path">
+  <div class="chapter-head">学习路径<span>按依赖排序</span></div>
+  <div class="card">
+    <div class="card-content path">
+      <ol>
+        <li><b style="color:#f7971e">第一层（纯源头）</b>：配方法、单位圆、向量数量积、祖暅原理、完全平方非负 —— 五个「总根」。</li>
+        <li><b style="color:#ffd200">第二层（一级公式）</b>：求根公式、两角和差、余弦/正弦定理、体积公式、方差定义 —— 由第一层推出。</li>
+        <li><b style="color:#1abc9c">第三层（二级公式）</b>：韦达定理、二倍角/降幂/辅助角、面积公式族、方差简化公式 —— 由第二层推出。</li>
+        <li><b>应用层</b>：解题时先想「这是哪条链的哪个环节」，而不是翻公式表。</li>
+      </ol>
+      <p style="margin-top:14px;text-align:center;color:#ffd200;font-weight:700">一句话：先证源头，再推结论，用链不用背。</p>
+    </div>
+  </div>
+</section>
+
+<div class="footer">
+  高中数学公式推导专题 · 人教A版（2019）必修第一、二册<br>
+  <a href="index.html">← 返回知识卡片主页</a> ｜ 公式渲染由 KaTeX 驱动
+</div>
+
+</div>
+</body>
+</html>
