@@ -184,8 +184,8 @@ window.__vol1 = {
 <table class="mini-table">
 <tr><th>$\\Delta = b^2-4ac$</th><th>$\\Delta > 0$</th><th>$\\Delta = 0$</th><th>$\\Delta < 0$</th></tr>
 <tr><td>$ax^2+bx+c=0$ 的根</td><td>两不等实根 $x_1 < x_2$</td><td>两相等实根 $x_1=x_2=-\\dfrac{b}{2a}$</td><td>无实根</td></tr>
-<tr><td>$ax^2+bx+c>0$ 解集</td><td>$\\{x\\mid x<x_1\\text{ 或 }x>x_2\\}$</td><td>$\\{x\\mid x\\neq -\\dfrac{b}{2a}\\}$</td><td>$\\mathbb{R}$</td></tr>
-<tr><td>$ax^2+bx+c<0$ 解集</td><td>$\\{x\\mid x_1<x<x_2\\}$</td><td>$\\varnothing$</td><td>$\\varnothing$</td></tr>
+<tr><td>$ax^2+bx+c>0$ 解集</td><td>$\\{x\\mid x&lt;x_1\\text{ 或 }x>x_2\\}$</td><td>$\\{x\\mid x\\neq -\\dfrac{b}{2a}\\}$</td><td>$\\mathbb{R}$</td></tr>
+<tr><td>$ax^2+bx+c<0$ 解集</td><td>$\\{x\\mid x_1&lt;x&lt;x_2\\}$</td><td>$\\varnothing$</td><td>$\\varnothing$</td></tr>
 </table>
 <p class="label-attention">【注意】</p>
 <ul>
