@@ -121,39 +121,39 @@ window.__vol1 = {
     {
       title: "2.1 等式性质与不等式性质",
       content: `<p class="label-def">【定义】</p>
-<p>用不等号（<, >, $\le$, $\ge$, $\neq$）连接两个代数式表示不等关系的式子，叫做<strong>不等式</strong>。</p>
+<p>用不等号（<, >, $\\le$, $\\ge$, $\\neq$）连接两个代数式表示不等关系的式子，叫做<strong>不等式</strong>。</p>
 <p>两个实数 a、b 之间的大小关系可以通过它们的差来确定：</p>
 <ul>
-<li>$a - b > 0 \iff a > b$</li>
-<li>$a - b = 0 \iff a = b$</li>
-<li>$a - b < 0 \iff a < b$</li>
+<li>$a - b > 0 \\iff a > b$</li>
+<li>$a - b = 0 \\iff a = b$</li>
+<li>$a - b < 0 \\iff a < b$</li>
 </ul>
 <p class="label-def">【性质】</p>
-<p><strong>不等式的基本性质</strong>（$a, b, c \in \mathbb{R}$）：</p>
+<p><strong>不等式的基本性质</strong>（$a, b, c \\in \\mathbb{R}$）：</p>
 <ul>
-<li><strong>性质1（对称性）</strong>：$a > b \iff b < a$</li>
-<li><strong>性质2（传递性）</strong>：$a > b, b > c \Rightarrow a > c$</li>
-<li><strong>性质3（可加性）</strong>：$a > b \Rightarrow a + c > b + c$</li>
-<li><strong>性质4（可乘性）</strong>：$a > b, c > 0 \Rightarrow ac > bc$；$a > b, c < 0 \Rightarrow ac < bc$</li>
-<li><strong>性质5（同向可加性）</strong>：$a > b, c > d \Rightarrow a + c > b + d$</li>
-<li><strong>性质6（同向同正可乘性）</strong>：$a > b > 0, c > d > 0 \Rightarrow ac > bd$</li>
-<li><strong>性质7（可乘方性）</strong>：$a > b > 0 \Rightarrow a^n > b^n$（$n \in \mathbb{N}, n \ge 2$）</li>
-<li><strong>性质8（可开方性）</strong>：$a > b > 0 \Rightarrow \sqrt[n]{a} > \sqrt[n]{b}$（$n \in \mathbb{N}, n \ge 2$）</li>
+<li><strong>性质1（对称性）</strong>：$a > b \\iff b < a$</li>
+<li><strong>性质2（传递性）</strong>：$a > b, b > c \\Rightarrow a > c$</li>
+<li><strong>性质3（可加性）</strong>：$a > b \\Rightarrow a + c > b + c$</li>
+<li><strong>性质4（可乘性）</strong>：$a > b, c > 0 \\Rightarrow ac > bc$；$a > b, c < 0 \\Rightarrow ac < bc$</li>
+<li><strong>性质5（同向可加性）</strong>：$a > b, c > d \\Rightarrow a + c > b + d$</li>
+<li><strong>性质6（同向同正可乘性）</strong>：$a > b > 0, c > d > 0 \\Rightarrow ac > bd$</li>
+<li><strong>性质7（可乘方性）</strong>：$a > b > 0 \\Rightarrow a^n > b^n$（$n \\in \\mathbb{N}, n \\ge 2$）</li>
+<li><strong>性质8（可开方性）</strong>：$a > b > 0 \\Rightarrow \\sqrt[n]{a} > \\sqrt[n]{b}$（$n \\in \\mathbb{N}, n \\ge 2$）</li>
 </ul>
 <p class="label-attention">【注意】</p>
 <ul>
 <li>不等式两边同乘一个负数时，不等号方向必须改变。</li>
-<li>倒数性质：$a > b > 0 \Rightarrow \frac{1}{a} < \frac{1}{b}$。</li>
+<li>倒数性质：$a > b > 0 \\Rightarrow \\frac{1}{a} < \\frac{1}{b}$。</li>
 </ul>`,
       tags: ["不等关系", "不等式性质", "对称性", "传递性", "可加性", "可乘性", "★"]
     },
     {
       title: "2.2 基本不等式",
       content: `<p class="label-def">【重要不等式】</p>
-<p>$\forall a, b \in \mathbb{R}$，有 $a^2 + b^2 \ge 2ab$，当且仅当 $a = b$ 时等号成立。</p>
+<p>$\\forall a, b \\in \\mathbb{R}$，有 $a^2 + b^2 \\ge 2ab$，当且仅当 $a = b$ 时等号成立。</p>
 <p class="label-def">【基本不等式】</p>
-<p>$\forall a, b > 0$，有 $\sqrt{ab} \le \dfrac{a + b}{2}$，当且仅当 $a = b$ 时等号成立。</p>
-<p>其中，$\dfrac{a + b}{2}$ 叫做正数 a, b 的<strong>算术平均数</strong>，$\sqrt{ab}$ 叫做正数 a, b 的<strong>几何平均数</strong>。</p>
+<p>$\\forall a, b > 0$，有 $\\sqrt{ab} \\le \\dfrac{a + b}{2}$，当且仅当 $a = b$ 时等号成立。</p>
+<p>其中，$\\dfrac{a + b}{2}$ 叫做正数 a, b 的<strong>算术平均数</strong>，$\\sqrt{ab}$ 叫做正数 a, b 的<strong>几何平均数</strong>。</p>
 <p>基本不等式表明：两个正数的算术平均数不小于它们的几何平均数。</p>
 <p class="label-def">【一正二定三相等】</p>
 <p>使用基本不等式求最值时，必须满足：</p>
@@ -164,9 +164,9 @@ window.__vol1 = {
 </ul>
 <p class="label-def">【常用变形】</p>
 <ul>
-<li>$a + b \ge 2\sqrt{ab}$（$a, b > 0$）</li>
-<li>$ab \le \left(\dfrac{a + b}{2}\right)^2$（$a, b > 0$）</li>
-<li>$\dfrac{b}{a} + \dfrac{a}{b} \ge 2$（$a, b$ 同号）</li>
+<li>$a + b \\ge 2\\sqrt{ab}$（$a, b > 0$）</li>
+<li>$ab \\le \\left(\\dfrac{a + b}{2}\\right)^2$（$a, b > 0$）</li>
+<li>$\\dfrac{b}{a} + \\dfrac{a}{b} \\ge 2$（$a, b$ 同号）</li>
 </ul>
 <p class="label-attention">【注意】</p>
 <ul>
@@ -179,13 +179,13 @@ window.__vol1 = {
       title: "2.3 二次函数与一元二次方程、不等式",
       content: `<p class="label-def">【定义】</p>
 <p>一般地，我们把只含有一个未知数，并且未知数的最高次数是 2 的不等式，称为<strong>一元二次不等式</strong>。它的一般形式为：</p>
-<p>$ax^2 + bx + c > 0$（或 $< 0$，其中 $a \neq 0$）。</p>
+<p>$ax^2 + bx + c > 0$（或 $< 0$，其中 $a \\neq 0$）。</p>
 <p class="label-def">【一元二次不等式的解法（$a > 0$）】</p>
 <table class="mini-table">
-<tr><th>$\Delta = b^2-4ac$</th><th>$\Delta > 0$</th><th>$\Delta = 0$</th><th>$\Delta < 0$</th></tr>
-<tr><td>$ax^2+bx+c=0$ 的根</td><td>两不等实根 $x_1 < x_2$</td><td>两相等实根 $x_1=x_2=-\dfrac{b}{2a}$</td><td>无实根</td></tr>
-<tr><td>$ax^2+bx+c>0$ 解集</td><td>$\{x\mid x<x_1\text{ 或 }x>x_2\}$</td><td>$\{x\mid x\neq -\dfrac{b}{2a}\}$</td><td>$\mathbb{R}$</td></tr>
-<tr><td>$ax^2+bx+c<0$ 解集</td><td>$\{x\mid x_1<x<x_2\}$</td><td>$\varnothing$</td><td>$\varnothing$</td></tr>
+<tr><th>$\\Delta = b^2-4ac$</th><th>$\\Delta > 0$</th><th>$\\Delta = 0$</th><th>$\\Delta < 0$</th></tr>
+<tr><td>$ax^2+bx+c=0$ 的根</td><td>两不等实根 $x_1 < x_2$</td><td>两相等实根 $x_1=x_2=-\\dfrac{b}{2a}$</td><td>无实根</td></tr>
+<tr><td>$ax^2+bx+c>0$ 解集</td><td>$\\{x\\mid x<x_1\\text{ 或 }x>x_2\\}$</td><td>$\\{x\\mid x\\neq -\\dfrac{b}{2a}\\}$</td><td>$\\mathbb{R}$</td></tr>
+<tr><td>$ax^2+bx+c<0$ 解集</td><td>$\\{x\\mid x_1<x<x_2\\}$</td><td>$\\varnothing$</td><td>$\\varnothing$</td></tr>
 </table>
 <p class="label-attention">【注意】</p>
 <ul>
@@ -198,16 +198,16 @@ window.__vol1 = {
     {
       title: "2.3 一元二次不等式的应用",
       content: `<p class="label-def">【分式不等式】</p>
-<p>$\dfrac{f(x)}{g(x)} > 0$（或 $< 0$）可转化为整式不等式：</p>
+<p>$\\dfrac{f(x)}{g(x)} > 0$（或 $< 0$）可转化为整式不等式：</p>
 <ul>
-<li>$\dfrac{f(x)}{g(x)} > 0 \iff f(x) \cdot g(x) > 0$</li>
-<li>$\dfrac{f(x)}{g(x)} \ge 0 \iff \begin{cases} f(x) \cdot g(x) \ge 0 \\ g(x) \neq 0 \end{cases}$</li>
+<li>$\\dfrac{f(x)}{g(x)} > 0 \\iff f(x) \\cdot g(x) > 0$</li>
+<li>$\\dfrac{f(x)}{g(x)} \\ge 0 \\iff \\begin{cases} f(x) \\cdot g(x) \\ge 0 \\\\ g(x) \\neq 0 \\end{cases}$</li>
 </ul>
 <p class="label-def">【穿根法（高次不等式）】</p>
-<p>步骤：① 因式分解，化为 $(x-x_1)(x-x_2)\cdots(x-x_n) > 0$ 形式；② 在数轴上标出根（从右上方开始）；③ 奇穿偶不穿（奇次根穿过去，偶次根弹回来）；④ 根据符号写出解集。</p>
+<p>步骤：① 因式分解，化为 $(x-x_1)(x-x_2)\\cdots(x-x_n) > 0$ 形式；② 在数轴上标出根（从右上方开始）；③ 奇穿偶不穿（奇次根穿过去，偶次根弹回来）；④ 根据符号写出解集。</p>
 <p class="label-def">【恒成立问题】</p>
-<p>$ax^2+bx+c > 0$ 在 $\mathbb{R}$ 上恒成立的条件：$a > 0$ 且 $\Delta < 0$（或 $a=b=0$ 且 $c > 0$）。</p>
-<p>$ax^2+bx+c < 0$ 在 $\mathbb{R}$ 上恒成立的条件：$a < 0$ 且 $\Delta < 0$。</p>
+<p>$ax^2+bx+c > 0$ 在 $\\mathbb{R}$ 上恒成立的条件：$a > 0$ 且 $\\Delta < 0$（或 $a=b=0$ 且 $c > 0$）。</p>
+<p>$ax^2+bx+c < 0$ 在 $\\mathbb{R}$ 上恒成立的条件：$a < 0$ 且 $\\Delta < 0$。</p>
 <p class="label-attention">【注意】</p>
 <ul>
 <li>解分式不等式时，不能直接去分母（分母正负未知），应移项通分后再转化。</li>
@@ -250,9 +250,9 @@ window.__vol1 = {
 <ul>
 <li>一次函数 f(x) = kx + b（k ≠ 0）：定义域为 R；</li>
 <li>二次函数 f(x) = ax^2 + bx + c（a ≠ 0）：定义域为 R；</li>
-<li>反比例函数 f(x) = \frac{k}{x}（k ≠ 0）：定义域为 \{ x | x ≠ 0 \}；</li>
-<li>幂函数 f(x) = x^\alpha：定义域与 \alpha 有关；</li>
-<li>根式函数 f(x) = \sqrt[n]{x}：n 为偶数时 x ≥ 0，n 为奇数时 x ∈ R；</li>
+<li>反比例函数 f(x) = \\frac{k}{x}（k ≠ 0）：定义域为 \\{ x | x ≠ 0 \\}；</li>
+<li>幂函数 f(x) = x^\\alpha：定义域与 \\alpha 有关；</li>
+<li>根式函数 f(x) = \\sqrt[n]{x}：n 为偶数时 x ≥ 0，n 为奇数时 x ∈ R；</li>
 <li>分式函数：分母 ≠ 0。</li>
 </ul>
 <p class="label-def">【求值域的常用方法】</p>
@@ -276,21 +276,21 @@ window.__vol1 = {
     content: `<p class="label-def">【单调性的定义】</p>
 <p>设函数 f(x) 的定义域为 I，区间 D ⊆ I：</p>
 <ul>
-<li>如果 \forall x_1, x_2 \in D，当 x_1 < x_2 时，都有 f(x_1) < f(x_2)，那么称函数 f(x) 在区间 D 上<strong>单调递增</strong>（D 为<strong>单调递增区间</strong>）；</li>
-<li>如果 \forall x_1, x_2 \in D，当 x_1 < x_2 时，都有 f(x_1) > f(x_2)，那么称函数 f(x) 在区间 D 上<strong>单调递减</strong>（D 为<strong>单调递减区间</strong>）。</li>
+<li>如果 \\forall x_1, x_2 \\in D，当 x_1 < x_2 时，都有 f(x_1) < f(x_2)，那么称函数 f(x) 在区间 D 上<strong>单调递增</strong>（D 为<strong>单调递增区间</strong>）；</li>
+<li>如果 \\forall x_1, x_2 \\in D，当 x_1 < x_2 时，都有 f(x_1) > f(x_2)，那么称函数 f(x) 在区间 D 上<strong>单调递减</strong>（D 为<strong>单调递减区间</strong>）。</li>
 </ul>
 <p>如果函数 y = f(x) 在某个区间上是单调递增或单调递减，那么就说函数 y = f(x) 在这一区间具有（严格的）<strong>单调性</strong>，该区间叫做 y = f(x) 的<strong>单调区间</strong>。</p>
 <p class="label-def">【函数的最大（小）值】</p>
 <p>设函数 y = f(x) 的定义域为 I，如果存在实数 M 满足：</p>
 <ul>
-<li><strong>最大值</strong>：\forall x \in I，都有 f(x) ≤ M，且 \exists x_0 \in I，使得 f(x_0) = M；</li>
-<li><strong>最小值</strong>：\forall x \in I，都有 f(x) ≥ M，且 \exists x_0 \in I，使得 f(x_0) = M。</li>
+<li><strong>最大值</strong>：\\forall x \\in I，都有 f(x) ≤ M，且 \\exists x_0 \\in I，使得 f(x_0) = M；</li>
+<li><strong>最小值</strong>：\\forall x \\in I，都有 f(x) ≥ M，且 \\exists x_0 \\in I，使得 f(x_0) = M。</li>
 </ul>
 <p class="label-attention">【注意】</p>
 <ul>
 <li>单调性是函数的<strong>局部</strong>性质，函数在不同区间上可能有不同的单调性。</li>
 <li>不能用特殊值验证来判断单调性，必须使用<strong>严格定义</strong>进行证明（作差法）。</li>
-<li>函数的单调区间必须是定义域的<strong>子集</strong>，且不能将单调区间合并写成 \cup。</li>
+<li>函数的单调区间必须是定义域的<strong>子集</strong>，且不能将单调区间合并写成 \\cup。</li>
 <li>最值一定是函数值域中的<strong>端点值</strong>，但不一定存在（开区间可能无最值）。</li>
 </ul>`,
     tags: ["单调性", "单调递增", "单调递减", "单调区间", "最大值", "最小值", "★"]
@@ -298,10 +298,10 @@ window.__vol1 = {
   {
     title: "3.2 函数的奇偶性",
     content: `<p class="label-def">【奇偶性的定义】</p>
-<p>设函数 f(x) 的定义域 I 关于原点对称（即 \forall x \in I，有 -x \in I）：</p>
+<p>设函数 f(x) 的定义域 I 关于原点对称（即 \\forall x \\in I，有 -x \\in I）：</p>
 <ul>
-<li>如果 \forall x \in I，都有 f(-x) = -f(x)，那么称函数 f(x) 为<strong>奇函数</strong>；</li>
-<li>如果 \forall x \in I，都有 f(-x) = f(x)，那么称函数 f(x) 为<strong>偶函数</strong>。</li>
+<li>如果 \\forall x \\in I，都有 f(-x) = -f(x)，那么称函数 f(x) 为<strong>奇函数</strong>；</li>
+<li>如果 \\forall x \\in I，都有 f(-x) = f(x)，那么称函数 f(x) 为<strong>偶函数</strong>。</li>
 </ul>
 <p>如果一个函数是奇函数或偶函数，那么就说这个函数具有<strong>奇偶性</strong>。</p>
 <p class="label-def">【奇偶函数的图像特征】</p>
@@ -326,16 +326,16 @@ window.__vol1 = {
   {
     title: "3.3 幂函数",
     content: `<p class="label-def">【幂函数的定义】</p>
-<p>一般地，形如 y = x^\alpha（\alpha 为常数）的函数称为<strong>幂函数</strong>。</p>
+<p>一般地，形如 y = x^\\alpha（\\alpha 为常数）的函数称为<strong>幂函数</strong>。</p>
 <p>幂函数的特征：</p>
 <ul>
-<li>系数为 1，底数为自变量 x，指数为常数 \alpha；</li>
-<li>形式唯一：y = x^\alpha，前面不能有系数（如 y = 2x^3 不是幂函数）。</li>
+<li>系数为 1，底数为自变量 x，指数为常数 \\alpha；</li>
+<li>形式唯一：y = x^\\alpha，前面不能有系数（如 y = 2x^3 不是幂函数）。</li>
 </ul>
 <p class="label-def">【五种常见幂函数的图像与性质】</p>
 <table class="mini-table">
 <thead>
-<tr><th>函数</th><th>y = x</th><th>y = x^2</th><th>y = x^3</th><th>y = x^{\frac{1}{2}}</th><th>y = x^{-1}</th></tr>
+<tr><th>函数</th><th>y = x</th><th>y = x^2</th><th>y = x^3</th><th>y = x^{\\frac{1}{2}}</th><th>y = x^{-1}</th></tr>
 </thead>
 <tbody>
 <tr><td>定义域</td><td>R</td><td>R</td><td>R</td><td>[0, +∞)</td><td>(-∞, 0) ∪ (0, +∞)</td></tr>
@@ -348,8 +348,8 @@ window.__vol1 = {
 <p class="label-attention">【注意】</p>
 <ul>
 <li>所有幂函数在 (0, +∞) 上都有定义，且都过点 (1, 1)。</li>
-<li>当 \alpha > 0 时，幂函数在 (0, +∞) 上单调递增；当 \alpha < 0 时，幂函数在 (0, +∞) 上单调递减。</li>
-<li>当 \alpha 为分数时，幂函数的定义域受根式影响，需根据根指数奇偶确定。</li>
+<li>当 \\alpha > 0 时，幂函数在 (0, +∞) 上单调递增；当 \\alpha < 0 时，幂函数在 (0, +∞) 上单调递减。</li>
+<li>当 \\alpha 为分数时，幂函数的定义域受根式影响，需根据根指数奇偶确定。</li>
 </ul>`,
     tags: ["幂函数", "y=x^α", "图像性质", "定义域", "奇偶性", "单调性", "★"]
   },
@@ -358,20 +358,20 @@ window.__vol1 = {
     content: `<p class="label-def">【幂函数图像的共同特征】</p>
 <ul>
 <li>所有幂函数在 (0, +∞) 上都有定义，图像都经过点 <strong>(1, 1)</strong>；</li>
-<li>当 \alpha > 0 时，图像过原点 (0, 0)，且在 (0, +∞) 上单调递增；</li>
-<li>当 \alpha < 0 时，图像不过原点，在 (0, +∞) 上单调递减，以 x 轴、y 轴为渐近线；</li>
-<li>当 \alpha > 1 时，图像在 (0, 1) 上位于 y = x 下方，在 (1, +∞) 上位于 y = x 上方；</li>
-<li>当 0 < \alpha < 1 时，图像在 (0, 1) 上位于 y = x 上方，在 (1, +∞) 上位于 y = x 下方。</li>
+<li>当 \\alpha > 0 时，图像过原点 (0, 0)，且在 (0, +∞) 上单调递增；</li>
+<li>当 \\alpha < 0 时，图像不过原点，在 (0, +∞) 上单调递减，以 x 轴、y 轴为渐近线；</li>
+<li>当 \\alpha > 1 时，图像在 (0, 1) 上位于 y = x 下方，在 (1, +∞) 上位于 y = x 上方；</li>
+<li>当 0 < \\alpha < 1 时，图像在 (0, 1) 上位于 y = x 上方，在 (1, +∞) 上位于 y = x 下方。</li>
 </ul>
 <p class="label-def">【幂值比较大小的方法】</p>
 <ul>
-<li><strong>同指数不同底</strong>：利用幂函数的单调性比较（在 (0, +∞) 上，\alpha > 0 时增，\alpha < 0 时减）；</li>
+<li><strong>同指数不同底</strong>：利用幂函数的单调性比较（在 (0, +∞) 上，\\alpha > 0 时增，\\alpha < 0 时减）；</li>
 <li><strong>同底不同指数</strong>：利用指数函数的单调性比较（需注意底数与 1 的大小关系）；</li>
 <li><strong>底数和指数都不同</strong>：引入<strong>中间量</strong>（如 0、1）或找<strong>桥梁函数</strong>进行间接比较。</li>
 </ul>
 <p class="label-attention">【注意】</p>
 <ul>
-<li>幂函数与指数函数的区别：幂函数<strong>底为变量、指数为常数</strong>（y = x^\alpha），指数函数<strong>底为常数、指数为变量</strong>（y = a^x）。</li>
+<li>幂函数与指数函数的区别：幂函数<strong>底为变量、指数为常数</strong>（y = x^\\alpha），指数函数<strong>底为常数、指数为变量</strong>（y = a^x）。</li>
 <li>比较大小前先明确自变量所在的区间，再根据单调性做出判断。</li>
 </ul>`,
     tags: ["幂函数图像", "比较大小", "同指数", "同底", "中间量", "图像特征", "★"]
@@ -410,7 +410,7 @@ window.__vol1 = {
     content: `<p class="label-def">【分段函数的定义】</p>
 <p>在定义域的不同部分，有不同的对应关系的函数叫做<strong>分段函数</strong>。</p>
 <p>例如：</p>
-<p>f(x) = \begin{cases} x + 1, & x \ge 0 \\ -x, & x < 0 \end{cases}</p>
+<p>f(x) = \\begin{cases} x + 1, & x \\ge 0 \\\\ -x, & x < 0 \\end{cases}</p>
 <p class="label-def">【一次函数模型应用】</p>
 <p>设一次函数为 y = kx + b（k ≠ 0），解决实际问题时通常：</p>
 <ul>
@@ -422,7 +422,7 @@ window.__vol1 = {
 <p>解决利润最大、面积最大等问题时：</p>
 <ul>
 <li>建立二次函数 y = ax^2 + bx + c（a < 0 有最大值，a > 0 有最小值）；</li>
-<li>对称轴 x = -\frac{b}{2a} 是确定最值的关键；</li>
+<li>对称轴 x = -\\frac{b}{2a} 是确定最值的关键；</li>
 <li>注意定义域是否包含对称轴，若不包含，则在边界处取最值。</li>
 </ul>
 <p class="label-attention">【注意】</p>
