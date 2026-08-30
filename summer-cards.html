@@ -101,7 +101,7 @@ var CATS = [
 function renderNav(){
   var html = '';
   CATS.forEach(function(c){
-    html += '<div class="nav-tab' + (__activeCat===c.key?' active':'') + '" onclick="setCat('' + c.key + '')">' + c.label + '</div>';
+    html += '<div class="nav-tab' + (__activeCat===c.key?' active':'') + '" data-key="' + c.key + '" onclick="setCat(this.dataset.key)">' + c.label + '</div>';
   });
   document.getElementById('navTabs').innerHTML = html;
 }
