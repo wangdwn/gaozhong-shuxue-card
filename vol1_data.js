@@ -134,15 +134,15 @@ window.__vol1 = {
 <ul>
 <li>$a - b > 0 \\iff a > b$</li>
 <li>$a - b = 0 \\iff a = b$</li>
-<li>$a - b < 0 \\iff a < b$</li>
+<li>$a - b  \\lt  0 \\iff a  \\lt  b$</li>
 </ul>
 <p class="label-def">【性质】</p>
 <p><strong>不等式的基本性质</strong>（$a, b, c \\in \\mathbb{R}$）：</p>
 <ul>
-<li><strong>性质1（对称性）</strong>：$a > b \\iff b < a$</li>
+<li><strong>性质1（对称性）</strong>：$a > b \\iff b  \\lt  a$</li>
 <li><strong>性质2（传递性）</strong>：$a > b, b > c \\Rightarrow a > c$</li>
 <li><strong>性质3（可加性）</strong>：$a > b \\Rightarrow a + c > b + c$</li>
-<li><strong>性质4（可乘性）</strong>：$a > b, c > 0 \\Rightarrow ac > bc$；$a > b, c < 0 \\Rightarrow ac < bc$</li>
+<li><strong>性质4（可乘性）</strong>：$a > b, c > 0 \\Rightarrow ac > bc$；$a > b, c  \\lt  0 \\Rightarrow ac  \\lt  bc$</li>
 <li><strong>性质5（同向可加性）</strong>：$a > b, c > d \\Rightarrow a + c > b + d$</li>
 <li><strong>性质6（同向同正可乘性）</strong>：$a > b > 0, c > d > 0 \\Rightarrow ac > bd$</li>
 <li><strong>性质7（可乘方性）</strong>：$a > b > 0 \\Rightarrow a^n > b^n$（$n \\in \\mathbb{N}, n \\ge 2$）</li>
@@ -151,7 +151,7 @@ window.__vol1 = {
 <p class="label-attention">【注意】</p>
 <ul>
 <li>不等式两边同乘一个负数时，不等号方向必须改变。</li>
-<li>倒数性质：$a > b > 0 \\Rightarrow \\frac{1}{a} < \\frac{1}{b}$。</li>
+<li>倒数性质：$a > b > 0 \\Rightarrow \\frac{1}{a}  \\lt  \\frac{1}{b}$。</li>
 </ul>`,
       tags: ["不等关系", "不等式性质", "对称性", "传递性", "可加性", "可乘性", "★"]
     },
@@ -187,17 +187,17 @@ window.__vol1 = {
       title: "2.3 二次函数与一元二次方程、不等式",
       content: `<p class="label-def">【定义】</p>
 <p>一般地，我们把只含有一个未知数，并且未知数的最高次数是 2 的不等式，称为<strong>一元二次不等式</strong>。它的一般形式为：</p>
-<p>$ax^2 + bx + c > 0$（或 $< 0$，其中 $a \\neq 0$）。</p>
+<p>$ax^2 + bx + c > 0$（或 $ \\lt  0$，其中 $a \\neq 0$）。</p>
 <p class="label-def">【一元二次不等式的解法（$a > 0$）】</p>
 <table class="mini-table">
-<tr><th>$\\Delta = b^2-4ac$</th><th>$\\Delta > 0$</th><th>$\\Delta = 0$</th><th>$\\Delta < 0$</th></tr>
-<tr><td>$ax^2+bx+c=0$ 的根</td><td>两不等实根 $x_1 < x_2$</td><td>两相等实根 $x_1=x_2=-\\dfrac{b}{2a}$</td><td>无实根</td></tr>
+<tr><th>$\\Delta = b^2-4ac$</th><th>$\\Delta > 0$</th><th>$\\Delta = 0$</th><th>$\\Delta  \\lt  0$</th></tr>
+<tr><td>$ax^2+bx+c=0$ 的根</td><td>两不等实根 $x_1  \\lt  x_2$</td><td>两相等实根 $x_1=x_2=-\\dfrac{b}{2a}$</td><td>无实根</td></tr>
 <tr><td>$ax^2+bx+c>0$ 解集</td><td>$\\{x\\mid x&lt;x_1\\text{ 或 }x>x_2\\}$</td><td>$\\{x\\mid x\\neq -\\dfrac{b}{2a}\\}$</td><td>$\\mathbb{R}$</td></tr>
-<tr><td>$ax^2+bx+c<0$ 解集</td><td>$\\{x\\mid x_1&lt;x&lt;x_2\\}$</td><td>$\\varnothing$</td><td>$\\varnothing$</td></tr>
+<tr><td>$ax^2+bx+c \\lt 0$ 解集</td><td>$\\{x\\mid x_1&lt;x&lt;x_2\\}$</td><td>$\\varnothing$</td><td>$\\varnothing$</td></tr>
 </table>
 <p class="label-attention">【注意】</p>
 <ul>
-<li>若 $a < 0$，可先将二次项系数化为正数（不等式两边同乘 $-1$，不等号变向），再按上述方法求解。</li>
+<li>若 $a  \\lt  0$，可先将二次项系数化为正数（不等式两边同乘 $-1$，不等号变向），再按上述方法求解。</li>
 <li>口诀："大于取两边，小于取中间"。</li>
 <li>对于含参数的一元二次不等式，需讨论二次项系数、判别式及根的大小关系。</li>
 </ul>`,
@@ -206,7 +206,7 @@ window.__vol1 = {
     {
       title: "2.3 续 一元二次不等式的应用",
       content: `<p class="label-def">【分式不等式】</p>
-<p>$\\dfrac{f(x)}{g(x)} > 0$（或 $< 0$）可转化为整式不等式：</p>
+<p>$\\dfrac{f(x)}{g(x)} > 0$（或 $ \\lt  0$）可转化为整式不等式：</p>
 <ul>
 <li>$\\dfrac{f(x)}{g(x)} > 0 \\iff f(x) \\cdot g(x) > 0$</li>
 <li>$\\dfrac{f(x)}{g(x)} \\ge 0 \\iff \\begin{cases} f(x) \\cdot g(x) \\ge 0 \\\\ g(x) \\neq 0 \\end{cases}$</li>
@@ -214,8 +214,8 @@ window.__vol1 = {
 <p class="label-def">【穿根法（高次不等式）】</p>
 <p>步骤：① 因式分解，化为 $(x-x_1)(x-x_2)\\cdots(x-x_n) > 0$ 形式；② 在数轴上标出根（从右上方开始）；③ 奇穿偶不穿（奇次根穿过去，偶次根弹回来）；④ 根据符号写出解集。</p>
 <p class="label-def">【恒成立问题】</p>
-<p>$ax^2+bx+c > 0$ 在 $\\mathbb{R}$ 上恒成立的条件：$a > 0$ 且 $\\Delta < 0$（或 $a=b=0$ 且 $c > 0$）。</p>
-<p>$ax^2+bx+c < 0$ 在 $\\mathbb{R}$ 上恒成立的条件：$a < 0$ 且 $\\Delta < 0$（退化：$a=b=0$ 且 $c < 0$）。</p>
+<p>$ax^2+bx+c > 0$ 在 $\\mathbb{R}$ 上恒成立的条件：$a > 0$ 且 $\\Delta  \\lt  0$（或 $a=b=0$ 且 $c > 0$）。</p>
+<p>$ax^2+bx+c  \\lt  0$ 在 $\\mathbb{R}$ 上恒成立的条件：$a  \\lt  0$ 且 $\\Delta  \\lt  0$（退化：$a=b=0$ 且 $c  \\lt  0$）。</p>
 <p>若要 $\\ge 0$ 恒成立：需 $a>0$ 且 $\\Delta\\le 0$，或退化为非负常数。</p>
 <p class="label-attention">【注意】</p>
 <ul>
@@ -284,8 +284,8 @@ window.__vol1 = {
     content: `<p class="label-def">【单调性的定义】</p>
 <p>设函数 $f(x)$ 的定义域为 $I$，区间 $D\\subseteq I$：</p>
 <ul>
-<li>若 $\\forall x_1,x_2\\in D$，当 $x_1<x_2$ 时都有 $f(x_1)<f(x_2)$，则称 $f$ 在 $D$ 上<strong>单调递增</strong>；</li>
-<li>若 $\\forall x_1,x_2\\in D$，当 $x_1<x_2$ 时都有 $f(x_1)>f(x_2)$，则称 $f$ 在 $D$ 上<strong>单调递减</strong>。</li>
+<li>若 $\\forall x_1,x_2\\in D$，当 $x_1 \\lt x_2$ 时都有 $f(x_1) \\lt f(x_2)$，则称 $f$ 在 $D$ 上<strong>单调递增</strong>；</li>
+<li>若 $\\forall x_1,x_2\\in D$，当 $x_1 \\lt x_2$ 时都有 $f(x_1)>f(x_2)$，则称 $f$ 在 $D$ 上<strong>单调递减</strong>。</li>
 </ul>
 <p>具有单调性的区间叫做<strong>单调区间</strong>。</p>
 <p class="label-def">【函数的最大（小）值】</p>
@@ -349,7 +349,7 @@ window.__vol1 = {
 <p class="label-attention">【注意】</p>
 <ul>
 <li>任意幂函数在 $(0,+\\infty)$ 上都有定义，且过 $(1,1)$。</li>
-<li>$\\alpha>0$ 时在 $(0,+\\infty)$ 递增；$\\alpha<0$ 时在 $(0,+\\infty)$ 递减。</li>
+<li>$\\alpha>0$ 时在 $(0,+\\infty)$ 递增；$\\alpha \\lt 0$ 时在 $(0,+\\infty)$ 递减。</li>
 <li>分数指数要先化为根式再定定义域。</li>
 </ul>`,
     tags: ["幂函数", "y=x^α", "图像性质", "定义域", "奇偶性", "单调性", "★"]
@@ -361,9 +361,9 @@ window.__vol1 = {
 <li>都过 <strong>$(1,1)$</strong>；</li>
 <li>$\\alpha>0$：在 $(0,+\\infty)$ 递增；若 $0$ 属于定义域（如 $y=x,x^2,x^3,\\sqrt{x}$），则过原点；</li>
 <li>无理指数时定义域常取 $(0,+\\infty)$，此时<strong>不过</strong>原点；</li>
-<li>$\\alpha<0$：不过原点，递减，以两轴为渐近线；</li>
+<li>$\\alpha \\lt 0$：不过原点，递减，以两轴为渐近线；</li>
 <li>$\\alpha>1$：在 $(0,1)$ 位于 $y=x$ 下方，在 $(1,+\\infty)$ 位于 $y=x$ 上方；</li>
-<li>$0<\\alpha<1$：与上条相反。</li>
+<li>$0 \\lt \\alpha \\lt 1$：与上条相反。</li>
 </ul>
 <p class="label-def">【比较大小】</p>
 <ul>
@@ -402,11 +402,11 @@ window.__vol1 = {
     title: "3.4 分段函数与函数模型",
     content: `<p class="label-def">【分段函数】</p>
 <p>在定义域的不同部分用不同对应关系给出的函数。例如</p>
-<p>$$f(x)=\\begin{cases} x+1, & x\\ge 0 \\\\ -x, & x<0 \\end{cases}$$</p>
+<p>$$f(x)=\\begin{cases} x+1, & x\\ge 0 \\\\ -x, & x \\lt 0 \\end{cases}$$</p>
 <p class="label-def">【一次 / 二次模型】</p>
 <ul>
-<li>一次：待定系数求 $k,b$；$k>0$ 递增，$k<0$ 递减；</li>
-<li>二次：对称轴 $x=-\\dfrac{b}{2a}$；$a<0$ 有最大值，$a>0$ 有最小值；轴不在定义域内则在端点取最值。</li>
+<li>一次：待定系数求 $k,b$；$k>0$ 递增，$k \\lt 0$ 递减；</li>
+<li>二次：对称轴 $x=-\\dfrac{b}{2a}$；$a \\lt 0$ 有最大值，$a>0$ 有最小值；轴不在定义域内则在端点取最值。</li>
 </ul>
 <p class="label-attention">【注意】</p>
 <p>分段求最值时先各段分别求，再比较；人数、件数等要取符合题意的整数。</p>`,
@@ -423,7 +423,7 @@ window.__vol1 = {
 <ul>
 <li>$(\\sqrt[n]{a})^n = a$（$n$ 为奇数时 $a\\in\\mathbb{R}$；$n$ 为偶数时 $a\\ge 0$）</li>
 <li>当 $n$ 为奇数时，$\\sqrt[n]{a^n} = a$</li>
-<li>当 $n$ 为偶数时，$\\sqrt[n]{a^n} = |a| = \\begin{cases} a, & a\\ge 0 \\\\ -a, & a<0 \\end{cases}$</li>
+<li>当 $n$ 为偶数时，$\\sqrt[n]{a^n} = |a| = \\begin{cases} a, & a\\ge 0 \\\\ -a, & a \\lt 0 \\end{cases}$</li>
 </ul>
 <p class="label-def">【分数指数幂】</p>
 <p>正数的正分数指数幂：$a^{\\frac{m}{n}} = \\sqrt[n]{a^m}$（$a>0, m,n\\in\\mathbb{N}^*, n>1$）</p>
@@ -448,7 +448,7 @@ window.__vol1 = {
 <p>一般地，形如 $y = a^x$（$a>0$ 且 $a\\neq 1$）的函数叫做<strong>指数函数</strong>，其中 $x$ 是自变量，定义域为 $\\mathbb{R}$。</p>
 <p class="label-def">【指数函数的图像与性质】</p>
 <table class="mini-table">
-<tr><th></th><th>$a>1$</th><th>$0<a<1$</th></tr>
+<tr><th></th><th>$a>1$</th><th>$0 \\lt a \\lt 1$</th></tr>
 <tr><td>图像</td><td>单调递增，过点 $(0,1)$</td><td>单调递减，过点 $(0,1)$</td></tr>
 <tr><td>定义域</td><td colspan="2">$\\mathbb{R}$</td></tr>
 <tr><td>值域</td><td colspan="2">$(0, +\\infty)$</td></tr>
@@ -498,7 +498,7 @@ window.__vol1 = {
 <p>一般地，形如 $y = \\log_a x$（$a>0$ 且 $a\\neq 1$）的函数叫做<strong>对数函数</strong>，定义域为 $(0, +\\infty)$。</p>
 <p class="label-def">【对数函数的图像与性质】</p>
 <table class="mini-table">
-<tr><th></th><th>$a>1$</th><th>$0<a<1$</th></tr>
+<tr><th></th><th>$a>1$</th><th>$0 \\lt a \\lt 1$</th></tr>
 <tr><td>图像</td><td>单调递增，过点 $(1,0)$</td><td>单调递减，过点 $(1,0)$</td></tr>
 <tr><td>定义域</td><td colspan="2">$(0, +\\infty)$</td></tr>
 <tr><td>值域</td><td colspan="2">$\\mathbb{R}$</td></tr>
@@ -522,12 +522,12 @@ window.__vol1 = {
 </table>
 <p>在 $(0,+\\infty)$ 上，总会存在一个 $x_0$，使得当 $x>x_0$ 时，有 $a^x > x^k > \\log_a x$（$a>1, k>0$）。</p>
 <p class="label-def">【二分法求方程近似解】</p>
-<p>对于在区间 $[a,b]$ 上连续且 $f(a)\\cdot f(b)<0$ 的函数 $y=f(x)$，通过不断将零点区间一分为二，使区间端点逐渐逼近零点，得到方程近似解的方法称为<strong>二分法</strong>。</p>
+<p>对于在区间 $[a,b]$ 上连续且 $f(a)\\cdot f(b) \\lt 0$ 的函数 $y=f(x)$，通过不断将零点区间一分为二，使区间端点逐渐逼近零点，得到方程近似解的方法称为<strong>二分法</strong>。</p>
 <p><strong>步骤：</strong></p>
 <ol>
-<li>确定区间 $[a,b]$，验证 $f(a)\\cdot f(b)<0$</li>
+<li>确定区间 $[a,b]$，验证 $f(a)\\cdot f(b) \\lt 0$</li>
 <li>求中点 $c=\\dfrac{a+b}{2}$</li>
-<li>计算 $f(c)$：若 $f(c)=0$ 则 $c$ 为根；若 $f(a)\\cdot f(c)<0$ 则零点在 $[a,c]$；否则在 $[c,b]$</li>
+<li>计算 $f(c)$：若 $f(c)=0$ 则 $c$ 为根；若 $f(a)\\cdot f(c) \\lt 0$ 则零点在 $[a,c]$；否则在 $[c,b]$</li>
 <li>重复步骤2-3，直到达到所需精度</li>
 </ol>`,
       tags: ["函数模型", "指数增长", "对数增长", "二分法", "方程近似解", "★"]
@@ -569,9 +569,9 @@ window.__vol1 = {
 <p><strong>口诀：一全正，二正弦，三正切，四余弦。</strong></p>
 <ul>
 <li>第一象限：$\\sin\\alpha>0,\\;\\cos\\alpha>0,\\;\\tan\\alpha>0$</li>
-<li>第二象限：$\\sin\\alpha>0,\\;\\cos\\alpha<0,\\;\\tan\\alpha<0$</li>
-<li>第三象限：$\\sin\\alpha<0,\\;\\cos\\alpha<0,\\;\\tan\\alpha>0$</li>
-<li>第四象限：$\\sin\\alpha<0,\\;\\cos\\alpha>0,\\;\\tan\\alpha<0$</li>
+<li>第二象限：$\\sin\\alpha>0,\\;\\cos\\alpha \\lt 0,\\;\\tan\\alpha \\lt 0$</li>
+<li>第三象限：$\\sin\\alpha \\lt 0,\\;\\cos\\alpha \\lt 0,\\;\\tan\\alpha>0$</li>
+<li>第四象限：$\\sin\\alpha \\lt 0,\\;\\cos\\alpha>0,\\;\\tan\\alpha \\lt 0$</li>
 </ul>
 <p class="label-def">【同角三角函数基本关系】</p>
 <ul>
@@ -660,7 +660,7 @@ window.__vol1 = {
 <p class="label-attention">【注意】</p>
 <ul>
 <li>「左加右减」作用在 $x$ 上：$\\sin(\\omega x+\\varphi)=\\sin\\omega\\!\\left(x+\\dfrac{\\varphi}{\\omega}\\right)$，平移量是 $\\varphi/\\omega$ 而不是 $\\varphi$。</li>
-<li>$\\varphi<0$ 时改为向右平移 $|\\varphi|/\\omega$。</li>
+<li>$\\varphi \\lt 0$ 时改为向右平移 $|\\varphi|/\\omega$。</li>
 <li>五点法：令 $\\omega x+\\varphi$ 依次取 $0,\\dfrac{\\pi}{2},\\pi,\\dfrac{3\\pi}{2},2\\pi$。</li>
 </ul>`,
       tags: ["y=Asin(ωx+φ)", "振幅", "周期", "相位", "图像变换", "五点法", "★"]
