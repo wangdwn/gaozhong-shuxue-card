@@ -1,10 +1,18 @@
-// 必修第一册 知识卡片数据 v2 — 教材原话版
+// 必修第一册 知识卡片数据
+// 人教A版（2019）公开目录要点 · 自编学习笔记（非教材原文）
+// 内容校对：2026-09-04
+window.__CONTENT_META = Object.assign(window.__CONTENT_META || {}, {
+  lastUpdated: "2026-09-04",
+  edition: "人教A版（2019）",
+  scope: "必修第一册、必修第二册公开目录要点",
+  note: "自编学习笔记，非教材原文；选择性必修未收录"
+});
 window.__vol1 = {
   "第一章 集合与常用逻辑用语": [
     {
       title: "1.1 集合的概念",
       content: `<p class="label-def">【定义】</p>
-      <p>一般的，我们把研究对象统称为<strong>元素</strong>，把一些元素组成的总体叫做<strong>集合</strong>（简称集）。</p>
+      <p>把一些确定的对象看作一个整体，这个整体叫做<strong>集合</strong>（集）；其中的对象叫做<strong>元素</strong>。</p>
       <p><strong>集合中元素的特性：</strong>确定性、互异性、无序性。</p>
       <p class="label-def">【关系表示】</p>
       <ul>
@@ -13,32 +21,32 @@ window.__vol1 = {
       </ul>
       <p class="label-def">【常用数集及其记法】</p>
       <ul>
-      <li>$\\mathbb{N}$ — 自然数集（含0）</li>
-      <li>$\\mathbb{N}^*$ 或 $\\mathbb{N}_+$ — 正整数集（不含0）</li>
+      <li>$\\mathbb{N}$ — 自然数集（本册约定含 $0$）</li>
+      <li>$\\mathbb{N}^*$ 或 $\\mathbb{N}_+$ — 正整数集（不含 $0$）</li>
       <li>$\\mathbb{Z}$ — 整数集</li>
       <li>$\\mathbb{Q}$ — 有理数集</li>
       <li>$\\mathbb{R}$ — 实数集</li>
       </ul>
       <p class="label-def">【集合的表示法】</p>
       <ul>
-      <li><strong>列举法：</strong>把集合的所有元素一一列举出来，并用花括号"{}"括起来。如 $\\{1,2,3\\}$</li>
-      <li><strong>描述法：</strong>用集合所含元素的共同特征表示集合，形式为 $\\{x\\in I\\mid p(x)\\}$。如 $\\{x\\in\\mathbb{R}\\mid x>0\\}$</li>
+      <li><strong>列举法：</strong>把集合的所有元素一一列举出来，并用花括号括起来。如 $\\{1,2,3\\}$</li>
+      <li><strong>描述法：</strong>用元素的共同特征表示集合，形式为 $\\{x\\in I\\mid p(x)\\}$。如 $\\{x\\in\\mathbb{R}\\mid x>0\\}$</li>
       </ul>
       <p class="label-attention">【注意】</p>
       <ul>
-      <li>$\\{0\\}$ 与 $\\varnothing$ 不同：$\\{0\\}$ 是含一个元素0的集合，$\\varnothing$ 是空集</li>
-      <li>描述法中竖线"|"前面是元素的一般形式，后面是元素的共同特征</li>
+      <li>$\\{0\\}$ 与 $\\varnothing$ 不同：$\\{0\\}$ 含一个元素 $0$，$\\varnothing$ 不含任何元素</li>
+      <li>描述法中竖线前面写元素的代表形式，后面写该元素应满足的条件</li>
       </ul>`,
       tags: ["集合","元素","数集","列举法","描述法","★"]
     },
     {
       title: "1.2 集合间的基本关系",
       content: `<p class="label-def">【子集】</p>
-      <p>一般地，对于两个集合$A$、$B$，如果集合$A$中<strong>任意一个元素</strong>都是集合$B$中的元素，就称集合$A$为集合$B$的子集，记作</p>
+      <p>对于集合$A$、$B$，若$A$中<strong>任意一个元素</strong>都属于$B$，就称$A$是$B$的子集，记作</p>
       <p>$$A\\subseteq B \\quad \\text{（或} \\; B\\supseteq A \\text{）}$$</p>
       <p>读作"$A$包含于$B$"（或"$B$包含$A$"）。</p>
       <p class="label-def">【真子集】</p>
-      <p>如果$A\\subseteq B$，但存在元素$x\\in B$且$x\\notin A$，就称集合$A$是集合$B$的<strong>真子集</strong>，记作</p>
+      <p>如果$A\\subseteq B$，但存在元素$x\\in B$且$x\\notin A$，就称$A$是$B$的<strong>真子集</strong>，记作</p>
       <p>$$A\\subsetneq B \\quad \\text{（或} \\; B\\supsetneq A \\text{）}$$</p>
       <p class="label-def">【集合相等】</p>
       <p>如果$A\\subseteq B$且$B\\subseteq A$，则$A=B$。</p>
@@ -52,21 +60,21 @@ window.__vol1 = {
     {
       title: "1.3 集合的基本运算",
       content: `<p class="label-def">【并集】</p>
-      <p>一般地，由所有属于集合$A$<strong>或</strong>属于集合$B$的元素组成的集合，称为$A$与$B$的并集，记作$A\\cup B$（读作"$A$并$B$"），即</p>
+      <p>由所有属于$A$<strong>或</strong>属于$B$的元素组成的集合，称为$A$与$B$的并集，记作$A\\cup B$，即</p>
       <p>$$A\\cup B = \\{x\\mid x\\in A,\\text{或}x\\in B\\}$$</p>
       <p class="label-def">【交集】</p>
-      <p>由所有属于集合$A$<strong>且</strong>属于集合$B$的元素组成的集合，称为$A$与$B$的交集，记作$A\\cap B$（读作"$A$交$B$"），即</p>
+      <p>由所有属于$A$<strong>且</strong>属于$B$的元素组成的集合，称为$A$与$B$的交集，记作$A\\cap B$，即</p>
       <p>$$A\\cap B = \\{x\\mid x\\in A,\\text{且}x\\in B\\}$$</p>
       <p class="label-def">【补集】</p>
-      <p>如果一个集合含有所研究问题中涉及的所有元素，则称这个集合为<strong>全集</strong>，记作$U$。</p>
-      <p>由全集$U$中<strong>不属于</strong>集合$A$的所有元素组成的集合，称为$A$相对于$U$的补集，简称为$A$的补集，记作$\\complement_U A$，即</p>
+      <p>所研究问题中涉及的全部对象构成<strong>全集</strong>，记作$U$。</p>
+      <p>由$U$中<strong>不属于</strong>$A$的元素组成的集合，称为$A$相对于$U$的补集，记作$\\complement_U A$，即</p>
       <p>$$\\complement_U A = \\{x\\mid x\\in U,\\text{且}x\\notin A\\}$$</p>
       <p class="label-def">【运算律】</p>
       <ul>
       <li>$A\\cap A = A$，$A\\cup A = A$</li>
       <li>$A\\cap \\varnothing = \\varnothing$，$A\\cup \\varnothing = A$</li>
       <li>$A\\cap B \\subseteq A \\subseteq A\\cup B$</li>
-      <li><strong>德摩根律：</strong>$\\complement_U(A\\cap B) = (\\complement_U A)\\cup(\\complement_U B)$，$\\complement_U(A\\cup B) = (\\complement_U A)\\cap(\\complement_U B)$</li>
+      <li><strong>对偶公式（常用）：</strong>$\\complement_U(A\\cap B) = (\\complement_U A)\\cup(\\complement_U B)$，$\\complement_U(A\\cup B) = (\\complement_U A)\\cap(\\complement_U B)$</li>
       </ul>
       <p class="label-attention">【注意】</p>
       <p>韦恩图（Venn图）是处理集合运算的直观工具，常用于含参数集合问题的分析。</p>`,
@@ -75,7 +83,7 @@ window.__vol1 = {
     {
       title: "1.4 充分条件与必要条件",
       content: `<p class="label-def">【定义】</p>
-      <p>一般地，"若$p$，则$q$"为真命题，是指由$p$通过推理可以得出$q$。这时，我们就说，由$p$可推出$q$，记作$p\\Rightarrow q$。</p>
+      <p>若命题「若$p$，则$q$」为真，即由$p$可推出$q$，记作$p\\Rightarrow q$。</p>
       <ul>
       <li>$p\\Rightarrow q$ ⟹ $p$是$q$的<strong>充分条件</strong>，$q$是$p$的<strong>必要条件</strong></li>
       <li>$p\\Leftrightarrow q$ ⟹ $p$是$q$的<strong>充要条件</strong>（$p$等价于$q$）</li>
@@ -196,7 +204,7 @@ window.__vol1 = {
       tags: ["一元二次不等式", "二次函数", "判别式", "Δ", "解法", "★"]
     },
     {
-      title: "2.3 一元二次不等式的应用",
+      title: "2.3 续 一元二次不等式的应用",
       content: `<p class="label-def">【分式不等式】</p>
 <p>$\\dfrac{f(x)}{g(x)} > 0$（或 $< 0$）可转化为整式不等式：</p>
 <ul>
@@ -207,7 +215,8 @@ window.__vol1 = {
 <p>步骤：① 因式分解，化为 $(x-x_1)(x-x_2)\\cdots(x-x_n) > 0$ 形式；② 在数轴上标出根（从右上方开始）；③ 奇穿偶不穿（奇次根穿过去，偶次根弹回来）；④ 根据符号写出解集。</p>
 <p class="label-def">【恒成立问题】</p>
 <p>$ax^2+bx+c > 0$ 在 $\\mathbb{R}$ 上恒成立的条件：$a > 0$ 且 $\\Delta < 0$（或 $a=b=0$ 且 $c > 0$）。</p>
-<p>$ax^2+bx+c < 0$ 在 $\\mathbb{R}$ 上恒成立的条件：$a < 0$ 且 $\\Delta < 0$。</p>
+<p>$ax^2+bx+c < 0$ 在 $\\mathbb{R}$ 上恒成立的条件：$a < 0$ 且 $\\Delta < 0$（退化：$a=b=0$ 且 $c < 0$）。</p>
+<p>若要 $\\ge 0$ 恒成立：需 $a>0$ 且 $\\Delta\\le 0$，或退化为非负常数。</p>
 <p class="label-attention">【注意】</p>
 <ul>
 <li>解分式不等式时，不能直接去分母（分母正负未知），应移项通分后再转化。</li>
@@ -220,27 +229,27 @@ window.__vol1 = {
   {
     title: "3.1 函数的概念及其表示",
     content: `<p class="label-def">【定义】</p>
-<p>设 A、B 是非空的实数集，如果对于集合 A 中的<strong>任意一个数 x</strong>，按照某种确定的对应关系 f，在集合 B 中都有<strong>唯一确定</strong>的数 y 和它对应，那么就称 f : A → B 为从集合 A 到集合 B 的一个<strong>函数</strong>，记作：</p>
-<p>y = f(x), x ∈ A</p>
-<p>其中，x 叫做<strong>自变量</strong>，x 的取值范围 A 叫做函数的<strong>定义域</strong>；与 x 对应的 y 值叫做<strong>函数值</strong>，函数值的集合 { f(x) | x ∈ A } 叫做函数的<strong>值域</strong>。</p>
+<p>设 $A$、$B$ 是非空实数集。若对 $A$ 中<strong>任意</strong>一个数 $x$，按确定对应关系 $f$，在 $B$ 中都有<strong>唯一</strong>的数 $y$ 与之对应，则称 $f:A\\to B$ 为从 $A$ 到 $B$ 的一个<strong>函数</strong>，记作</p>
+<p>$$y=f(x),\\quad x\\in A$$</p>
+<p>其中 $x$ 是<strong>自变量</strong>，$A$ 是<strong>定义域</strong>；对应的 $y$ 是<strong>函数值</strong>，集合 $\\{f(x)\\mid x\\in A\\}$ 是<strong>值域</strong>。</p>
 <p class="label-def">【函数的三要素】</p>
 <ul>
-<li><strong>定义域</strong>：自变量 x 的取值范围（集合 A）；</li>
-<li><strong>对应关系</strong>：f，即自变量 x 到函数值 y 的对应法则；</li>
-<li><strong>值域</strong>：函数值 y 的取值范围（集合 { f(x) | x ∈ A }）。</li>
+<li><strong>定义域</strong>：自变量的取值范围（集合 $A$）；</li>
+<li><strong>对应关系</strong>：$f$；</li>
+<li><strong>值域</strong>：$\\{f(x)\\mid x\\in A\\}$。</li>
 </ul>
-<p>两个函数相等当且仅当它们的<strong>定义域</strong>和<strong>对应关系</strong>完全相同（与用什么字母表示无关）。</p>
+<p>两个函数相等当且仅当<strong>定义域</strong>与<strong>对应关系</strong>相同（与用什么字母无关）。</p>
 <p class="label-def">【函数的表示法】</p>
 <ul>
-<li><strong>解析法</strong>：用数学表达式表示两个变量之间的对应关系，如 y = x^2 + 1；</li>
-<li><strong>图像法</strong>：用函数图像直观表示函数关系；</li>
-<li><strong>列表法</strong>：通过列出自变量的值与对应函数值的表格来表示函数关系。</li>
+<li><strong>解析法</strong>：如 $y=x^2+1$；</li>
+<li><strong>图像法</strong>：用平面上的点集表示对应；</li>
+<li><strong>列表法</strong>：列出部分自变量与函数值。</li>
 </ul>
 <p class="label-attention">【注意】</p>
 <ul>
-<li>定义域和值域均为<strong>非空数集</strong>，且值域是集合 B 的<strong>子集</strong>（不一定等于 B）。</li>
-<li>函数符号 f(x) 中，f 表示对应关系，f(x) 表示自变量 x 对应的函数值，不是 f 乘以 x。</li>
-<li>求定义域的基本原则：分母不为零、偶次根号下非负、零次幂底数不为零、对数真数大于零等。</li>
+<li>值域是 $B$ 的子集，不必等于 $B$。</li>
+<li>$f(x)$ 表示函数值，不是 $f$ 乘以 $x$。</li>
+<li>求定义域：分母不为 $0$、偶次根号下非负、对数真数大于 $0$ 且底数合法、$0^0$ 不定义等。</li>
 </ul>`,
     tags: ["函数", "函数三要素", "定义域", "值域", "对应关系", "解析法", "图像法", "列表法", "★"]
   },
@@ -248,189 +257,159 @@ window.__vol1 = {
     title: "3.1 函数的定义域与值域",
     content: `<p class="label-def">【常见函数的定义域】</p>
 <ul>
-<li>一次函数 f(x) = kx + b（k ≠ 0）：定义域为 R；</li>
-<li>二次函数 f(x) = ax^2 + bx + c（a ≠ 0）：定义域为 R；</li>
-<li>反比例函数 f(x) = \\frac{k}{x}（k ≠ 0）：定义域为 \\{ x | x ≠ 0 \\}；</li>
-<li>幂函数 f(x) = x^\\alpha：定义域与 \\alpha 有关；</li>
-<li>根式函数 f(x) = \\sqrt[n]{x}：n 为偶数时 x ≥ 0，n 为奇数时 x ∈ R；</li>
-<li>分式函数：分母 ≠ 0。</li>
+<li>一次函数 $f(x)=kx+b$（$k\\neq 0$）：$\\mathbb{R}$；</li>
+<li>二次函数 $f(x)=ax^2+bx+c$（$a\\neq 0$）：$\\mathbb{R}$；</li>
+<li>反比例函数 $f(x)=\\dfrac{k}{x}$（$k\\neq 0$）：$\\{x\\mid x\\neq 0\\}$；</li>
+<li>幂函数 $f(x)=x^{\\alpha}$：定义域随 $\\alpha$ 而定；</li>
+<li>根式 $f(x)=\\sqrt[n]{x}$：$n$ 为偶数时 $x\\ge 0$，$n$ 为奇数时 $x\\in\\mathbb{R}$；</li>
+<li>分式：分母 $\\neq 0$。</li>
 </ul>
 <p class="label-def">【求值域的常用方法】</p>
 <ul>
-<li><strong>观察法</strong>：适用于简单函数，直接观察函数解析式的取值范围；</li>
-<li><strong>配方法</strong>：适用于二次函数或可化为二次函数的函数，通过配方求最值；</li>
-<li><strong>换元法</strong>：通过引入新变量简化函数结构，化繁为简；</li>
-<li><strong>分离常数法</strong>：适用于分式型函数，将分子化为常数与分母的线性组合；</li>
-<li><strong>单调性法</strong>：利用函数的单调性求值域。</li>
+<li><strong>观察法</strong>：直接看出取值范围；</li>
+<li><strong>配方法</strong>：二次型配方求最值；</li>
+<li><strong>换元法</strong>：设新元并确定新元范围；</li>
+<li><strong>分离常数法</strong>：分式型把分子凑成分母的倍数；</li>
+<li><strong>单调性法</strong>：先定单调区间再看端点。</li>
 </ul>
 <p class="label-attention">【注意】</p>
 <ul>
-<li>定义域是函数的<strong>灵魂</strong>，研究函数必须优先明确其定义域。</li>
-<li>求函数值域时，一定要先确定函数的定义域，值域依赖于定义域。</li>
-<li>换元法中引入的新变量，必须明确其取值范围（新元的定义域）。</li>
+<li>先定义域，后值域。</li>
+<li>换元后必须写出新元的取值范围。</li>
 </ul>`,
     tags: ["定义域", "值域", "配方法", "换元法", "分离常数法", "单调性法", "★"]
   },
   {
     title: "3.2 函数的单调性",
     content: `<p class="label-def">【单调性的定义】</p>
-<p>设函数 f(x) 的定义域为 I，区间 D ⊆ I：</p>
+<p>设函数 $f(x)$ 的定义域为 $I$，区间 $D\\subseteq I$：</p>
 <ul>
-<li>如果 \\forall x_1, x_2 \\in D，当 x_1 < x_2 时，都有 f(x_1) < f(x_2)，那么称函数 f(x) 在区间 D 上<strong>单调递增</strong>（D 为<strong>单调递增区间</strong>）；</li>
-<li>如果 \\forall x_1, x_2 \\in D，当 x_1 < x_2 时，都有 f(x_1) > f(x_2)，那么称函数 f(x) 在区间 D 上<strong>单调递减</strong>（D 为<strong>单调递减区间</strong>）。</li>
+<li>若 $\\forall x_1,x_2\\in D$，当 $x_1<x_2$ 时都有 $f(x_1)<f(x_2)$，则称 $f$ 在 $D$ 上<strong>单调递增</strong>；</li>
+<li>若 $\\forall x_1,x_2\\in D$，当 $x_1<x_2$ 时都有 $f(x_1)>f(x_2)$，则称 $f$ 在 $D$ 上<strong>单调递减</strong>。</li>
 </ul>
-<p>如果函数 y = f(x) 在某个区间上是单调递增或单调递减，那么就说函数 y = f(x) 在这一区间具有（严格的）<strong>单调性</strong>，该区间叫做 y = f(x) 的<strong>单调区间</strong>。</p>
+<p>具有单调性的区间叫做<strong>单调区间</strong>。</p>
 <p class="label-def">【函数的最大（小）值】</p>
-<p>设函数 y = f(x) 的定义域为 I，如果存在实数 M 满足：</p>
+<p>设定义域为 $I$，若存在实数 $M$ 满足：</p>
 <ul>
-<li><strong>最大值</strong>：\\forall x \\in I，都有 f(x) ≤ M，且 \\exists x_0 \\in I，使得 f(x_0) = M；</li>
-<li><strong>最小值</strong>：\\forall x \\in I，都有 f(x) ≥ M，且 \\exists x_0 \\in I，使得 f(x_0) = M。</li>
+<li><strong>最大值</strong>：$\\forall x\\in I$ 有 $f(x)\\le M$，且 $\\exists x_0\\in I$ 使 $f(x_0)=M$；</li>
+<li><strong>最小值</strong>：$\\forall x\\in I$ 有 $f(x)\\ge M$，且 $\\exists x_0\\in I$ 使 $f(x_0)=M$。</li>
 </ul>
 <p class="label-attention">【注意】</p>
 <ul>
-<li>单调性是函数的<strong>局部</strong>性质，函数在不同区间上可能有不同的单调性。</li>
-<li>不能用特殊值验证来判断单调性，必须使用<strong>严格定义</strong>进行证明（作差法）。</li>
-<li>函数的单调区间必须是定义域的<strong>子集</strong>，且不能将单调区间合并写成 \\cup。</li>
-<li>最值一定是函数值域中的<strong>端点值</strong>，但不一定存在（开区间可能无最值）。</li>
+<li>单调性是<strong>区间上</strong>的性质，不同区间可以不同。</li>
+<li>用定义证明常用作差（或作商）；不能只代入几个特殊值。</li>
+<li>不要把递增区间与递减区间用 $\\cup$ 写成「一个」单调区间。</li>
+<li>开区间上连续函数可以有值域端点却取不到最值。</li>
 </ul>`,
     tags: ["单调性", "单调递增", "单调递减", "单调区间", "最大值", "最小值", "★"]
   },
   {
     title: "3.2 函数的奇偶性",
     content: `<p class="label-def">【奇偶性的定义】</p>
-<p>设函数 f(x) 的定义域 I 关于原点对称（即 \\forall x \\in I，有 -x \\in I）：</p>
+<p>设 $f$ 的定义域 $I$ 关于原点对称（$\\forall x\\in I$ 有 $-x\\in I$）：</p>
 <ul>
-<li>如果 \\forall x \\in I，都有 f(-x) = -f(x)，那么称函数 f(x) 为<strong>奇函数</strong>；</li>
-<li>如果 \\forall x \\in I，都有 f(-x) = f(x)，那么称函数 f(x) 为<strong>偶函数</strong>。</li>
+<li>若 $\\forall x\\in I$ 有 $f(-x)=-f(x)$，则 $f$ 为<strong>奇函数</strong>；</li>
+<li>若 $\\forall x\\in I$ 有 $f(-x)=f(x)$，则 $f$ 为<strong>偶函数</strong>。</li>
 </ul>
-<p>如果一个函数是奇函数或偶函数，那么就说这个函数具有<strong>奇偶性</strong>。</p>
-<p class="label-def">【奇偶函数的图像特征】</p>
+<p class="label-def">【图像特征】</p>
 <ul>
-<li><strong>奇函数</strong>：图像关于<strong>原点对称</strong>（f(-x) = -f(x) ⇔ 图像关于原点中心对称）；</li>
-<li><strong>偶函数</strong>：图像关于<strong>y 轴对称</strong>（f(-x) = f(x) ⇔ 图像关于 y 轴轴对称）。</li>
+<li>奇函数：关于<strong>原点</strong>对称；</li>
+<li>偶函数：关于 <strong>$y$ 轴</strong>对称。</li>
 </ul>
-<p class="label-def">【奇偶性的性质】</p>
+<p class="label-def">【常用性质】</p>
 <ul>
-<li>奇函数在 x = 0 处有定义时，必有 f(0) = 0；</li>
-<li>奇函数在对称区间上的单调性<strong>相同</strong>；偶函数在对称区间上的单调性<strong>相反</strong>；</li>
-<li>奇 + 奇 = 奇，偶 + 偶 = 偶，奇 × 奇 = 偶，偶 × 偶 = 偶，奇 × 偶 = 奇。</li>
+<li>奇函数若在 $x=0$ 有定义，则 $f(0)=0$；</li>
+<li>奇函数在对称区间上单调性相同；偶函数在对称区间上单调性相反；</li>
+<li>奇+奇=奇，偶+偶=偶，奇×奇=偶，偶×偶=偶，奇×偶=奇。</li>
 </ul>
 <p class="label-attention">【注意】</p>
 <ul>
-<li>判断奇偶性的<strong>前提</strong>是定义域关于原点对称——若不对称，则函数为非奇非偶函数。</li>
-<li>既是奇函数又是偶函数的函数：f(x) = 0（且定义域关于原点对称）。</li>
-<li>对于分段函数，需验证每一段是否满足奇偶性条件。</li>
+<li>定义域不关于原点对称 ⇒ 非奇非偶。</li>
+<li>既奇又偶 ⇒ $f(x)=0$（定义域仍须关于原点对称）。</li>
 </ul>`,
     tags: ["奇偶性", "奇函数", "偶函数", "图像对称", "原点对称", "y轴对称", "★"]
   },
   {
     title: "3.3 幂函数",
     content: `<p class="label-def">【幂函数的定义】</p>
-<p>一般地，形如 y = x^\\alpha（\\alpha 为常数）的函数称为<strong>幂函数</strong>。</p>
-<p>幂函数的特征：</p>
-<ul>
-<li>系数为 1，底数为自变量 x，指数为常数 \\alpha；</li>
-<li>形式唯一：y = x^\\alpha，前面不能有系数（如 y = 2x^3 不是幂函数）。</li>
-</ul>
-<p class="label-def">【五种常见幂函数的图像与性质】</p>
+<p>形如 $y=x^{\\alpha}$（$\\alpha$ 为常数）的函数称为<strong>幂函数</strong>。系数为 $1$，底是自变量，指数是常数。例如 $y=2x^3$ 不是幂函数。</p>
+<p class="label-def">【五种常见幂函数】</p>
 <table class="mini-table">
 <thead>
-<tr><th>函数</th><th>y = x</th><th>y = x^2</th><th>y = x^3</th><th>y = x^{\\frac{1}{2}}</th><th>y = x^{-1}</th></tr>
+<tr><th>函数</th><th>$y=x$</th><th>$y=x^2$</th><th>$y=x^3$</th><th>$y=x^{1/2}$</th><th>$y=x^{-1}$</th></tr>
 </thead>
 <tbody>
-<tr><td>定义域</td><td>R</td><td>R</td><td>R</td><td>[0, +∞)</td><td>(-∞, 0) ∪ (0, +∞)</td></tr>
-<tr><td>值域</td><td>R</td><td>[0, +∞)</td><td>R</td><td>[0, +∞)</td><td>(-∞, 0) ∪ (0, +∞)</td></tr>
-<tr><td>奇偶性</td><td>奇函数</td><td>偶函数</td><td>奇函数</td><td>非奇非偶</td><td>奇函数</td></tr>
-<tr><td>单调性</td><td>增</td><td>(-∞,0]减<br/>[0,+∞)增</td><td>增</td><td>增</td><td>(-∞,0)减<br/>(0,+∞)减</td></tr>
-<tr><td>定点</td><td colspan="5">均过点 (1, 1)</td></tr>
+<tr><td>定义域</td><td>$\\mathbb{R}$</td><td>$\\mathbb{R}$</td><td>$\\mathbb{R}$</td><td>$[0,+\\infty)$</td><td>$(-\\infty,0)\\cup(0,+\\infty)$</td></tr>
+<tr><td>值域</td><td>$\\mathbb{R}$</td><td>$[0,+\\infty)$</td><td>$\\mathbb{R}$</td><td>$[0,+\\infty)$</td><td>$(-\\infty,0)\\cup(0,+\\infty)$</td></tr>
+<tr><td>奇偶性</td><td>奇</td><td>偶</td><td>奇</td><td>非奇非偶</td><td>奇</td></tr>
+<tr><td>单调性</td><td>增</td><td>$(-\\infty,0]$ 减<br/>$[0,+\\infty)$ 增</td><td>增</td><td>增</td><td>各区间内减</td></tr>
+<tr><td>定点</td><td colspan="5">都过 $(1,1)$</td></tr>
 </tbody>
 </table>
 <p class="label-attention">【注意】</p>
 <ul>
-<li>所有幂函数在 (0, +∞) 上都有定义，且都过点 (1, 1)。</li>
-<li>当 \\alpha > 0 时，幂函数在 (0, +∞) 上单调递增；当 \\alpha < 0 时，幂函数在 (0, +∞) 上单调递减。</li>
-<li>当 \\alpha 为分数时，幂函数的定义域受根式影响，需根据根指数奇偶确定。</li>
+<li>任意幂函数在 $(0,+\\infty)$ 上都有定义，且过 $(1,1)$。</li>
+<li>$\\alpha>0$ 时在 $(0,+\\infty)$ 递增；$\\alpha<0$ 时在 $(0,+\\infty)$ 递减。</li>
+<li>分数指数要先化为根式再定定义域。</li>
 </ul>`,
     tags: ["幂函数", "y=x^α", "图像性质", "定义域", "奇偶性", "单调性", "★"]
   },
   {
     title: "3.3 幂函数的图像特征与比较大小",
-    content: `<p class="label-def">【幂函数图像的共同特征】</p>
+    content: `<p class="label-def">【在 $(0,+\\infty)$ 上的图像】</p>
 <ul>
-<li>所有幂函数在 (0, +∞) 上都有定义，图像都经过点 <strong>(1, 1)</strong>；</li>
-<li>当 \\alpha > 0 时，图像过原点 (0, 0)，且在 (0, +∞) 上单调递增；</li>
-<li>当 \\alpha < 0 时，图像不过原点，在 (0, +∞) 上单调递减，以 x 轴、y 轴为渐近线；</li>
-<li>当 \\alpha > 1 时，图像在 (0, 1) 上位于 y = x 下方，在 (1, +∞) 上位于 y = x 上方；</li>
-<li>当 0 < \\alpha < 1 时，图像在 (0, 1) 上位于 y = x 上方，在 (1, +∞) 上位于 y = x 下方。</li>
+<li>都过 <strong>$(1,1)$</strong>；</li>
+<li>$\\alpha>0$：在 $(0,+\\infty)$ 递增；若 $0$ 属于定义域（如 $y=x,x^2,x^3,\\sqrt{x}$），则过原点；</li>
+<li>无理指数时定义域常取 $(0,+\\infty)$，此时<strong>不过</strong>原点；</li>
+<li>$\\alpha<0$：不过原点，递减，以两轴为渐近线；</li>
+<li>$\\alpha>1$：在 $(0,1)$ 位于 $y=x$ 下方，在 $(1,+\\infty)$ 位于 $y=x$ 上方；</li>
+<li>$0<\\alpha<1$：与上条相反。</li>
 </ul>
-<p class="label-def">【幂值比较大小的方法】</p>
+<p class="label-def">【比较大小】</p>
 <ul>
-<li><strong>同指数不同底</strong>：利用幂函数的单调性比较（在 (0, +∞) 上，\\alpha > 0 时增，\\alpha < 0 时减）；</li>
-<li><strong>同底不同指数</strong>：利用指数函数的单调性比较（需注意底数与 1 的大小关系）；</li>
-<li><strong>底数和指数都不同</strong>：引入<strong>中间量</strong>（如 0、1）或找<strong>桥梁函数</strong>进行间接比较。</li>
+<li>同指数不同底：用幂函数单调性（底为正）；</li>
+<li>同底不同指数：用指数函数单调性（先看底与 $1$ 的大小）；</li>
+<li>底、指数都不同：插入中间量（$0$、$1$ 或已知幂值）。</li>
 </ul>
 <p class="label-attention">【注意】</p>
-<ul>
-<li>幂函数与指数函数的区别：幂函数<strong>底为变量、指数为常数</strong>（y = x^\\alpha），指数函数<strong>底为常数、指数为变量</strong>（y = a^x）。</li>
-<li>比较大小前先明确自变量所在的区间，再根据单调性做出判断。</li>
-</ul>`,
+<p>幂函数是「底变指数不变」$y=x^{\\alpha}$；指数函数是「底不变指数变」$y=a^x$。</p>`,
     tags: ["幂函数图像", "比较大小", "同指数", "同底", "中间量", "图像特征", "★"]
   },
   {
-    title: "3.4 函数的应用(一)",
-    content: `<p class="label-def">【实际问题建模的一般步骤】</p>
+    title: "3.4 函数的应用（一）",
+    content: `<p class="label-def">【建模步骤】</p>
 <ol>
-<li><strong>审题</strong>：仔细阅读题目，理解题意，明确已知条件和所求问题；</li>
-<li><strong>建模</strong>：将实际问题中的变量关系用数学语言表达，建立函数模型；</li>
-<li><strong>求解</strong>：运用函数知识（单调性、最值等）求解数学模型；</li>
-<li><strong>验证</strong>：将结果还原到实际问题中检验合理性。</li>
+<li><strong>审题</strong>：分清已知、所求与实际限制；</li>
+<li><strong>建模</strong>：选定变量，写出函数关系与定义域；</li>
+<li><strong>求解</strong>：用单调性、最值等方法计算；</li>
+<li><strong>验证</strong>：把结果放回实际情境检查是否合理。</li>
 </ol>
-<p class="label-def">【常见函数模型】</p>
+<p class="label-def">【常见模型】</p>
 <ul>
-<li><strong>一次函数模型</strong>：y = kx + b（k ≠ 0），适用于均匀变化（匀速、等量增长/减少）的实际问题；</li>
-<li><strong>二次函数模型</strong>：y = ax^2 + bx + c（a ≠ 0），适用于面积最值、利润最值、抛物线运动等；</li>
-<li><strong>分段函数模型</strong>：在不同范围内用不同的解析式表示，适用于分段计费、阶梯收费等。</li>
-</ul>
-<p class="label-def">【如何选择函数模型】</p>
-<ul>
-<li>若变量间呈<strong>线性关系</strong>（均匀变化），选择一次函数模型；</li>
-<li>若变量间存在<strong>先增后减或先减后增</strong>的变化趋势，考虑二次函数模型（需关注顶点与对称轴）；</li>
-<li>若变量在不同范围内遵循<strong>不同规则</strong>，需建立分段函数模型（注意各段定义域的连续性）。</li>
+<li>一次函数 $y=kx+b$（$k\\neq 0$）：均匀变化；</li>
+<li>二次函数 $y=ax^2+bx+c$（$a\\neq 0$）：面积、利润等最值；</li>
+<li>分段函数：计费、阶梯规则等。</li>
 </ul>
 <p class="label-attention">【注意】</p>
 <ul>
-<li>实际问题中，函数定义域必须结合实际意义确定（如长度、时间、个数等一般取非负值）。</li>
-<li>二次函数求最值时，需比较顶点横坐标与定义域区间的位置关系，不能直接套用顶点公式。</li>
-<li>分段函数是一个函数，不是多个函数，处理时需注意各段之间的衔接点。</li>
+<li>定义域必须符合实际（长度、时间、件数等通常非负，件数还常取整数）。</li>
+<li>二次函数最值要看对称轴是否落在定义域内。</li>
+<li>分段函数是<strong>一个</strong>函数，衔接点要单独检查。</li>
 </ul>`,
     tags: ["函数应用", "数学模型", "一次函数", "二次函数", "分段函数", "实际问题建模", "★"]
   },
   {
-    title: "3.4 分段函数与函数模型的实际应用",
-    content: `<p class="label-def">【分段函数的定义】</p>
-<p>在定义域的不同部分，有不同的对应关系的函数叫做<strong>分段函数</strong>。</p>
-<p>例如：</p>
-<p>f(x) = \\begin{cases} x + 1, & x \\ge 0 \\\\ -x, & x < 0 \\end{cases}</p>
-<p class="label-def">【一次函数模型应用】</p>
-<p>设一次函数为 y = kx + b（k ≠ 0），解决实际问题时通常：</p>
+    title: "3.4 分段函数与函数模型",
+    content: `<p class="label-def">【分段函数】</p>
+<p>在定义域的不同部分用不同对应关系给出的函数。例如</p>
+<p>$$f(x)=\\begin{cases} x+1, & x\\ge 0 \\\\ -x, & x<0 \\end{cases}$$</p>
+<p class="label-def">【一次 / 二次模型】</p>
 <ul>
-<li>利用两组对应值确定 k, b（待定系数法）；</li>
-<li>结合单调性（k > 0 递增，k < 0 递减）求最值；</li>
-<li>注意问题的实际意义对自变量的限制。</li>
-</ul>
-<p class="label-def">【二次函数模型应用】</p>
-<p>解决利润最大、面积最大等问题时：</p>
-<ul>
-<li>建立二次函数 y = ax^2 + bx + c（a < 0 有最大值，a > 0 有最小值）；</li>
-<li>对称轴 x = -\\frac{b}{2a} 是确定最值的关键；</li>
-<li>注意定义域是否包含对称轴，若不包含，则在边界处取最值。</li>
+<li>一次：待定系数求 $k,b$；$k>0$ 递增，$k<0$ 递减；</li>
+<li>二次：对称轴 $x=-\\dfrac{b}{2a}$；$a<0$ 有最大值，$a>0$ 有最小值；轴不在定义域内则在端点取最值。</li>
 </ul>
 <p class="label-attention">【注意】</p>
-<ul>
-<li>分段函数在各段定义域的交接点处，需验证函数值是否连续，以及是否满足实际情况。</li>
-<li>实际应用问题中，不仅要考虑函数的最大（小）值，还要注意结果的<strong>实际意义</strong>（如人数取整数、时间取非负等）。</li>
-<li>对于分段函数，求最值要分别计算各段的最值，再取整体的最大（小）值。</li>
-</ul>`,
+<p>分段求最值时先各段分别求，再比较；人数、件数等要取符合题意的整数。</p>`,
     tags: ["分段函数", "一次函数模型", "二次函数模型", "实际应用", "最值问题", "待定系数法", "★"]
   }
     ],
@@ -637,29 +616,71 @@ window.__vol1 = {
       tags: ["正弦函数", "余弦函数", "正切函数", "周期性", "奇偶性", "单调性", "★"]
     },
     {
-      title: "5.5 函数 $y=A\\sin(\\omega x+\\varphi)$",
-      content: `<p class="label-def">【物理意义】</p>
+      title: "5.5 三角恒等变换",
+      content: `<p class="label-attention">【目录位置】</p>
+<p>人教A版（2019）必修第一册第 5.5 节为「三角恒等变换」。下面只列公开常用公式，不抄教材例题。</p>
+<p class="label-def">【两角和与差】</p>
+<ul>
+<li>$\\sin(\\alpha\\pm\\beta)=\\sin\\alpha\\cos\\beta\\pm\\cos\\alpha\\sin\\beta$</li>
+<li>$\\cos(\\alpha\\pm\\beta)=\\cos\\alpha\\cos\\beta\\mp\\sin\\alpha\\sin\\beta$</li>
+<li>$\\tan(\\alpha\\pm\\beta)=\\dfrac{\\tan\\alpha\\pm\\tan\\beta}{1\\mp\\tan\\alpha\\tan\\beta}$（分母 $\\neq 0$）</li>
+</ul>
+<p class="label-def">【二倍角】</p>
+<ul>
+<li>$\\sin 2\\alpha=2\\sin\\alpha\\cos\\alpha$</li>
+<li>$\\cos 2\\alpha=\\cos^2\\alpha-\\sin^2\\alpha=2\\cos^2\\alpha-1=1-2\\sin^2\\alpha$</li>
+<li>$\\tan 2\\alpha=\\dfrac{2\\tan\\alpha}{1-\\tan^2\\alpha}$（分母 $\\neq 0$）</li>
+</ul>
+<p class="label-def">【辅助角（化一）】</p>
+<p>$a\\sin x+b\\cos x=\\sqrt{a^2+b^2}\\sin(x+\\varphi)$，其中 $\\cos\\varphi=\\dfrac{a}{\\sqrt{a^2+b^2}}$，$\\sin\\varphi=\\dfrac{b}{\\sqrt{a^2+b^2}}$（$a,b$ 不同时为 $0$）。</p>
+<p class="label-attention">【注意】</p>
+<ul>
+<li>和差公式可由单位圆或向量数量积推出；倍角令 $\\beta=\\alpha$ 即得。</li>
+<li>积化和差、和差化积<strong>不是</strong>本册必记公式，需要时由和差公式临时推导即可。</li>
+</ul>`,
+      tags: ["三角恒等变换", "和角公式", "差角公式", "二倍角", "辅助角", "★"]
+    },
+    {
+      title: "5.6 函数 $y=A\\sin(\\omega x+\\varphi)$",
+      content: `<p class="label-def">【参数含义】</p>
 <table class="mini-table">
 <tr><th>参数</th><th>名称</th><th>含义</th><th>关系</th></tr>
-<tr><td>$A$</td><td>振幅</td><td>物体离开平衡位置的最大距离</td><td>—</td></tr>
-<tr><td>$\\omega$</td><td>角频率</td><td>单位时间内转过的角度</td><td>$\\omega = \\dfrac{2\\pi}{T}$</td></tr>
-<tr><td>$T$</td><td>周期</td><td>完成一次全振动所需时间</td><td>$T = \\dfrac{2\\pi}{|\\omega|}$</td></tr>
-<tr><td>$f$</td><td>频率</td><td>单位时间内完成全振动的次数</td><td>$f = \\dfrac{1}{T}$</td></tr>
+<tr><td>$A$</td><td>振幅</td><td>$|A|$ 为偏离平衡位置的最大距离</td><td>—</td></tr>
+<tr><td>$\\omega$</td><td>角频率</td><td>自变量每增加 $1$，相位增加 $\\omega$</td><td>$\\omega = \\dfrac{2\\pi}{T}$（常取 $\\omega>0$）</td></tr>
+<tr><td>$T$</td><td>周期</td><td>完成一次循环所需的自变量增量</td><td>$T = \\dfrac{2\\pi}{|\\omega|}$</td></tr>
+<tr><td>$f$</td><td>频率</td><td>单位自变量内的循环次数</td><td>$f = \\dfrac{1}{T}$</td></tr>
 <tr><td>$\\varphi$</td><td>初相</td><td>$x=0$ 时的相位</td><td>—</td></tr>
-<tr><td>$\\omega x+\\varphi$</td><td>相位</td><td>描述振动状态的量</td><td>—</td></tr>
+<tr><td>$\\omega x+\\varphi$</td><td>相位</td><td>决定当前处于周期中的位置</td><td>—</td></tr>
 </table>
-<p class="label-def">【图像的变换】</p>
-<p>由 $y=\\sin x$ 到 $y=A\\sin(\\omega x+\\varphi)$：</p>
+<p class="label-def">【图像变换】（以下默认 $\\omega>0$，$\\varphi>0$，$A>0$）</p>
 <ul>
-<li><strong>先平移后伸缩：</strong>$\\sin x \\xrightarrow{\\text{左移}\\varphi} \\sin(x+\\varphi) \\xrightarrow{\\text{横缩}\\frac{1}{\\omega}} \\sin(\\omega x+\\varphi) \\xrightarrow{\\text{纵伸}A} A\\sin(\\omega x+\\varphi)$</li>
-<li><strong>先伸缩后平移：</strong>$\\sin x \\xrightarrow{\\text{横缩}\\frac{1}{\\omega}} \\sin(\\omega x) \\xrightarrow{\\text{左移}\\frac{\\varphi}{\\omega}} \\sin(\\omega x+\\varphi) \\xrightarrow{\\text{纵伸}A} A\\sin(\\omega x+\\varphi)$</li>
+<li><strong>先平移后伸缩：</strong>$\\sin x \\xrightarrow{\\text{左移}\\varphi} \\sin(x+\\varphi) \\xrightarrow{\\text{横坐标变为}\\frac{1}{\\omega}} \\sin(\\omega x+\\varphi) \\xrightarrow{\\text{纵伸}A} A\\sin(\\omega x+\\varphi)$</li>
+<li><strong>先伸缩后平移：</strong>$\\sin x \\xrightarrow{\\text{横坐标变为}\\frac{1}{\\omega}} \\sin(\\omega x) \\xrightarrow{\\text{左移}\\frac{\\varphi}{\\omega}} \\sin(\\omega x+\\varphi) \\xrightarrow{\\text{纵伸}A} A\\sin(\\omega x+\\varphi)$</li>
 </ul>
 <p class="label-attention">【注意】</p>
 <ul>
-<li>求 $\\varphi$ 常用"五点法"——找出图像上对应五个关键点中的某一个点代入。</li>
-<li>平移变换中，"左加右减"作用于 $x$ 本身（即 $x$ 加/减某个数），而非 $\\omega x$。</li>
+<li>「左加右减」作用在 $x$ 上：$\\sin(\\omega x+\\varphi)=\\sin\\omega\\!\\left(x+\\dfrac{\\varphi}{\\omega}\\right)$，平移量是 $\\varphi/\\omega$ 而不是 $\\varphi$。</li>
+<li>$\\varphi<0$ 时改为向右平移 $|\\varphi|/\\omega$。</li>
+<li>五点法：令 $\\omega x+\\varphi$ 依次取 $0,\\dfrac{\\pi}{2},\\pi,\\dfrac{3\\pi}{2},2\\pi$。</li>
 </ul>`,
       tags: ["y=Asin(ωx+φ)", "振幅", "周期", "相位", "图像变换", "五点法", "★"]
+    },
+    {
+      title: "5.7 三角函数的应用",
+      content: `<p class="label-def">【课标要点】</p>
+<p>用正弦型函数刻画周期现象，并会求周期、最值、对称轴等。</p>
+<p class="label-def">【建模套路】</p>
+<ol>
+<li>确认现象可近似看成周期变化（简谐运动、交变电流、潮汐、温度日变化等）；</li>
+<li>设 $y=A\\sin(\\omega x+\\varphi)+b$，由振幅、周期、初相、平衡位置定参数；</li>
+<li>按实际意义限制 $x$ 的范围，再求指定时刻的值或最值。</li>
+</ol>
+<p class="label-attention">【注意】</p>
+<ul>
+<li>$A$、$\\omega$、$\\varphi$、$b$ 都要带单位意识：例如 $x$ 是时间则 $T$ 的单位与 $x$ 一致。</li>
+<li>本册应用停留在「识别模型 + 读图求参」，不把物理定律本身当作数学新课。</li>
+</ul>`,
+      tags: ["三角函数应用", "周期现象", "正弦型函数", "建模", "★"]
     }
   ],
 };
