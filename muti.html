@@ -1,0 +1,824 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>母题地图 · 母题卷｜数学／物理／化学（高一 · 高二）</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js" crossorigin="anonymous"
+ onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'$',right:'$',display:false}],throwOnError:false});"></script>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:"Noto Serif SC","Source Han Serif SC",serif;min-height:100vh;
+ background:linear-gradient(135deg,#0f0c29,#302b63,#24243e);color:#e0e0e0;padding:20px}
+.container{max-width:1000px;margin:0 auto}
+.header{text-align:center;padding:26px 0 16px}
+.header h1{font-size:1.7rem;font-weight:900;background:linear-gradient(90deg,#f7971e,#ffd200);
+ -webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:6px}
+.header .sub{font-size:0.85rem;color:rgba(255,255,255,0.42);margin-bottom:14px}
+.backlink{display:inline-block;font-size:0.8rem;color:rgba(255,255,255,0.5);text-decoration:none;
+ border:1px solid rgba(255,255,255,0.12);border-radius:16px;padding:4px 14px;margin-bottom:12px}
+.backlink:hover{color:#ffd200;border-color:rgba(255,210,0,0.4)}
+.nav-tabs{display:flex;flex-wrap:wrap;gap:5px;justify-content:center;margin-bottom:14px}
+.nav-tab{padding:5px 14px;border-radius:18px;cursor:pointer;font-size:0.82rem;
+ background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.07);
+ color:rgba(255,255,255,0.5);transition:all .2s;white-space:nowrap}
+.nav-tab:hover{background:rgba(255,255,255,0.1);color:#e0e0e0}
+.nav-tab.active{background:linear-gradient(135deg,rgba(247,151,30,0.25),rgba(255,210,0,0.18));
+ border-color:rgba(255,210,0,0.35);color:#ffd200;font-weight:500}
+.pane{display:none}.pane.on{display:block}
+.paper{background:rgba(255,255,255,0.06);backdrop-filter:blur(16px);border:1px solid rgba(255,255,255,0.08);
+ border-radius:14px;padding:16px 20px;margin-bottom:14px;line-height:1.85;font-size:0.93rem}
+.paper h1{font-size:1.15rem;color:#ffd200;border-bottom:1px solid rgba(255,255,255,0.1);padding-bottom:6px;margin-bottom:8px}
+.paper h2{font-size:1rem;color:#ffd200;margin:16px 0 8px}
+.paper h3{font-size:0.95rem;margin:12px 0 6px}
+.paper p{margin:7px 0;color:rgba(255,255,255,0.84)}
+.paper blockquote{border-left:3px solid rgba(255,210,0,0.35);margin:7px 0;padding:2px 12px;
+ color:rgba(255,255,255,0.62);background:rgba(255,255,255,0.03);border-radius:0 8px 8px 0}
+.paper ul{margin:7px 0 7px 4px;padding-left:18px;color:rgba(255,255,255,0.84)}
+.paper hr{border:0;border-top:1px dashed rgba(255,255,255,0.12);margin:16px 0}
+.opt{margin:2px 0 2px 16px;color:rgba(255,255,255,0.62)}
+details.ans{background:rgba(255,210,0,0.06);border:1px dashed rgba(255,210,0,0.28);border-radius:14px;
+ padding:10px 16px;margin-bottom:14px}
+details.ans>summary{cursor:pointer;font-weight:700;color:#ffd200}
+details.ans[open] .paper{background:transparent;border:0;padding:6px 0 0}
+@media print{body{background:#fff;color:#111}.nav-tabs{display:none}.pane{display:block!important}
+ .paper{background:#fff;border-color:#ddd;color:#111}.paper p,.paper li{color:#111}}
+</style>
+</head>
+<body>
+<div class="container">
+<div class="header">
+  <a class="backlink" href="index.html">← 回知识卡片站</a>
+  <h1>母题地图 · 母题卷</h1>
+  <div class="sub">数学／物理／化学 · 高一–高二 · 一模型一题 · 答案默认折叠</div>
+  <div class="nav-tabs"><button class="nav-tab active" data-t="m1">数学 · 母题地图</button><button class="nav-tab" data-t="m2">数学 · 母题卷</button><button class="nav-tab" data-t="p1">物理 · 母题地图</button><button class="nav-tab" data-t="p2">物理 · 母题卷</button><button class="nav-tab" data-t="c1">化学 · 母题地图</button><button class="nav-tab" data-t="c2">化学 · 母题卷</button></div>
+</div>
+<section id="m1" class="pane on"><div class="paper"><h1>数学母题地图 · 高一 → 高二（人教A版）</h1>
+<blockquote>
+<p>什么叫“母题”：<strong>一个模型 = 一类题的公共骨架</strong>。母题会了，同族的变式都能推。</p>
+<p>用法：先看“题眼”能不能一眼认出来，再看“通法”是不是闭着眼能走完。认不出眼，就得回去补这一节。</p>
+<p>代表题号取自公开整理的高考真题库（新课标 I 卷为主）。</p>
+</blockquote>
+<h2>高一上</h2>
+<ul>
+<li><strong>集合运算（不等式做背景）</strong>｜题眼：先解不等式→画数轴→取交并补｜代表题：gk003</li>
+<li><strong>充分必要条件</strong>｜题眼：小范围⇒大范围；把条件化成集合包含｜代表题：gk006</li>
+<li><strong>一元二次/分式不等式</strong>｜题眼：因式分解定根；分式化整时注意分母≠0｜代表题：gk055</li>
+<li><strong>基本不等式求最值</strong>｜题眼：一正、二定、三相等；凑“1”代换 / 配凑｜代表题：gk063</li>
+<li><strong>指对数比大小</strong>｜题眼：借 0、1 当中间量；同底用单调性｜代表题：gk058</li>
+<li><strong>函数性质综合（奇偶+周期）</strong>｜题眼：先转成已知区间，再用奇偶/周期｜代表题：gk225</li>
+<li><strong>三角恒等变换求值</strong>｜题眼：和差角、二倍角；弦切互化｜代表题：gk107</li>
+<li><strong>y=Asin(ωx+φ) 的图象与性质</strong>｜题眼：周期/对称轴/对称中心/单调区间四件套｜代表题：gk096</li>
+<li><strong>图象交点与零点个数</strong>｜题眼：画简图数交点，别硬解方程｜代表题：gk104</li>
+<li><strong>解三角形</strong>｜题眼：正、余弦定理＋面积；边角互化｜代表题：gk109</li>
+</ul>
+<h2>高一下</h2>
+<ul>
+<li><strong>向量基底分解</strong>｜题眼：选一组基底，把目标向量线性表示｜代表题：gk031</li>
+<li><strong>向量数量积（模/垂直/夹角）</strong>｜题眼：定义式或坐标式；见模先平方｜代表题：gk044</li>
+<li><strong>复数运算与共轭、模</strong>｜题眼：分母实数化；z·z̄=|z|²｜代表题：gk023</li>
+<li><strong>空间几何体表面积与体积</strong>｜题眼：割补、展开图、等体积转换｜代表题：gk149</li>
+<li><strong>位置关系判定（线面/面面）</strong>｜题眼：判定定理与性质定理的条件逐条对｜代表题：gk152</li>
+<li><strong>统计量（中位数/方差/标准差）</strong>｜题眼：整体加减常数：均值变、方差不变｜代表题：gk215</li>
+<li><strong>古典概型</strong>｜题眼：列举所有等可能基本事件，数比值｜代表题：gk212</li>
+</ul>
+<h2>高二</h2>
+<ul>
+<li><strong>等差/等比数列基本量</strong>｜题眼：a₁、d、q、Sₙ 之间互推｜代表题：gk123</li>
+<li><strong>Sₙ 与 aₙ 互化</strong>｜题眼：n≥2 时 aₙ=Sₙ−Sₙ₋₁，n=1 单独验｜代表题：gk132</li>
+<li><strong>数列求和（裂项/错位相减）</strong>｜题眼：看通项形状定方法｜代表题：gk132</li>
+<li><strong>圆锥曲线性质与离心率</strong>｜题眼：定义＋几何关系（通径、焦半径）｜代表题：gk184</li>
+<li><strong>直线与圆（切线、弦长）</strong>｜题眼：比圆心到直线的距离 d 与半径 r｜代表题：gk186</li>
+<li><strong>导数与切线方程</strong>｜题眼：“在点”用 f(x₀)；“过点”设切点｜代表题：gk233</li>
+<li><strong>导数研究单调性与极值</strong>｜题眼：求导→定号→列表→下结论｜代表题：gk241</li>
+<li><strong>导数恒成立求参数</strong>｜题眼：分离参数→转化为求最值｜代表题：gk237</li>
+<li><strong>二项式展开求系数</strong>｜题眼：通项 T(k+1)=C(n,k)·aⁿ⁻ᵏ·bᵏ｜代表题：gk082</li>
+<li><strong>分布列与数学期望</strong>｜题眼：先判分布类型（二项/超几何/一般）｜代表题：gk208</li>
+<li><strong>独立性检验</strong>｜题眼：列联表＋χ² 与临界值比｜代表题：gk200</li>
+</ul>
+<hr>
+<h2>三句话总结</h2>
+<p>1. <strong>高一上</strong>练“式与函数”：一切先化成集合、函数、三角式；</p>
+<p>2. <strong>高一下</strong>练“形与数”：向量、复数、立体、统计概率——重在图与量的互译；</p>
+<p>3. <strong>高二</strong>练“关系与最优”：数列的递推、曲线的位置关系、导数的单调与最值——重在对含参的分类讨论。</p></div></section><section id="m2" class="pane"><div class="paper"><h1>数学母题卷 · 高一 → 高二（一模型一题）</h1>
+<blockquote>
+<p>共 27 题，每题对应<strong>一个母题模型</strong>；建议 90 分钟，做完对着“母题地图”标出没认出来的模型。</p>
+</blockquote>
+<blockquote>
+<p>题目来源：公开整理的高考数学真题（新课标 I 卷为主），仅供自用练习。</p>
+</blockquote>
+<h2>题目</h2>
+<p><strong>1.（集合运算（不等式做背景））</strong> 已知集合 $M=\{-2, -1, 0, 1, 2\}$，$N = \{x | x^2 - x - 6 \ge 0\}$，则 $M \cap N = (\quad)$</p>
+<div class="opt">A. $\{-2, -1, 0, 1\}$</div>
+<div class="opt">B. $\{0, 1, 2\}$</div>
+<div class="opt">C. $\{-2\}$</div>
+<div class="opt">D. $\{2\}$</div>
+<p><strong>2.（充分必要条件）</strong> 已知 $a \in \mathbf{R}$，若集合 $M=\{1, a\}$，$N=\{-1, 0, 1\}$，则“$a=0$”是“$M \subseteq N$”的 (\quad)</p>
+<div class="opt">A. 充分不必要条件</div>
+<div class="opt">B. 必要不充分条件</div>
+<div class="opt">C. 充要条件</div>
+<div class="opt">D. 既不充分也不必要条件</div>
+<p><strong>3.（一元二次/分式不等式）</strong> 设 $x \in \mathbf{R}$，使不等式 $3x^2 + x - 2 &lt; 0$ 成立的 $x$ 的取值范围为_______。</p>
+<p><strong>4.（基本不等式求最值）</strong> 下列函数中最小值为 4 的是 （ ）</p>
+<div class="opt">A. $y=x^2+2x+4$</div>
+<div class="opt">B. $y=|\sin x| + \frac{4}{|\sin x|}$</div>
+<div class="opt">C. $y=2^x + 2^{2-x}$</div>
+<div class="opt">D. $y=\ln x + \frac{4}{\ln x}$</div>
+<p><strong>5.（指对数比大小）</strong> 设 $a=\log_{0.2}0.3$，$b=\log_2 0.3$，则</p>
+<div class="opt">A. $a+b&lt;ab&lt;0$</div>
+<div class="opt">B. $ab&lt;a+b&lt;0$</div>
+<div class="opt">C. $a+b&lt;0&lt;ab$</div>
+<div class="opt">D. $ab&lt;0&lt;a+b$</div>
+<p><strong>6.（函数性质综合（奇偶+周期））</strong> 设 $f(x)$ 是定义在 $\mathbf{R}$ 上且周期为 $2$ 的偶函数，当 $2\leqslant x\leqslant 3$ 时，$f(x)=5-2x$，则 $f(-\dfrac{3}{4})=$</p>
+<div class="opt">A. $-\dfrac{1}{2}$</div>
+<div class="opt">B. $-\dfrac{1}{4}$</div>
+<div class="opt">C. $\dfrac{1}{4}$</div>
+<div class="opt">D. $\dfrac{1}{2}$</div>
+<p><strong>7.（三角恒等变换求值）</strong> 已知 $\sin(\alpha - \beta) = \frac{1}{3}, \cos\alpha\sin\beta = \frac{1}{6}$，则 $\cos(2\alpha + 2\beta) = $（　　）</p>
+<div class="opt">A. $\frac{7}{9}$</div>
+<div class="opt">B. $\frac{1}{9}$</div>
+<div class="opt">C. $-\frac{1}{9}$</div>
+<div class="opt">D. $-\frac{7}{9}$</div>
+<p><strong>8.（y=Asin(ωx+φ) 的图象与性质）</strong> 若点 $(a,0)$ ($a&gt;0$) 是函数 $y=2\tan(x-\dfrac{\pi}{3})$ 的图象的一个对称中心，则 $a$ 的最小值为</p>
+<div class="opt">A. $\dfrac{\pi}{6}$</div>
+<div class="opt">B. $\dfrac{\pi}{3}$</div>
+<div class="opt">C. $\dfrac{\pi}{2}$</div>
+<div class="opt">D. $\dfrac{4\pi}{3}$</div>
+<p><strong>9.（图象交点与零点个数）</strong> 当 $x \in [0, 2\pi]$ 时，曲线 $y=\sin x$ 与 $y=2\sin\left(3x-\frac{\pi}{6}\right)$ 的交点个数为（　　）</p>
+<div class="opt">A. 3</div>
+<div class="opt">B. 4</div>
+<div class="opt">C. 6</div>
+<div class="opt">D. 8</div>
+<p><strong>10.（解三角形）</strong> 已知在△ABC中，$A + B = 3C$，$2\sin(A - C) = \sin B$。 (1)求$\sin A$； (2)设$AB = 5$，求$AB$边上的高。</p>
+<p><strong>11.（向量基底分解）</strong> 在 $\triangle ABC$ 中，点 $D$ 在边 $AB$ 上，$BD = 2DA$．记 $\overrightarrow{CA} = \vec{m}$，$\overrightarrow{CD} = \vec{n}$，则 $\overrightarrow{CB} = $ (  )</p>
+<div class="opt">A. $3\vec{m}-2\vec{n}$</div>
+<div class="opt">B. $-2\vec{m}+3\vec{n}$</div>
+<div class="opt">C. $3\vec{m}+2\vec{n}$</div>
+<div class="opt">D. $2\vec{m}+3\vec{n}$</div>
+<p><strong>12.（向量数量积（模/垂直/夹角））</strong> 已知向量 $\vec{a}$ 与 $\vec{b}$ 的夹角为 $60^\circ$，$|\vec{a}|=2$，$|\vec{b}|=1$，则 $|\vec{a}+2\vec{b}|=$ _____.</p>
+<p><strong>13.（复数运算与共轭、模）</strong> 设复数 $z_1, z_2$ 满足 $|z_1|=|z_2|=2$，$z_1+z_2=\sqrt{3}+\text{i}$，则 $|z_1-z_2|=$________．</p>
+<p><strong>14.（空间几何体表面积与体积）</strong> 已知圆锥的底面半径为 $\sqrt{2}$, 其侧面展开图为一个半圆, 则该圆锥的母线长为 ( )</p>
+<div class="opt">A. $2$</div>
+<div class="opt">B. $2\sqrt{2}$</div>
+<div class="opt">C. $4$</div>
+<div class="opt">D. $4\sqrt{2}$</div>
+<p><strong>15.（位置关系判定（线面/面面））</strong> 设 $\alpha, \beta$ 为两个平面，则 $\alpha \parallel \beta$ 的充要条件是（   ）</p>
+<div class="opt">A. $\alpha$ 内有无数条直线与 $\beta$ 平行</div>
+<div class="opt">B. $\alpha$ 内有两条相交直线与 $\beta$ 平行</div>
+<div class="opt">C. $\alpha, \beta$ 平行于同一条直线</div>
+<div class="opt">D. $\alpha, \beta$ 垂直于同一平面</div>
+<p><strong>16.（统计量（中位数/方差/标准差））</strong> 有一组样本数据 $x_1, x_2, \cdots, x_n$，由这组数据得到新样本数据 $y_1, y_2, \cdots, y_n$，其中 $y_i=x_i+c\ (i=1,2,\cdots,n)$，$c$ 为非零常数，则（ ）</p>
+<div class="opt">A. 两组样本数据的样本平均数相同</div>
+<div class="opt">B. 两组样本数据的样本中位数相同</div>
+<div class="opt">C. 两组样本数据的样本标准差相同</div>
+<div class="opt">D. 两组样本数据的样本极差相同</div>
+<p><strong>17.（古典概型）</strong> 从 2 至 8 的 7 个整数中随机取 2 个不同的数，则这 2 个数互质的概率为（　　）</p>
+<div class="opt">A. $\frac{1}{6}$</div>
+<div class="opt">B. $\frac{1}{3}$</div>
+<div class="opt">C. $\frac{1}{2}$</div>
+<div class="opt">D. $\frac{2}{3}$</div>
+<p><strong>18.（等差/等比数列基本量）</strong> 记 $S_n$ 为等差数列 $\{a_n\}$ 的前 $n$ 项和，若 $S_3 = 6, S_5 = -5$，则 $S_6 =$（ ）</p>
+<div class="opt">A. $-20$</div>
+<div class="opt">B. $-15$</div>
+<div class="opt">C. $-10$</div>
+<div class="opt">D. $-5$</div>
+<p><strong>19.（Sₙ 与 aₙ 互化）</strong> 记 $S_n$ 为数列 $\{a_n\}$ 的前 $n$ 项和，已知 $a_1=1, \left\{\frac{S_n}{a_n}\right\}$ 是公差为 $\frac{1}{3}$ 的等差数列．</p>
+<p>(1)求 $\{a_n\}$ 的通项公式；</p>
+<p>(2)证明：$\frac{1}{a_1} + \frac{1}{a_2} + \dots + \frac{1}{a_n} &lt; 2$．</p>
+<p><strong>20.（圆锥曲线性质与离心率）</strong> 已知双曲线 $C:\frac{x^2}{a^2}-\frac{y^2}{b^2}=1(a&gt;0,b&gt;0)$ 的左右焦点分别为 $F_1, F_2$，过 $F_2$ 作平行于 $y$ 轴的直线交 $C$ 于 $A, B$ 两点，若 $|F_1A|=13, |AB|=10$，则 $C$ 的离心率为_________．</p>
+<p><strong>21.（直线与圆（切线、弦长））</strong> 过点 $(0,-2)$ 与圆 $x^2+y^2-4x-1=0$ 相切的两条切线的夹角为 $\alpha$，则 $\sin\alpha = $（ ）</p>
+<div class="opt">A. $1$</div>
+<div class="opt">B. $\frac{\sqrt{15}}{4}$</div>
+<div class="opt">C. $\frac{\sqrt{10}}{4}$</div>
+<div class="opt">D. $\frac{\sqrt{6}}{4}$</div>
+<p><strong>22.（导数与切线方程）</strong> 若直线 $y = 2x + 5$ 是曲线 $y = \text{e}^x + x + a$ 的切线，则 $a =$ _______.</p>
+<p><strong>23.（导数研究单调性与极值）</strong> (多选) 已知函数 $f(x)=x^3-x+1$，则（    ）</p>
+<div class="opt">A．$f(x)$ 有两个极值点</div>
+<div class="opt">B．$f(x)$ 有三个零点</div>
+<div class="opt">C．点 $(0,1)$ 是曲线 $y=f(x)$ 的对称中心</div>
+<div class="opt">D．直线 $y=2x$ 是曲线 $y=f(x)$ 的切线</div>
+<p><strong>24.（导数恒成立求参数）</strong> 已知函数 $f(x)=\ln\dfrac{x}{2-x}+ax+b(x-1)^3$。</p>
+<p>(1)若 $b=0$，且 $f'(x)\ge 0$，求 $a$ 的最小值；</p>
+<p>(2)证明：曲线 $y=f(x)$ 是中心对称图形。</p>
+<p><strong>25.（二项式展开求系数）</strong> 在二项式 $(2x-1)^5$ 的展开式中，$x^3$ 的系数为 $\text{\underline{\quad\quad\quad\quad}}$.</p>
+<p><strong>26.（分布列与数学期望）</strong> 一个箱子里有 5 个球，分别以 1~5 标号，若有放回抽取三次，记至少取出一次的球的个数 $X$，则 $E(X) =$ _______.</p>
+<p><strong>27.（独立性检验）</strong> （13分） 为研究某疾病与超声波检查结果的关系，从做过超声波检查的人群中随机调查了 1000 人，得到如下的列联表： | | 正常 | 不正常 | 合计 | | :--- | :--- | :--- | :--- | | <strong>患该疾病</strong> | 20 | 180 | 200 | | <strong>未患该疾病</strong> | 780 | 20 | 800 | | <strong>合计</strong> | 800 | 200 | 1000 | （1）记超声波检查结果不正常者患有该疾病的概率为 $p$，求 $p$ 的估计值； （2）根据小概率值 $\alpha = 0.001$ 的独立性检验，分析超声波检查结果是否与患该疾病有关. 附：$\chi^2 = \frac{n(ad-bc)^2}{(a+b)(c+d)(a+c)(b+d)}$ | $P(\chi^2 \geqslant k)$ | 0.050 | 0.010 | 0.001 | | :--- | :--- | :--- | :--- | | $k$ | 3.841 | 6.635 | 10.828 |</p>
+<hr></div><details class="ans"><summary>展开：参考答案与解析</summary><div class="paper"><p><strong>1. C</strong>（集合运算（不等式做背景）｜2023）</p>
+<blockquote>
+<p>【思路】 先解不等式求出集合 $N$，再与有限集 $M$ 求交集。 【解答】 由 $x^2-x-6 \ge 0$ 得 $(x-3)(x+2) \ge 0$，所以 $N=(-\infty,-2] \cup [3,+\infty)$。 又 $M=\{-2,-1,0,1,2\}$，故 $M \cap N = \{-2\}$。故选C。</p>
+</blockquote>
+<p><strong>2. A</strong>（充分必要条件｜2020）</p>
+<blockquote>
+<p>【思路】 判断充分性和必要性：先看 $a=0$ 是否能推出 $M \subseteq N$，再看 $M \subseteq N$ 时 $a$ 是否只能为 $0$。 【解答】 当 $a=0$ 时，$M=\{1,0\}$，$N=\{-1,0,1\}$，显然 $M \subseteq N$，充分性成立。 若 $M \subseteq N$，则 $a \in N$，且 $a \neq 1$，所以 $a=0$ 或 $a=-1$，必要性不成立。 因此“$a=0$”是“$M \subseteq N$”的充分不必要条件。故选A。</p>
+</blockquote>
+<p><strong>3. (-1, \frac{2}{3})</strong>（一元二次/分式不等式｜2019）</p>
+<blockquote>
+<p>【思路】 将二次三项式因式分解，利用一元二次不等式的解法求范围。 【解答】 由 $3x^2+x-2&lt;0$ 得 $(x+1)(3x-2)&lt;0$，解得 $-1&lt;x&lt;\frac{2}{3}$，所以 $x$ 的取值范围是 $(-1,\frac{2}{3})$。故填 $(-1,\frac{2}{3})$。</p>
+</blockquote>
+<p><strong>4. C</strong>（基本不等式求最值｜2021）</p>
+<blockquote>
+<p>【思路】 分别利用二次函数、基本不等式和对数函数性质判断各选项的最小值，注意基本不等式取等条件及变量的取值范围。 【解答】 对于 A，$y=x^2+2x+4=(x+1)^2+3\ge 3$，当 $x=-1$ 时取等号，最小值为 3，不符合。 对于 B，令 $t=|\sin x|$，则 $t\in(0,1]$，$y=t+\frac{4}{t}$。由对勾函数性质，$y$ 在 $(0,1]$ 上单调递减，故 $t=1$ 时取最小值 $5$，不符合。 对于 C，$y=2^x+2^{2-x}=2^x+\frac{4}{2^x}\ge 2\sqrt{2^x\cdot\frac{4}{2^x}}=4$，当且仅当 $2^x=\frac{4}{2^x}$，即 $x=1$ 时取等号，最小值为 4，符合。 对于 D，当 $\ln x&lt;0$ 时，$y=\ln x+\frac{4}{\ln x}&lt;0$，最小值小于 4，不符合。 故选 C。</p>
+</blockquote>
+<p><strong>5. B</strong>（指对数比大小｜2018）</p>
+<blockquote>
+<p>【思路】 利用换底公式将 $\frac1a$ 和 $\frac1b$ 化为同底对数，判断 $\frac{a+b}{ab}$ 的范围，再结合 $a,b$ 的符号确定大小关系。 【解答】 由换底公式， \[ \frac1a=\log_{0.3}0.2,\quad \frac1b=\log_{0.3}2, \] 所以 \[ \frac1a+\frac1b=\log_{0.3}0.2+\log_{0.3}2=\log_{0.3}0.4. \] 因为 $0&lt;0.3&lt;1$，$0&lt;0.4&lt;1$，所以 $\log_{0.3}0.4&gt;0$；又 $0.4&lt;1$，底数 $0.3&lt;1$，故 $\log_{0.3}0.4&lt;\log_{0.3}0.3=1$。因此 \[ 0&lt;\frac1a+\frac1b&lt;1,\quad 即\ 0&lt;\frac{a+b}{ab}&lt;1. \] 又 $a=\log_{0.2}0.3&gt;0$，$b=\log_2 0.3&lt;0$，所以 $ab&lt;0$。由 $\frac{a+b}{ab}&gt;0$ 且 $ab&lt;0$，得 $a+b&lt;0$，从而 $ab&lt;a+b&lt;0$。 故选 B。</p>
+</blockquote>
+<p><strong>6. A</strong>（函数性质综合（奇偶+周期）｜2025）</p>
+<blockquote>
+<p>【思路】 利用偶函数和周期为 2 的性质，将 $f(-\frac{3}{4})$ 转化为已知区间 $[2,3]$ 上的函数值。 【解答】 因为 $f$ 是偶函数，所以 $f(-\frac{3}{4})=f(\frac{3}{4})$。又周期为 2，所以 $f(\frac{3}{4})=f(\frac{3}{4}+2)=f(\frac{11}{4})$。由于 $2\le \frac{11}{4}\le 3$，故 $f(\frac{11}{4})=5-2\times\frac{11}{4}=5-\frac{11}{2}=-\frac{1}{2}$。故选 A。</p>
+</blockquote>
+<p><strong>7. B</strong>（三角恒等变换求值｜2023）</p>
+<blockquote>
+<p>【思路】 由已知差角正弦公式可先求出 $\sin\alpha\cos\beta$，进而得到 $\sin(\alpha+\beta)$，再利用二倍角公式求 $\cos(2\alpha+2\beta)$。 【解答】 由 $\sin(\alpha-\beta)=\sin\alpha\cos\beta-\cos\alpha\sin\beta=\frac13$，且 $\cos\alpha\sin\beta=\frac16$，得 $\sin\alpha\cos\beta=\frac13+\frac16=\frac12$。于是 $\sin(\alpha+\beta)=\sin\alpha\cos\beta+\cos\alpha\sin\beta=\frac12+\frac16=\frac23$。所以 $\cos(2\alpha+2\beta)=\cos[2(\alpha+\beta)]=1-2\sin^2(\alpha+\beta)=1-2\times\left(\frac23\right)^2=1-\frac89=\frac19$。故选B。</p>
+</blockquote>
+<p><strong>8. B</strong>（y=Asin(ωx+φ) 的图象与性质｜2025）</p>
+<blockquote>
+<p>【思路】 正切函数的对称中心满足 $x-\frac{\pi}{3}=\frac{k\pi}{2}$，解出 $a$ 后取最小正值。 【解答】 由题意，$a-\frac{\pi}{3}=\frac{k\pi}{2}$（$k\in\mathbb{Z}$），所以 $a=\frac{\pi}{3}+\frac{k\pi}{2}$。因为 $a&gt;0$，当 $k=0$ 时取得最小值 $\frac{\pi}{3}$。故选 B。</p>
+</blockquote>
+<p><strong>9. C</strong>（图象交点与零点个数｜2024）</p>
+<blockquote>
+<p>【思路】 两函数均为周期函数，可通过分析每个周期内交点的个数来计数。 【解答】 $y=\sin x$ 的周期为 $2\pi$，$y=2\sin(3x-\frac{\pi}{6})$ 的周期为 $\frac{2\pi}{3}$。在 $[0,2\pi]$ 上，后者有 3 个完整周期。在同一坐标系中画出两函数图像，观察每个 $\frac{2\pi}{3}$ 周期内，两曲线均有 2 个交点，共 $3\times 2=6$ 个交点。故选 C。</p>
+</blockquote>
+<p><strong>10. (1) $\dfrac{3\sqrt{10}}{10}$ (2) $6$</strong>（解三角形｜2023）</p>
+<blockquote>
+<p>【思路】 （1）由 $A+B=3C$ 结合内角和求 $C$，再用 $B=\pi-(A+C)$ 将条件化为关于 $A$ 的三角方程，解出 $\sin A$。（2）用正弦定理求边，再用面积或边角关系求 $AB$ 边上的高。 【解答】 （1）由 $A+B=3C$ 及 $A+B+C=\pi$，得 $4C=\pi$，故 $C=\frac{\pi}{4}$。又 $B=\pi-(A+C)$，所以 $\sin B=\sin(A+C)$。条件 $2\sin(A-C)=\sin B$ 化为 $2\sin(A-C)=\sin(A+C)$。展开得 $2(\sin A\cos C-\cos A\sin C)=\sin A\cos C+\cos A\sin C$，整理得 $\sin A\cos C=3\cos A\sin C$。因 $\cos C=\frac{\sqrt2}{2}\ne 0$，且 $A$ 为三角形内角，$\cos A\ne 0$，两边除以 $\cos A\cos C$ 得 $\tan A=3$。由 $\sin^2 A+\cos^2 A=1$ 及 $\tan A=3$，得 $\sin A=\frac{3}{\sqrt{10}}=\frac{3\sqrt{10}}{10}$。 （2）由正弦定理，$\frac{AB}{\sin C}=\frac{5}{\sin\frac{\pi}{4}}=5\sqrt2$。由 $B=\pi-(A+C)=\frac{3\pi}{4}-A$，得 $\sin B=\sin(\frac{3\pi}{4}-A)=\frac{\sqrt2}{2}(\cos A+\sin A)$。由（1）$\sin A=\frac{3\sqrt{10}}{10}$，$\cos A=\frac{\sqrt{10}}{10}$，故 $\sin B=\frac{\sqrt2}{2}\cdot\frac{4\sqrt{10}}{10}=\frac{2\sqrt5}{5}$。于是 $AC=\frac{AB}{\sin C}\cdot\sin B=5\sqrt2\cdot\frac{2\sqrt</p>
+</blockquote>
+<p><strong>11. B</strong>（向量基底分解｜2022）</p>
+<blockquote>
+<p>【思路】 由 $BD=2DA$ 得 $\overrightarrow{BD}=2\overrightarrow{DA}$，用起点 $C$ 的向量表示，解出 $\overrightarrow{CB}$。 【解答】 因为 $\overrightarrow{BD}=2\overrightarrow{DA}$，所以 $\overrightarrow{CD}-\overrightarrow{CB}=2(\overrightarrow{CA}-\overrightarrow{CD})$，即 $\vec{n}-\overrightarrow{CB}=2(\vec{m}-\vec{n})$，整理得 $\overrightarrow{CB}=3\vec{n}-2\vec{m}=-2\vec{m}+3\vec{n}$。故选B。</p>
+</blockquote>
+<p><strong>12. $2\sqrt{3}$</strong>（向量数量积（模/垂直/夹角）｜2017）</p>
+<blockquote>
+<p>【思路】 利用向量模的平方等于向量的平方，将 $|\vec{a}+2\vec{b}|$ 转化为数量积运算，先求 $\vec{a}\cdot\vec{b}$，再开方。 【解答】 由题意，$\vec{a}\cdot\vec{b}=|\vec{a}||\vec{b}|\cos60^\circ=2\times1\times\frac12=1$。 则 \[ |\vec{a}+2\vec{b}|^2=(\vec{a}+2\vec{b})^2=|\vec{a}|^2+4\vec{a}\cdot\vec{b}+4|\vec{b}|^2=4+4+4=12, \] 所以 $|\vec{a}+2\vec{b}|=\sqrt{12}=2\sqrt{3}$。 故填 $2\sqrt{3}$。</p>
+</blockquote>
+<p><strong>13. $2\sqrt{3}$</strong>（复数运算与共轭、模｜2020）</p>
+<blockquote>
+<p>【思路】 利用复数模的恒等式 $|z_1+z_2|^2+|z_1-z_2|^2=2(|z_1|^2+|z_2|^2)$，由已知条件直接求出 $|z_1-z_2|$。 【解答】 由 $|z_1|=|z_2|=2$，得 $|z_1|^2=|z_2|^2=4$。又 $z_1+z_2=\sqrt{3}+\text{i}$，所以 $|z_1+z_2|^2=(\sqrt{3})^2+1^2=4$。 根据恒等式 $|z_1+z_2|^2+|z_1-z_2|^2=2(|z_1|^2+|z_2|^2)$，代入得 $4+|z_1-z_2|^2=2(4+4)=16$，故 $|z_1-z_2|^2=12$，所以 $|z_1-z_2|=2\sqrt{3}$。 故填 $2\sqrt{3}$。</p>
+</blockquote>
+<p><strong>14. B</strong>（空间几何体表面积与体积｜2021）</p>
+<blockquote>
+<p>【思路】 圆锥侧面展开图是半圆，其弧长等于圆锥底面圆的周长，由此建立方程求母线长。 【解答】 设圆锥的母线长为 $l$。侧面展开图是半圆，弧长为 $\pi l$；圆锥底面圆的周长为 $2\pi \times \sqrt{2}$。由弧长等于底面周长，得 $\pi l = 2\pi \sqrt{2}$，解得 $l = 2\sqrt{2}$。故选B。</p>
+</blockquote>
+<p><strong>15. B</strong>（位置关系判定（线面/面面）｜2019）</p>
+<blockquote>
+<p>【思路】 根据面面平行的判定定理和性质定理，逐一判断各选项是否为充要条件。 【解答】 A 中无数条直线若互相平行，则两平面可能相交，故不是充分条件；B 中由面面平行的判定定理，$\alpha$ 内两条相交直线平行于 $\beta$ 可推出 $\alpha\parallel\beta$，反之由面面平行的性质也成立，故 B 正确；C 中平行于同一条直线的两个平面可能相交；D 中垂直于同一平面的两个平面可能相交也可能平行。 故选 B。</p>
+</blockquote>
+<p><strong>16. CD</strong>（统计量（中位数/方差/标准差）｜2021）</p>
+<blockquote>
+<p>【思路】 利用数据平移的性质：平均数和中位数都加c，标准差和极差不变。 【解答】 因为 $y_i=x_i+c$，所以新数据的平均数 $\overline{y}=\overline{x}+c$，中位数也为原中位数加c，故A、B错误。 标准差反映数据离散程度，平移不改变离散程度，故 $s_y=s_x$，C正确。 极差为最大值减最小值，$y_{\max}-y_{\min}=(x_{\max}+c)-(x_{\min}+c)=x_{\max}-x_{\min}$，故D正确。 故选CD。</p>
+</blockquote>
+<p><strong>17. D</strong>（古典概型｜2022）</p>
+<blockquote>
+<p>【思路】 从7个数中任取2个的总数为 $C_7^2$。互质数对不易直接数，可先数不互质的数对，再用总数减去。 【解答】 从2至8的7个整数中任取2个不同的数，共有 $C_7^2=21$ 种取法。 不互质的数对有：$(2,4),(2,6),(2,8),(3,6),(4,6),(4,8),(6,8)$，共7种。 所以互质的数对有 $21-7=14$ 种，所求概率 $P=\frac{14}{21}=\frac{2}{3}$。 故选 D。</p>
+</blockquote>
+<p><strong>18. B</strong>（等差/等比数列基本量｜2025）</p>
+<blockquote>
+<p>【思路】 设等差数列首项为a₁，公差为d，由S₃和S₅列出方程组求出a₁和d，再求S₆。 【解答】 设公差为d，则S₃=3a₁+3d=6，即a₁+d=2；S₅=5a₁+10d=-5，即a₁+2d=-1。解得a₁=5，d=-3。所以S₆=6a₁+15d=30-45=-15。故选B。</p>
+</blockquote>
+<p>**19. (1) $a_n = \frac{n(n+1)}{2}$</p>
+<p>(2)证明见解析**（Sₙ 与 aₙ 互化｜2022）</p>
+<blockquote>
+<p>【思路】 由 $\left\{\frac{S_n}{a_n}\right\}$ 是等差数列先求出 $\frac{S_n}{a_n}$ 的表达式，再用 $a_n=S_n-S_{n-1}$ 建立递推关系，累乘求通项；第二问裂项相消证明不等式。 【解答】 (1) 因为 $a_1=1$，所以 $\frac{S_1}{a_1}=1$。又 $\left\{\frac{S_n}{a_n}\right\}$ 是公差为 $\frac13$ 的等差数列，故 $$\frac{S_n}{a_n}=1+(n-1)\cdot\frac13=\frac{n+2}{3},$$ 即 $S_n=\frac{n+2}{3}a_n$。 当 $n\ge2$ 时，$a_n=S_n-S_{n-1}=\frac{n+2}{3}a_n-\frac{n+1}{3}a_{n-1}$，整理得 $\frac{a_n}{a_{n-1}}=\frac{n+1}{n-1}$。 累乘得 $$a_n=a_1\cdot\frac{a_2}{a_1}\cdot\frac{a_3}{a_2}\cdots\frac{a_n}{a_{n-1}}=1\cdot\frac31\cdot\frac42\cdots\frac{n+1}{n-1}=\frac{n(n+1)}2.$$ 当 $n=1$ 时，$a_1=1$ 也满足上式，所以 $a_n=\frac{n(n+1)}2$。 (2) 由 (1) 得 $\frac{1}{a_n}=\frac{2}{n(n+1)}=2\left(\frac1n-\frac1{n+1}\right)$，所以 $$\frac{1}{a_1}+\frac{1}{a_2}+\cdots+\frac{1}{a_n}=2\left(1-\frac12+\frac12-\frac13+\cdots+\frac1n-\frac1{n+1}\right)=2\left(1-\frac1{n+1}\right)&lt;2.$$ 故不等式成立。</p>
+</blockquote>
+<p><strong>20. \frac{3}{2}</strong>（圆锥曲线性质与离心率｜2024）</p>
+<blockquote>
+<p>【思路】 由过 $F_2$ 且平行于 $y$ 轴的直线与双曲线交于 $A,B$，可求 $|AF_2|$，结合双曲线定义和直角三角形求 $a,c$。 【解答】 设 $A$ 在第一象限，直线 $x=c$ 与双曲线交于 $A\left(c,\frac{b^2}{a}\right)$，$B\left(c,-\frac{b^2}{a}\right)$，故 $|AB|=\frac{2b^2}{a}=10$，$|AF_2|=\frac{b^2}{a}=5$。由双曲线定义，$|AF_1|-|AF_2|=2a$，即 $13-5=2a$，得 $a=4$。在 $Rt\triangle AF_1F_2$ 中，$|F_1F_2|=\sqrt{|AF_1|^2-|AF_2|^2}=\sqrt{13^2-5^2}=12$，所以 $c=6$。故 $e=\frac{c}{a}=\frac{6}{4}=\frac{3}{2}$。故填 $\frac{3}{2}$。</p>
+</blockquote>
+<p><strong>21. B</strong>（直线与圆（切线、弦长）｜2023）</p>
+<blockquote>
+<p>【思路】 将圆化为标准方程，利用切线性质构造直角三角形，求出切线夹角的半角三角函数，再用二倍角公式求夹角正弦。注意两条切线的夹角取锐角。 【解答】 圆 $x^2+y^2-4x-1=0$ 化为 $(x-2)^2+y^2=5$，圆心 $C(2,0)$，半径 $r=\sqrt5$。 设点 $P(0,-2)$，切点为 A，B。则 $|PC|=\sqrt{2^2+(-2)^2}=2\sqrt2$，$PA\perp CA$，故 $|PA|=\sqrt{|PC|^2-r^2}=\sqrt{8-5}=\sqrt3$。 在直角三角形 $PAC$ 中，$\sin\angle APC=\frac{CA}{PC}=\frac{\sqrt5}{2\sqrt2}=\frac{\sqrt{10}}4$，$\cos\angle APC=\frac{PA}{PC}=\frac{\sqrt3}{2\sqrt2}=\frac{\sqrt6}4$。 两条切线的夹角 $\angle APB=2\angle APC$，但 $\cos\angle APB=\cos2\angle APC=\cos^2\angle APC-\sin^2\angle APC=\frac68-\frac{10}{16}=-\frac14&lt;0$，故 $\angle APB$ 为钝角，而两条切线的夹角 $\alpha$ 取锐角，所以 $\alpha=\pi-\angle APB$。 因此 $\sin\alpha=\sin\angle APB=\sin2\angle APC=2\sin\angle APC\cos\angle APC=2\times\frac{\sqrt{10}}4\times\frac{\sqrt6}4=\frac{\sqrt{15}}4$。故选 B。</p>
+</blockquote>
+<p><strong>22. 4</strong>（导数与切线方程｜2025）</p>
+<blockquote>
+<p>【思路】 设切点坐标，利用切线斜率等于曲线在该点的导数值，以及切点同时在曲线和切线上，建立方程组求 $a$。 【解答】 设切点为 $(x_0, \mathrm{e}^{x_0}+x_0+a)$。曲线 $y=\mathrm{e}^x+x+a$ 的导数为 $y'=\mathrm{e}^x+1$，切线斜率 $k=\mathrm{e}^{x_0}+1$。已知切线 $y=2x+5$ 的斜率为 $2$，故 $\mathrm{e}^{x_0}+1=2$，得 $\mathrm{e}^{x_0}=1$，$x_0=0$。切点坐标为 $(0,1+a)$，代入切线方程 $y=2x+5$ 得 $1+a=5$，所以 $a=4$。故填 $4$。</p>
+</blockquote>
+<p><strong>23. AC</strong>（导数研究单调性与极值｜2022）</p>
+<blockquote>
+<p>【思路】 利用导数判断极值点和零点个数，利用函数平移判断对称中心，利用导数几何意义判断切线。 【解答】 $f'(x)=3x^2-1$，令 $f'(x)=0$ 得 $x=\pm\frac{\sqrt3}{3}$，且 $f'(x)$ 在两侧变号，故 $f(x)$ 有两个极值点，A 正确。 极大值 $f\left(-\frac{\sqrt3}{3}\right)=\frac{2\sqrt3}{9}+1&gt;0$，极小值 $f\left(\frac{\sqrt3}{3}\right)=-\frac{2\sqrt3}{9}+1&gt;0$，且 $x\to-\infty$ 时 $f(x)\to-\infty$，$x\to+\infty$ 时 $f(x)\to+\infty$，故 $f(x)$ 只有一个零点，B 错误。 令 $g(x)=x^3-x$，则 $g(x)$ 是奇函数，其图像关于原点对称；$f(x)=g(x)+1$ 的图像由 $g(x)$ 向上平移 1 个单位得到，故 $f(x)$ 的图像关于点 $(0,1)$ 对称，C 正确。 若直线 $y=2x$ 与曲线相切，设切点横坐标为 $x_0$，则 $f'(x_0)=3x_0^2-1=2$，得 $x_0=\pm1$。当 $x_0=1$ 时，$f(1)=1$，切线为 $y-1=2(x-1)$，即 $y=2x-1$，不是 $y=2x$；当 $x_0=-1$ 时，$f(-1)=1$，切线为 $y-1=2(x+1)$，即 $y=2x+3$，也不是 $y=2x$。故 D 错误。 故选 AC。</p>
+</blockquote>
+<p>**24. (1) $a$ 的最小值为 $-2$</p>
+<p>(2) 见解析**（导数恒成立求参数｜2024）</p>
+<blockquote>
+<p>【思路】 （1）先求定义域，将$f'(x)\ge 0$恒成立转化为$a\ge -\frac{2}{x(2-x)}$恒成立，利用基本不等式求最值；（2）证明$f(x)+f(2-x)$为常数，从而得到对称中心。 【解答】 （1）当$b=0$时，$f(x)=\ln\frac{x}{2-x}+ax$，定义域为$(0,2)$。 $f'(x)=\frac{2-x}{x}\cdot\frac{2}{(2-x)^2}+a=\frac{2}{x(2-x)}+a$。 若$f'(x)\ge 0$恒成立，则$a\ge -\frac{2}{x(2-x)}$对任意$x\in(0,2)$恒成立。 由$x(2-x)\le (\frac{x+2-x}{2})^2=1$，当且仅当$x=1$时取等号，得$\frac{2}{x(2-x)}\ge 2$，所以$-\frac{2}{x(2-x)}\le -2$。 因此$a\ge -2$，故$a$的最小值为$-2$。 （2）$f(x)$的定义域为$(0,2)$，关于$x=1$对称。 $f(x)+f(2-x)=\ln\frac{x}{2-x}+ax+b(x-1)^3+\ln\frac{2-x}{x}+a(2-x)+b(1-x)^3$。 因为$\ln\frac{x}{2-x}+\ln\frac{2-x}{x}=0$，$(x-1)^3+(1-x)^3=0$，所以$f(x)+f(2-x)=2a$。 故曲线$y=f(x)$关于点$(1,a)$中心对称，即曲线$y=f(x)$是中心对称图形。</p>
+</blockquote>
+<p><strong>25. $80$</strong>（二项式展开求系数｜2025）</p>
+<blockquote>
+<p>【思路】 利用二项展开式的通项公式，找出含 $x^3$ 的项并计算系数。 【解答】 $(2x-1)^5$ 的通项为 $T_{r+1}=C_5^r(2x)^{5-r}(-1)^r$。令 $5-r=3$，得 $r=2$，此时系数为 $C_5^2\cdot2^3\cdot(-1)^2=10\times8=80$。故填 $80$。</p>
+</blockquote>
+<p><strong>26. $\frac{61}{2</strong>（分布列与数学期望｜2025）</p>
+<blockquote>
+<p>【思路】 有放回抽取三次，每次取到某个特定球的概率为 $\frac{1}{5}$。$X$ 表示至少取出一次的球的个数，即被抽到的不同标号数。利用期望的线性性质，对每个球引入指示变量。 【解答】 设 $I_i$ 表示第 $i$ 号球在三次抽取中至少出现一次，则 $X=\sum_{i=1}^{5} I_i$。每次抽取抽到第 $i$ 号球的概率为 $\frac{1}{5}$，三次都没抽到的概率为 $\left(\frac{4}{5}\right)^3$，所以 $P(I_i=1)=1-\left(\frac{4}{5}\right)^3=1-\frac{64}{125}=\frac{61}{125}$。因此 $E(I_i)=\frac{61}{125}$，$E(X)=\sum_{i=1}^{5}E(I_i)=5\times\frac{61}{125}=\frac{61}{25}$。故填 $\frac{61}{25}$。</p>
+</blockquote>
+<p><strong>27. (1)90%；(2)可以</strong>（独立性检验｜2025）</p>
+<blockquote>
+<p>【思路】 （1）根据条件概率定义，用不正常者中患病的人数除以不正常者总人数；（2）代入卡方公式计算并与临界值比较。 【解答】 （1）超声波检查结果不正常者共200人，其中患该疾病的有180人，所以p的估计值为180/200=0.9=90%。（2）由列联表，a=20，b=180，c=780，d=20，n=1000，χ²=1000×(20×20-180×780)²/[(200)(800)(800)(200)]=1000×(400-140400)²/(200×800×800×200)=1000×140000²/25600000000=1000×19600000000/25600000000=765.625。因为765.625&gt;10.828，所以根据小概率值α=0.001的独立性检验，认为超声波检查结果与患该疾病有关。</p>
+</blockquote></div></details></section><section id="p1" class="pane"><div class="paper"><h1>物理母题地图 · 高一 → 高二（人教 / 粤教版 新课标）</h1>
+<blockquote>
+<p>什么叫"母题"：<strong>一个模型 = 一类题的公共骨架</strong>。母题会了，同族的变式都能推。</p>
+<p>用法：先看"题眼"能不能一眼认出来，再看"通法"是不是闭着眼能走完。认不出眼，就得回去补这一节。</p>
+<p>全卷统一取 g = 10 m/s²（天体类另注）。</p>
+</blockquote>
+<h2>高一上</h2>
+<ul>
+<li><strong>运动学图象与匀变速直线运动</strong>｜题眼：v-t 图"面积 = 位移、斜率 = 加速度"；刹车、上滑类先算"停下来的时刻"｜通法：先判运动性质，再从 v=v₀+at、x=v₀t+½at²、v²−v₀²=2ax 里挑"缺量最少"的一式；若给定时间超过停止时刻，位移只算到停下为止。</li>
+<li><strong>追及相遇</strong>｜题眼："同向"找速度相等（间距取最值）、"会不会相撞"看临界时刻的间距正负｜通法：令两物体速度相等求出时刻 t*，分别算位移，用"初始间距 + 后车位移 − 前车位移"得间距；间距 ≥ 0 则不相撞。</li>
+<li><strong>受力分析与连接体（整体法 / 隔离法）</strong>｜题眼：多个物体加速度相同 → 用整体；求系统内部作用力（绳/杆张力、相互压力）→ 用隔离｜通法：先整体求 a=F合/m总，再把目标物体隔离出来列牛顿第二定律，待求内力即为它所受的合力/某个力。</li>
+<li><strong>斜面与传送带</strong>｜题眼：比较物块速度与传送带（或斜面）速度定摩擦力方向；"共速"是分段的分界点｜通法：判相对滑动方向 → 定摩擦力大小方向 → 分段列牛二 + 运动学；注意共速后摩擦可能反向甚至随带一起匀速。</li>
+<li><strong>牛顿第二定律的瞬时性</strong>｜题眼："剪断 / 撤去 / 突然"瞬间：绳、杆、接触面弹力可以突变，弹簧、橡皮条的弹力不能突变｜通法：先分析变化前各力（把弹簧力定下来）→ 变化瞬间保留弹簧力、去掉绳或接触力 → 对每个物体单独求合力，a=F合/m。</li>
+<li><strong>超重与失重</strong>｜题眼：只认加速度方向——a 向上（含"向下减速"）超重，a 向下（含"向上减速"）失重，a=g 完全失重｜通法：对物体列 N−mg=ma（向上为正），体重计/支持力示数就是 N；别把"上升"当成一定超重。</li>
+</ul>
+<h2>高一下</h2>
+<ul>
+<li><strong>平抛运动</strong>｜题眼：水平匀速 + 竖直自由落体，两方向独立、时间只由高度决定｜通法：由 h 求 t=√(2h/g) → 水平 x=v₀t → 落地速度用矢量合成 v=√(v₀²+v_y²)、方向 tanθ=v_y/v₀。</li>
+<li><strong>圆周运动与临界</strong>｜题眼：绳（或内侧轨道、水流星）过最高点 v_min=√(gR)；杆（或管道）v 可小到 0；转盘上靠静摩擦提供向心力，临界为 μmg=mv²/R｜通法：在最高点 / 最低点 / 最外侧列向心力方程 F合=mv²/R，把"临界"翻译成某个力恰好为零或取最大值。</li>
+<li><strong>万有引力与天体运动</strong>｜题眼：GM=gR²（黄金代换）；绕行者一律"万有引力提供向心力"｜通法：先写 GMm/r²=mv²/r=mω²r=m(4π²/T²)r，挑含未知量的那一式；没有环绕体时用 GM=gR² 把 GM 换掉。</li>
+<li><strong>功和能 · 动能定理</strong>｜题眼：不涉及时间、只关心"开始与结束"状态 → 用动能定理 W合=ΔEk｜通法：逐个力算功（注意正负）→ 求和得 W合 → ½mv₂²−½mv₁²=W合，反求速度或位移。</li>
+<li><strong>机械能守恒</strong>｜题眼：只有重力（或弹力）做功，或其它力做功之和为零｜通法：选零势能面 → 列 Ek1+Ep1=Ek2+Ep2；自由落体、光滑斜面下滑、光滑圆弧是典型场景。</li>
+<li><strong>动量与碰撞（一维）</strong>｜题眼：看到"碰撞""爆炸""反冲"就想动量守恒；"弹性"再叠加动能守恒｜通法：取正方向 → m₁v₁=m₁v₁′+m₂v₂′；弹性碰撞用 v₁′=(m₁−m₂)/(m₁+m₂)·v₁、v₂′=2m₁/(m₁+m₂)·v₁；完全非弹性则碰后共速。</li>
+<li><strong>人船模型</strong>｜题眼："人动船退"、系统初动量为零、不计阻力｜通法：由 m人·x人 = M船·x船 与位移关系 x人 ± x船 = L 联立，求各自位移（方向相反）。</li>
+</ul>
+<h2>高二</h2>
+<ul>
+<li><strong>电场 · 库仑定律与场强</strong>｜题眼："两个（点）电荷""静电力"→ 库仑定律；"匀强电场"→ E=U/d；"场强叠加"→ 矢量合成｜通法：F=kq₁q₂/r²（同号斥、异号吸）；点电荷场强 E=kQ/r²；匀强电场 E=U/d。</li>
+<li><strong>电势能与电容</strong>｜题眼：平行板电容器 C=Q/U、C=εS/(4πkd)、E=U/d；"断开电源"Q 不变、"始终接电源"U 不变｜通法：先判断 Q 或 U 哪个量不变，再用 C=Q/U 与 E=U/d 联推。</li>
+<li><strong>闭合电路欧姆定律</strong>｜题眼：题目给了电源内阻 r，或要你求"路端电压 / 输出功率"｜通法：I=E/(R+r) → U=IR=E−Ir → P出=UI=I²R；注意输出功率最大时 R=r。</li>
+<li><strong>电表改装与伏安法</strong>｜题眼：给了表头 Ig、Rg；"改装成电压表"串、"改装成电流表"并｜通法：电压表串联 R=U/Ig−Rg；电流表并联 R′=IgRg/(I−Ig)；测电阻时大电阻用内接、小电阻用外接（看谁的分流/分压可忽略）。</li>
+<li><strong>磁场 · 安培力与洛伦兹力</strong>｜题眼：通电导线在磁场中（F=BIL）、运动电荷在磁场中（F=qvB）｜通法：先确认 B 与 I（或 v）是否垂直，垂直才用 F=BIL、F=qvB；方向用左手定则。</li>
+<li><strong>带电粒子在磁场中的圆周运动</strong>｜题眼：v⊥B、不计重力 → 匀速圆周，洛伦兹力提供向心力｜通法：qvB=mv²/r → r=mv/(qB)，T=2πm/(qB)（周期与 v、r 无关）。</li>
+<li><strong>电磁感应 · 楞次定律与动生电动势</strong>｜题眼："导体棒切割磁感线""磁通量变化"；判电流方向用楞次（增反减同、来拒去留）｜通法：E=BLv（v、B、L 两两垂直）或 E=nΔΦ/Δt；闭合回路 I=E/R；安培力方向总阻碍相对运动。</li>
+<li><strong>交变电流与变压器</strong>｜题眼：理想变压器 U₁/U₂=n₁/n₂、I₁/I₂=n₂/n₁、P₁=P₂｜通法：先由匝数比求副线圈电压 → 由负载求 I₂ → 再用功率守恒求 I₁。</li>
+<li><strong>机械波与波的图象</strong>｜题眼：v=λf=λ/T；"沿传播方向，后一质点总落后前一质点"｜通法：由 v、λ、T、f 中任意两个求其余；结合图象读振幅、由传播方向判质点振动方向（反之亦然）。</li>
+</ul>
+<hr>
+<h2>三句话总结</h2>
+<p>1. <strong>高一上</strong>练"力与加速度"：把受力分析做干净，再用牛顿第二定律联系运动——重点在"过程分段"与"临界时刻"；</p>
+<p>2. <strong>高一下</strong>练"两个守恒"：能量（动能定理、机械能守恒）和动量（碰撞、人船），先想守恒、再列式；</p>
+<p>3. <strong>高二</strong>练"场与路"：从均匀场的受力，到磁场中的圆周，再到电磁感应与交变电流——重点在"判断方向 + 抓住不变的量"。</p></div></section><section id="p2" class="pane"><div class="paper"><h1>物理母题卷 · 高一 → 高二（一模型一题）</h1>
+<blockquote>
+<p>共 22 题，每题对应<strong>一个母题模型</strong>；满分 100 分，建议用时 90 分钟。计算题统一取 g = 10 m/s²。</p>
+<p>题目为自拟的标准教材 / 高考常规题型，供自用练习。</p>
+</blockquote>
+<h2>题目</h2>
+<p><strong>1.（运动学图象与匀变速直线运动，4分）</strong> 汽车以 10 m/s 的速度在平直公路上匀速行驶，因故紧急刹车，刹车后做匀减速运动，加速度大小为 2 m/s²。则汽车从开始刹车起 6 s 内通过的位移为（　）</p>
+<div class="opt">A. 20 m</div>
+<div class="opt">B. 24 m</div>
+<div class="opt">C. 25 m</div>
+<div class="opt">D. 30 m</div>
+<p><strong>2.（追及相遇，6分）</strong> 在平直公路上，一辆汽车以 12 m/s 的速度匀速行驶，司机突然发现前方 x₀ = 20 m 处有一辆以 4 m/s 匀速同向行驶的拖拉机，立即以 a = 2 m/s² 的加速度匀减速刹车。求：</p>
+<div class="opt">(1) 汽车与拖拉机之间的最小距离；</div>
+<div class="opt">(2) 两车是否会相撞。</div>
+<p><strong>3.（受力分析与连接体（整体法 / 隔离法），4分）</strong> 光滑水平面上放着质量 m₁ = 1 kg 和 m₂ = 2 kg 的两个物块，用轻绳相连。现用 F = 6 N 的水平恒力拉 m₁，使两物块一起加速运动。则连接两物块的轻绳中的张力为（　）</p>
+<div class="opt">A. 2 N</div>
+<div class="opt">B. 3 N</div>
+<div class="opt">C. 4 N</div>
+<div class="opt">D. 6 N</div>
+<p><strong>4.（斜面与传送带，6分）</strong> 水平传送带以 v = 2 m/s 的速度向右匀速运行。现将一质量 m = 1 kg 的小物块以 v₀ = 4 m/s 的水平向右初速度滑上传送带左端，物块与传送带间的动摩擦因数 μ = 0.2。求物块从滑上传送带到与传送带速度相同：</p>
+<div class="opt">(1) 经过的时间；</div>
+<div class="opt">(2) 物块对地移动的距离；</div>
+<div class="opt">(3) 该过程物块与传送带间因摩擦产生的热量。</div>
+<p><strong>5.（牛顿第二定律的瞬时性，4分）</strong> 天花板下用细绳悬挂小球 A，A 与小球 B 之间用竖直轻弹簧相连，两球质量均为 m，系统静止。某时刻剪断 A 上方的细绳，则剪断瞬间 A、B 两球的加速度大小分别为（　）</p>
+<div class="opt">A. a_A = g，a_B = g</div>
+<div class="opt">B. a_A = 2g，a_B = 0</div>
+<div class="opt">C. a_A = g，a_B = 0</div>
+<div class="opt">D. a_A = 2g，a_B = 2g</div>
+<p><strong>6.（超重与失重，4分）</strong> 质量 m = 50 kg 的人站在电梯内的体重计上。当电梯以 a = 2 m/s² 的加速度匀加速上升时，体重计的示数为（　）</p>
+<div class="opt">A. 400 N</div>
+<div class="opt">B. 500 N</div>
+<div class="opt">C. 600 N</div>
+<div class="opt">D. 1000 N</div>
+<p><strong>7.（平抛运动，6分）</strong> 从离地高 h = 20 m 的平台上，以水平速度 v₀ = 10 m/s 抛出一小球，不计空气阻力。求：</p>
+<div class="opt">(1) 小球在空中运动的时间；</div>
+<div class="opt">(2) 落地点与抛出点的水平距离；</div>
+<div class="opt">(3) 小球落地时速度的大小。</div>
+<p><strong>8.（圆周运动与临界，4分）</strong> 一根长为 R = 0.4 m 的轻绳一端固定，另一端系一小球，使小球在竖直平面内做圆周运动。则小球通过最高点时的最小速度为（　）</p>
+<div class="opt">A. 1 m/s</div>
+<div class="opt">B. 2 m/s</div>
+<div class="opt">C. 3 m/s</div>
+<div class="opt">D. 4 m/s</div>
+<p><strong>9.（万有引力与天体运动，6分）</strong> 一颗人造地球卫星绕地球做匀速圆周运动，其轨道半径 r = 4R（R 为地球半径）。已知地球半径 R = 6.4×10⁶ m，地球表面的重力加速度 g = 10 m/s²，忽略地球自转。求：</p>
+<div class="opt">(1) 卫星运动的线速度大小；</div>
+<div class="opt">(2) 卫星运行的周期（结果可保留 π）。</div>
+<p><strong>10.（功和能 · 动能定理，6分）</strong> 质量 m = 2 kg 的物体在粗糙水平面上由静止开始，在水平恒力 F = 10 N 作用下沿直线移动了 s = 4 m，物体与水平面间的动摩擦因数 μ = 0.3。求：</p>
+<div class="opt">(1) 这一过程中合外力对物体做的功；</div>
+<div class="opt">(2) 物体移动 4 m 时的速度大小。</div>
+<p><strong>11.（机械能守恒，4分）</strong> 质量为 m = 1 kg 的小球从离地高 h = 5 m 处由静止自由下落，不计空气阻力。求小球落地时的速度大小。（要求用机械能守恒定律求解）</p>
+<p><strong>12.（动量与碰撞（一维），6分）</strong> 光滑水平面上，质量 m₁ = 2 kg 的小球以 v₀ = 6 m/s 的速度与静止的质量 m₂ = 4 kg 的小球发生一维弹性正碰。求碰后两球速度的大小和方向。</p>
+<p><strong>13.（人船模型，4分）</strong> 质量为 M = 180 kg 的小船静止在静水中，质量为 m = 60 kg 的人从船头走到船尾，船身长 L = 4 m。不计水的阻力。求此过程中船移动的距离。</p>
+<p><strong>14.（电场 · 库仑定律，4分）</strong> 真空中，两个点电荷相距 r = 0.3 m，电荷量分别为 q₁ = +4×10⁻⁸ C 和 q₂ = −9×10⁻⁸ C，静电力常量 k = 9×10⁹ N·m²/C²。求它们之间静电力的大小，并说明是引力还是斥力。</p>
+<p><strong>15.（电势能与电容，4分）</strong> 一平行板电容器的电容 C = 2 μF，两板间距离 d = 2 mm，将其接在电压 U = 100 V 的直流电源上并保持连接。求：</p>
+<div class="opt">(1) 电容器极板所带电荷量；</div>
+<div class="opt">(2) 两板间的电场强度大小。</div>
+<p><strong>16.（闭合电路欧姆定律，4分）</strong> 电源电动势 E = 6 V，内阻 r = 1 Ω，外接一个阻值 R = 5 Ω 的电阻。求：</p>
+<div class="opt">(1) 电路中的电流；</div>
+<div class="opt">(2) 路端电压；</div>
+<div class="opt">(3) 电源的输出功率。</div>
+<p><strong>17.（电表改装与伏安法，4分）</strong> 某电流计的内阻 Rg = 50 Ω，满偏电流 Ig = 2 mA。</p>
+<div class="opt">(1) 若要把它改装成量程为 3 V 的电压表，应串联一个多大的电阻？</div>
+<div class="opt">(2) 现用一只合适的电流表和一只电压表测量阻值约为 5 Ω 的电阻 Rx，电流表应采用"内接"还是"外接"？简述理由。</div>
+<p><strong>18.（磁场 · 安培力与洛伦兹力，4分）</strong> 一根长 L = 0.5 m 的直导线垂直放入匀强磁场中，导线中通有 I = 2 A 的电流，导线受到的安培力 F = 0.4 N。</p>
+<div class="opt">(1) 求磁感应强度 B 的大小；</div>
+<div class="opt">(2) 若一个电子以 v = 1×10⁶ m/s 垂直射入该磁场，求电子受到的洛伦兹力大小（取 e = 1.6×10⁻¹⁹ C，不计重力）。</div>
+<p><strong>19.（带电粒子在磁场中的圆周运动，4分）</strong> 一个质量 m = 8×10⁻²⁶ kg、电荷量 q = 1.6×10⁻¹⁹ C 的带电粒子，以速度 v = 1×10⁵ m/s 垂直射入磁感应强度 B = 0.5 T 的匀强磁场（不计重力）。求：</p>
+<div class="opt">(1) 粒子做圆周运动的轨道半径；</div>
+<div class="opt">(2) 粒子运动的周期。</div>
+<p><strong>20.（电磁感应 · 动生电动势，4分）</strong> 在磁感应强度 B = 0.5 T 的匀强磁场中，一根长 L = 0.4 m 的导体棒以 v = 5 m/s 的速度沿垂直于棒、且垂直于磁场的方向匀速运动。</p>
+<div class="opt">(1) 求导体棒中产生的感应电动势；</div>
+<div class="opt">(2) 若导体棒与一阻值 R = 2 Ω 的外电路组成闭合回路（不计其它电阻），求回路中的感应电流大小。</div>
+<p><strong>21.（交变电流与变压器，4分）</strong> 一台理想变压器，原线圈匝数 n₁ = 1000 匝，接在有效值为 U₁ = 220 V 的交流电源上，副线圈匝数 n₂ = 200 匝。副线圈外接一个阻值 R = 44 Ω 的电阻。求：</p>
+<div class="opt">(1) 副线圈输出电压 U₂；</div>
+<div class="opt">(2) 原线圈中的电流 I₁。</div>
+<p><strong>22.（机械波与波的图象，4分）</strong> 一列简谐横波沿 x 轴正方向传播，波速 v = 2 m/s，波长 λ = 0.4 m。求：</p>
+<div class="opt">(1) 这列波的周期；</div>
+<div class="opt">(2) 这列波的频率。</div>
+<hr></div><details class="ans"><summary>展开：参考答案与解析</summary><div class="paper"><p><strong>1. C</strong>（运动学图象与匀变速直线运动）</p>
+<blockquote>
+<p>【思路】 先判断减速停下所需时间，确认 6 s 内是否已停止。</p>
+<p>【解答】 由 v₀ = at 得停下所需时间 t₀ = v₀/a = 10/2 = 5 s &lt; 6 s，故 5 s 时车已停。位移只算到停下：x = v₀²/(2a) = 10²/(2×2) = 25 m。故选 C。</p>
+</blockquote>
+<p><strong>2.</strong>（追及相遇）</p>
+<blockquote>
+<p>【思路】 两车速度相等时相距最近；再比较最小间距与 0 的大小判断是否相撞。</p>
+<p>【解答】 (1) 汽车减速到与拖拉机同速（4 m/s）时两者距离最小，用时 t = (12−4)/2 = 4 s。</p>
+<p>此过程汽车位移 x₁ = v₀t − ½at² = 12×4 − ½×2×4² = 48 − 16 = 32 m。</p>
+<p>拖拉机位移 x₂ = v₁t = 4×4 = 16 m。</p>
+<p>最小距离 d = x₀ + x₂ − x₁ = 20 + 16 − 32 = 4 m。</p>
+<p>(2) 因最小距离 4 m &gt; 0，故两车不会相撞。</p>
+</blockquote>
+<p><strong>3. C</strong>（受力分析与连接体）</p>
+<blockquote>
+<p>【思路】 先用整体法求加速度，再隔离受拉力之外的那个物块求绳张力。</p>
+<p>【解答】 系统 a = F/(m₁+m₂) = 6/(1+2) = 2 m/s²。</p>
+<p>隔离 m₂：绳张力 T 提供其加速度，T = m₂a = 2×2 = 4 N。故选 C。</p>
+</blockquote>
+<p><strong>4.</strong>（斜面与传送带）</p>
+<blockquote>
+<p>【思路】 物块速度大于带速，相对带向右滑，摩擦力向左、大小 μmg，物块减速；到共速后与带一起匀速。</p>
+<p>【解答】 f = μmg = 0.2×1×10 = 2 N，a = f/m = 2 m/s²（减速）。</p>
+<p>(1) 减速到 2 m/s：t = (v₀−v)/a = (4−2)/2 = 1 s。</p>
+<p>(2) 物块位移 x = (v₀+v)/2 · t = (4+2)/2 × 1 = 3 m。</p>
+<p>(3) 传送带位移 x带 = vt = 2×1 = 2 m，相对位移 Δs = x − x带 = 1 m。</p>
+<p>摩擦生热 Q = f·Δs = 2×1 = 2 J。</p>
+</blockquote>
+<p><strong>5. B</strong>（牛顿第二定律的瞬时性）</p>
+<blockquote>
+<p>【思路】 剪断瞬间弹簧形变量来不及改变，弹力不变；绳的拉力突变为零。</p>
+<p>【解答】 剪断前，弹簧对 B 的拉力（向上）等于 B 的重力 mg，故弹簧对 A 的拉力（向下）也为 mg。</p>
+<p>剪断瞬间弹簧力不变：B 受弹力 mg（向上）与重力 mg（向下）平衡，a_B = 0；</p>
+<p>A 受重力 mg 与弹簧拉力 mg，均向下，合力 2mg，a_A = 2mg/m = 2g。故选 B。</p>
+</blockquote>
+<p><strong>6. C</strong>（超重与失重）</p>
+<blockquote>
+<p>【思路】 加速度向上为超重，由牛顿第二定律求支持力（示数）。</p>
+<p>【解答】 匀加速上升，a 向上，处于超重状态：N − mg = ma，</p>
+<p>N = m(g+a) = 50×(10+2) = 600 N。故选 C。</p>
+</blockquote>
+<p><strong>7.</strong>（平抛运动）</p>
+<blockquote>
+<p>【思路】 竖直分运动定时间，水平分运动定射程，落地速度用矢量合成。</p>
+<p>【解答】 (1) 竖直方向 h = ½gt²，t = √(2h/g) = √(2×20/10) = 2 s。</p>
+<p>(2) 水平方向 x = v₀t = 10×2 = 20 m。</p>
+<p>(3) 落地竖直分速度 v_y = gt = 20 m/s，</p>
+<p>v = √(v₀²+v_y²) = √(10²+20²) = √500 = 10√5 ≈ 22.4 m/s。</p>
+</blockquote>
+<p><strong>8. B</strong>（圆周运动与临界）</p>
+<blockquote>
+<p>【思路】 绳（内轨道）模型在最高点的临界条件是重力恰好提供向心力。</p>
+<p>【解答】 mg = mv²/R，v = √(gR) = √(10×0.4) = 2 m/s。故选 B。</p>
+</blockquote>
+<p><strong>9.</strong>（万有引力与天体运动）</p>
+<blockquote>
+<p>【思路】 用黄金代换 GM = gR²，再由万有引力提供向心力求 v 和 T。</p>
+<p>【解答】 (1) 由 GM = gR²，卫星做圆周运动：GMm/r² = mv²/r，</p>
+<p>v = √(GM/r) = √(gR²/(4R)) = √(gR/4) = √(10×6.4×10⁶/4) = √(1.6×10⁷) = 4×10³ m/s。</p>
+<p>(2) T = 2πr/v = 2π×(4×6.4×10⁶)/(4×10³) = 2π×6400 = 1.28×10⁴π s ≈ 4.0×10⁴ s。</p>
+</blockquote>
+<p><strong>10.</strong>（功和能 · 动能定理）</p>
+<blockquote>
+<p>【思路】 先求各力做功，再对全过程用动能定理。</p>
+<p>【解答】 摩擦力 f = μmg = 0.3×2×10 = 6 N。</p>
+<p>(1) 合外力 F合 = F − f = 10 − 6 = 4 N，W合 = F合·s = 4×4 = 16 J。</p>
+<p>(2) 由动能定理 W合 = ½mv² − 0：½×2×v² = 16，v² = 16，v = 4 m/s。</p>
+</blockquote>
+<p><strong>11.</strong>（机械能守恒）</p>
+<blockquote>
+<p>【思路】 只有重力做功，机械能守恒。</p>
+<p>【解答】 以地面为零势能面：mgh = ½mv²，</p>
+<p>v = √(2gh) = √(2×10×5) = 10 m/s。</p>
+</blockquote>
+<p><strong>12.</strong>（动量与碰撞（一维））</p>
+<blockquote>
+<p>【思路】 弹性碰撞同时满足动量守恒与动能守恒，可直接用弹性碰撞公式。</p>
+<p>【解答】 v₁′ = (m₁−m₂)/(m₁+m₂)·v₀ = (2−4)/(2+4)×6 = −2 m/s；</p>
+<p>v₂′ = 2m₁/(m₁+m₂)·v₀ = 2×2/6×6 = 4 m/s。</p>
+<p>即 m₁ 以 2 m/s 沿原方向的反方向弹回，m₂ 以 4 m/s 沿原方向前进。</p>
+<p>【校验】 动量 2×6 = 12；碰后 2×(−2)+4×4 = 12，守恒 ✓。</p>
+</blockquote>
+<p><strong>13.</strong>（人船模型）</p>
+<blockquote>
+<p>【思路】 系统初动量为零，动量守恒 → 位移与质量成反比。</p>
+<p>【解答】 由 m·x人 = M·x船，且 x人 + x船 = L：</p>
+<p>60x人 = 180x船 → x人 = 3x船；3x船 + x船 = 4 → x船 = 1 m，x人 = 3 m。</p>
+<p>船移动 1 m，方向与人行走方向相反。</p>
+</blockquote>
+<p><strong>14.</strong>（电场 · 库仑定律）</p>
+<blockquote>
+<p>【思路】 直接套库仑定律，异种电荷相互吸引。</p>
+<p>【解答】 F = kq₁q₂/r² = 9×10⁹×(4×10⁻⁸×9×10⁻⁸)/0.3²。</p>
+<p>其中 4×10⁻⁸×9×10⁻⁸ = 3.6×10⁻¹⁵，</p>
+<p>F = 9×10⁹×3.6×10⁻¹⁵/0.09 = 9×10⁹×4×10⁻¹⁴ = 3.6×10⁻⁴ N。</p>
+<p>两电荷异号，故为引力。</p>
+</blockquote>
+<p><strong>15.</strong>（电势能与电容）</p>
+<blockquote>
+<p>【思路】 保持与电源连接 → U 不变；用 C=Q/U 求电荷量，E=U/d 求场强。</p>
+<p>【解答】 (1) Q = CU = 2×10⁻⁶×100 = 2×10⁻⁴ C。</p>
+<p>(2) E = U/d = 100/(2×10⁻³) = 5×10⁴ V/m。</p>
+</blockquote>
+<p><strong>16.</strong>（闭合电路欧姆定律）</p>
+<blockquote>
+<p>【思路】 先由闭合电路欧姆定律求电流，再依次求路端电压和输出功率。</p>
+<p>【解答】 (1) I = E/(R+r) = 6/(5+1) = 1 A。</p>
+<p>(2) 路端电压 U = IR = 1×5 = 5 V（即 U = E − Ir = 6 − 1 = 5 V）。</p>
+<p>(3) 输出功率 P出 = UI = 5×1 = 5 W。</p>
+</blockquote>
+<p><strong>17.</strong>（电表改装与伏安法）</p>
+<blockquote>
+<p>【思路】 电压表＝电流计串联大电阻；小电阻测电阻用电流表外接。</p>
+<p>【解答】 (1) 满偏时 U = Ig(Rg + R)：3 = 2×10⁻³×(50 + R) → 50 + R = 1500 → R = 1450 Ω。</p>
+<p>(2) 应选"外接"（电压表并联在 Rx 两端、电流表接在其外）。因为 Rx ≈ 5 Ω 属小电阻，远小于电压表内阻，外接时电压表分流引起的误差小；若内接，电流表内阻与被测电阻可比，误差大。</p>
+</blockquote>
+<p><strong>18.</strong>（磁场 · 安培力与洛伦兹力）</p>
+<blockquote>
+<p>【思路】 导线与 B 垂直，用 F=BIL；电子与 B 垂直，用 F=qvB。</p>
+<p>【解答】 (1) B = F/(IL) = 0.4/(2×0.5) = 0.4 T。</p>
+<p>(2) f = qvB = 1.6×10⁻¹⁹×1×10⁶×0.4 = 6.4×10⁻¹⁴ N。</p>
+</blockquote>
+<p><strong>19.</strong>（带电粒子在磁场中的圆周运动）</p>
+<blockquote>
+<p>【思路】 洛伦兹力提供向心力；周期与速度无关。</p>
+<p>【解答】 (1) qvB = mv²/r → r = mv/(qB) = (8×10⁻²⁶×1×10⁵)/(1.6×10⁻¹⁹×0.5) = (8×10⁻²¹)/(8×10⁻²⁰) = 0.1 m。</p>
+<p>(2) T = 2πm/(qB) = 2π×(8×10⁻²⁶)/(8×10⁻²⁰) = 2π×10⁻⁶ s ≈ 6.28×10⁻⁶ s。</p>
+</blockquote>
+<p><strong>20.</strong>（电磁感应 · 动生电动势）</p>
+<blockquote>
+<p>【思路】 导体棒垂直切割磁感线，E=BLv；再由欧姆定律求电流。</p>
+<p>【解答】 (1) E = BLv = 0.5×0.4×5 = 1 V。</p>
+<p>(2) I = E/R = 1/2 = 0.5 A。</p>
+</blockquote>
+<p><strong>21.</strong>（交变电流与变压器）</p>
+<blockquote>
+<p>【思路】 电压比等于匝数比；副线圈接负载求 I₂，再由功率守恒求 I₁。</p>
+<p>【解答】 (1) U₂ = (n₂/n₁)U₁ = (200/1000)×220 = 44 V。</p>
+<p>(2) I₂ = U₂/R = 44/44 = 1 A；理想变压器 P₁=P₂，即 U₁I₁ = U₂I₂，</p>
+<p>I₁ = U₂I₂/U₁ = 44×1/220 = 0.2 A（也等于 (n₂/n₁)I₂ = 0.2 A）。</p>
+</blockquote>
+<p><strong>22.</strong>（机械波与波的图象）</p>
+<blockquote>
+<p>【思路】 由 v = λ/T = λf 求解。</p>
+<p>【解答】 (1) T = λ/v = 0.4/2 = 0.2 s。</p>
+<p>(2) f = 1/T = 1/0.2 = 5 Hz（即 f = v/λ = 2/0.4 = 5 Hz）。</p>
+</blockquote></div></details></section><section id="c1" class="pane"><div class="paper"><h1>化学母题地图 · 高一 → 高二（人教/粤教版 新课标）</h1>
+<blockquote>
+<p>什么叫"母题"：<strong>一个模型 = 一类题的公共骨架</strong>。母题会了，同族的变式都能推。</p>
+<p>用法：先看"题眼"能不能一眼认出来，再看"通法"是不是闭着眼能走完。认不出眼，就得回去补这一节。</p>
+<p>配套练习见《化学母题卷_高一高二.md》，每题都标注了所对应的模型。</p>
+</blockquote>
+<h2>高一上</h2>
+<ul>
+<li><strong>物质的量与阿伏加德罗常数判断</strong>｜题眼：题干给"一定量物质"，问微粒数目——先把量换成 n，再乘 N_A；四个坑：状态、条件、微粒种类、是否水解｜通法：n = m/M = V/V_m = c·V = N/N_A；22.4 L/mol 只在<strong>标准状况且为气体</strong>时可用；混合物按"原子/最简式"算，遇水解、弱电解质、共价键数要另想一步</li>
+<li><strong>一定物质的量浓度溶液配制</strong>｜题眼：给"配制 XXX mL c mol/L 溶液"，看容量瓶规格与误差分析｜通法：算—称—溶—冷—移—洗—定—摇；用量<strong>按容量瓶规格算</strong>（是溶液的体积，不是溶剂的体积）；俯视/仰视先判 V 偏大偏小，再判 c</li>
+<li><strong>离子共存</strong>｜题眼：问"能大量共存"，先把附加条件（颜色、pH、酸碱性、由水电离的 c(H⁺)）翻译成一句话｜通法：逐对过四关——生成沉淀／气体／弱电解质、氧化还原、双水解；附加条件先砍掉一批离子</li>
+<li><strong>离子方程式正误判断</strong>｜题眼：给出一个离子方程式问对错，看"写、拆、平、量"四字｜通法：弱电解质、难溶物、氧化物、气体一律写化学式（不拆）；查电荷守恒与原子守恒<strong>双核对</strong>；再看量比与滴加顺序是否与事实相符</li>
+<li><strong>氧化还原（配平与电子守恒计算）</strong>｜题眼：出现化合价升降、得失电子、转移电子数｜通法：标价态→定升降→<strong>升降总数相等</strong>定系数→质量守恒补余项；计算一律用 n(氧化剂)×降价数 = n(还原剂)×升价数</li>
+</ul>
+<h2>高一下</h2>
+<ul>
+<li><strong>钠及其化合物</strong>｜题眼：Na₂O₂ 出场（−1 价 O，既是氧化剂又是还原剂）、NaHCO₃ 受热分解｜通法：2Na₂O₂ + 2H₂O = 4NaOH + O₂↑、2Na₂O₂ + 2CO₂ = 2Na₂CO₃ + O₂；Na₂O₂ 中每 1 mol 转移 1 mol e</li>
+<li><strong>铝及其化合物的两性</strong>｜题眼：Al、Al₂O₃、Al(OH)₃ 既溶于强酸又溶于强碱；氨水、碳酸溶解不了 Al(OH)₃｜通法：看 n(OH⁻)/n(Al³⁺)：=3 沉淀最多，&gt;3 开始溶解，≥4 完全溶解；记 Al³⁺ + 4OH⁻ = AlO₂⁻ + 2H₂O</li>
+<li><strong>铁及其化合物（Fe²⁺/Fe³⁺ 转化）</strong>｜题眼：Fe³⁺ 遇 KSCN 变红；Fe²⁺ 要"先加 KSCN 不变红，再加氯水变红"｜通法：2Fe³⁺ + Fe = 3Fe²⁺、2Fe³⁺ + Cu = 2Fe²⁺ + Cu²⁺；按 n(Fe³⁺)/n(Fe) 比值判谁过量</li>
+<li><strong>氯及其化合物</strong>｜题眼：Cl₂ 与碱反应、新制氯水的"三分子三离子"、漂白原理｜通法：Cl₂ + 2OH⁻ = Cl⁻ + ClO⁻ + H₂O（每 1 mol Cl₂ 转移 1 mol e）；漂白靠 HClO 而不是 Cl₂</li>
+<li><strong>硫与氮（SO₂、硝酸）</strong>｜题眼：SO₂ 三性（酸性氧化物、漂白性、还原性）；浓硝酸→NO₂、稀硝酸→NO｜通法：Cu + 4HNO₃(浓) = Cu(NO₃)₂ + 2NO₂↑ + 2H₂O；3Cu + 8HNO₃(稀) = 3Cu(NO₃)₂ + 2NO↑ + 4H₂O；<strong>被还原的硝酸 = 生成气体的物质的量</strong></li>
+<li><strong>硅与无机非金属材料</strong>｜题眼：SiO₂ 是酸性氧化物但<strong>不溶于水</strong>，却能"吃掉"玻璃（HF、NaOH）｜通法：SiO₂ + 4HF = SiF₄↑ + 2H₂O、SiO₂ + 2NaOH = Na₂SiO₃ + H₂O；装 NaOH 溶液必须用橡胶塞</li>
+<li><strong>元素周期律与位构性</strong>｜题眼：比金属性/非金属性、比半径、比氢化物稳定性与最高价含氧酸酸性｜通法：先定位到周期表的格，再套递变；半径"层多径大，同层核大径小"；比非金属性只看<strong>最高价</strong>含氧酸的酸性，不看 HCl、H₂S 水溶液的酸性</li>
+</ul>
+<h2>高二</h2>
+<ul>
+<li><strong>化学反应速率与影响因素</strong>｜题眼：给浓度变化和时间求 v；或比不同物质的速率快慢｜通法：v = Δc/Δt；比大小先归到同一物质、同一单位；速率之比 = 化学计量数之比</li>
+<li><strong>化学平衡（K、转化率、等效平衡）</strong>｜题眼：给起始量与平衡量，求 K、转化率、浓度；或问"等效"｜通法：三段式（起始—变化—平衡）列表；K 只随温度改变；转化率 α = 转化量/起始量</li>
+<li><strong>弱电解质的电离与 pH</strong>｜题眼：pH 相同的强酸与弱酸稀释后比较；求弱酸的 pH｜通法：pH = −lg c(H⁺)；强酸稀释 10ⁿ 倍 pH 增 n，弱酸增得<strong>小于</strong> n（同 pH 时稀释后 c(H⁺) 反而更大）</li>
+<li><strong>盐类水解</strong>｜题眼：比较同浓度盐溶液的 pH/离子浓度；问溶液显什么性｜通法：谁弱谁水解、谁强显谁性；越弱越水解；水解的离子方程式一般<strong>不写 ↓ 和 ↑</strong></li>
+<li><strong>沉淀溶解平衡（Ksp）</strong>｜题眼：问谁先沉淀、能否生成沉淀、某离子残留浓度｜通法：Qc 与 Ksp 比大小判方向；同类型难溶物，Ksp 小者先沉淀；算残留浓度直接用 Ksp ÷ 已知离子浓度</li>
+<li><strong>原电池与电解池</strong>｜题眼：给装置图问电极反应、电子流向、产物、pH 变化｜通法：原电池"负氧正还"、电解池"阳氧阴还"；先写两个电极反应，再用<strong>电子守恒</strong>串起来配平总反应</li>
+<li><strong>金属腐蚀与防护</strong>｜题眼：钢铁生锈、海水里的船底、镀锌与镀锡的比较｜通法：中性/弱酸性吸氧腐蚀（O₂ + 2H₂O + 4e⁻ = 4OH⁻），酸性较强则析氢腐蚀（2H⁺ + 2e⁻ = H₂↑）；保护法：牺牲阳极（接更活泼金属作负极）、外加电流阴极保护、覆盖保护层</li>
+<li><strong>有机化学基础（同分异构与官能团性质）</strong>｜题眼：给分子式问同分异构体数目；给结构问性质｜通法：同分异构先画碳骨架、再挪官能团位置，注意对称性；性质看官能团（—OH、—CHO、—COOH、酯基、C=C）</li>
+<li><strong>有机合成路线设计</strong>｜题眼：给原料和产物，要求写出合成路线｜通法：逆合成分析；熟记"醇→醛→酸→酯"主干和卤代烃"水解得醇、消去得烯"；每一步都注明反应条件与反应类型</li>
+<li><strong>化学实验基本操作与检验</strong>｜题眼：检验某离子、除杂、气密性检查、操作先后顺序｜通法：检验四步"取样—加试剂—看现象—下结论"；除杂两不（不引入新杂质、不减少主体）；干扰离子要先用试剂排掉</li>
+</ul>
+<hr>
+<h2>三句话总结</h2>
+<p>1. <strong>高一上</strong>练"量、电、离子"：物质的量是全部计算的入口，氧化还原是全部电子问题的总纲；</p>
+<p>2. <strong>高一下</strong>练"元素与结构"：一类金属（钠铝铁）+ 一类非金属（氯硫氮硅），全部靠"单质→氧化物→水化物→盐"这条线串起来；</p>
+<p>3. <strong>高二</strong>练"速率、平衡、电与有机"：主线上讲平衡（速率、K、电离、水解、沉淀）与转化（电化学、有机合成），核心工具是<strong>守恒</strong>与<strong>三段式</strong>。</p>
+<hr>
+<blockquote>
+<p>⚠️ 使用提醒：本地图与配套母题卷为自编材料，题目均为自拟的常规题型，未采用任何题库版权题。</p>
+<p>凡出现方程式的题目，均已逐条配平并核对元素守恒与电荷守恒。</p>
+</blockquote></div></section><section id="c2" class="pane"><div class="paper"><h1>化学母题卷 · 高一 → 高二（一模型一题）</h1>
+<blockquote>
+<p>共 <strong>22 题</strong>，每题对应《化学母题地图_高一高二.md》里的<strong>一个母题模型</strong>。</p>
+<p>建议时间 <strong>90 分钟</strong>，满分 <strong>100 分</strong>（第 1—20 题每题 4 分，第 21—22 题每题 10 分）。</p>
+<p>做完对着母题地图标出没认出来的模型；所有题目均为自拟常规题型，未采用任何题库版权题。</p>
+</blockquote>
+<hr>
+<h2>题目</h2>
+<p><strong>1.（物质的量与阿伏加德罗常数判断）</strong> 设 N_A 为阿伏加德罗常数的值，下列说法正确的是（　　）</p>
+<div class="opt">A. 1 mol 铁与足量稀盐酸完全反应，转移的电子数为 3N_A</div>
+<div class="opt">B. 标准状况下，22.4 L 乙醇中含有的分子数为 N_A</div>
+<div class="opt">C. 常温常压下，1.6 g 由 O₂ 和 O₃ 组成的混合气体中含有的氧原子数为 0.1N_A</div>
+<div class="opt">D. 1 L 0.1 mol/L 的 Na₂CO₃ 溶液中含有的 CO₃²⁻ 数目为 0.1N_A</div>
+<p><strong>2.（一定物质的量浓度溶液配制）</strong> 实验室需配制 480 mL 0.50 mol/L 的 NaOH 溶液，应称取 NaOH 固体的质量为______g。</p>
+<p><strong>3.（离子共存）</strong> 下列各组离子在指定溶液中能大量共存的是（　　）</p>
+<div class="opt">A. 使酚酞变红的溶液中：Na⁺、K⁺、HCO₃⁻、Cl⁻</div>
+<div class="opt">B. 无色透明溶液中：Cu²⁺、K⁺、SO₄²⁻、NO₃⁻</div>
+<div class="opt">C. 0.1 mol/L FeCl₃ 溶液中：K⁺、Na⁺、SO₄²⁻、SCN⁻</div>
+<div class="opt">D. 常温下，c(H⁺)/c(OH⁻) = 1×10¹² 的溶液中：Na⁺、K⁺、Cl⁻、SO₄²⁻</div>
+<p><strong>4.（离子方程式正误判断）</strong> 下列离子方程式书写正确的是（　　）</p>
+<div class="opt">A. 铁与稀盐酸反应：2Fe + 6H⁺ = 2Fe³⁺ + 3H₂↑</div>
+<div class="opt">B. 氯气通入水中：Cl₂ + H₂O = 2H⁺ + Cl⁻ + ClO⁻</div>
+<div class="opt">C. 硫酸铜溶液与氢氧化钡溶液反应：Cu²⁺ + SO₄²⁻ + Ba²⁺ + 2OH⁻ = Cu(OH)₂↓ + BaSO₄↓</div>
+<div class="opt">D. 碳酸钙与稀醋酸反应：CaCO₃ + 2H⁺ = Ca²⁺ + H₂O + CO₂↑</div>
+<p><strong>5.（氧化还原：配平与电子守恒计算）</strong> 一定量的 H₂O₂ 在酸性条件下恰好被 0.20 mol KMnO₄ 完全氧化。则 H₂O₂ 的物质的量为______mol，反应中转移电子的物质的量为______mol。</p>
+<p><strong>6.（钠及其化合物）</strong> 将 7.8 g Na₂O₂ 放入足量水中使其完全反应。求：生成气体的物质的量以及反应中转移电子的物质的量。</p>
+<p><strong>7.（铝及其化合物的两性）</strong> 将 0.010 mol AlCl₃ 溶于水配成溶液。</p>
+<div class="opt">（1）向其中加入含 0.040 mol NaOH 的溶液，充分反应后所得沉淀的质量为______g；</div>
+<div class="opt">（2）若改加含 0.040 mol NH₃·H₂O 的氨水，充分反应后所得沉淀的质量为______g。</div>
+<p><strong>8.（铁及其化合物：Fe²⁺/Fe³⁺ 转化）</strong> 向含 0.10 mol FeCl₃ 的溶液中加入 0.05 mol 铁粉，充分反应（忽略水解与体积变化）。溶液中 Fe²⁺ 的物质的量为______mol。</p>
+<p><strong>9.（氯及其化合物）</strong> 标准状况下，2.24 L Cl₂ 与足量 NaOH 溶液完全反应，反应中转移电子的物质的量为______mol。</p>
+<p><strong>10.（硫与氮：SO₂、硝酸）</strong> 将 9.6 g 铜片放入足量稀硝酸中完全反应。求：生成 NO 在标准状况下的体积（L）以及被还原的硝酸的物质的量（mol）。</p>
+<p><strong>11.（硅与无机非金属材料）</strong> 下列说法正确的是（　　）</p>
+<div class="opt">A. SiO₂ 是酸性氧化物，能与水反应生成 H₂SiO₃</div>
+<div class="opt">B. 硅是制造光导纤维的主要材料</div>
+<div class="opt">C. 常温下，硅与 NaOH 溶液不反应</div>
+<div class="opt">D. SiO₂ 能与 NaOH 溶液反应，所以盛放 NaOH 溶液的试剂瓶不能用玻璃塞</div>
+<p><strong>12.（元素周期律与位构性）</strong> 下列事实<strong>不能</strong>说明氯的非金属性比硫强的是（　　）</p>
+<div class="opt">A. HClO₄ 的酸性比 H₂SO₄ 强</div>
+<div class="opt">B. 氯气通入 Na₂S 溶液中能置换出硫：Cl₂ + Na₂S = 2NaCl + S↓</div>
+<div class="opt">C. HCl 的稳定性比 H₂S 强</div>
+<div class="opt">D. 常温下 HCl 水溶液的酸性比 H₂S 水溶液强</div>
+<p><strong>13.（化学反应速率与影响因素）</strong> 某温度下，在 2 L 恒容密闭容器中发生反应：2SO₂(g) + O₂(g) ⇌ 2SO₃(g)。起始时 SO₂ 的物质的量为 0.60 mol，2 min 后测得 SO₂ 的物质的量为 0.20 mol。求以 O₂ 表示的平均反应速率。</p>
+<p><strong>14.（化学平衡：K、转化率）</strong> 某温度下，在 1 L 密闭容器中充入 0.10 mol H₂ 和 0.10 mol I₂，发生反应 H₂(g) + I₂(g) ⇌ 2HI(g)，达到平衡时 HI 的物质的量为 0.12 mol。求该温度下的平衡常数 K 和 H₂ 的转化率。</p>
+<p><strong>15.（弱电解质的电离与 pH）</strong> 常温下，pH = 2 的盐酸与 pH = 2 的醋酸各 100 mL，分别加水稀释到 1000 mL，稀释后溶液的 pH 分别记为 pH₁、pH₂。则 pH₁______pH₂（填"＞""＜"或"＝"）。</p>
+<p><strong>16.（盐类水解）</strong> 常温下，物质的量浓度均为 0.1 mol/L 的下列四种溶液，pH 由大到小的顺序是______（用序号表示）。</p>
+<div class="opt">① Na₂CO₃　② NaHCO₃　③ CH₃COONa　④ NaCl</div>
+<p><strong>17.（沉淀溶解平衡 Ksp）</strong> 常温下，Ksp(AgCl) = 1.8×10⁻¹⁰，Ksp(AgBr) = 5.4×10⁻¹³。向含 Cl⁻ 和 Br⁻ 浓度均为 0.010 mol/L 的混合溶液中逐滴加入 AgNO₃ 溶液（忽略体积变化）。</p>
+<div class="opt">（1）先生成的沉淀是______；</div>
+<div class="opt">（2）当 AgCl 恰好开始沉淀时，溶液中 c(Br⁻)/c(Cl⁻) = ______。</div>
+<p><strong>18.（原电池与电解池）</strong> 用石墨作电极电解 CuSO₄ 溶液。</p>
+<div class="opt">（1）写出阴极、阳极的电极反应式；</div>
+<div class="opt">（2）当阴极增重 1.6 g 时，阳极产生的气体在标准状况下的体积为______L。</div>
+<p><strong>19.（金属腐蚀与防护）</strong> 钢铁在海水（中性、含 NaCl 等电解质）中长期浸泡发生吸氧腐蚀。</p>
+<div class="opt">（1）写出负极和正极的电极反应式；</div>
+<div class="opt">（2）船舶外壳常焊接锌块防止船体腐蚀，说明其原理。</div>
+<p><strong>20.（有机化学基础：同分异构与官能团性质）</strong> 分子式为 C₄H₈ 且能使溴水褪色的有机物（不考虑顺反异构和环状结构）共有______种。</p>
+<p><strong>21.（有机合成路线设计）</strong> 以乙烯为起始原料，设计合成乙酸乙酯的路线。写出各步反应的化学方程式，并注明反应类型。</p>
+<p><strong>22.（化学实验基本操作与检验）</strong> 实验室检验某溶液中是否含有 SO₄²⁻ 的规范操作是：取少量待测液于试管中，先加入足量稀盐酸，无明显现象后，再滴加少量 BaCl₂ 溶液，若出现白色沉淀，则证明原溶液中含有 SO₄²⁻。请回答：</p>
+<div class="opt">（1）先加入足量稀盐酸的目的是什么？</div>
+<div class="opt">（2）为什么不能先加 BaCl₂ 溶液、再加稀盐酸？</div>
+<hr></div><details class="ans"><summary>展开：参考答案与解析</summary><div class="paper"><p><strong>1. C（物质的量与阿伏加德罗常数判断）</strong></p>
+<blockquote>
+<p>【解析】A 错：Fe 与稀盐酸反应生成 FeCl₂，1 mol Fe 只失去 2 mol 电子，转移 2N_A。B 错：标准状况下乙醇是液体，不能用 22.4 L/mol。C 对：O₂ 和 O₃ 都是氧元素组成的单质，1.6 g 混合气体中氧原子 n = 1.6 g ÷ 16 g/mol = 0.10 mol，即 0.1N_A——<strong>守恒依据：原子（元素）质量守恒</strong>。D 错：CO₃²⁻ 水解，其数目小于 0.1N_A。</p>
+</blockquote>
+<p><strong>2. 10.0 g（一定物质的量浓度溶液配制）</strong></p>
+<blockquote>
+<p>【解析】实验室没有 480 mL 容量瓶，应按 500 mL 配制。n(NaOH) = 0.500 L × 0.50 mol/L = 0.250 mol，m = 0.250 mol × 40 g/mol = 10.0 g。（易错：直接把体积按 480 mL 代入。）</p>
+</blockquote>
+<p><strong>3. D（离子共存）</strong></p>
+<blockquote>
+<p>【解析】A 错：溶液显碱性，HCO₃⁻ + OH⁻ = CO₃²⁻ + H₂O，不能共存。B 错：Cu²⁺ 在溶液中显蓝色，不符合"无色"。C 错：Fe³⁺ 与 SCN⁻ 发生络合反应，不能共存。D 对：由 c(H⁺)/c(OH⁻) = 1×10¹² 及 c(H⁺)·c(OH⁻) = 1×10⁻¹⁴ 知 c(H⁺) = 0.1 mol/L，溶液强酸性，Na⁺、K⁺、Cl⁻、SO₄²⁻ 互不反应，可大量共存。</p>
+</blockquote>
+<p><strong>4. C（离子方程式正误判断）</strong></p>
+<blockquote>
+<p>【解析】A 错：产物应为 Fe²⁺，正确写法 Fe + 2H⁺ = Fe²⁺ + H₂↑（电荷：左 +2，右 +2，守恒；但产物与事实不符）。B 错：HClO 是弱酸，不能拆，应写 Cl₂ + H₂O ⇌ H⁺ + Cl⁻ + HClO。C 对：拆写正确、原子与电荷均守恒（左 0 = 右 0），且产物符合事实。D 错：醋酸是弱酸，不能拆，应写 CaCO₃ + 2CH₃COOH = Ca²⁺ + 2CH₃COO⁻ + H₂O + CO₂↑。</p>
+</blockquote>
+<p><strong>5. 0.50 mol；1.0 mol（氧化还原：配平与电子守恒计算）</strong></p>
+<blockquote>
+<p>【解析】先配平：2MnO₄⁻ + 5H₂O₂ + 6H⁺ = 2Mn²⁺ + 5O₂↑ + 8H₂O。</p>
+<p>配平核对——Mn：2 = 2；O：2×4 + 5×2 = 18，右边 5×2 + 8 = 18；H：5×2 + 6 = 16，右边 8×2 = 16；电荷：左 2×(−1) + 6×(+1) = +4，右 2×(+2) = +4。元素与电荷守恒均通过。</p>
+<p>电子守恒：Mn 由 +7 降到 +2，每 mol 得 5 mol e⁻；O 由 −1 升到 0，每 mol O 失 1 mol e⁻。由关系式 2MnO₄⁻ ~ 5H₂O₂ 得 n(H₂O₂) = 0.20 mol × 5/2 = 0.50 mol；转移电子 n(e⁻) = 0.20 mol × 5 = 1.0 mol（也可由 0.50 mol H₂O₂ × 2 = 1.0 mol 验证）。</p>
+</blockquote>
+<p><strong>6. 0.05 mol O₂；转移 0.1 mol e⁻（钠及其化合物）</strong></p>
+<blockquote>
+<p>【解析】n(Na₂O₂) = 7.8 g ÷ 78 g/mol = 0.10 mol。</p>
+<p>2Na₂O₂ + 2H₂O = 4NaOH + O₂↑（原子：Na 4 = 4、O 2×2+2 = 6，右 4+2 = 6、H 4 = 4，配平）。</p>
+<p>由关系式 2Na₂O₂ ~ O₂ 得 n(O₂) = 0.10 mol × 1/2 = 0.05 mol。</p>
+<p>电子守恒：Na₂O₂ 中 O 为 −1 价，一半氧升到 0（O₂），一半降到 −2（OH⁻）。0.10 mol O 由 −1 升到 0 失 0.10 mol e⁻，0.10 mol O 由 −1 降到 −2 得 0.10 mol e⁻，<strong>转移电子 0.1 mol e⁻</strong>（Na₂O₂ 在这类反应中既是氧化剂又是还原剂）。</p>
+</blockquote>
+<p><strong>7.（1）0 g　（2）0.78 g（铝及其化合物的两性）</strong></p>
+<blockquote>
+<p>【解析】（1）n(OH⁻)/n(Al³⁺) = 0.040/0.010 = 4。发生 Al³⁺ + 4OH⁻ = AlO₂⁻ + 2H₂O（电荷：左 +3 − 4 = −1，右 −1，守恒；原子：Al 1 = 1、O 4 = 2+2、H 4 = 4），Al³⁺ 全部转化为偏铝酸根，沉淀质量为 <strong>0 g</strong>。</p>
+<p>（2）氨水是弱碱，Al(OH)₃ 不溶于过量氨水：Al³⁺ + 3NH₃·H₂O = Al(OH)₃↓ + 3NH₄⁺（电荷：左 +3，右 +3，守恒；原子：Al 1 = 1、N 3 = 3、O 3 = 3、H 15 = 3+12）。0.010 mol Al³⁺ 只耗 0.030 mol NH₃·H₂O，所给 0.040 mol 过量，生成 n[Al(OH)₃] = 0.010 mol，m = 0.010 mol × 78 g/mol = <strong>0.78 g</strong>。</p>
+</blockquote>
+<p><strong>8. 0.15 mol（铁及其化合物：Fe²⁺/Fe³⁺ 转化）</strong></p>
+<blockquote>
+<p>【解析】2FeCl₃ + Fe = 3FeCl₂（或 2Fe³⁺ + Fe = 3Fe²⁺，电荷：左 +6，右 +6，守恒；原子：Fe 3 = 3）。n(Fe³⁺) : n(Fe) = 0.10 : 0.05 = 2 : 1，恰好完全反应。由关系式 2Fe³⁺ ~ 3Fe²⁺ 得 n(Fe²⁺) = 0.10 mol × 3/2 = <strong>0.15 mol</strong>。</p>
+</blockquote>
+<p><strong>9. 0.1 mol（氯及其化合物）</strong></p>
+<blockquote>
+<p>【解析】n(Cl₂) = 2.24 L ÷ 22.4 L/mol = 0.10 mol。Cl₂ + 2NaOH = NaCl + NaClO + H₂O，离子式 Cl₂ + 2OH⁻ = Cl⁻ + ClO⁻ + H₂O（电荷：左 −2，右 −2，守恒；原子：Cl 2 = 2、O 2 = 1+1、H 2 = 2）。Cl 一半由 0 降到 −1，一半由 0 升到 +1，每 1 mol Cl₂ 转移 1 mol e⁻，故转移 <strong>0.1 mol</strong> 电子。</p>
+</blockquote>
+<p><strong>10. 2.24 L；0.10 mol（硫与氮：SO₂、硝酸）</strong></p>
+<blockquote>
+<p>【解析】n(Cu) = 9.6 g ÷ 64 g/mol = 0.15 mol。</p>
+<p>3Cu + 8HNO₃(稀) = 3Cu(NO₃)₂ + 2NO↑ + 4H₂O（Cu：3 = 3；N：8 = 6 + 2；O：24 = 18 + 2 + 4 = 24；H：8 = 8，配平）。</p>
+<p>由关系式 3Cu ~ 2NO 得 n(NO) = 0.15 mol × 2/3 = 0.10 mol，V(NO) = 0.10 mol × 22.4 L/mol = <strong>2.24 L</strong>。</p>
+<p>被还原的硝酸即由 +5 降到 +2 的那部分，1 : 1 对应 NO，故 n(被还原 HNO₃) = n(NO) = <strong>0.10 mol</strong>（起酸性作用的另有 0.30 mol，二者合计 0.40 mol，与方程式相符——<strong>电子守恒 + 质量守恒双核对</strong>）。</p>
+</blockquote>
+<p><strong>11. D（硅与无机非金属材料）</strong></p>
+<blockquote>
+<p>【解析】A 错：SiO₂ 虽为酸性氧化物，但<strong>不溶于水</strong>，不能与水直接反应制 H₂SiO₃（只能由可溶性硅酸盐加酸得到）。B 错：光导纤维的主要材料是 SiO₂，不是硅。C 错：常温下硅能与 NaOH 溶液反应：Si + 2NaOH + H₂O = Na₂SiO₃ + 2H₂↑（配平核对：Na 2 = 2；Si 1 = 1；O 2+1 = 3，右 3；H 2+2 = 4，右 2×2 = 4）。D 对：SiO₂ 与 NaOH 反应生成有粘性的 Na₂SiO₃，会使玻璃塞与瓶身粘住，故必须用橡胶塞。</p>
+</blockquote>
+<p><strong>12. D（元素周期律与位构性）</strong></p>
+<blockquote>
+<p>【解析】A、B、C 都能说明氯的非金属性强于硫：最高价含氧酸的酸性（HClO₄ &gt; H₂SO₄）、单质间的置换（Cl₂ 能置换出 S）、气态氢化物的稳定性（HCl &gt; H₂S），都是教材认可的判据。D 不能说明：非金属性的强弱应看<strong>最高价氧化物对应水化物</strong>的酸性，而 HCl 不是含氧酸、H₂S 中硫也不是最高价，两者水溶液的酸性强弱不能作为判断非金属性的依据。故选 D。</p>
+</blockquote>
+<p><strong>13. 0.05 mol/(L·min)（化学反应速率与影响因素）</strong></p>
+<blockquote>
+<p>【解析】Δn(SO₂) = 0.60 mol − 0.20 mol = 0.40 mol，Δc(SO₂) = 0.40 mol ÷ 2 L = 0.20 mol/L。</p>
+<p>v(SO₂) = Δc/Δt = 0.20 mol/L ÷ 2 min = 0.10 mol/(L·min)。</p>
+<p>由速率之比 = 化学计量数之比：v(O₂) = v(SO₂) × 1/2 = <strong>0.05 mol/(L·min)</strong>。</p>
+</blockquote>
+<p><strong>14. K = 9；转化率 60%（化学平衡：K、转化率）</strong></p>
+<blockquote>
+<p>【解析】三段式（单位 mol/L，容器 1 L）：</p>
+<p>　　H₂(g) + I₂(g) ⇌ 2HI(g)</p>
+<p>起始　0.10　　0.10　　　0</p>
+<p>变化　 x 　　　x 　　　 2x = 0.12 → x = 0.06</p>
+<p>平衡　0.04　　0.04　　　0.12</p>
+<p>K = c²(HI) / [c(H₂)·c(I₂)] = (0.12)² / (0.04 × 0.04) = 0.0144 / 0.0016 = <strong>9</strong>。</p>
+<p>转化率 α(H₂) = 转化量/起始量 = 0.06 / 0.10 × 100% = <strong>60%</strong>。（<strong>质量守恒</strong>：0.10 + 0.10 = 0.04 + 0.04 + 0.12 = 0.20，I 原子守恒。）</p>
+</blockquote>
+<p><strong>15. ＞（弱电解质的电离与 pH）</strong></p>
+<blockquote>
+<p>【解析】盐酸是强酸，稀释 10 倍，c(H⁺) 由 1×10⁻² mol/L 降到 1×10⁻³ mol/L，pH₁ = 3。醋酸是弱酸，加水稀释会促进电离，稀释后 c(H⁺) 下降得比 10 倍少，仍大于 1×10⁻³ mol/L，故 pH₂ ＜ 3。所以 <strong>pH₁ ＞ pH₂</strong>。</p>
+</blockquote>
+<p><strong>16. ① ＞ ② ＞ ③ ＞ ④（盐类水解）</strong></p>
+<blockquote>
+<p>【解析】Na₂CO₃、NaHCO₃、CH₃COONa 都是强碱弱酸盐，水解显碱性，阴离子对应酸越弱、水解程度越大、碱性越强；NaCl 是强酸强碱盐，显中性（pH = 7），排最后。CO₃²⁻ 对应 HCO₃⁻（H₂CO₃ 的 Ka₂ = 5.6×10⁻¹¹），比 HCO₃⁻ 对应 H₂CO₃（Ka₁ = 4.3×10⁻⁷）弱得多，故 ① ＞ ②；HCO₃⁻ 的水解程度又明显大于 CH₃COO⁻（CH₃COOH 的 Ka = 1.8×10⁻⁵ 更大，对应酸更强、水解更弱），故 ② ＞ ③。所以顺序为 <strong>① ＞ ② ＞ ③ ＞ ④</strong>。（注：这里比的是碱性，NaHCO₃ 溶液本身仍显碱性。）</p>
+</blockquote>
+<p><strong>17.（1）AgBr　（2）3.0×10⁻³（沉淀溶解平衡 Ksp）</strong></p>
+<blockquote>
+<p>【解析】（1）AgCl 与 AgBr 是同一类型（1 : 1）的难溶物，Ksp 越小越先沉淀。Ksp(AgBr) = 5.4×10⁻¹³ ＜ Ksp(AgCl) = 1.8×10⁻¹⁰，故先生成 <strong>AgBr</strong>。</p>
+<p>（2）AgCl 恰好开始沉淀时，c(Ag⁺) = Ksp(AgCl) / c(Cl⁻) = 1.8×10⁻¹⁰ ÷ 0.010 = 1.8×10⁻⁸ mol/L（此时 c(Cl⁻) 仍近似为 0.010 mol/L）。</p>
+<p>此时 Br⁻ 的残留浓度由 AgBr 的 Ksp 决定：c(Br⁻) = Ksp(AgBr) / c(Ag⁺) = 5.4×10⁻¹³ ÷ 1.8×10⁻⁸ = 3.0×10⁻⁵ mol/L。</p>
+<p>所以 c(Br⁻)/c(Cl⁻) = 3.0×10⁻⁵ ÷ 0.010 = <strong>3.0×10⁻³</strong>。</p>
+</blockquote>
+<p><strong>18.（1）阴极 Cu²⁺ + 2e⁻ = Cu；阳极 4OH⁻ − 4e⁻ = O₂↑ + 2H₂O　（2）0.28 L（原电池与电解池）</strong></p>
+<blockquote>
+<p>【解析】（1）石墨是惰性电极。阴极：Cu²⁺ + 2e⁻ = Cu（电荷：左 +2 + (−2) = 0，守恒）。阳极：溶液中 OH⁻ 先失电子，4OH⁻ − 4e⁻ = O₂↑ + 2H₂O（电荷：左 −4 − (−4) = 0，右 0，守恒；原子：O 4 = 2+2、H 4 = 4），也可写成 2H₂O − 4e⁻ = O₂↑ + 4H⁺。</p>
+<p>（2）n(Cu) = 1.6 g ÷ 64 g/mol = 0.025 mol，由阴极反应知 n(e⁻) = 0.025 × 2 = 0.050 mol（<strong>电子守恒</strong>：两极转移电子数相等）。阳极由关系式 4e⁻ ~ O₂ 得 n(O₂) = 0.050 ÷ 4 = 0.0125 mol，V(O₂) = 0.0125 mol × 22.4 L/mol = <strong>0.28 L</strong>。</p>
+</blockquote>
+<p><strong>19.（金属腐蚀与防护）</strong></p>
+<blockquote>
+<p>【解析】（1）吸氧腐蚀中，活泼的铁作负极被氧化：负极 Fe − 2e⁻ = Fe²⁺；正极（钢铁中的碳等杂质）氧气得电子：正极 O₂ + 2H₂O + 4e⁻ = 4OH⁻（电荷：把 4e⁻ 计为 −4，左端 −4 = 右端 −4，守恒；原子：O 2+2 = 4、H 4 = 4）。</p>
+<p>两极反应叠加（用电子守恒配平，负极 ×2 得 4e⁻）：2Fe + O₂ + 2H₂O = 2Fe(OH)₂（Fe 2 = 2；O 2 + 2 = 4，右 4；H 4 = 4）。</p>
+<p>（2）原理：锌比铁活泼，在海水电解质中锌、铁构成原电池，<strong>锌作负极被腐蚀，铁作正极被保护</strong>（牺牲阳极的阴极保护法）。只要锌块未被完全腐蚀，船体就不会被腐蚀。</p>
+</blockquote>
+<p><strong>20. 3 种（有机化学基础：同分异构与官能团性质）</strong></p>
+<blockquote>
+<p>【解析】能使溴水褪色说明含 C=C，分子式 C₄H₈ 且不考虑环状、顺反异构，即为丁烯的碳链异构与位置异构：① 1-丁烯 CH₂=CH—CH₂—CH₃；② 2-丁烯 CH₃—CH=CH—CH₃（不计顺反）；③ 2-甲基丙烯 CH₂=C(CH₃)₂。共 <strong>3 种</strong>。（环丁烷、甲基环丙烷虽也是 C₄H₈，但按题目要求不计环状结构。）</p>
+</blockquote>
+<p><strong>21.（有机合成路线设计）</strong></p>
+<blockquote>
+<p>【解析】逆合成分析：乙酸乙酯 ← 乙酸 + 乙醇；乙酸 ← 乙醛 ← 乙醇；乙醇可由乙烯水化得到。路线如下：</p>
+<p>① CH₂=CH₂ + H₂O —催化剂/加热加压→ CH₃CH₂OH（加成反应）</p>
+<p>② 2CH₃CH₂OH + O₂ —Cu/Δ→ 2CH₃CHO + 2H₂O（氧化反应）</p>
+<p>　配平核对：C 2×2 = 4，右 2×2 = 4；H 2×6 = 12，右 2×4 + 2×2 = 12；O 2 + 2 = 4，右 2×1 + 2 = 4。</p>
+<p>③ 2CH₃CHO + O₂ —催化剂/Δ→ 2CH₃COOH（氧化反应）</p>
+<p>　配平核对：C 4 = 4；H 8 = 8；O 2×1 + 2 = 4，右 2×2 = 4。</p>
+<p>④ CH₃COOH + CH₃CH₂OH —浓硫酸/Δ→ CH₃COOCH₂CH₃ + H₂O（酯化反应，属于取代反应）</p>
+<p>　配平核对：C 4 = 4；H 4+6 = 10，右 8+2 = 10；O 2+1 = 3，右 2+1 = 3。</p>
+</blockquote>
+<p><strong>22.（化学实验基本操作与检验）</strong></p>
+<blockquote>
+<p>【解析】（1）先加足量稀盐酸，是为了<strong>排除 CO₃²⁻、SO₃²⁻ 等离子的干扰</strong>：它们与 Ba²⁺ 也生成白色沉淀（BaCO₃、BaSO₃），但能溶于盐酸。若加盐酸后无气体、无沉淀，说明这些离子已被排除，之后再检验才可靠。</p>
+<p>（2）若先加 BaCl₂ 溶液，CO₃²⁻、SO₃²⁻ 也会产生白色沉淀，仅凭"有白色沉淀"就下结论会误判为含 SO₄²⁻；而且此时再加稀盐酸，若沉淀溶解，只能说明原来的是 BaCO₃/BaSO₃ 而非 BaSO₄，反倒要重做实验。规范顺序应是"先酸化排除干扰，后加 BaCl₂ 检验"，才能得出 SO₄²⁻ 的唯一结论。</p>
+</blockquote>
+<hr>
+<h2>命题说明</h2>
+<ul>
+<li>本题卷共 22 题，一模型一题，覆盖《化学母题地图_高一高二.md》全部 22 个模型（高一上 5、高一下 7、高二 10）。</li>
+<li>所有化学方程式、离子方程式、电极反应式均已逐条配平，并核对<strong>元素守恒</strong>与<strong>电荷守恒</strong>；所有计算均注明守恒依据（电子守恒/质量守恒/原子守恒）。</li>
+<li>题目均为自拟常规题型，未采用任何题库版权题。</li>
+</ul></div></details></section>
+</div>
+<script>
+document.querySelectorAll('.nav-tab').forEach(function(b){b.addEventListener('click',function(){
+ document.querySelectorAll('.nav-tab').forEach(function(x){x.classList.remove('active')});
+ document.querySelectorAll('.pane').forEach(function(x){x.classList.remove('on')});
+ b.classList.add('active');document.getElementById(b.dataset.t).classList.add('on');
+ if(window.renderMathInElement)renderMathInElement(document.getElementById(b.dataset.t),{delimiters:[{left:'$$',right:'$$',display:true},{left:'$',right:'$',display:false}],throwOnError:false});
+});});
+</script>
+</body></html>

@@ -116,6 +116,21 @@ body{
   .header h1{font-size:1rem}
 }
 .hidden{display:none!important}
+
+/* ===== 母题入口卡 ===== */
+.muti-entry{display:flex;align-items:center;gap:14px;text-decoration:none;
+  background:linear-gradient(135deg,rgba(247,151,30,0.16),rgba(255,210,0,0.10));
+  border:1px solid rgba(255,210,0,0.32);border-radius:14px;padding:13px 18px;margin:0 0 18px;
+  transition:all .2s}
+.muti-entry:hover{background:linear-gradient(135deg,rgba(247,151,30,0.26),rgba(255,210,0,0.16));
+  border-color:rgba(255,210,0,0.55);transform:translateY(-1px)}
+.muti-entry .me-badge{flex:0 0 auto;font-size:11px;font-weight:700;color:#1a1a1a;
+  background:linear-gradient(135deg,#f7971e,#ffd200);border-radius:5px;padding:2px 9px}
+.muti-entry .me-main{flex:1;min-width:0;display:flex;flex-direction:column;gap:2px}
+.muti-entry .me-main b{font-size:1rem;color:#ffd200}
+.muti-entry .me-main i{font-style:normal;font-size:0.76rem;color:rgba(255,255,255,0.55)}
+.muti-entry .me-go{flex:0 0 auto;font-size:0.82rem;font-weight:700;color:#ffd200}
+
 </style>
 </head>
 <body>
@@ -154,6 +169,12 @@ body{
 </div>
 <div class="nav-tabs" id="navTabs"></div>
 </div>
+
+<a class="muti-entry" href="muti.html">
+  <span class="me-badge">新</span>
+  <span class="me-main"><b>母题地图 · 母题卷</b><i>数学／物理／化学 · 一模型一题 · 高一–高二 · 答案可折叠</i></span>
+  <span class="me-go">进入 →</span>
+</a>
 
 <div id="cardsContainer"></div>
 
