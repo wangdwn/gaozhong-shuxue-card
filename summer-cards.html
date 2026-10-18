@@ -66,14 +66,28 @@ body{font-family:"Noto Serif SC","Source Han Serif SC",serif;min-height:100vh;
   .card{padding:14px}.card-title{font-size:0.95rem}
   .card-content{font-size:0.85rem;line-height:1.7}
 }
+
+.muti-banner{margin:0 auto 14px;max-width:640px;padding:12px 16px;border-radius:12px;
+  background:rgba(247,151,30,0.12);border:1px solid rgba(247,151,30,0.35);text-align:left;font-size:0.88rem;line-height:1.55}
+.muti-banner a{color:#ffd200;font-weight:700;text-decoration:none}
+.muti-banner a:hover{text-decoration:underline}
+.card.is-target{outline:2px solid #2ecc71;box-shadow:0 0 0 4px rgba(46,204,113,0.25)}
+.card[id]{scroll-margin-top:120px}
 </style>
 </head>
 <body>
 <div class="container">
 <div class="header">
-  <a class="back-link" href="index.html">← 返回数学知识卡片主页</a>
+  <a class="back-link" href="https://wangdw.xyz/learn/gaokao/">← 高考学科馆</a>
   <h1>🗺️ 钰霖暑假学习卡</h1>
-  <p class="sub">数 · 物 · 地 · 48期 · 81张</p>
+  <p class="sub">辅助巩固 · 先母题再刷卡 · 数 · 物 · 地</p>
+  <div class="muti-banner">
+    <b>学习顺序：先母题，再卡片。</b>
+    本页是碎片巩固，不是开场堆砌。
+    请先去 <a href="muti.html">母题地图／母题卷</a>
+   （数学 <a href="muti.html#m1">#m1</a> · 物理 <a href="muti.html#p1">#p1</a> · 化学 <a href="muti.html#c1">#c1</a>），
+    再回这里挑几张卡。
+  </div>
   <div class="search-box">
     <input type="text" id="searchInput" placeholder="🔍 搜索知识点、题目..." oninput="applyFilter()">
   </div>
@@ -137,7 +151,8 @@ function applyFilter(){
 }
 
 function renderMapCard(m){
-  return '<div class="card" data-cat="map" data-search="' + escAttr(m.title + ' ' + m.tag + ' ' + stripTags(m.content)) + '">' +
+  var mid = m.id ? (' id="' + escAttr(m.id) + '"') : '';
+  return '<div class="card"' + mid + ' data-cat="map" data-search="' + escAttr(m.title + ' ' + m.tag + ' ' + stripTags(m.content)) + '">' +
     '<div class="card-meta">' + escAttr(m.tag) + ' · ' + escAttr(m.time) + '</div>' +
     '<div class="card-title">' + escAttr(m.emoji) + ' ' + escAttr(m.title) + '</div>' +
     '<div class="card-content">' + m.content + '</div>' +
@@ -151,7 +166,8 @@ function renderStudyCard(c){
   if(c.answer && c.answer.trim()){
     ans = '<details class="y-answer"><summary>✅ 看答案</summary><div class="answer-body">' + c.answer + '</div></details>';
   }
-  return '<div class="card" data-cat="' + c.cat + '" data-search="' + escAttr(c.title + ' ' + c.tag + ' ' + c.cat + ' ' + stripTags(c.content) + ' ' + stripTags(c.answer||'')) + '">' +
+  var cid = c.id ? (' id="' + escAttr(c.id) + '"') : '';
+  return '<div class="card"' + cid + ' data-cat="' + c.cat + '" data-search="' + escAttr(c.title + ' ' + c.tag + ' ' + c.cat + ' ' + stripTags(c.content) + ' ' + stripTags(c.answer||'')) + '">' +
     '<div class="card-meta">' + meta + '</div>' +
     '<div class="card-title">' + escAttr(c.title) + '</div>' +
     '<div class="card-content">' + c.content + '</div>' +
@@ -197,11 +213,25 @@ function renderCards(){
 
   if(!html) html = '<p style="text-align:center;color:rgba(255,255,255,0.4);padding:40px 0">未找到匹配的学习卡</p>';
   container.innerHTML = html;
+  focusHashCard();
+}
+
+
+function focusHashCard(){
+  var h=(location.hash||'').replace(/^#/,'');
+  if(!h) return;
+  var el=document.getElementById(h);
+  if(!el) return;
+  document.querySelectorAll('.card.is-target').forEach(function(x){x.classList.remove('is-target');});
+  el.classList.add('is-target');
+  setTimeout(function(){ el.scrollIntoView({behavior:'smooth',block:'center'}); }, 80);
 }
 
 initCatFromUrl();
 renderNav();
 renderCards();
+focusHashCard();
+window.addEventListener("hashchange", focusHashCard);
 </script>
 </body>
 </html>
