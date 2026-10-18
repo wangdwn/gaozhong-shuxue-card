@@ -814,11 +814,20 @@ details.ans[open] .paper{background:transparent;border:0;padding:6px 0 0}
 </ul></div></details></section>
 </div>
 <script>
+function showPane(id){
+  var pane=document.getElementById(id); if(!pane) return false;
+  document.querySelectorAll('.nav-tab').forEach(function(x){x.classList.toggle('active', x.dataset.t===id);});
+  document.querySelectorAll('.pane').forEach(function(x){x.classList.toggle('on', x.id===id);});
+  if(window.renderMathInElement)renderMathInElement(pane,{delimiters:[{left:'$$',right:'$$',display:true},{left:'$',right:'$',display:false}],throwOnError:false});
+  return true;
+}
 document.querySelectorAll('.nav-tab').forEach(function(b){b.addEventListener('click',function(){
- document.querySelectorAll('.nav-tab').forEach(function(x){x.classList.remove('active')});
- document.querySelectorAll('.pane').forEach(function(x){x.classList.remove('on')});
- b.classList.add('active');document.getElementById(b.dataset.t).classList.add('on');
- if(window.renderMathInElement)renderMathInElement(document.getElementById(b.dataset.t),{delimiters:[{left:'$$',right:'$$',display:true},{left:'$',right:'$',display:false}],throwOnError:false});
+  showPane(b.dataset.t);
+  try{ history.replaceState(null,'','#'+b.dataset.t); }catch(e){}
 });});
+(function(){
+  var h=(location.hash||'').replace(/^#/,'');
+  if(h) showPane(h);
+})();
 </script>
 </body></html>
